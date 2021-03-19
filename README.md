@@ -310,7 +310,7 @@
     - **웹 컴포넌트**
 ## 2. CodeStyle(Eslint, Prettier, VSC, Naming)
 1. ESLint
-    - npm i eslint eslint-config-airbnb
+    - npm i -D eslint eslint-config-airbnb
         - react 규칙 제외시 eslint-config-airbnb-base
     - npm info "eslint-config-airbnb@latest" peerDependencies
     - npm v5 이상 : npx install-peerdeps --dev eslint-config-airbnb
