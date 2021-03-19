@@ -420,11 +420,41 @@
     - package.json scripts에 "test":"jest" 추가
 2. cypress
 ## 4. Routing(Nextjs)
+1. pages Structure
+    - /chat
+        - index.tsx
+    - /login
+        - index.tsx
+    - /post
+        - /[postId]
+            - index.tsx
+            - update.tsx
+        - create.tsx
+    - /posts
+        - index.tsx
+    - /signup
+        - index.tsx
+    - /tag
+        - [tagId].tsx
+    - /tags
+        - index.tsx
+    - /trends
+        - index.tsx
+    - /user
+        - [userId].tsx
+        - index.tsx
+    - /users
+        - index.tsx
+    - _app.tsx
+    - _document.tsx
+    - _error.tsx
+    - 404.tsx
+    - index.tsx
 ## 5. Bundler(Babel, Webpack, next.config.js)
 1. babel
 2. webpack
 3. next.config.js
-## 6. DataContainer(Redux, Redux Saga)
+## 6. DataContainer(Redux, Redux Saga) with Nextjs
 1. DataContainer
 2. Redux
 3. ReduxSaga
