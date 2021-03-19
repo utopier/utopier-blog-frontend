@@ -399,9 +399,26 @@
     - https://velog.io/@cada/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%8A%A4%ED%83%80%EC%9D%BC-%EA%B0%80%EC%9D%B4%EB%93%9C-%EB%84%A4%EC%9D%B4%EB%B0%8D-%EC%BB%A8%EB%B2%A4%EC%85%98-%ED%8E%B8
 
 ## 3. Testing(jest, react-testing-library, cypress)
-1. jest
-2. react-testing-library
-3. cypress
+1. jest & react-testing-library
+    - npm i -D @testing-library/react @testing-library/dom @testing-library/jest-dom jest @types/jest babel-jest
+    - .babelrc
+    ```json
+    {
+        "presets": ["next/babel"]
+    }
+    ```
+    - jest.config.js
+    ```javascript
+    module.exports = {
+    testPathIgnorePatterns: ["<rootDir>/.next/", "<rootDir>/node_modules/"],
+    setupFilesAfterEnv: ["<rootDir>/setupTests.js"],
+    transform: {
+        "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest"
+    }
+    };
+    ```
+    - package.json scripts에 "test":"jest" 추가
+2. cypress
 ## 4. Routing(Nextjs)
 ## 5. Bundler(Babel, Webpack, next.config.js)
 1. babel
@@ -411,18 +428,18 @@
 1. DataContainer
 2. Redux
 3. ReduxSaga
-## 7. PWA(ServiceWorker, Web Notification, Install App, IndexedDB, CacheAPI, Nextjs)
-## 8. AMP(GoogleCodelab, Nextjs)
-## 9. SEO(schema.org, robots.txt, sitemap.xml, Nextjs)
-## 10. SSR,CSR,SPA(Nextjs)
 ## 11. Figma
 ## 12. Storybook
 ## 13. CSS In Js(emotion)
 ## 14. 2d DataVisual(D3)
-## 15. Accessibility
 ## 16. UIUX
 ## 17. Responsive
 ## 18. AppShell
+## 7. PWA(ServiceWorker, Web Notification, Install App, IndexedDB, CacheAPI, Nextjs)
+## 8. AMP(GoogleCodelab, Nextjs)
+## 9. SEO(schema.org, robots.txt, sitemap.xml, Nextjs)
+## 10. SSR,CSR,SPA(Nextjs)
+## 15. Accessibility
 ## 19. CrossBrowser
 ## 20. Performance
 ## 21. Security
