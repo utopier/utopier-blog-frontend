@@ -499,8 +499,18 @@
 1. DataContainer
 2. Redux
 3. ReduxSaga
-4. Install Package
-5. Nextjs with Redux & Redux Saga
+4. Nextjs with Redux & Redux Saga
+    - npm i axios redux react-redux redux-saga immer next-redux-wrapper redux-devtools-extension
+    - /store
+        - index.ts
+        - /reducers
+            - index.ts
+            - user.ts
+            - post.ts
+        - /sagas
+            - index.ts
+            - user.ts
+            - post.ts
 ## 11. Figma
 ## 12. Storybook
 ## 13. CSS In Js(emotion)

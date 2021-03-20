@@ -1,4 +1,8 @@
-function MyApp({ Component, pageProps }) {
+import { AppProps } from 'next/app';
+
+import wrapper from '../store';
+
+function MyApp({ Component, pageProps }:AppProps) {
     return <Component {...pageProps} />
   }
   
@@ -14,4 +18,4 @@ function MyApp({ Component, pageProps }) {
   //   return { ...appProps }
   // }
   
-  export default MyApp
+  export default wrapper.withRedux(MyApp);
