@@ -454,10 +454,53 @@
 1. babel
 2. webpack
 3. next.config.js
+    - **소개**
+        - next.config.js는 Nextjs 서버 및 빌드 단계에서 사용되며 브라우저 빌드에는 포함되지 않음
+    - **환경변수**
+        - env
+        - 객체 형태로 환경변수 추가후 process.env 접두사로 사용
+    - **Base Path**
+        - basePath
+        - 기본적으로 '/'이며 경로 설정시 전체 애플리케이션에 적용됨.
+    - **Rewrites**
+        - 재작성을 사용해 수신 요청 경로를 다른 대상 경로에 매핑.
+        - Nodejs 환경에서만 사용가능하며 클라이언트 측 라우팅에는 영향을 주지 않음.
+    - **Redirects**
+        - 리디렉션을 사용해 수신 요청 경로를 다른 대상 경로에 매핑.
+        - Nodejs 환경에서만 사용가능하며 클라이언트 측 라우팅에는 영향을 주지 않음.
+    - **Custom Headers**
+        - 사용자 지정 헤더를 사용해 수신 요청 경로에 대해 사용자 지정 HTTP 헤더를 설정.
+    - **Custom Page Extensions**
+    - **CDN Support with Asset Prefix**
+        - CDN을 설정하기 위해 자산 접두사를 설정하고 Nextjs가 호스팅되는 도메인으로 확인되도록 CDN 오리진 구성.
+    - **Custom Webpack Config**
+    - **Compression**
+        - 콘텐츠와 정적 파일을 압축하기 위해 gzip 압축을 제공함. 
+        - nginx와 같은 HTTP 프록시에서 압축을 활성화해 nodejs 프로세스에서 로드를 오프로드 할 수 있음.
+    - **Runtime Configuration**
+    - **Disabling x-powered-by**
+        - 기본적으로 Nextjs는 x-powered-by 헤더를 추가함.
+    - **Disabling ETag Generation**
+         - 기본적으로 Nextjs는 모든 페이지에 ETag를 생성함.
+    - **Setting a custom build directory**
+        - .next 폴더 대신 사용할 사용자 빌드 폴더 지정가능.
+    - **Configuring the Build ID**
+        - 빌드시 생성된 상수 ID를 사용해 애플리케이션 버전을 식별함.
+        - 이로인해 모든 서버에서 실행될 때 다중 서버 배포에서 문제가 발생할 수 있음.
+        - 빌드간에 정적 빌드 ID를 유지하기 위해 자체 빌드 ID를 제공할 수 있음.
+    - **Configuring onDemandEntries**
+        - 서버가 개발시 메모리 빌드 페이지를 처리하거나 유지하는 방법을 제어할 수 있는 몇가지 옵션을 제공함.
+    - **Ignoring Typescript Errors**
+        - 프로덕션 빌드에서 TypeScript 에러 발생시 빌드에 실패하게 되는데 이를 비활성화 할 수 있음.
+    - **exportPathMap**
+    - **Trailing Slash**
+    - **React String Mode**
 ## 6. DataContainer(Redux, Redux Saga) with Nextjs
 1. DataContainer
 2. Redux
 3. ReduxSaga
+4. Install Package
+5. Nextjs with Redux & Redux Saga
 ## 11. Figma
 ## 12. Storybook
 ## 13. CSS In Js(emotion)
