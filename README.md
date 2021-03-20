@@ -515,13 +515,66 @@
 ## 12. Storybook
 ## 13. CSS In Js(emotion)
 ## 14. 2d DataVisual(D3)
-## 16. UIUX
-## 17. Responsive
-## 18. AppShell
 ## 7. PWA(ServiceWorker, Web Notification, Install App, IndexedDB, CacheAPI, Nextjs)
 ## 8. AMP(GoogleCodelab, Nextjs)
 ## 9. SEO(schema.org, robots.txt, sitemap.xml, Nextjs)
 ## 10. SSR,CSR,SPA(Nextjs)
+## 16. UIUX
+1. UX 기본
+    - 더블 다이아몬드
+    - 무대 설정
+    - 문제확인
+        - 이해 관계자와의 내부 인터뷰, 번개회담, 사용자 인터뷰, 현장 조사
+    - 프로젝트 맵
+    - 와이어 프레임 및 스토리 보드
+        - Crazy 8s -> 디자인 수정 -> 아이디어 스토리 보드
+    - 프로토 타입 생성
+    - 디자인 유용성 테스트
+    - 디자인 재검토 및 테스트
+2. Good Mobile Site
+    - https://developers.google.com/web/fundamentals/design-and-ux/principles
+3. Variable font
+    - https://web.dev/variable-fonts/
+4. Additional Colors and Icons
+    - **Icon & Tile**
+        1. Chrome & Opera
+        2. Safari
+        3. IE & Windows Phone
+        4. IE Tile
+    - **Browser Color**
+        1. Chrome & Opera
+        2. Safari
+## 17. Responsive
+## 18. Animation
+## 18. AppShell
+1. AppShell Model이란
+    - 사용자 인터페이스를 위한 최소한의 HTML,CSS,JavaScript이며 오프라인으로 캐시 된 경우 반복 방문시 성능 보장.
+        - 방문 할 때마다 네트워크에서 AppShell 로드 되지 않음.
+        - 네트워크에서 필요한 콘텐츠만 필요함.
+    - 네트워크 없이 초기 HTML을 화면에 빠르게 표시.
+        - Shell을 캐싱한 후 JavaScript를 사용해 각 페이지에 동적 콘텐츠 로드.
+    - UI 골격과 앱을 시작하는데 필요한 핵심구성요소이나 데이터가 포함되어 있지 않을 가능성이 높음.
+2. AppShell Model을 사용하는 경우
+    - 탐색은 변경되지 않으나 콘텐츠는 변경되는 앱과 사이트에 가장 적합함.
+3. 장점
+    - 지속적으로 빠른 안정적인 성능
+    - 네이티브와 유사한 상호작용
+    - 데이터의 경제적 사용
+4. 요구사항
+    - 빠른 로드
+    - 가능한 한 적은 데이터 사용
+    - 로컬 캐시에서 정적 자산 사용
+    - 탐색에서 콘텐츠 분리
+    - 페이지 별 콘텐츠 검색 및 표시
+    - 선택적으로 동적 콘텐츠 캐시
+5. AppShell Caching
+    - 수동 ServiceWorker 코드 또는 sw-precache를 활용한 ServiceWorker로 AppShell을 캐시 할 수 있음.
+    - **수동으로 앱 셸 캐싱**
+        - 서비스워크 이벤트를 사용해 AppShell의 정적 리소스를 CacheAPI로 캐시하는 서비스 워커
+    - **sw-precache를 사용해 앱 셸 캐시**
+        - 빌드 프로세스(ex:gulp)의 일부로 구성한 리소스를 캐시하고 제공함.
+        - 정적 리소스 오프라인 캐싱 : sw-precache
+        - 런타임/동적 리소스 : sw-toolbox
 ## 15. Accessibility
 ## 19. CrossBrowser
 ## 20. Performance
