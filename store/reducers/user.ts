@@ -1,5 +1,4 @@
 import produce from 'immer';
-import { actionFieldDecorator } from 'mobx/lib/internal';
 
 // 액션 type
 export const LOAD_MY_INFO_REQUEST = 'LOAD_MY_INFO_REQUEST';

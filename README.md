@@ -872,7 +872,172 @@ export { default as Icon } from './Icon/Icon';
         - 공통 Color Theme
     - _app.tsx 공통 CSS 적용
 ## 14. 2d DataVisual(D3)
-## 7. PWA(ServiceWorker, Web Notification, Install App, IndexedDB, CacheAPI, Nextjs)
+## 7. PWA(ServiceWorker, Web Notification, Push, Install App, IndexedDB, CacheAPI, Nextjs)
+1. Nextjs PWA
+    - /public/service-worker.js
+    - /public/manifest.json
+    - _document.tsx met tag 추가
+        ```javascript
+        //...
+                <link rel="manifest" href="/static/manifest.json"/>
+        //...
+        ```
+    - _app.js 
+        - service worker 등록
+        - noscript 추가
+    - npm run dev -> Chrome DevTool -> Application -> Manifest & Service Workers
+    - Build 시 .next/static 추가
+        - npm run build -> npm run start -> Lighthouse -> Audit
+2. manifest.json + Meta Tag
+    - generator manifest
+    
+    - https://www.favicon-generator.org/
+    - manifest.json
+        ```json
+        {
+            "name": "Utopier DevBlog",
+            "short_name": "Utopier DevBlog",
+            "background_color": "#FFFFFF",
+            "theme_color": "#2F3BA2",
+            "description": "React + Nextjs + TS + PWA Blog",
+            "display": "standalone",
+            "start_url": "/",
+            "icons": [{
+                "src": "/static/icon_192.png",
+                "type": "image/png",
+                "sizes": "192x192"
+            },{
+                "src": "/static/icon_512.png",
+                "type": "image/png",
+                "sizes": "512x512"
+            }]
+        }
+        ```
+    - iOS 메타태그 및 아이콘 추가
+        - _document.tsx
+            ```html
+            <meta name="apple-mobile-web-app-capable" content="yes"/>
+            <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+            <meta name="apple-mobile-web-app-title" content="Weather PWA"/>
+            <link rel="apple-touch-icon" href="/images/icons/icon-152x152.png"/>
+            ```
+    - 메타 설명 추가
+        - _document.tsx
+            ```html
+            <meta name="description" content="A sample weather app"/>
+            ```
+    - 주소 표시줄 테마 색상 설정
+        - _document.tsx
+            ```html
+            <meta name="theme-color" content="#2F3BA2" />
+            ```
+3. Offline App
+    - public/offline.html
+    - **오프라인 페이지 캐시**
+        - service-worker.js
+            ```javascript
+            //...
+            const FILES_TO_CACHE = [
+                '/offline.html',
+            ];
+            //install
+            evt.waitUntil(
+                caches.open(CACHE_NAME).then((cache) => {
+                    console.log('[ServiceWorker] Pre-caching offline page');
+                    return cache.addAll(FILES_TO_CACHE);
+                })
+            );
+            ```
+    - **오래된 오프라인 페이지 정리**
+        - service-worker.js
+            ```javascript
+            // activate
+            evt.waitUntil(
+                caches.keys().then((keyList) => {
+                return Promise.all(keyList.map((key) => {
+                    if (key !== CACHE_NAME) {
+                    console.log('[ServiceWorker] Removing old cache', key);
+                    return caches.delete(key);
+                    }
+                }));
+                })
+            );
+            ```
+    - **실패한 네트워크 요청 처리**
+        - service-worker.js
+            ```javascript
+            // fetch
+            if (evt.request.mode !== 'navigate') {
+            // Not a page navigation, bail.
+            return;
+            }
+            evt.respondWith(
+                fetch(evt.request)
+                    .catch(() => {
+                    return caches.open(CACHE_NAME)
+                        .then((cache) => {
+                            return cache.match('offline.html');
+                        });
+                    })
+            );
+            ```
+    - npm run dev -> Chrome DevTool -> Application -> Cache Storage 
+    - Application -> ServiceWorker -> offline
+    - **앱 로직 업데이트**
+    - **앱 리소스 사전캐시**
+4. Install App
+    - _document.tsx
+        ```html
+        <script src="/install.js"></script>
+        ```
+    - pages/index.js button 추가
+    - public/install.js
+        - beforeinstallprompt 이벤트 듣기
+        ```javascript
+        window.addEventListener('beforeinstallprompt', saveBeforeInstallPromptEvent);
+        ```
+        - 이벤트 저장 및 설치 버튼 표시
+        ```javascript
+        // saveBeforeInstallPromptEvent
+        deferredInstallPrompt = evt;
+        installButton.removeAttribute('hidden');
+        ```
+        - 프롬프트 표시 및 버튼 숨기기
+        ```javascript
+        // installPWA
+        deferredInstallPrompt.prompt();
+        evt.srcElement.setAttribute('hidden', true);
+        ```
+        - 결과기록
+        ```javascript
+        // installPWA
+        deferredInstallPrompt.userChoice
+            .then((choice) => {
+            if (choice.outcome === 'accepted') {
+                console.log('User accepted the A2HS prompt', choice);
+            } else {
+                console.log('User dismissed the A2HS prompt', choice);
+            }
+            deferredInstallPrompt = null;
+            });
+        ```
+        - 모든 설치 이벤트 기록
+        ```javascript
+        window.addEventListener('appinstalled', logAppInstalled);
+
+        //logAppInstalled
+        ```
+    - https://web.dev/install-criteria/ 기준 충족해야 됨.
+    - npm run dev -> Chrome DevTool -> Sources -> install.js
+    - Test
+        - 설치 버튼 보이는지
+        - 설치 버튼 작동하는지
+        - iOS 설치가 제대로 작동하는지
+    - https://medium.com/@donggyu9410/pwa-install-prompt-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0-45ed6653627
+5. Web Notification & Push Message
+    - public/notification.js
+    - public/push.js
+    - _document.js에 script 태그 추가
 ## 8. AMP(GoogleCodelab, Nextjs)
 ## 9. SEO(schema.org, robots.txt, sitemap.xml, Nextjs)
 ## 10. SSR,CSR,SPA(Nextjs)
