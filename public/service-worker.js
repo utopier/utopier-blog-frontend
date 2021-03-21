@@ -48,3 +48,25 @@ self.addEventListener('fetch', (evt) => {
 		})
 	);
 });
+
+// Notification
+// 이벤트 듣기
+// notificationclose 이벤트
+self.addEventListener('notificationclose', function(e) {
+	var notification = e.notification;
+	var primaryKey = notification.data.primaryKey;
+
+	console.log('Closed notification: ' + primaryKey);
+  });
+// notificationclick 이벤트
+self.addEventListener('notificationclick', function(e) {
+	var notification = e.notification;
+	var primaryKey = notification.data.primaryKey;
+	var action = e.action;
+	if (action === 'close') {
+	  notification.close();
+	} else {
+	  clients.openWindow('http://www.example.com');
+	  notification.close();
+	}
+  });

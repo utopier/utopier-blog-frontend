@@ -42,7 +42,7 @@ class MyDocument extends Document {
 					<Main />
 					<NextScript />
 					<script src="/install.js"></script>
-					{/* <script src="/notification.js"></script> */}
+					<script src="/notification.js"></script>
 					{/* <script src="/push.js"></script> */}
 				</body>
 			</Html>

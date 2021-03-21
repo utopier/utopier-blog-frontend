@@ -1034,10 +1034,18 @@ export { default as Icon } from './Icon/Icon';
         - 설치 버튼 작동하는지
         - iOS 설치가 제대로 작동하는지
     - https://medium.com/@donggyu9410/pwa-install-prompt-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0-45ed6653627
-5. Web Notification & Push Message
+5. Notification & Push
+    - https://developers.google.com/web/ilt/pwa/introduction-to-push-notifications
+    - **푸시 알림이란**
+        - Notification API로 앱이 사용자에게 시스템 알림 표시
+        - Push API로 서비스 워커가 앱이 활성화되지 않은 상태에서도 서버의 푸시 메시지 처리
+        - Notification & Push는 백그라운드에서 푸시 메시지 이벤트에 응답하고 Service Worker API에서 작성함.
+    - **웹 푸시 알림**
     - public/notification.js
     - public/push.js
     - _document.js에 script 태그 추가
+6. IndexedDB
+    - https://developers.google.com/web/ilt/pwa/working-with-indexeddb
 ## 8. AMP(GoogleCodelab, Nextjs)
 ## 9. SEO(schema.org, robots.txt, sitemap.xml, Nextjs)
 ## 10. SSR,CSR,SPA(Nextjs)
