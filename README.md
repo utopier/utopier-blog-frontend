@@ -862,6 +862,15 @@ export { default as Icon } from './Icon/Icon';
 - npm i react react-dom react-spring @emotion/core
 
 ## 13. CSS In Js(emotion)
+1. Install Package
+    - npm i @emotion/core@10.1.1 @emotion/styled@10.0.27 emotion-reset@2.0.7
+2. Global Styles
+    - mkdir styles
+    - styles/GlobalStyles.tsx
+        - css reset(emotion-reset), 공통 Design 적용, font
+    - styles/Theme.ts
+        - 공통 Color Theme
+    - _app.tsx 공통 CSS 적용
 ## 14. 2d DataVisual(D3)
 ## 7. PWA(ServiceWorker, Web Notification, Install App, IndexedDB, CacheAPI, Nextjs)
 ## 8. AMP(GoogleCodelab, Nextjs)

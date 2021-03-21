@@ -1,9 +1,16 @@
 import { AppProps } from 'next/app';
 
+import GlobalStyles from '../styles/GlobalStyles';
+
 import wrapper from '../store';
 
 function MyApp({ Component, pageProps }:AppProps) {
-    return <Component {...pageProps} />
+    return (
+      <>
+        <GlobalStyles />
+        <Component {...pageProps} />
+      </>
+    )
   }
   
   // Only uncomment this method if you have blocking data requirements for
