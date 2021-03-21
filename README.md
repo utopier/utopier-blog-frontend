@@ -21,6 +21,7 @@
 10. SSR,CSR,SPA(Nextjs)
 11. Figma
 12. Storybook
+1. Install Packaga
 13. CSS In Js(emotion)
 14. 2d DataVisual(D3)
 15. Accessibility
@@ -513,6 +514,353 @@
             - post.ts
 ## 11. Figma
 ## 12. Storybook
+1. Install Package
+    - cd ..
+    - mkdir designSystem
+    - cd designSystem
+    - npm init -y
+    - npx sb init
+    - npm i react react-dom
+    - npm run storybook
+2. 스토리 경로
+    - mkdir src
+    - rmdir stories
+    - .storybook/main.js
+        ```javascript
+          module.exports = {
+            stories: [
+            '../src/**/*.stories.mdx',
+            '../src/**/*.stories.@(js|jsx|ts|tsx)',
+            ],
+            addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
+        };
+        ```
+3. Addon 추가
+    - **Knobs**
+        - npm i -D @storybook/addon-knobs
+        - .storybook/main.js
+            ```javascript
+            module.exports = {
+                addons: ['@storybook/addon-knobs'],
+            };
+            ```
+    - **Action**
+        - 기본적으로 적용되있음
+    - **Docs**
+        - npm i -D @storybook/addon-docs
+        - MDX도 사용할시
+            - npm i - D react react-is babel-loader
+        - .storybook/main.js
+        ```javascript
+        module.exports = {
+            stories: ['../src/**/*.stories.@(js|mdx)'],
+            addons: ['@storybook/addon-docs'],
+        };
+        ```
+4. TypeScript 설정
+    - npm i -D babel-preset-react-app react-docgen-typescript-loader typescript
+    - tsconfig.json
+        ```json
+        {
+            "compilerOptions": {
+            "target": "es5",
+            "lib": ["dom", "dom.iterable", "esnext"],
+            "allowJs": true,
+            "skipLibCheck": true,
+            "esModuleInterop": true,
+            "allowSyntheticDefaultImports": true,
+            "strict": true,
+            "forceConsistentCasingInFileNames": true,
+            "module": "esnext",
+            "moduleResolution": "node",
+            "resolveJsonModule": true,
+            "isolatedModules": true,
+            "noEmit": true,
+            "jsx": "react"
+            },
+            "include": ["src"]
+        }
+        ```
+    - .storybook/main.js
+
+    ```javascript
+    const path = require('path');
+
+    module.exports = {
+        stories: ['../src/**/**/*.stories.(js|mdx|tsx)'],
+        addons: [
+            '@storybook/addon-docs',
+            '@storybook/addon-actions',
+            '@storybook/addon-links',
+            '@storybook/addon-knobs',
+        ],
+            typescript: {
+            check: false,
+            checkOptions: {},
+            reactDocgen: 'react-docgen-typescript',
+            reactDocgenTypescriptOptions: {
+                shouldExtractLiteralValuesFromEnum: true,
+                propFilter: (prop) =>
+                prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
+            },
+            },
+        webpackFinal: async (config, { configType }) => {
+            config.module.rules.push({
+            test: /\.(ts|tsx)$/,
+            use: [
+                {
+                loader: require.resolve('babel-loader'),
+                options: {
+                    presets: [['react-app', { flow: false, typescript: true }]],
+                    plugins: [
+                    [
+                        require.resolve('babel-plugin-named-asset-import'),
+                        {
+                        loaderMap: {
+                            svg: {
+                            ReactComponent:
+                                '@svgr/webpack?-svgo,+titleProp,+ref![path]',
+                            },
+                        },
+                        },
+                    ],
+                    ],
+                },
+                },
+            ],
+            });
+            return config;
+        },
+    };
+    ```
+
+5. emotion
+    - npm i @emotion/core
+6. svg img 대신 jsx로 렌더링
+7. Storybook Pattern
+- Figma
+- Components.tsx -> props 정의 -> Component.stories.tsx -> 구현 기능을 스토리로 작성 -> 컴포넌트에서 기능 구현 -> Storybook에서 테스트
+- Button
+
+  - state : default, hover, active, focus, disabled
+  - theme : primary, default, link, dropdown, disabled, warning, delete
+  - sizes
+  - withIcon
+
+- Button.tsx
+
+  ```typescript
+  /** @jsx jsx */ /** @jsxRuntime classic */
+  import { jsx, css } from '@emotion/core';
+
+  type ButtonProps = {
+    /** 버튼 안의 내용 */
+    children: React.ReactNode;
+    /** 클릭했을 때 호출할 함수 */
+    onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
+  };
+
+  /** `Button` 컴포넌트는 어떠한 작업을 트리거 할 때 사용합니다.  */
+  const Button = ({ children, onClick }: ButtonProps) => {
+    return (
+      <button css={style} onClick={onClick}>
+        {children}
+      </button>
+    );
+  };
+
+  const style = css``;
+
+  export default Button;
+  ```
+
+- Button.stories.tsx
+
+  ```typescript
+  import React from 'react';
+  import Button from './Button';
+
+  export default {
+    title: 'components|Button',
+    component: Button,
+  };
+
+  export const button = () => {
+    return <Button>BUTTON</Button>;
+  };
+
+  button.story = {
+    name: 'Default',
+  };
+
+  export const primaryButton = () => {
+    return <Button>PRIMARY</Button>;
+  };
+  ```
+
+8. Rollup 번들 후 npm 라이브러리 배포
+
+1. rolup package install
+
+   - npm i -D rollup rollup-plugin-babel rollup-plugin-node-resolve rollup-plugin-peer-deps-external rollup-plugin-commonjs @svgr/rollup rollup-plugin-url
+
+2. peerDependency 설정
+
+   - package.json
+
+     ```json
+       "peerDependencies": {
+             "@emotion/core": "^10.0.22",
+             "react": "^16.12.0",
+             "react-dom": "^16.12.0",
+             "react-spring": "^8.0.27"
+         }
+     ```
+
+3. package.json
+   ```json
+   {
+       "name": "react-uikit-sample",
+       "version": "1.0.0",
+       "module": "dist/index.js",
+   ```
+4. rollup.config.js
+
+   ```javascript
+   import commonjs from 'rollup-plugin-commonjs';
+   import resolve from 'rollup-plugin-node-resolve';
+   import babel from 'rollup-plugin-babel';
+   import pkg from './package.json';
+   import external from 'rollup-plugin-peer-deps-external';
+   import svgr from '@svgr/rollup';
+   import url from 'rollup-plugin-url';
+   import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+
+   const extensions = ['.js', '.jsx', '.ts', '.tsx']; // 어떤 확장자를 처리 할 지 정함
+
+   // babel-preset-react-app를 사용한다면 BABEL_ENV를 필수로 설정해야함.
+   process.env.BABEL_ENV = 'production';
+
+   export default {
+     input: './src/index.ts', // 어떤 파일부터 불러올지 정함.
+     plugins: [
+       peerDepsExternal() /* peerDependencies로 설치한 라이브러리들을 external 모듈로 설정
+                               즉, 번들링된 결과에 포함시키지 않음 */,
+       resolve({ extensions }), // node_modules 에서 모듈을 불러올 수 있게 해줌. ts/tsx 파일도 불러올 수 있게 해줌
+       commonjs({
+         include: 'node_modules/**',
+       }), // CommonJS 형태로 만들어진 모듈도 불러와서 사용 할 수 있게 해줌. 현재 프로젝트 상황에서는 없어도 무방함
+       babel({ extensions, include: ['src/**/*'], runtimeHelpers: true }), // Babel을 사용 할 수 있게 해줌
+       url(), // 미디어 파일을 dataURI 형태로 불러와서 사용 할 수 있게 해줌.
+       svgr(), // SVG를 컴포넌트로 사용 할 수 있게 해줌.
+     ],
+     output: [
+       {
+         file: pkg.module, // 번들링한 파일을 저장 할 경로
+         format: 'es', // ES Module 형태로 번들링함
+       },
+     ],
+   };
+   ```
+
+5. .babelrc
+
+```json
+{
+  "presets": [["react-app", { "flow": false, "typescript": true }]]
+}
+```
+
+6. src/index.ts
+
+```typescript
+export { default as Button } from './Button/Button';
+export { default as ButtonGroup } from './ButtonGroup/ButtonGroup';
+export { default as Dialog } from './Dialog/Dialog';
+export { default as Icon } from './Icon/Icon';
+```
+
+7. build
+
+- yarn rollup -c
+  - ./node_modules/rollup/dist/bin/rollup -c
+- dist/index.js 생성됨
+
+8. TypeScript declaration
+
+- tsconfig.json
+
+```json
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "jsx": "react",
+    "declaration": true,
+    "declarationDir": "dist/types"
+  },
+  "include": ["src"],
+  "exclude": ["**/*.stories.tsx"]
+}
+```
+
+- package.json
+
+```json
+"scripts": {
+  "storybook": "start-storybook -p 6006",
+  "build-storybook": "build-storybook",
+  "build": "rollup -c",
+  "build:types": "tsc --emitDeclarationOnly"
+},
+```
+
+- npm build:types
+
+  - dist/types/index.d.ts 생성됨
+
+- package.json
+  ```json
+  {
+  "name": "react-uikit-sample",
+  "version": "1.0.0",
+  "module": "dist/index.js",
+  "license": "MIT",
+  "types": "dist/types/index.d.ts",
+  ```
+
+9. npm 등록
+
+- npm login
+- .npmignore or package.json files
+  - package.json
+    ```json
+    {
+    "name": "react-uikit-sample",
+    "version": "1.0.0",
+    "module": "dist/index.js",
+    "license": "MIT",
+    "types": "dist/types/index.d.ts",
+    "files": [
+        "/dist"
+    ],
+    ```
+- npm publish
+- npmjs.com에서 확인
+
+10. npm에서 패키지 받아서 사용
+
+- npm i react-uikit-sample
+- npm i react react-dom react-spring @emotion/core
+
 ## 13. CSS In Js(emotion)
 ## 14. 2d DataVisual(D3)
 ## 7. PWA(ServiceWorker, Web Notification, Install App, IndexedDB, CacheAPI, Nextjs)
@@ -545,7 +893,55 @@
         1. Chrome & Opera
         2. Safari
 ## 17. Responsive
+1. Overview
+    - **Viewport 설정**
+    - **Viewport에 맞게 컨텐츠 크기 조정**
+    - **CSS Media Query**
+    - **BreakPoint**
+2. Patterns
+    - **Fluid**
+    - **Column drop**
+    - **Layout shifter**
+    - **Tiny tweaks**
+    - **Off canvas**
+3. Responsive Images
+    - **Art direction**
+    - **Responsive Images**
+    - **Markup Image**
+    - **CSS Image**
+    - **SVG Icons**
+    - **Image 최적화**
+    - **Image 피하기**
+4. Multi-Device Content
+    - **사람들이 웹에서 읽는 방법**
+    - **모바일용 글쓰기**
+    - **10억 사용자**
+    - **불필요한 콘텐츠 제거**
+    - **다양한 뷰포트 크기에서 잘 작동하도록 콘텐츠 디자인**
+    - **데이터 비용 이해**
 ## 18. Animation
+1. Overview
+    - **애니메이션에 적합한 항목 선택**
+    - **애니메이션을 사용해 상호 작용 지원**
+    - **값 비싼 속성 애니메이션 피하기**
+2. CSS Versus JavaScript
+    - **CSS로 애니메이션**
+    - **JavaScript 및 Web Animations API를 사용해 애니메이션**
+3. Easing Basic
+    - **Easing Keyword**
+    - **선형 애니메이션**
+    - **Ease-out**
+    - **Ease-in**
+    - **Ease-in-out**
+4. Custom Easing
+    - **더 많은 제어를 위해 JavaScript 프레임 워크 사용**
+5. Animating Between Views
+6. Choosing the Right Easing
+7. Animating Modal Views
+8. Animation Timing
+9. Animations and Performance
+    - **will-change 속성**
+    - **CSS vs Javascript Performance**
 ## 18. AppShell
 1. AppShell Model이란
     - 사용자 인터페이스를 위한 최소한의 HTML,CSS,JavaScript이며 오프라인으로 캐시 된 경우 반복 방문시 성능 보장.
@@ -576,9 +972,93 @@
         - 정적 리소스 오프라인 캐싱 : sw-precache
         - 런타임/동적 리소스 : sw-toolbox
 ## 15. Accessibility
+1. Overview
+2. Focus
+    - **Foucs 소개**
+    - **DOM Order Matters**
+    - **Using tabindex**
+3. Semantics Built-in
+    - **Semantics 소개**
+    - **Accessibility Tree**
+    - **Text Alternatives for Images**
+    - **Navigating Content**
+4. Semantics & ARIA
+    - **ARIA 소개**
+    - **ARIA Labels & Relationships**
+    - **Hiding and Updating Content**
+5. Accessible Styles
+    - **접근 가능한 탭 타겟**
+    - **색상 및 대비 접근성**
+    - **접근 가능한 반응형 디자인**
+    - **콘텐츠 재정렬**
+6. Accessibility Review
 ## 19. CrossBrowser
+1. Cross Browser Testing 이란
+2. Test 수행 전략
+3. HTML, CSS 문제 처리
+4. JavaScript 문제 처리
+5. Accessibility 문제 처리
+6. 기능 감지 구현
+7. 자동화 테스트
+8. 자체 테스트 자동화 환경설정
 ## 20. Performance
+1. Overview
+2. RAIL Model
+3. Loading
+4. Rendering
+5. Audit Site
 ## 21. Security
+1. Overview
+2. Content Security Policy
+3. Encrypting Data In Transit
+4. Preventing Mixed Content
+5. I've been hacked
+## 21. Web.dev
+- https://web.dev/learn/
+- **Performance**
+    1. Web Vitals
+    2. Metrics
+    3. Fast load times
+- **Build excellent websites**
+    1. PWA
+    2. Accessible to all
+    3. Network reliability
+    4. Safe and secure
+    5. Easily discoverable
+    6. Web Payments
+    7. Media
+    8. Devices
+    9. Animations
+- **Lighthouse**
+    1. Performance audits
+    2. PWA audits
+    3. Best Practices audits
+    4. Accessibility audits
+    5. SEO audits
+## 21. Chrome Dev Tool
+- https://developers.google.com/web/tools/chrome-devtools?hl=ko
+1. CSS
+2. Console
+3. Network
+4. Storage
+5. Issues
+6. Command Menu
+7. Mobile Simulation
+8. DOM
+9. JavaScript
+10. Performance
+11. Accessibility
+12. Remote Debugging
+13. Memory
+14. Media
+15. WebAuthn
+16. Workspaces
+17. PWA
+18. Security
+19. Keyboard Shortcuts
+20. Resources
+21. Customize
+22. Extend DevTools
 ## 22. CICD
 ## 23. AWS
 ## 24. Devops
