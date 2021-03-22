@@ -1048,7 +1048,355 @@ export { default as Icon } from './Icon/Icon';
     - https://developers.google.com/web/ilt/pwa/working-with-indexeddb
 ## 8. AMP(GoogleCodelab, Nextjs)
 ## 9. SEO(schema.org, robots.txt, sitemap.xml, Nextjs)
+1. robots.txt
+    - **robots.txt 소개**
+        1. robots.txt 파일이란
+            - 검색엔진 크롤러를 제어하고 sitemap 위치를 알려줌
+            - 웹페이지가 Google에 표시되지 않도록 하려면 noindex 명령어 사용 or 페이지를 비밀번호로 보호
+        2. robots.txt 용도
+            - 사이트의 크롤러 트래픽을 관리
+            - **웹페이지**
+                - robots.txt로 Google로부터 숨겨지지 않음, noindex나 비밀번호를 걸어야함
+            - **미디어 파일**
+                - robots.txt로 Google 검색 결과에 표시 되지 않게 할 수 있음
+                - 다른 페이지에서 다른 사용자가 이미지,동영상,오디오 파일을 링크하는 것을 막을수는 없음
+            - **리소스 파일**
+                - robots.txt로 리소스파일이 로드되지 않도록 할 수 있음
+                - 리소스 없이 Google 크롤러가 페이지를 인지하기 어렵게 되는 경우에는 차단하면 안됨
+        3. 사이트 호스팅 서비스를 사용하는 경우
+            - 직접 robots.txt 파일을 수정할 필요가 없거나 수정하지 못 할 수 있음
+        4. robots.txt 제한사항
+            - robots.txt 명령어는 일부 검색엔진에서만 지원될 수 있음
+            - 크롤러마다 구문을 다르게 해석함
+            - 다른 사이트에서 연결된 경우 robots.txt 파일을 사용한 페이지 색인이 생성될 수도 있음
+            - 지침 구성 방법
+                - https://developers.google.com/webmasters/control-crawl-index/docs/robots_meta_tag#handling-combined-indexing-and-serving-directives
+        5. 페이지의 robots.txt 차단 여부 테스트
+            - robots.txt 규칙에 의해 페이지, 리소스가 차단되었는지 테스트
+                - https://support.google.com/webmasters/answer/6062598
+            - noindex 명령 테스트를 위해 URL 검사 도구 사용
+                - https://support.google.com/webmasters/answer/9012289
+    - **robots.txt 파일 생성**
+        1. 시작하기
+            - 사이트 루트에 위치
+            - 로봇 배제 표준을 따름
+                - http://en.wikipedia.org/wiki/Robots_exclusion_standard#About_the_standard
+            - 하나 이상의 규칙으로 구성됨, 각 규칙은 특정 크롤러가 웹 사이트에서 지정된 파일 경로에 액세스할 권한을 차단하거나 허용함
+        2. robots.txt 기본
+            - **형식 및 위치**
+                - 표준 UTF-8 텍스트 파일을 작성할 수 있는 텍스트 편집기 사용
+                - robots.txt 테스터 도구를 사용해 사이트에 적용할 robots.txt 파일을 작성하거나 수정
+            - **형식 및 위치 규칙**
+                - 파일이름은 robots.txt
+                - 파일위치는 루트
+                - 사이트에는 파일이 하나만 있어야 함
+            - **구문**
+                - UTF-8로 인코딩된 텍스트 파일(ASCII 포함)
+                - robots.txt 파일은 하나 이상의 그룹으로 구성됨
+                - 대소문자를 구분함
+                - 각 그룹은 여러 규칙 또는 명령으로 구성되며 행마다 명령이 하나씩 있음
+            - **robots.txt 파일에서 사용되는 명령**
+                1. User-agent
+                    - 필수명령, 규칙당 하나 이상으로 검색엔진 로봇 이름
+                    - 모든 규칙의 첫 행
+                    - 사용자 에이전트 이름
+                        - http://www.robotstxt.org/db.html
+                        - https://support.google.com/webmasters/answer/1061943
+                    - 별표를 사용하면 이름을 명시적으로 지정해야 하는 여러 AbsBot 크롤러를 제외한 모든 크롤러에 규칙을 적용할 수 있음
+                    - Google 크롤러 이름 목록 확인
+                        - https://support.google.com/webmasters/answer/1061943
+                2. Disallow
+                    - 규칙당 하나 이상의 Disallow 또는 Allow 항목 필수
+                    - 크롤링을 하면 안되는 루트 디메인 관련 디렉토리, 페이지
+                    - 페이지는 브라우저에 표시되는 전체 페이지 이름
+                    - 디렉토리는 기호 /로 끝나야 함
+                3. Allow
+                    - 규칙당 하나 이상의 Disallow 또는 Allow 항목 필수
+                    - 크롤링해야 하는 루트 도메인 관련 디렉토리, 페이지
+                    - 허용되지 않은 디렉토리안에 하위 디렉터리나 페이지를 크롤링할 수 있도록 Disallow를 재정의할 때 사용
+                4. Sitemap
+                    - 선택사항으로 파일당 0개 이상
+                    - 웹사이트의 사이트맵 위치
+                    - 정규화된 URL
+                    - Google에서 크롤링 할 수 있거나 할 수 없는 컨텐츠를 표시하는 것이 아니라 크롤링을 해야 하는 컨텐츠를 표시할때 좋은 방법
+        3. 전체 robots.txt 구문
+            - https://developers.google.com/webmasters/control-crawl-index/docs/robots_txt
+        4. robots.txt 규칙
+            - 전체 웹 사이트 크롤링 금지
+            - 디렉토리 및 디렉토리에 포함된 내용의 크롤링 금지
+            - 크롤러 하나에만 액세스 허용
+            - 하나를 제외한 모든 크롤러에 액세스 허용
+            - 웹페이지 하나의 크롤링 금지
+            - Google 이미지의 특정 이미지 크롤링 차단
+            - Google 이미지의 사이트 내 모든 이미지 크롤링 차단
+            - 특정 형식의 파일 크롤링 금지
+            - 전체 사이트의 크롤링을 금지하지만 페이지에 애드센스 광고를 표시하는 경우
+            - 특정 문자열로 끝나는 URL에 적용
+    - **robots.txt 테스터**
+        - https://www.google.com/webmasters/tools/robots-testing-tool
+        - robots.txt테스터도구로 robos.txt 파일이 사이트의 특정 URL에서 Google 웹 크롤러를 차단하는지 알려줌.
+    - **robots.txt Google 제출**
+        - robots.txt 테스터 도구의 제출 기능을 사용해 Google을 쉽게 실행시켜 사이트의 새로운 robots.txt 파일을 더욱 신속하게 크롤링하고 색인 생성하도록 요청함.
+    - **파일 위치 및 유효성 범위**
+        - 호스트의 최상위 디렉터리에 위치
+        - 관련 프로토콜과 포트 번호를 통해 액세스할 수 있어야 함
+        - Google 검색의 경우 HTTP, HTTPS로 robots.txt파일은 조건부가 아닌 HTTP GET 요청을 사용해 가져옴
+    - **유효한 robots.txt URL**
+    - **HTTP 결과 코드 처리**
+        - robots.txt 파일을 가져오면 세가지 서로 다른 결과가 나타남
+            - 전체 허용, 전체 금지, 조건부 허용
+    - **파일 형식**
+        - UTF-8로 인코딩된 일반 텍스트, CR, CR/LF, LF로 구분된 행으로 구성됨
+        - robots.txt 파일 첫부분의 선택적 유니코드 BOM(바이트 순서 표시)은 무시됨
+        - 크롤러당 최대 파일 크기가 제한될 수 있음. 최대 파일 크기를 넘는 컨텐츠는 무시됨. Google에서는 500kib로 제한됨.
+        - 파일크기를 줄이기 위해 제외된 자료를 별도의 디렉토리에 배치해서 통합
+    - **공식 구문/정의**
+    - **행 및 규칙 그룹**
+        - 하나 이상의 user-agent 행에 하나 이상의 규칙이 이어짐
+        - 그룹은 user-agent 행 또는 파일의 끝으로 종료됨
+    - **user-agent 우선순위**
+        - 특정 크롤러에 대해 하나의 그룹만 유효함
+        - googlebot/1.2와 gootglebot*은 googlebot과 같음
+        - robots.txt 파일 내 그룹의 순서는 관련이 없음
+        - 특정 user-agent에 두 개 이상의 그룹이 선언된 경우 특정 user-agent에 적용되는 그룹의 모든 규칙이 하나의 그룹에 결합됨
+    - **group-member 규칙**
+        - disallow
+        - allow
+    - **경로값에 의한 URL 일치**
+        - *
+        - $
+    - **Google에서 지원하는 non-group-member행**
+        - sitemap
+    - **group-member 행의 우선순위**
+    - **robots.txt 마크업 테스트**
+        - Search Console의 robots.txt 테스터
+            - https://support.google.com/webmasters/answer/6062598?hl=ko
+        - Google 오픈소스 robots.txt 라이브러리
+            - https://github.com/google/robotstxt
+2. sitemap.xml
+    - **sitemap.xml 이란?**
+        - 웹사이트 내 모든 페이지 목록을 나열한 파일, 책의 목차
+            - 일반 크롤링 과정에서 쉽게 발견되지 않는 웹페이지도 크롤링되고 색인됨
+    - **sitemap.xml 위치**
+        - robots.txt와 달리 반드시 루트에 위치하지 않아도 되나 관습적으로 루트에 위치
+            - /sitemap.xml으로 다른 웹사이트의 설정 참고
+    - **sitemap.xml 양식**
+        - sitemap.org
+        - 무료 생성 사이트
+        - https://www.twinword.co.kr/blog/3-different-ways-to-generate-and-submit-sitemap/
+    - **sitemap.xml SEO 영향력**
+        - robots.txt와 같이 파일을 생성했다고 SEO 점수에 영향을 주지는 않음
+        - 넓은 의미에서 sitemap.xml 설정시 SEO에 긍정적 영향
+            - 일반 크롤링 과정에서 발견되지 않는 웹페이지에 대한 정보를 제공해 크롤링되고 색인될 수 있게 도와줌.
+    - **sitemap.xml 제한사항**
+        - 여러개의 사이트맵 or 사이트맵 인덱스 파일을 robots.txt에 지정할 수 있음
+        - 하나의 사이트맵 인덱스 파일에 최대 5만개 사이트맵 지정 가능, 압축 전 50MB 이하여야 함
+        - 하나의 사이트맵 인덱스 파일에 파일 크기 제한 등을 고려할 때 만개를 넘지 않도록 권장
+        - robots.txt 파일에 3개의 사이트맵 인덱스 파일을 지정하고 만개의 사이트맵과 만개의 주소를 지정한다고 하면, 3 x 10,000 x 10,000 = 3억개의 웹페이지 색인용 주소를 지정할 수 있음
+    - **사이트맵을 쉽게 만드는 3가지 방법과 제출하는 방법**
+        1. sitemap.xml 만드는 3가지 방법
+            - **사이트맵 제작 웹사이트**
+                - https://www.xml-sitemaps.com/
+                    - 웹사이트 도메인 입력
+                    - More Options
+                        - Page Last modification : 페이지가 마지막으로 변경된 날짜에 대한 데이터를 사이트맵에 추가하고 싶은지, 크롤러가 변경되지 않은 페이지를 재크롤링하는 것을 방지 
+                        - Page Priority : 페이지별 중요도를 페이지 뎁스에 기반해 자동으로 설정, 페이지별 중요도를 설정하지 않아도 자동 산출되어 지정됨
+                        - Change Frequency : 웹사이트 콘텐츠가 얼마나 자주 업데이트되는지에 대한 정보를 사이트맵에 추가할 수 있는 기능, 기본 설정으로는 비활성화되있으나 항상 ~ 전혀 되지 않음까지 선택할 수 있음
+            - **크롤링 프로그램**
+                - 보통 크롤링 프로그램은 웹사이트 SEO 진단을 하기 위한 툴로 사용되나 세부적인 설정을 한 사이트맵도 만들수 있음
+                - https://www.screamingfrog.co.uk/seo-spider/
+                - https://www.twinword.co.kr/blog/seo-tools-for-website-audit/
+                - Screaming Frog
+                    - 도메인 입력 후 Start
+                    - Sitemap > XML Sitemap 후에 세부사항 설정
+            - **Yoast SEO 플러그인**
+                - 워드프레스를 기반으로 하는 웹사이트의 사이트맵 생성
+                - https://wordpress.org/plugins/wordpress-seo/
+        2. sitemap.xml 제출
+            - 사이트맵 제출 전 생성한 사이트맵 파일을 웹사이트에 업로드
+            - **구글 서치콘솔에 사이트맵 제출**
+                - Google Search Console -> Sitemaps -> Enter sitemap URL -> Submit
+            - **네이버 서치 어드바이저에 사이트맵 제출**
+                - 구글 서치콘솔은 여러개의 사이트맵을 제출할 수 있으나 서치 어드바이저는 웹사이트당 1개의 사이트맵만 제출가능
+                - Naver Search Advisor -> 요청 -> 사이트맵 제출
+3. schema.org
+    - https://schema.org/docs/documents.html
+    - https://schema.org/Blog
+    - https://www.loudnoises.us/adding-schema-data-to-next-js-sites/
+    - https://www.hallaminternet.com/add-article-schema-markup-to-blog-posts/
+4. Google SEO
+    - https://support.google.com/webmasters/topic/9456575?hl=ko&ref_topic=9428048
+    - https://developers.google.com/search?hl=ko
+    - **구조화된 데이터로 리치 결과 사용 설정**
+        1. 검색 갤러리
+            - https://developers.google.com/search/docs/guides/search-gallery?hl=ko
+        2. 구조화된 데이터 작동 방식 이해
+            - 페이지에 구조화된 데이터를 포함하면 Google에 페이지의 의미에 관한 확실한 단서를 제공해 내용을 파악하는데 도움을 줌.
+            - **구조화된 데이터 형식**
+                - JSON-LD(권장), 마이크크로데이터, RDFa
+            - **구조화된 데이터 가이드라인**
+                - https://developers.google.com/search/docs/guides/sd-policies?hl=ko
+            - **구조화된 데이터 빌드, 테스트, 출시**
+                - https://developers.google.com/search/docs/guides/prototype?hl=ko
+        3. 가이드라인 따르기
+            - **기술 가이드라인**
+                - 리치 결과 테스트, URL 검사 도구를 사용해 기술 가이드라인 준수 여부 테스트
+                    - https://search.google.com/test/rich-results?hl=ko
+                    - https://support.google.com/webmasters/answer/9012289?hl=ko
+                1. 형식
+                    - JSON-LD(권장), 마이크로데이터, RDFa
+                2. 액세스
+                    - robots.txt, noindex, 기타 액세스 제어 방법을 사용해 Googlebot이 구조화된 데이터 페이지에 액세스할 수 없도록 차단하지 않기
+            - **품질 가이드라인**
+                - 품질 가이드라인은 자동화된 테스트 도구가 없음
+                - 품질 가이드라인을 위반하면 구조화된 데이터 구문이 올바르다 할지라도 Google 검색에 리치 결과로 표시되지 않거나 스팸으로 표시될 수 있음
+                1. 콘텐츠
+                    - Google 웹마스터 품질 가이드라인 따르기
+                        - https://support.google.com/webmasters/answer/35769?hl=ko#quality_guidelines
+                2. 관련성
+                3. 완전성
+                4. 위치
+                5. 특수성
+                6. 이미지
+                7. 여러 항목이 있는 페이지
+        4. 구조화된 데이터 Codelab
+            - https://codelabs.developers.google.com/codelabs/structured-data/index.html#0
+        5. 자바스크립트로 구조화된 데이터 생성
+            - **Google 태그 관리자를 사용해 동적으로 JSON-LD 생성**
+                1. Google 태그 관리자에서 변수 사용
+            - **맞춤 자바스크립트로 구조화된 데이터 생성**
+            - **서버 측 렌더링 사용**
+            - **구현 테스트**
+        6. 구조화된 데이터 빌드, 테스트 및 출시
+            - **새 페이지 만들기**
+            - **기존 페이지 수정하기**
+            - **직접 조치가 적용된 페이지 수정하기**
+                1. 구조화된 데이터와 관련된 일반적인 오류
+5. next/head, _document
+    - **공통 head 태그**
+        - _document
+            - html
+                - lang
+            - link
+                - script
+                - stylesheet
+                - icon
+                - font
+                - manifest
+            - meta
+                - charset
+                - viewport
+                - theme-color
+    - **각 페이지별 head 태그 적용**
+        - next/head의 Head
+            - title 
+            - description metaTag
+            - 소셜 미디어 태그
+                - Open Graph 태그
+                - 트위터 카드 태그
+6. SEO 마케팅 가이드
+    - https://www.twinword.co.kr/blog/search-engine-optimization-guide/
+    - **검색엔진최적화란?**
+        1. SEO란 
+            - 검색엔진 결과 페이지에 웹페이지의 순위, 노출도를 높여 트래픽을 높이는 최적화 작업
+            - 키워드 광고가 아닌 자연 검색어 결과를 개선하는 것이 목표
+            - SEO시 검색엔진 시장상황 고려
+                - 한국, 중국, 러시아 이외의 국가를 타겟으로 하는 회사는 구글 SEO를 먼저 고려
+                - https://www.twinword.co.kr/blog/search-engine-statistics/
+                - https://www.alexa.com/topsites
+        2. SEO 중요성
+            - 트래픽 증감에 따라 회사 매출, 수익 규모에 영향
+            - https://chitika.com/의 구글 검색 결과 페이지 웹로그 분석 결과
+                - 91.5%의 트래픽이 검색결과 첫 페이지
+                - 첫페이지 1순위는 32%, 10순위는 2%
+        3. SEO vs 검색광고
+            - 검색광고는 검색엔진에 비용을 지불, 보통 클릭당비용 방식으로 책정이 됨.
+            - 대부분의 사람들이 광고가 표시된 결과보다 자연스럽게 올라온 검색결과를 선호함.
+            - SEO는 검색엔진에 반영되기까지 최소 3개월이 걸리나 검색광고는 광고를 등록하면 곧바로 반영됨.
+            - https://www.twinword.co.kr/blog/what-is-the-difference-between-seo-and-ppc/
+    - **검색엔진최적화(SEO) 방법**
+        - 2017년 기준 구글 검색결과 순위 랭킹 요소는 200여가지, 모든 요소는 중요도가 다르기 때문에 가장 중요한 최적화 요소를 파악후 적용.
+        1. 보안 프로토콜(HTTPS)
+            - 구굴은 HTTP보다 HTTPS를 사용하는 웹 사이트에 더 높은 점수 부여
+            - 2017년부터 HTTPS가 아닌 사이트 방문시 주소창에 경고 표시
+        2. robots.txt & sitemap.xml
+            - robots.txt는 루트에 위치해야 하며 검색엔진 로봇 접근을 제어하고 사이트맵 위치를 알려줌.
+            - sitemap.xml은 웹사이트 내 모든 페이지의 목록을 나열한 파일로 일반 크롤링에서 쉽게 발견되지 않는 웹페이지도 크롤링되고 색인화시킴. 웹사이트의 구성이 복잡하고 깊이가 깊은 계층형 구조를 가진 사이트는 사이트맵을 필수로 가지고 있어야 함.
+        3. title & metaTag description metaTag (SEO metaTag)
+            - title
+                - 웹페이지의 제목
+                - 영문의 경우 공란 포함 65자, 한글은32자
+                    - 적정길이가 넘어갈시 뒷부분이 잘림
+            - metaTag description
+                - 웹페이지의 중심 내용을 요약해 설명
+                - 영문 320자, 한글 160자
+                    - 적정길이가 넘어갈시 뒷부분이 잘림
+            - title, description은 사용자 클릭율에 큰 영향을 미치기 때문에 적절한 키워드, 문구를 통해 태그 최적화, 구글 SEO 작업 수행
+        4. 소셜 SEO metaTag
+            - Open Graph 태그와 트위터 카드 태그 설정
+            - 구글 웹사이트 최적화 랭킹 요소 분적자료에는 웹사이트의 소셜미디어 활동 관련 지표가 있음
+                - 구글플러스에서의 공유, 페북으로 들어오는 트래픽 등
+            - 웹사이트 콘텐츠를 소셜미디어에서 공유하고 퍼블리싱하는 작업도 SEO를 위해 해줘야함
+            - Open Graph 태그는 페북과 같은 소셜미디어에서 웹페이지 URL이 공유될 때 웹페이지의 주요 정보가 표기되는 방식을 관리하는 역할.
+                - Open Graph 태그를 사용하지 않는 페이지가 소셜미디어에서 공유되면 소셜미디어 크롤러가 임의로 제목, 이미지, 설명, 콘텐츠를 가져가서 마음대로 사용
+            - https://www.twinword.co.kr/blog/sns-marketing-strategy/
+        5. 이미지 태그 및 최적화
+            - 구글 이미지 검색 사용률이 높아지고 있음
+                - https://www.twinword.co.kr/blog/seo-for-google-image-search/
+            - SEO에 가장 중요한 속성은 alt
+                - alt가 잘 설정되어있으면 구글 이미지 검색에서 높은 검색순위를 차지하고 스크린리더를 사용하는 사람에게 페이지 이해를 하는데 도움을 줌
+        6. 모바일 최적화
+            - 반응형 웹사이트를 만들 것
+            - 구글 SEO 랭킹 요소 중 모바일 최적화는 매우 중요
+            - 구글 모바일 친화성 테스트
+                - https://search.google.com/test/mobile-friendly
+            - 모바일 최적화 2가지 방법
+                1. 반응형 웹사이트
+                    - 하나의 페이지 소스로 다양한 기기의 페이지 해상도, 레이아웃에 맞는 화면을 유동적으로 보여주는 사이트
+                2. 모바일용 웹사이트
+                    - Canonical, Alternate 태그 등을 활용해 데스크톱 웹사이트와 모바일용 웹사이트 관계를 확실히 명시
+        7. 대표 주소 설정
+            - https / http / with www / without www
+            - SEO의 핵심은 내 도메인, URL의 최적화 점수를 높이는 것
+            - 하나의 페이지에 접속 방법이 여러가지라면 하나의 대표 주소를 정하고 나머지에 대해선 리다이렉트를 설정
+            - **대표 주소 설정 방법**
+                - https://www.twinword.co.kr/blog/how-to-set-your-preferred-domain/
+                1. 웹사이트 대표 주소란
+                    - 4가지 접근 방법 중 어떤 주소를 입력하든 특정 하나의 주소로 접속을 통일해 트래픽을 제공하는 주소
+                    - 대표주소설정을 통해 검색 사용자나 타깃 고객에게 일관된 주소 정보를 제공하므로 높은 인지도를 얻도록 함
+                    - 4가지 접근 방법
+                        - http://example.com
+                        - http://www.example.com
+                        - https://example.com
+                        - https://www.example.com
+                2. 대표 주소가 SEO에 주는 영향
+                    - 접속할 수 있는 방법이 여러개인 경우 도메인 점수가 분산되어서 SEO에 좋지 않음
+                    - 도메인 점수(Domain Authority)란 해당 사이트가 검색엔진에서 어느 정도의 상위 랭킹에 오를수 있을지를 예측한 점수로서, 인바운드 링크, 콘텐츠 품질, 웹사이트 운영 히스토리 등의 다양한 측면을 고려해 측정한 점수이며, 검색 순위에도 영향을 끼치는 중요한 요소. 
+                3. 전체 도메인 주소별 부여되는 도메인 점수
+                    - 서브도메인보다 서브폴더 방식을 사용한 주소 체계를 가질 것.
+                    - 프로토콜이 다를 경우 다른 웹사이트 주소로 인식
+                4. 대표 주소 설정 방법
+                    - **웹서버**
+                        - .htaccess
+                    - **구글서치콘솔**
+                        - 웹서버 설정고 다르게 별도로 검색엔진에 대표 주소를 알려 줌
+                        - 구글에게 대표 백링크 정보를 알려줄 수 있기 때문에 이 설정은 중요함.
+                5. 한글 주소 vs 영문 주소
+                    - 사용자가 읽기 쉽고 해당 컨텐츠의 의미를 파악할 수 있도록 웹주소 정하기, 확장자가 없으면서 전체 주소가 보여지는 형태가 가장 좋음
+                        - https://www.twinword.co.kr/blog/digital-marketing-forecast-2019/
+                        - https://www.twinword.co.kr/blog/2019년을-이끌어-갈-5가지-디지털-마케팅-트렌드/
+                    - 한글이 가독성이 높으나 소셜 미디어 공유 등을 하게되면 암호처럼 보이기때문에 SNS에서는 가독성이 떨어짐
+                    - 일반적으로 영문을 추천함. 웹주소는 캐노니컬 태그와 사이트맵, 소셜 공유 등 여러 곳에 사용되면서 가능한 접근에 오류가 나지 않아야 함.
+        8. 키워드 및 컨텐츠 최적화
+            - 구글은 독특하고 정보가 풍부한 컨텐츠를 좋아함
+                - 콘텐츠 기획시 웹사이트가 어떤 분야, 주제와 관련이 있어야 할지에 대해 고민하고 그 주제와 관련된 키워드를 찾은 후 콘텐츠 작성
+            - 키워드 리서치 툴
+                - 구글 키워드 플래너
+                - https://www.twinword.com/ideas/
+            - 회사와 관련이 있으면서 검색량이 높고 경쟁지수가 낮은 키워드를 선정해 웹사이트 콘텐츠, 타이블, 메타디스크립션 태그, 이미지 alt태그, URL 이름 등 다양한 부분에 적용시켜 최적화
+            - https://www.twinword.co.kr/seo-book-by-twinword/
 ## 10. SSR,CSR,SPA(Nextjs)
+## 11. Auto Tool
 ## 16. UIUX
 1. UX 기본
     - 더블 다이아몬드
