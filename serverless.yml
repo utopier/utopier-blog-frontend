@@ -1,0 +1,9 @@
+myNextApplication:
+  component: "./node_modules/@sls-next/serverless-component"
+  inputs:
+    bucketName: 'p8wwk29-yw4lkv5'
+    cloudfront:
+        distributionId: E32TVQDNHII1LX
+    name:
+        defaultLambda: 'p8wwk29-juajwog'
+        apiLambda: 'p8wwk29-juajwog'  

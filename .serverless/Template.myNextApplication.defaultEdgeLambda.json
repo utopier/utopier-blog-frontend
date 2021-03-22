@@ -1,0 +1,17 @@
+{
+  "name": "p8wwk29-juajwog",
+  "hash": "nE0RC+cn9GB1a4oFDNZ7Ay8UPThTCrot9hEVvn6jR5Y=",
+  "description": "Default Lambda@Edge for Next CloudFront distribution",
+  "memory": 512,
+  "timeout": 10,
+  "code": "C:\\Git\\Project\\utopier-blog\\frontend\\.serverless_nextjs\\default-lambda",
+  "shims": [],
+  "handler": "index.handler",
+  "runtime": "nodejs12.x",
+  "env": {},
+  "role": {
+    "arn": "arn:aws:iam::565833635703:role/p8wwk29-2porzg"
+  },
+  "arn": "arn:aws:lambda:us-east-1:565833635703:function:p8wwk29-juajwog",
+  "region": "us-east-1"
+}

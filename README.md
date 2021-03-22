@@ -1823,8 +1823,33 @@ export { default as Icon } from './Icon/Icon';
 20. Resources
 21. Customize
 22. Extend DevTools
-## 22. CICD
-## 23. AWS
+## 22. CICD(CircleCI(Lint,Test,Build))
+## 23. AWS(serverless-nextjs)
+- https://falsy.me/%EC%83%88%EB%A1%9C%EC%9A%B4-%EB%B2%84%EC%A0%84-serverless-framework%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-nextjs-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%A5%BC-aws-lambda%EB%A5%BC-%ED%86%B5/
+- https://github.com/serverless-nextjs/serverless-next.js
+1. Intro
+    -  @sls-next/serverless-component@1.18.0를 사용해 Cloud Front, Lambda@edge, s3에 바로 배포
+2. Install Package
+    - npm i -D serverless @sls-next/serverless-component
+    - package.json scripts 수정
+3. Serverelss
+    - serverless.yml
+        ```yml
+        falsyExempleServerlessNext:
+            component: '@sls-next/serverless-component@1.18.0'
+            inputs:
+                bucketName: 'p8wwk29-yw4lkv5'
+                cloudfront:
+                    distributionId: E32TVQDNHII1LX
+                name:
+                    defaultLambda: 'utopier-blog-frontend-default-lambda'
+                    apiLambda: 'utopier-blog-frontend-api-lambda'        
+        ```
+    - bucketName은 Next 파일이 업로드 될 S3 버킷 이름
+    - distributionId는 처음에 배포했던 클라우드프론트의 ID 값
+    - defaultLambda, apiLambda는 serverless-next에서 생성해주는 두개의 람다 이름 
+4. 배포
+    - npm run deploy or npx serverless
 ## 24. Devops(Agile, MSA, Git, Git-flow, Github, Slack, Jira)
 1. [O]github
    - git config --list
