@@ -1396,6 +1396,146 @@ export { default as Icon } from './Icon/Icon';
             - 회사와 관련이 있으면서 검색량이 높고 경쟁지수가 낮은 키워드를 선정해 웹사이트 콘텐츠, 타이블, 메타디스크립션 태그, 이미지 alt태그, URL 이름 등 다양한 부분에 적용시켜 최적화
             - https://www.twinword.co.kr/seo-book-by-twinword/
 ## 10. SSR,CSR,SPA(Nextjs)
+1. CSR vs SSR
+    - **CSR**
+        1. 정의
+            - 처음에 웹서버에 요청할 때 데이터가 없는 문서를 반환
+            - HTML,static파일들이 로드되면서 데이터가 있으면 데이터 또한 서버에 요청하고 그것이 화면상에 나타나게 된다.
+            - Browser가 서버에 HTML,static파일을 요청한 후 로드되면 사용자 상호작용에 따라서 javascript를 통해 동적으로 Rendering한다. 필요에 따라 데이터를 서버에 요청해서 받아와 Rendering한다.
+        2. 장점
+            - 첫로딩후 화면간 라우팅에서 사용자 UX가 좋음
+            - 서버에 요청횟수가 적음
+        3. 단점
+            - 첫로딩시 시간이 오래 걸림
+                - 리소스를 Chunk단위로 묶어서 요청할 때만 다운받게 하는 방식으로 완화시킬수 있으나 해결할 수 없다
+            - SEO 문제 발생
+                - 구글 검색엔진은 javascript까지 크롤링을 하나 다른 검색엔진은 못한다.
+    - **SSR**
+        1. 정의
+            - 완전하게 만들어진 HTML 파일을 받아오고 Rendering
+            - 웹서버에 요청할때 마다 Browser 새로고침이 일어나고 서버에 새로운 페이지에 대한 요청을 하는 방식
+        2. 장점
+            - 초기 로딩 속도가 빠름
+            - 모든 검색엔진에 SEO 가능
+        3. 단점
+            - 매번 페이지 요청시 새로고침되서 사용자 UX가 떨어짐
+            - 서버에 매번 요청을 해야해서 트래픽, 서버 부하가 커짐
+    - **SPA, MPA**
+        1. SPA
+            - 단 하나의 HTML파일로 이뤄진 애플리케이션
+            - 서버로부터 처음에만 페이지를 받아오고 이후에는 동적으로 DOM을 구성해서 Rendering(CSR)
+        2. MPA
+            - 화면마다 HTML파일이 존재하고, 사용자가 그 화면을 요청할 때마다 웹서버가 필요한 데이터와 HTML로 파싱해서 보여주는 방식의 웹 애플리케이션
+            - 동적이지 않은 페이지를 상황에 맞게 클라이언트에 뿌려줌(SSR)
+        3. SPA에서의 SSR구현
+            - SPA에서 CSR, SSR 장점을 모두 구현할 수 있다
+            - 서버, 클라이언트가 Node.js로 같으면 가능하다.(Isomorphic Javascript) 서버와 클라이언트가 동일한 코드로 동작.
+            - ReactDOMServer 라이브러리를 이용해 SSR 구현 가능
+            - React는 Nextjs, Vue는 Nuxtjs
+2. Nextjs SSR
+    - **Custom server**
+        ```javascript
+        // server.js
+        const { createServer } = require('http')
+        const { parse } = require('url')
+        const next = require('next')
+
+        const dev = process.env.NODE_ENV !== 'production'
+        const app = next({ dev })
+        const handle = app.getRequestHandler()
+
+        app.prepare().then(() => {
+        createServer((req, res) => {
+            // Be sure to pass `true` as the second argument to `url.parse`.
+            // This tells it to parse the query portion of the URL.
+            const parsedUrl = parse(req.url, true)
+            const { pathname, query } = parsedUrl
+
+            if (pathname === '/a') {
+            app.render(req, res, '/a', query)
+            } else if (pathname === '/b') {
+            app.render(req, res, '/b', query)
+            } else {
+            handle(req, res, parsedUrl)
+            }
+        }).listen(3000, (err) => {
+            if (err) throw err
+            console.log('> Ready on http://localhost:3000')
+        })
+        })
+        ```
+    - **getServerSideProps**
+        ```typescript
+        import { InferGetServerSidePropsType } from 'next'
+
+        type Data = { ... }
+
+        export const getServerSideProps = async () => {
+        const res = await fetch('https://.../data')
+        const data: Data = await res.json()
+
+        return {
+            props: {
+            data,
+            },
+        }
+        }
+
+        function Page({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+        // will resolve posts to type Data
+        }
+
+        export default Page
+        ```
+    - **SWR**   
+        ```javascript
+        import useSWR from 'swr'
+
+        function Profile() {
+        const { data, error } = useSWR('/api/user', fetch)
+
+        if (error) return <div>failed to load</div>
+        if (!data) return <div>loading...</div>
+            return <div>hello {data.name}!</div>
+        }
+        ```
+    3. Naver SSR
+    - https://d2.naver.com/helloworld/2177909
+    - **레거시 시스템 전환 전략**
+        - 점진적으로 배포하기 위해 URL 단위의 배포 전략을 사용
+    - **Reverse Proxy**
+        - URL 단위 배포를 위해 reverse proxt 구조 사용
+        - 사용자 요청이 프록시 서버를 통해 웹 서버에 전달되고 웹 서버가 처리한 응답이 다시 프록시 서버를 통해 클라이언트로 전달된다
+        - reverse proxy는 주로 네트워크와 외부 네트워크 사이를 분리해 보안 이슈를 해결하기 위해 사용되나 점진적 URL 단위 배포를 위해 이를 이용
+        - m.blog.naver.com/페이지로 접근시 reverse proxy에서 Nodejs SSR 전환이 완료된 페이지의 경우에 Nodejs SSR을 서빙하고 그렇지 않은 페이지의 경우 기존 블로그 페이지를 서빙
+    - **Nodejs 기반의 SSR 환경 구성**
+        - React + Nextjs를 사용하지 않고 Nodejs 기반의 SSR 환경을 자체 구축. 소규모 프로젝트의 경우 Nextjs 도입 권장
+        - 안정성, 투명성 관점에서 보다 우위에 있는 기술 스택을 선정
+    - **대국민 서비스를 위한 준비**
+        1. 전세계에서 사용하는 Node.js
+            - Nodejs는 이벤트 루프와 단일 스레드 모델을 사용함으로써 node-blocking I/O와 멀티 태스크가 가능한 구조로 설계된 언어. 구조적으로 조회성 서비스에서는 훌륭한 성능과 안정성을 가짐
+            - 글로벌 서비스에도 Nodejs는 적용되어있음
+        2. 성능 테스트
+            - 성능 테스트 목적
+                - 애플리케이션과 서버환경의 최적의 환경을 찾는것
+                - 최적의 환경에서 어느 정도의 부하를 견뎌낼 수 있는지를 검증하고 인지하는 것. 즉, 시스템 가용량을 확인.
+            - 두가지를 검증하기 위해 시스템의 임계치까지 부하를 줌. 테스트 환경을 준비하고 부하를 주어 시스템이 최대로 수용할 수 있는 TPS(Transactions Per Seconds)를 찾기로 함
+            - Nodejs의 경우 단일 스레드이기 때문에 하나의 요청은 하나의 CPU core만을 사용함. 보통 서버의 core는 멀티 core를 지원하기 때문에 Nodejs 인스턴스를 몇개를 사용해야 최적의 성능을 나타낼 수 있는지 반드시 확인이 필요하다.
+                - Nodejs의 인스턴스를 클러스터링할 수 있는 PM2 사용
+                    - https://pm2.keymetrics.io/
+        3. 에러 대응
+            - Nodejs의 경우 비동기 코드 중심의 개발이기 때문에 코드구현보다 코드 안전성을 확보하는 것이 보다 더 중요함
+            - Nodejs의 경우 비동기 상황에서 발생하는 에러의 경우 UncauhtException이 발생하고 이로 인해 Nodejs 프로세스가 죽는 경우도 발생함.
+                - Nodejs를 사용하는 모든 애플리케이션에서는 UncaughtException에 대한 에러 처리를 해야함
+            - 그러나 UncaughtException 에러처리만으로 궁극적으로 이 문제를 해결할 수 없음. Nodejs 공식 문서에서도 에러 복구보다 인스턴스 자체를 재시작하기를 권장함.
+                - https://nodejs.org/api/process.html#process_warning_using_uncaughtexception_correctly
+            - Nodejs 내에서 동작하는 핵심 플로우의 에러 상황 검증을 위한 단위 테스트 도입
+        4. 롤백 플랜
+            - 성능테스트로 부하를 검증하고 단위테스트로 에러를 검증했어도 현실에서 예측하지 못한 상황이 발생할 수 있으므로 모든 시스템의 배포와 전환 시에는 항상 롤백 플랜이 준비되어 있어야 한다.
+            - Nodejs SSR 장점은 SSR 구조이나 초기 진입 부분만 변경하면 CSR 형태의 서비스도 쉽게 제공할 수 있다. 이를 이용해 단계적 롤백 플랜을 세울 수 있다.
+                - 사용자 부하를 받지 못하거나 장애가 발새아는 경우 CSR 페이지 노출
+                - CSR 페이지가 장애가 발생한 경우 프론트엔드 전환 전 페이지 노출
+            - Nodejs SSR을 이용하면 보다 다양한 선택지를 이용해 롤백 및 장애 대응 준비를 할 수 있다.
 ## 11. Auto Tool
 ## 16. UIUX
 1. UX 기본
