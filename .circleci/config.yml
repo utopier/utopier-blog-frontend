@@ -26,9 +26,9 @@ jobs:
           key: dep-bundle-{{ checksum "package.json" }}
           paths:  
             - ./node_modules
-      - run:
-          name: Linting with eslint
-          command: npm run lint
+      # - run:
+      #     name: Linting with eslint
+      #     command: npm run lint
       - run:
           name: Testing with jest
           command: npm run jest-test
