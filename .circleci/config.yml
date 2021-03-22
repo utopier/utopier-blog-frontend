@@ -41,9 +41,9 @@ jobs:
       - run:
           name: Cypress Test
           command: npm run test:e2e
-     - run:
-         name: aws serverless deploy
-         command: npm run deploy
+      - run:
+          name: aws serverless deploy
+          command: npm run deploy
 workflows:
   version: 2
   build:
