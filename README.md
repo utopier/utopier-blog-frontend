@@ -1047,6 +1047,101 @@ export { default as Icon } from './Icon/Icon';
 6. IndexedDB
     - https://developers.google.com/web/ilt/pwa/working-with-indexeddb
 ## 8. AMP(GoogleCodelab, Nextjs)
+1. AMP
+    - https://amp.dev/documentation/?format=websites
+2. Nextjs AMP
+    - Nextjs AMP페이지는 CSS-in-JS만 지원함
+    - 기본적으로 최신 버전의 amp component를 가져옴. 사용자 정의 버전은 next/head에 script 태그로 적용
+    - AMP 페이지는 개발 중에 amphtml-validator를 사용해 자동으로 유효성 검사를 함. next.config.js에서 검사를 끄거나 커스텀 AMP 유효성 검사기를 설정할 수 있음.
+    - Next.js는 HTML버전에서 페이지의 AMP버전에 대한 링크를 자동으로 삽입함
+        ```html
+        <link rel="amphtml" href="/about.amp.html" />
+        ```
+        ```html
+        <link rel="canonical" href="/about" />
+        ```
+    - 하이브리드 AMP 페이지
+        - pages/about.js
+            - out/about.html
+            - out/about.amp.html
+    - AMP-only 페이지
+        - pages/about.js
+                - out/about.html
+    - TypeScript 설정
+        - https://github.com/ampproject/amphtml/issues/13791
+        - amp.d.ts
+            ```typescript
+            // Any element you create will be accepted
+            declare namespace JSX {
+                interface IntrinsicElements {
+                    [elemName: string]: any;
+                }
+            }
+
+            // The elements you list here will be accepted, attributes don't matter
+            declare namespace JSX {
+                interface IntrinsicElements {
+                    'amp-img': any;
+                }
+            }
+
+            // The elements you list here will be accepted, and only with the attributes that you include here
+            declare namespace JSX {
+                interface AmpImg {
+                    alt?: string;
+                    src?: string;
+                    width?: string;
+                    height?: string;
+                    layout?: string;
+                }
+                interface IntrinsicElements {
+                    'amp-img': AmpImg;
+                }
+            }
+            ```
+    - 각 page별 적용
+        1. AMP-only 페이지
+            ```javascript
+            export const config = { amp : 'hybrid' }
+            ```
+            - 페이지에 Next.js or React 클라이언트 측 런타임이 없음
+            - 페이지는 AMP 캐시와 AMP Optimizer로 자동최적화됨(성능 42% 향상)
+            - 페이지에 사용자가 액세스 할 수 있는 최적화된 버전의 페이지와 색인이 생성 될 수 있는 최적화되지 않은 버전의 페이지가 있음
+        2. Hybrid 페이지
+            ```javascript
+            import { useAmp } from 'next/amp'
+
+            export const config = { amp: 'hybrid' }
+            
+            function About(props){
+                const isAmp = useAmp() // true or false
+
+                return(
+                        <div>
+                            <h3>My AMP About Page!</h3>
+                            {isAmp ? (
+                                <amp-img
+                                width="300"
+                                height="300"
+                                src="/my-img.jpg"
+                                alt="a cool image"
+                                layout="responsive"
+                                />
+                            ) : (
+                                <img width="300" height="300" src="/my-img.jpg" alt="a cool image" />
+                            )}
+                        </div>
+                )
+            }
+
+            export default About
+            ```
+            - 페이지는 기존 HTML(기본값) 및 AMP HTML(URL에 `?amp=1`추가)으로 렌더링됨.
+            - 페이지는 AMP 버전에는 AMP Optimizer와 함께 적용된 유효한 최적화만 있으므로 검색 엔진에서 색인을 생성할 수 있음.
+3. amp Codelab
+    - https://codelabs.developers.google.com/codelabs/accelerated-mobile-pages-foundations/
+    - https://codelabs.developers.google.com/codelabs/accelerated-mobile-pages/#0
+
 ## 9. SEO(schema.org, robots.txt, sitemap.xml, Nextjs)
 1. robots.txt
     - **robots.txt 소개**
