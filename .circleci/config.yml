@@ -38,9 +38,9 @@ jobs:
       # - run:
       #     name: 빌드
       #     command: npm run build
-      - run:
-          name: Cypress Test
-          command: npm run test:e2e
+      # - run:
+      #     name: Cypress Test
+      #     command: npm run test:e2e
       - run:
           name: aws serverless deploy
           command: npm run deploy
