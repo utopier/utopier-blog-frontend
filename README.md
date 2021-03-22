@@ -1844,7 +1844,7 @@ export { default as Icon } from './Icon/Icon';
      - App -> Github for Jira
      - 앱관리 -> Github -> Configuration
      - 프로젝트 -> 항목추가 -> 저장소 -> https://github.com/utopier/utopier-blog-frontend.git
-     - Smart Commit Test
+     - Smart Commit Test~
 3. [O]github + slack
    - Slack
      - 워크스페이스 생성 (utopier-blog)
