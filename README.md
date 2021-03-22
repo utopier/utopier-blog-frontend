@@ -420,6 +420,31 @@
     ```
     - package.json scripts에 "test":"jest" 추가
 2. cypress
+    - npm i -D cypress @testing-library/cypress start-server-and-test
+   - package.json
+     ```json
+     "scripts": {
+         //...
+         "cypress": "cypress open",
+         "cypress:headless": "cypress run --browser chrome --headless",
+         "test:e2e": "start-server-and-test start 3000 cypress",
+         "test:e2e:ci": "start-server-and-test start 300 cypress:headless"
+         //...
+     }
+     ```
+   - cypress.json
+      ```json
+      {
+        "baseUrl": "http://localhost:3000",
+        "video": false
+      }
+      ```
+    - cypress/support/index.js
+      ```javascript
+      import '@testing-library/cypress/add-commands';
+      ```
+    - npm i -D msw
+
 ## 4. Routing(Nextjs)
 1. pages Structure
     - /chat
@@ -1823,7 +1848,75 @@ export { default as Icon } from './Icon/Icon';
 20. Resources
 21. Customize
 22. Extend DevTools
-## 22. CICD(CircleCI(Lint,Test,Build))
+## 22. CICD(CircleCI(Test,Build,Deploy))
+1. CICD
+2. Test(jest, react-testing-library, cypress)
+- 정적 분석 : eslint, prettier, typescript
+- 단위 테스트 : jest
+- 통합 테스트 : jest, react-testing-library
+- 엔드투엔드 테스트 : cypress
+3. Build & Deploy
+    - serverless-nextjs
+    - aws
+4. CircleCI
+    - https://www.serverless.com/blog/ci-cd-workflow-serverless-apps-with-circleci
+    1. CICD Process Flow
+    1. continuous integration
+        - commit code -> build -> unit testing -> integration testing
+    2. continuous delivery
+        - deploy to QA -> acceptance testing
+    3. continuous development
+        - deploy to PRO
+
+    2. CircleCI 계정 설정
+    - 가입후 github repository와 연결
+
+    3. AWS IAM 사용자 생성
+    - https://serverless.com/blog/abcs-of-iam-permissions/
+    - AWS 자격 증명으로 CircleCI 구성
+
+    4. .circleci/config.yml
+    ```yml
+    jobs:
+        build:
+        ...
+
+        steps:
+            - checkout
+
+            # Download and cache dependencies
+            - restore_cache:
+                keys:
+                - dependencies-cache-{{ checksum "package.json" }}
+                # fallback to using the latest cache if no exact match is found
+                - dependencies-cache
+
+            - run:
+                name: Install Serverless CLI and dependencies
+                command: |
+                sudo npm i -g serverless
+                npm install
+
+            - run:
+                name: Run tests with code coverage
+                command: npm test --coverage
+
+            - run:
+                name: Deploy application
+                command: sls deploy
+
+            - save_cache:
+                paths:
+                - node_modules
+                key: dependencies-cache-{{ checksum "package.json" }}
+    ```
+
+    5. 고급 배포 패턴 고려
+    1. 다중 지역 배포
+    2. 패키징 및 배포 분리
+    3. 카나리아 배포
+    4. 블루/그린 배포
+
 ## 23. AWS(serverless-nextjs)
 - https://falsy.me/%EC%83%88%EB%A1%9C%EC%9A%B4-%EB%B2%84%EC%A0%84-serverless-framework%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-nextjs-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%A5%BC-aws-lambda%EB%A5%BC-%ED%86%B5/
 - https://github.com/serverless-nextjs/serverless-next.js
