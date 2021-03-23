@@ -1916,6 +1916,7 @@ export { default as Icon } from './Icon/Icon';
     2. 패키징 및 배포 분리
     3. 카나리아 배포
     4. 블루/그린 배포
+6. CircleCI 통합 (Jira, Slack)
 
 ## 23. AWS(serverless-nextjs)
 - https://falsy.me/%EC%83%88%EB%A1%9C%EC%9A%B4-%EB%B2%84%EC%A0%84-serverless-framework%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-nextjs-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%A5%BC-aws-lambda%EB%A5%BC-%ED%86%B5/
