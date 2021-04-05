@@ -3,8 +3,7 @@ import wrapper from '../store';
 function HomePage() {
     return (
     <>
-        <div>Welcome to Next.js!</div>
-        <button id="pwaInstall">Install App</button>
+        <div>Home Page</div>
     </>
     )
 }

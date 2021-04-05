@@ -1,6 +1,8 @@
 import { AppProps } from 'next/app';
 import { useEffect } from 'react';
 
+import AppLayout from '../components/AppLayout';
+
 import GlobalStyles from '../styles/GlobalStyles';
 
 import wrapper from '../store';
@@ -22,7 +24,9 @@ function MyApp({ Component, pageProps }:AppProps) {
     return (
       <>
         <GlobalStyles />
-        <Component {...pageProps} />
+        <AppLayout>
+          <Component {...pageProps} />
+        </AppLayout>
       </>
     )
   }

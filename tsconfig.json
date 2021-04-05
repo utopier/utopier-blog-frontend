@@ -67,8 +67,6 @@
     ],
     "include": [
       "next-env.d.ts",
-      "**/*.ts",
-      "**/*.tsx",
       "components/PostSummary/index.test.js"
     ]
   }

@@ -21,6 +21,9 @@ const GlobalStyles = () => {
 						background-color: #283149;
 						color: white;
 						font-family: 'Noto Sans KR', sans-serif;
+						// div {
+						// 	border: 1px solid green;
+						// }
 					}
 					a {
 						color: white;
