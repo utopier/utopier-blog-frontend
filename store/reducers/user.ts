@@ -1,9 +1,10 @@
 import produce from 'immer';
 
 // 액션 type
-export const LOAD_MY_INFO_REQUEST = 'LOAD_MY_INFO_REQUEST';
-export const LOAD_MY_INFO_SUCCESS = 'LOAD_MY_INFO_SUCCESS';
-export const LOAD_MY_INFO_FAILURE = 'LOAD_MY_INFO_FAILURE';
+// as const (const assertions) : 액션 생성함수를 통해 액션 객체를 만들때 typescript type이 string이 아닌 실제값을 가리킴.
+export const LOAD_MY_INFO_REQUEST = 'LOAD_MY_INFO_REQUEST' as const;
+export const LOAD_MY_INFO_SUCCESS = 'LOAD_MY_INFO_SUCCESS' as const;
+export const LOAD_MY_INFO_FAILURE = 'LOAD_MY_INFO_FAILURE' as const;
 
 export const LOAD_USER_REQUEST = 'LOAD_USER_REQUEST' as const;
 export const LOAD_USER_SUCCESS = 'LOAD_USER_SUCCESS' as const;
@@ -68,6 +69,7 @@ export const ADD_USER_TO_ROOM = 'ADD_USER_TO_ROOM' as const;
 export const REMOVE_USER_TO_ROOM = 'REMOVE_USER_TO_ROOM' as const;
 
 // 액션 생성 함수
+// FSA(flux-standard-action) 규칙을 따를 경우 payload안에 data를 담아서 사용.
 export const loadMyInfoRequest = (data: object) => ({
 	type: LOAD_MY_INFO_REQUEST,
 	data,
@@ -284,6 +286,8 @@ export const removeUserToRoom = (data: object) => ({
 });
 
 // 액션 타입스크립트 타입
+// 리듀서 작성시 action 파라미터 타입을 설정하기 위해 사용
+// 액션 type 설정시 as const를 사용하지 않으면 ReturnType의 type이 string으로 처리되어 리듀서를 제대로 구현할 수 없음
 export type UserAction =
 	| ReturnType<typeof loadMyInfoRequest>
 	| ReturnType<typeof loadMyInfoSuccess>
@@ -336,7 +340,6 @@ export type UserAction =
 	| ReturnType<typeof removeUserToRoom>;
 
 // 상태를 위한 타입 선언
-
 export type UserState = {
 	hasMoreUsers: boolean;
 	loadMyInfoLoading: boolean; // 유저 정보 가져오기 시도중
@@ -394,7 +397,6 @@ export type UserState = {
 };
 
 // 초깃값
-
 const initialState: UserState = {
 	hasMoreUsers: true,
 	loadMyInfoLoading: false, // 유저 정보 가져오기 시도중

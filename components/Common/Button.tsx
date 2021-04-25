@@ -8,10 +8,11 @@ const ButtonWrapper = styled.div`
 		display: none;
 	}
 	button {
+		cursor: pointer;
 		width: 100%;
 		height: 100%;
 		font-weight: 400;
-		color: #00818a;
+		color: ${({theme})=>theme.blueGreen};
 		font-size: 1em;
 		background-color: white;
 		border-radius: ${(props: any) => props.borderRadius || '10px'};
@@ -20,21 +21,19 @@ const ButtonWrapper = styled.div`
 		-ms-transition: all 0.3s ease-in-out;
 		-o-transition: all 0.3s ease-in-out;
 		outline: none;
-		border: 1px solid #00818a;
+		border: 1px solid ${({theme})=>theme.blueGreen};
 	}
 	button:hover {
 		width: 100%;
 		height: 100%;
-
 		background: #dbedf3;
 		border: 1px solid rgba(0, 0, 0, 0.05);
-		box-shadow: 0 0 20px #00818a;
+		box-shadow: 0 0 20px ${({theme})=>theme.blueGreen};
 	}
 	button:focus {
 		width: 100%;
 		height: 100%;
-
-		box-shadow: 0 0 20px #00818a;
+		box-shadow: 0 0 20px ${({theme})=>theme.blueGreen};
 	}
 `;
 

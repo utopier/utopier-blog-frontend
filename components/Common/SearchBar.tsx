@@ -12,27 +12,27 @@ const SearchBarWrapper = styled.div`
 	justify-content: center;
 	align-items: center;
 	position: relative;
+	cursor: none;
 	input {
 		height: 50%;
 		width: 100%;
 	}
 	img {
-		width: 45%;
 		height: 45%;
 	}
 	.search--icon {
 		position: absolute;
 		top: 10px;
-		right: -19%;
+		right: 0;
 	}
 	@media (max-width: 800px) {
 		.search--icon {
-			right: -18%;
+			right: 0;
 		}
 	}
 	@media (max-width: 500px) {
 		.search--icon {
-			right: -15%;
+			right: 0;
 		}
 	}
 `;

@@ -1,9 +1,15 @@
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { jsx, ThemeProvider } from '@emotion/react'
+
 import { AppProps } from 'next/app';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
+import ErrorBoundary from '../components/ErrorBoundary'
 
 import AppLayout from '../components/AppLayout';
 
 import GlobalStyles from '../styles/GlobalStyles';
+import theme from '../styles/Theme';
 
 import wrapper from '../store';
 
@@ -22,12 +28,14 @@ function MyApp({ Component, pageProps }:AppProps) {
       }
     }, []);
     return (
-      <>
-        <GlobalStyles />
-        <AppLayout>
-          <Component {...pageProps} />
-        </AppLayout>
-      </>
+      <ErrorBoundary>
+        <ThemeProvider theme={theme}>
+          <GlobalStyles />
+          <AppLayout>
+            <Component {...pageProps}/>
+          </AppLayout>      
+        </ThemeProvider>
+      </ErrorBoundary>
     )
   }
   

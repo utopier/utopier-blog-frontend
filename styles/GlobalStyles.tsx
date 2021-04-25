@@ -1,11 +1,15 @@
-// css reset : emotion-reset
-
-// 공통 Design 적용
-// font
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { jsx, useTheme} from '@emotion/react'
 import emotionReset from 'emotion-reset';
 import { Global, css } from '@emotion/core';
+import React from 'react';
 
+// css reset : emotion-reset
+// 공통 Design 적용
+// font
 const GlobalStyles = () => {
+	const theme  = useTheme();	
 	return (
 		<>
 			<Global
@@ -18,7 +22,7 @@ const GlobalStyles = () => {
 						font-smoothing: antialiased;
 					}
 					body {
-						background-color: #283149;
+						background-color: ${theme.bgColor};
 						color: white;
 						font-family: 'Noto Sans KR', sans-serif;
 						// div {
@@ -44,14 +48,14 @@ const GlobalStyles = () => {
 						border-radius: 5px;
 						padding: 3px 0px 3px 3px;
 						margin: 5px 1px 3px 0px;
-						border: 1px solid #00818a;
+						border: 1px solid ${theme.blueGreen};
 					}
 					input:focus,
 					textarea:focus {
-						box-shadow: 0 0 20px #00818a;
+						box-shadow: 0 0 20px ${theme.blueGreen};
 						padding: 3px 0px 3px 3px;
 						margin: 5px 1px 3px 0px;
-						border: 1px solid #00818a;
+						border: 1px solid ${theme.blueGreen};
 					}
 					a {
 						outline: none;

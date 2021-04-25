@@ -1,30 +1,43 @@
-import React from 'react';
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { jsx } from '@emotion/react'
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
+import React from 'react';
+
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '../../store/reducers';
+import { LOG_OUT_REQUEST } from '../../store/reducers/user';
+
 import Link from 'next/link';
 import BarLoader from 'react-spinners/BarLoader';
 
 import SearchBar from '../Common/SearchBar';
 
 const Header = styled.header`
-	padding: 0 20px;
-	display: flex;
-	z-index: 7;
-	height: 10vh;
-	border-bottom: 1px solid #404b69;
-	margin-bottom: 3vh;
-	padding: 0 8px;
-	border-top: 3px solid #00818a;
 	position: fixed;
-	background-color: #283149;
+	z-index: 7;
+    display: flex;	
+	padding: 0 10px;
+	margin-bottom: 3vh;
 	width: 100%;
+	height: 10vh;
+	background-color: ${({theme}) => theme.bgColor};
+	border-bottom: ${({theme}) => theme.borderBottom};
+	border-top: 3px solid ${ ({theme}) => theme.blueGreen};
 	a {
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		cursor: pointer;
+		&:foucus {
+			box-shadow: ${({theme}) => theme.focusBoxShadows};
+		}
+		&:hover {
+			box-shadow: ${({theme}) => theme.focusBoxShadows};
+		}
 	}
 	.header__logo {
-		padding-right: 10px;
 		display: flex;
 		width: 10%;
 		justify-content: center;
@@ -34,6 +47,9 @@ const Header = styled.header`
 			font-size: 1.4em;
 			font-weight: 700;
 			color: #00818a;
+		}
+		a{
+			width: 100%;
 		}
 	}
 	@media (max-width: 1260px) {
@@ -48,14 +64,8 @@ const Header = styled.header`
 		width: 40%;
 		justify-content: space-around;
 		align-itmes: center;
-		a {
+		a{
 			width: 100%;
-			&:foucus {
-				box-shadow: 0 0 20px #00818a inset, 0 0 20px #00818a;
-			}
-			&:hover {
-				box-shadow: 0 0 20px #00818a inset, 0 0 20px #00818a;
-			}
 		}
 	}
 	@media (max-width: 900px) {
@@ -74,16 +84,7 @@ const Header = styled.header`
 		font-size: 0.8em;
 		a {
 			padding: 20px;
-			&:foucus {
-				box-shadow: 0 0 20px #00818a inset, 0 0 20px #00818a;
-			}
-			&:hover {
-				box-shadow: 0 0 20px #00818a inset, 0 0 20px #00818a;
-			}
 		}
-	}
-	.header__user .header__user--logout {
-		cursor: pointer;
 	}
 	.header__search-bar {
 		width: 100%;
@@ -97,6 +98,9 @@ const Header = styled.header`
 	}
 	.header__responsive-nav {
 		display: none;
+		img {
+			transition: transform 0.2s;
+		}
 	}
 	@media (max-width: 700px) {
 		.header__user .header__user--logout {
@@ -120,75 +124,75 @@ const override = css`
 `;
 
 const TopNavigation = () => {
-    // const { me } = useSelector<RootState, any>((state) => state.user);
-	// const dispatch = useDispatch();
+    const { me } = useSelector<RootState, any>((state) => state.user);
+	const dispatch = useDispatch();
 
-	// const {
-	// 	loadMyInfoLoading,
-	// 	loadUserLoading,
-	// 	loadUsersLoading,
-	// 	followLoading,
-	// 	unfollowLoading,
-	// 	logInLoading,
-	// 	logOutLoading,
-	// 	signUpLoading,
-	// 	uploadImagesLoading,
-	// 	removeImagesLoading,
-	// 	changeNicknameLoading,
-	// 	changeBioLoading,
-	// 	loadFollowingsLoading,
-	// 	loadFollowersLoading,
-	// 	removeFollowerLoading,
-	// } = useSelector<RootState, any>((state) => state.user);
-	// const {
-	// 	likePostLoading,
-	// 	unlikePostLoading,
-	// 	loadPostLoading,
-	// 	loadPostsLoading,
-	// 	loadTagsLoading,
-	// 	addPostLoading,
-	// 	updatePostLoading,
-	// 	removePostLoading,
-	// 	addCommentLoading,
-	// 	updateCommentLoading,
-	// 	removeCommentLoading,
-	// 	postUploadImagesLoading,
-	// 	postRemoveImagesLoading,
-	// } = useSelector<RootState, any>((state) => state.post);
-	// const isLoading =
-	// 	loadMyInfoLoading ||
-	// 	loadUserLoading ||
-	// 	loadUsersLoading ||
-	// 	followLoading ||
-	// 	unfollowLoading ||
-	// 	logInLoading ||
-	// 	logOutLoading ||
-	// 	signUpLoading ||
-	// 	uploadImagesLoading ||
-	// 	removeImagesLoading ||
-	// 	changeNicknameLoading ||
-	// 	changeBioLoading ||
-	// 	loadFollowersLoading ||
-	// 	loadFollowingsLoading ||
-	// 	removeFollowerLoading ||
-	// 	likePostLoading ||
-	// 	unlikePostLoading ||
-	// 	loadPostLoading ||
-	// 	loadPostsLoading ||
-	// 	loadTagsLoading ||
-	// 	addPostLoading ||
-	// 	updatePostLoading ||
-	// 	removePostLoading ||
-	// 	addCommentLoading ||
-	// 	updateCommentLoading ||
-	// 	removePostLoading ||
-	// 	postUploadImagesLoading ||
-	// 	postRemoveImagesLoading ||
-	// 	removeCommentLoading;
+	const {
+		loadMyInfoLoading,
+		loadUserLoading,
+		loadUsersLoading,
+		followLoading,
+		unfollowLoading,
+		logInLoading,
+		logOutLoading,
+		signUpLoading,
+		uploadImagesLoading,
+		removeImagesLoading,
+		changeNicknameLoading,
+		changeBioLoading,
+		loadFollowingsLoading,
+		loadFollowersLoading,
+		removeFollowerLoading,
+	} = useSelector<RootState, any>((state) => state.user);
+	const {
+		likePostLoading,
+		unlikePostLoading,
+		loadPostLoading,
+		loadPostsLoading,
+		loadTagsLoading,
+		addPostLoading,
+		updatePostLoading,
+		removePostLoading,
+		addCommentLoading,
+		updateCommentLoading,
+		removeCommentLoading,
+		postUploadImagesLoading,
+		postRemoveImagesLoading,
+	} = useSelector<RootState, any>((state) => state.post);
+	const isLoading =
+		loadMyInfoLoading ||
+		loadUserLoading ||
+		loadUsersLoading ||
+		followLoading ||
+		unfollowLoading ||
+		logInLoading ||
+		logOutLoading ||
+		signUpLoading ||
+		uploadImagesLoading ||
+		removeImagesLoading ||
+		changeNicknameLoading ||
+		changeBioLoading ||
+		loadFollowersLoading ||
+		loadFollowingsLoading ||
+		removeFollowerLoading ||
+		likePostLoading ||
+		unlikePostLoading ||
+		loadPostLoading ||
+		loadPostsLoading ||
+		loadTagsLoading ||
+		addPostLoading ||
+		updatePostLoading ||
+		removePostLoading ||
+		addCommentLoading ||
+		updateCommentLoading ||
+		removePostLoading ||
+		postUploadImagesLoading ||
+		postRemoveImagesLoading ||
+		removeCommentLoading;
 
     // test code
-    const me = {name: 'utopier'};
-    const isLoading = true;
+    // const me = {name: 'utopier'};
+    // const isLoading = true;
 
     const clikedMenu = React.useRef(false);
 	
@@ -198,15 +202,16 @@ const TopNavigation = () => {
         console.log('onClickMenu');
       
         const leftNav: any = document.querySelector('.LeftNavigation');
-		console.log(clikedMenu.current);
-        console.log(leftNav);
+		const menuImg: any = document.querySelector('.header__responsive-nav img');
         if (clikedMenu.current) {
 			leftNav.style.display = 'none';
+			menuImg.style.transform = 'rotate(0deg)';
 			clikedMenu.current = false;
 
 			leftNav?.removeAttribute('style');
 		} else {
 			leftNav.style.display = 'block';
+			menuImg.style.transform = 'rotate(90deg)';
 			clikedMenu.current = true;
 		}
     }
@@ -214,7 +219,7 @@ const TopNavigation = () => {
     const onClickLogout = (e:React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
         e.preventDefault();
         console.log('onClickLogout');
-        // dispatch({ type: LOG_OUT_REQUEST });
+        dispatch({ type: LOG_OUT_REQUEST });
     }
     return (
         <>

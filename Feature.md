@@ -1,17 +1,58 @@
 # DevCycle & Feature List
+
+## Beta Version
+- [-] StateManagement
+    - redux
+    - immer
+    - next-redux-wrapper
+    - redux-saga
+        - effects
+    - axios
+    - next-redux-wrapper
+    - redux-devtools-extension
+    - [] reducers typescript setting
+    - [] typesafe-actions
+- [-] Error Handling
+    - [] API Error
+    - [] Offline Error Page
+- [] Loading Handling
+- [] /signup
+- [] /login
+- [] /users
+- [] /user
+- [] /createPost
+- [] /posts
+- [] /post
+- [] /tags
+- [] /tag
+- [] /chat
+- [] /trends
 ---
 ## DevCycle
 1. UIUX, Responsive, Mobile, MarkUp, AppShell, TDD, DDD, Devops(with PWA) 
     - [] AppLayout with PWA AppShell
-        - [] TopNavigation
-        - [] LeftNavigation
+        - [O] TopNavigation
+        - [O] LeftNavigation
         - [O] Footer
     - [] Styles
-        - [] GlobalStyles.tsx
-        - [] Theme.tsx
-    - [] Home Page
-    - [] AppShell Architecture
-2. [] Public Resources
+        - [-] GlobalStyles.tsx
+            emotion + typescript theme type error
+        - [-] Theme.tsx
+    - [] Offline Pages
+        - []NetworkErrorPage
+    - [] Mobile Design
+    - [] Responsive
+    - [] Markup
+    - [] AppShell Architecture(IndexedDB, ServiceWorker, CacheAPI)
+    - [] Loading & Error Pages
+        - [] Posts
+        - [] Post
+        - [] Users
+        - [] User
+        - [] Signup
+        - [] Login
+        - [] 
+2. [] Public Resources (PWA, SEO)
     - Font
     - Icons, Images
     - manifest.json
@@ -23,24 +64,27 @@
 3. Design Guide with Storybook
     - [] Color Pallete
     - [] Components
-4. Public Code for DRY
+4. Loading Handling
+5. Error Handling
+6. Public Code for DRY
     - Hooks
     - utils
-    - React Basic Code
-5. StateManagement
+7. React Component Refactoring(UIUX, Responsive, Accessibility, CrossBrowser, Test, Performance,...)
+8. SSR, CSR, SPA with Nextjs
+-------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
+9. StateManagement
     - [] Redux
     - [] Redux-Saga
     - [] Next - Redux
-6. React Component Refactoring
-7. SSR, CSR, SPA with Nextjs
-8. SEO
-9. PWA
-10. AMP
-11. Accessibility
-12. CrossBrowser
-13. Responsive
-14. Performance
-15. Security
+11. SEO
+12. PWA
+13. AMP
+14. Accessibility
+15. CrossBrowser
+16. Responsive
+17. Performance
+18. Security
 ---
 ## Feature List
 1. UIUX with Figma

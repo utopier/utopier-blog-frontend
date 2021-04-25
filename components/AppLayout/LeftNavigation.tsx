@@ -18,13 +18,13 @@ import { useSelector } from 'react-redux';
 //import { askPermission, subscribeUser } from '../../public/push';
 
 const LeftNavigationWrapper = styled.nav`
-	width: 170px;
-	border-right: 1px solid #404b69;
 	position: fixed;
-	margin-top: 10vh;
+	width: 170px;
 	height: 100%;
-	background-color: #283149;
-	z-index: 1;
+	border-right: 1px solid ${({theme}) => theme.bgColor2};
+	margin-top: 10vh;
+	z-index: 1000;
+	background-color: ${({theme})=>theme.bgColor};
 	div {
 		display: flex;
 		justify-content: center;
@@ -34,35 +34,31 @@ const LeftNavigationWrapper = styled.nav`
 			margin-left: 5px;
 		}
 	}
-	#{
-		height: 20px;
-	}
 	div:hover {
 		cursor: pointer;
-		background-color: #404b69;
+		background-color: ${({theme}) => theme.bgColor2};
 	}
 	@media (max-width: 700px) {
 		display: none;
 	}
 	@media (min-width: 700px) {
 		display: block;
+		z-index: 1000;
 	}
 	.push-toggle-switch {
-		margin-top: 10px;
+		margin: 10px 0;
 		height: 100px;
-		box-shadow: 0 0 20px #00818a inset, 0 0 20px #00818a;
+		cursor: pointer;
+		box-shadow: ${({theme}) => theme.focusBoxShadows};
 		&:hover {
-			cursor: auto;
-			background-color: #283149;
+			cursor: pointer;
+			background-color: ${({theme}) => theme.bgColor2};
 		}
-		&:div {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-		}
+	}
+	@media (hover: none) and (pointer: coarse) {
 		div:hover {
-			cursor: auto;
-			background-color: #283149;
+			cursor: pointer;
+			background-color: ${({theme}) => theme.bgColor2};
 		}
 	}
 `;
@@ -106,14 +102,10 @@ const LeftNavigation = () => {
 	// }, [isCheckedPushToggle]);
 
     useEffect(() => {
-        console.log('router.pathname : ', router.pathname);
-		setLeftNavHoverStyle(pageName(router.pathname));
-        console.log(leftNavHoverStyle);
-	},[router.pathname]);
+        setLeftNavHoverStyle(pageName(router.pathname));
+    },[router.pathname]);
 
     const pageName = (pageName: string) => {
-        console.log('pageName Func');
-        console.log('pageName Func pageNameParams : ', pageName);
         if (pageName === '/') {
             return css`
                 .left-nav--home {
