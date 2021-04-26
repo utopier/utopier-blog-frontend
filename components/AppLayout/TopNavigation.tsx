@@ -1,7 +1,6 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx } from '@emotion/react'
-import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import React from 'react';
 
@@ -10,13 +9,14 @@ import { RootState } from '../../store/reducers';
 import { LOG_OUT_REQUEST } from '../../store/reducers/user';
 
 import Link from 'next/link';
-import BarLoader from 'react-spinners/BarLoader';
 
 import SearchBar from '../Common/SearchBar';
+import LoadingBar from '../Common/LoadingBar';
 
 const Header = styled.header`
 	position: fixed;
 	z-index: 7;
+
     display: flex;	
 	padding: 0 10px;
 	margin-bottom: 3vh;
@@ -24,7 +24,6 @@ const Header = styled.header`
 	height: 10vh;
 	background-color: ${({theme}) => theme.bgColor};
 	border-bottom: ${({theme}) => theme.borderBottom};
-	border-top: 3px solid ${ ({theme}) => theme.blueGreen};
 	a {
 		display: flex;
 		align-items: center;
@@ -118,78 +117,12 @@ const Header = styled.header`
 		}
 	}
 `;
-const override = css`
-	position: fixed;
-	z-index: 10;
-`;
 
 const TopNavigation = () => {
     const { me } = useSelector<RootState, any>((state) => state.user);
 	const dispatch = useDispatch();
 
-	const {
-		loadMyInfoLoading,
-		loadUserLoading,
-		loadUsersLoading,
-		followLoading,
-		unfollowLoading,
-		logInLoading,
-		logOutLoading,
-		signUpLoading,
-		uploadImagesLoading,
-		removeImagesLoading,
-		changeNicknameLoading,
-		changeBioLoading,
-		loadFollowingsLoading,
-		loadFollowersLoading,
-		removeFollowerLoading,
-	} = useSelector<RootState, any>((state) => state.user);
-	const {
-		likePostLoading,
-		unlikePostLoading,
-		loadPostLoading,
-		loadPostsLoading,
-		loadTagsLoading,
-		addPostLoading,
-		updatePostLoading,
-		removePostLoading,
-		addCommentLoading,
-		updateCommentLoading,
-		removeCommentLoading,
-		postUploadImagesLoading,
-		postRemoveImagesLoading,
-	} = useSelector<RootState, any>((state) => state.post);
-	const isLoading =
-		loadMyInfoLoading ||
-		loadUserLoading ||
-		loadUsersLoading ||
-		followLoading ||
-		unfollowLoading ||
-		logInLoading ||
-		logOutLoading ||
-		signUpLoading ||
-		uploadImagesLoading ||
-		removeImagesLoading ||
-		changeNicknameLoading ||
-		changeBioLoading ||
-		loadFollowersLoading ||
-		loadFollowingsLoading ||
-		removeFollowerLoading ||
-		likePostLoading ||
-		unlikePostLoading ||
-		loadPostLoading ||
-		loadPostsLoading ||
-		loadTagsLoading ||
-		addPostLoading ||
-		updatePostLoading ||
-		removePostLoading ||
-		addCommentLoading ||
-		updateCommentLoading ||
-		removePostLoading ||
-		postUploadImagesLoading ||
-		postRemoveImagesLoading ||
-		removeCommentLoading;
-
+	
     // test code
     // const me = {name: 'utopier'};
     // const isLoading = true;
@@ -221,58 +154,58 @@ const TopNavigation = () => {
         console.log('onClickLogout');
         dispatch({ type: LOG_OUT_REQUEST });
     }
-    return (
+	return (
         <>
-            <BarLoader css={override} width={2000} height={10} color={'#00818a'} loading={isLoading} />
-            <Header>
-				<div onClick={onClickMenu} className="header__responsive-nav">
-					<img src="/icons/menu.svg" width="25" height="25" alt="메뉴 아이콘" />
-				</div>
-				<div className="header__logo">
-					<Link href="/">
-						<a>
-							<img src="/icon-192x192.png" alt="logo" width="30" height="30" />
-							<h1>Utopier</h1>
-						</a>
-					</Link>
-				</div>
-				<div className="header__menu">
-					<Link href="/posts">
-						<a>Posts</a>
-					</Link>
-					<Link href="/tags">
-						<a>Tags</a>
-					</Link>
-					<Link href="/users">
-						<a>Users</a>
-					</Link>
-				</div>
-				<div className="header__search-bar">
-					<SearchBar id="main-search-bar" placeholder="...search" />
-				</div>
-				<div className="header__user">
-					{me ? (
-						<>
-							<a className="header__user--logout" onClick={onClickLogout}>
-								logout
+			<LoadingBar/>
+			<Header>			
+					<div onClick={onClickMenu} className="header__responsive-nav">
+						<img src="/icons/menu.svg" width="25" height="25" alt="메뉴 아이콘" />
+					</div>
+					<div className="header__logo">
+						<Link href="/">
+							<a>
+								<img src="/icon-192x192.png" alt="logo" width="30" height="30" />
+								<h1>Utopier</h1>
 							</a>
-							<Link href="/user">
-								<a>
-									<img src="/icons/user.svg" width="25" height="25" alt="" />
+						</Link>
+					</div>
+					<div className="header__menu">
+						<Link href="/posts">
+							<a>Posts</a>
+						</Link>
+						<Link href="/tags">
+							<a>Tags</a>
+						</Link>
+						<Link href="/users">
+							<a>Users</a>
+						</Link>
+					</div>
+					<div className="header__search-bar">
+						<SearchBar id="main-search-bar" placeholder="...search" />
+					</div>
+					<div className="header__user">
+						{me ? (
+							<>
+								<a className="header__user--logout" onClick={onClickLogout}>
+									logout
 								</a>
-							</Link>
-						</>
-					) : (
-						<>
-							<Link href="/signup">
-								<a>signup</a>
-							</Link>
-							<Link href="/login">
-								<a>login</a>
-							</Link>
-						</>
-					)}
-				</div>
+								<Link href="/user">
+									<a>
+										<img src="/icons/user.svg" width="25" height="25" alt="" />
+									</a>
+								</Link>
+							</>
+						) : (
+							<>
+								<Link href="/signup">
+									<a>signup</a>
+								</Link>
+								<Link href="/login">
+									<a>login</a>
+								</Link>
+							</>
+						)}
+					</div>
 			</Header>
         </>
     )

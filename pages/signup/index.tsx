@@ -20,11 +20,34 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 
 
-const SignUpWarrper = styled.div``
+const SignUpWarrper = styled.div`
+	display:flex;	
+	flex-direction: column;
+	padding: 3rem;
+	.body__signup--title{
+		display: flex;
+		justify-content: center;
+		font-size: 2rem;
+		padding-bottom: 3rem;
+		font-weight: 700;
+		color: #00818a;
+		border-bottom: 1px solid #404b69;
+	}	
+	.body__signup--form-warpper{
+		padding-top: 3rem;
+		form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+	}
+`;
 
 const SignUp = ({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
     const dispatch = useDispatch();
-	const { signUpDone, signUpError, me } = useSelector<RootState, any>((state) => state.user);
+	const { signUpDone, signUpLoading, signUpError, me } = useSelector<RootState, any>((state) => state.user);
+
+	console.log('signUpLoading : ',signUpLoading)
 
     useEffect(() => {
 		if (me && me.id) {

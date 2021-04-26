@@ -2,6 +2,10 @@ import styled from '@emotion/styled';
 import { Field, ErrorMessage } from 'formik';
 
 const InputWrapper = styled.div`
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	label {
 		padding-left: 10px;
 	}
@@ -22,9 +26,7 @@ const Input = ({ htmlFor, labelText, type }) => {
 		<>
 			<InputWrapper>
 				<label htmlFor={htmlFor}>{labelText}</label>
-				<br />
-				<Field name={htmlFor} type={type} />
-				<br />
+				<Field id={htmlFor} name={htmlFor} type={type}  />
 				<p>
 					<ErrorMessage name={htmlFor} />
 				</p>

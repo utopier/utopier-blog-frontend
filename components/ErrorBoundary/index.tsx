@@ -19,8 +19,8 @@ interface IErrorBoundariesState {
   
     render() {
         console.log("ErrorBoundary Component");
-      const {hasError, error} = this.state;
-  
+        const {hasError, error} = this.state;
+        console.log("ErrorBoundary Error : ", error);
       if (!hasError) {
         return this.props.children;
       }

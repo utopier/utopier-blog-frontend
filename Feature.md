@@ -13,10 +13,49 @@
     - [] reducers typescript setting
     - [] typesafe-actions
 - [-] Error Handling
-    - [] API Error
-    - [] Offline Error Page
+    - [O] API Error
+    - [] API Error Message
+    - [] Form Error Message
 - [] Loading Handling
-- [] /signup
+    - [] Frontend Page Loading 
+    - [] Frontend Page Rendering Loading
+    - [] API Loading
+- [] Public Resources
+    - [] icons
+    - [] images
+    - [] font
+    - [] javascript scripts & 3rd-party library
+    - [] robots.txt
+    - [] sitemap.xml
+    - [] manifest.json
+    - [] service-worker.js
+    - [] install.js
+    - [] push.js & notification.js
+- [] AppShell
+    - [] offline.html
+    - [] service-worker.js
+    - [] cache api
+    - [] indexedDB
+    - [] offline Error Page
+- [] Design
+    - [] UIUX
+    - [] Responsive
+    - [] Mobile
+    - [] Markup Policy
+    - [] Emotion
+    - [] Storybook
+- [] Nextjs + React
+    - [] SSR, CSR, SPA (Nextjs Data Fetching & Build)
+    - [] React + Nextjs Component Coding Pattern
+    - [] Nextjs Features
+    - [] Performance
+- [] CICD
+    - [] Test
+    - [] Build
+    - [] Deploy
+- [] Devops
+---
+- [-] /signup
 - [] /login
 - [] /users
 - [] /user
@@ -27,6 +66,14 @@
 - [] /tag
 - [] /chat
 - [] /trends
+---
+- [] Accessibility
+- [] CrossBrowser
+- [] SEO
+- [] PWA
+- [] AMP
+- [] Performance
+- [] Security
 ---
 ## DevCycle
 1. UIUX, Responsive, Mobile, MarkUp, AppShell, TDD, DDD, Devops(with PWA) 
