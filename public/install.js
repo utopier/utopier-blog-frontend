@@ -2,8 +2,10 @@ let deferredInstallPrompt = null;
 const installButton = document.getElementById('pwaInstall');
 installButton.addEventListener('click', installPWA);
 
+window.onload = function () {
+	console.log('onLoad');
+};
 window.addEventListener('beforeinstallprompt', saveBeforeInstallPromptEvent);
-
 /**
  * Event handler for beforeinstallprompt event.
  *   Saves the event & shows install button.
@@ -11,11 +13,11 @@ window.addEventListener('beforeinstallprompt', saveBeforeInstallPromptEvent);
  * @param {Event} evt
  */
 function saveBeforeInstallPromptEvent(evt) {
-    console.log('saveBeforeInstallPromptEvent')
-    evt.preventDefault();
+	console.log('saveBeforeInstallPromptEvent');
+	evt.preventDefault();
 	// CODELAB: Add code to save event & show the install button.
 	deferredInstallPrompt = evt;
-    console.log(deferredInstallPrompt);
+	console.log('deferredInstallPrompt Event : ', deferredInstallPrompt);
 	installButton.removeAttribute('hidden');
 }
 
@@ -25,7 +27,7 @@ function saveBeforeInstallPromptEvent(evt) {
  * @param {Event} evt
  */
 function installPWA(evt) {
-    console.log(deferredInstallPrompt);
+	console.log(deferredInstallPrompt);
 	// CODELAB: Add code show install prompt & hide the install button.
 	deferredInstallPrompt.prompt();
 	// Hide the install button, it can't be called twice.

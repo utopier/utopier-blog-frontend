@@ -65,7 +65,7 @@ function* removeFollower(action: UserAction) {
 		console.error(err);
 		yield put({
 			type: REMOVE_FOLLOWER_FAILURE,
-			error: err.response.data,
+			error: err.response ? err.response.data : JSON.stringify(err),
 		});
 	}
 }
@@ -85,7 +85,7 @@ function* loadFollowers(action: UserAction) {
 		console.error(err);
 		yield put({
 			type: LOAD_FOLLOWERS_FAILURE,
-			error: err.response.data,
+			error: err.response ? err.response.data : JSON.stringify(err),
 		});
 	}
 }
@@ -105,7 +105,7 @@ function* loadFollowings(action: UserAction) {
 		console.error(err);
 		yield put({
 			type: LOAD_FOLLOWINGS_FAILURE,
-			error: err.response.data,
+			error: err.response ? err.response.data : JSON.stringify(err),
 		});
 	}
 }
@@ -125,7 +125,7 @@ function* changeNickname(action: UserAction) {
 		console.error(err);
 		yield put({
 			type: CHANGE_NICKNAME_FAILURE,
-			error: err.response.data,
+			error: err.response ? err.response.data : JSON.stringify(err),
 		});
 	}
 }
@@ -145,7 +145,7 @@ function* changeBio(action: UserAction) {
 		console.error(err);
 		yield put({
 			type: CHANGE_BIO_FAILURE,
-			error: err.response.data,
+			error: err.response ? err.response.data : JSON.stringify(err),
 		});
 	}
 }
@@ -166,7 +166,7 @@ function* loadUser(action: UserAction) {
 		console.error(err);
 		yield put({
 			type: LOAD_USER_FAILURE,
-			error: err.response.data,
+			error: err.response ? err.response.data : JSON.stringify(err),
 		});
 	}
 }
@@ -198,7 +198,7 @@ function* loadsUser(action: UserAction) {
 		console.error(err);
 		yield put({
 			type: LOAD_USERS_FAILURE,
-			error: err.response.data,
+			error: err.response ? err.response.data : JSON.stringify(err),
 		});
 	}
 }
@@ -216,10 +216,10 @@ function* loadMyInfo() {
 			data: result.data,
 		});
 	} catch (err) {
-		console.error(err);
+		console.error('loadMyInfo Error : ',err);
 		yield put({
 			type: LOAD_MY_INFO_FAILURE,
-			error: err.response.data,
+			error: err.response ? err.response.data : JSON.stringify(err),
 		});
 	}
 }
@@ -239,7 +239,7 @@ function* logIn(action: UserAction) {
 		console.error(err);
 		yield put({
 			type: LOG_IN_FAILURE,
-			error: err.response.data,
+			error: err.response ? err.response.data : JSON.stringify(err),
 		});
 	}
 }
@@ -258,7 +258,7 @@ function* logOut() {
 		console.error(err);
 		yield put({
 			type: LOG_OUT_FAILURE,
-			error: err.response.data,
+			error: err.response ? err.response.data : JSON.stringify(err),
 		});
 	}
 }
@@ -280,7 +280,7 @@ function* signUp(action: UserAction) {
 		console.error(err);
 		yield put({
 			type: SIGN_UP_FAILURE,
-			error: err.response.data,
+			error: err.response ? err.response.data : JSON.stringify(err),
 		});
 	}
 }
@@ -301,7 +301,7 @@ function* uploadImages(action: UserAction) {
 		console.error(err);
 		yield put({
 			type: UPLOAD_IMAGES_FAILURE,
-			error: err.response.data,
+			error: err.response ? err.response.data : JSON.stringify(err),
 		});
 	}
 }
@@ -322,7 +322,7 @@ function* removeImages(action: any) {
 		console.error(err);
 		yield put({
 			type: REMOVE_IMAGES_FAILURE,
-			error: err.response.data,
+			error: err.response ? err.response.data : JSON.stringify(err),
 		});
 	}
 }
@@ -344,7 +344,7 @@ function* follow(action: UserAction) {
 		console.error(err);
 		yield put({
 			type: FOLLOW_FAILURE,
-			error: err.response.data,
+			error: err.response ? err.response.data : JSON.stringify(err),
 		});
 	}
 }
@@ -364,7 +364,7 @@ function* unfollow(action: UserAction) {
 		console.error(err);
 		yield put({
 			type: UNFOLLOW_FAILURE,
-			error: err.response.data,
+			error: err.response ? err.response.data : JSON.stringify(err),
 		});
 	}
 }

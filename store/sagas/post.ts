@@ -69,7 +69,7 @@ function* createPost(action: PostAction) {
 		console.error(err);
 		yield put({
 			type: CREATE_POST_FAILURE,
-			error: err.response.data,
+			error: err.response ? err.response.data : JSON.stringify(err),
 		});
 	}
 }
@@ -90,7 +90,7 @@ function* uploadImages(action: PostAction) {
 		console.error(err);
 		yield put({
 			type: UPLOAD_IMAGES_FAILURE,
-			error: err.response.data,
+			error: err.response ? err.response.data : JSON.stringify(err),
 		});
 	}
 }
@@ -111,7 +111,7 @@ function* removeImages(action: any) {
 		console.error(err);
 		yield put({
 			type: REMOVE_IMAGES_FAILURE,
-			error: err.response.data,
+			error: err.response ? err.response.data : JSON.stringify(err),
 		});
 	}
 }
@@ -142,7 +142,7 @@ function* loadPosts(action: PostAction) {
 		console.error(err);
 		yield put({
 			type: LOAD_POSTS_FAILURE,
-			error: err.response.data,
+			error: err.response ? err.response.data : JSON.stringify(err),
 		});
 	}
 }
@@ -173,7 +173,7 @@ function* loadTags(action: PostAction) {
 		console.error(err);
 		yield put({
 			type: LOAD_TAGS_FAILURE,
-			error: err.response.data,
+			error: err.response ? err.response.data : JSON.stringify(err),
 		});
 	}
 }
@@ -194,7 +194,7 @@ function* loadPost(action: PostAction) {
 		console.error(err);
 		yield put({
 			type: LOAD_POST_FAILURE,
-			error: err.response.data,
+			error: err.response ? err.response.data : JSON.stringify(err),
 		});
 	}
 }
@@ -214,7 +214,7 @@ function* updatePost(action: PostAction) {
 		console.error(err);
 		yield put({
 			type: UPDATE_POST_FAILURE,
-			error: err.response.data,
+			error: err.response ? err.response.data : JSON.stringify(err),
 		});
 	}
 }
@@ -238,7 +238,7 @@ function* removePost(action: PostAction) {
 		console.error(err);
 		yield put({
 			type: REMOVE_POST_FAILURE,
-			error: err.response.data,
+			error: err.response ? err.response.data : JSON.stringify(err),
 		});
 	}
 }
@@ -258,7 +258,7 @@ function* likePost(action: PostAction) {
 		console.error(err);
 		yield put({
 			type: LIKE_POST_FAILURE,
-			error: err.response.data,
+			error: err.response ? err.response.data : JSON.stringify(err),
 		});
 	}
 }
@@ -278,7 +278,7 @@ function* unlikePost(action: PostAction) {
 		console.error(err);
 		yield put({
 			type: UNLIKE_POST_FAILURE,
-			error: err.response.data,
+			error: err.response ? err.response.data : JSON.stringify(err),
 		});
 	}
 }
@@ -298,7 +298,7 @@ function* addComment(action: PostAction) {
 		console.error(err);
 		yield put({
 			type: ADD_COMMENT_FAILURE,
-			error: err.response.data,
+			error: err.response ? err.response.data : JSON.stringify(err),
 		});
 	}
 }
@@ -318,7 +318,7 @@ function* updateComment(action: PostAction) {
 		console.error(err);
 		yield put({
 			type: UPDATE_COMMENT_FAILURE,
-			error: err.response.data,
+			error: err.response ? err.response.data : JSON.stringify(err),
 		});
 	}
 }
@@ -338,7 +338,7 @@ function* removeComment(action: PostAction) {
 		console.error(err);
 		yield put({
 			type: REMOVE_COMMENT_FAILURE,
-			error: err.response.data,
+			error: err.response ? err.response.data : JSON.stringify(err),
 		});
 	}
 }

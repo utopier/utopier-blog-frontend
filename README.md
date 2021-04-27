@@ -524,6 +524,19 @@
 ## 6. DataContainer(Redux, Redux Saga) with Nextjs
 1. DataContainer
 2. Redux
+    - **시작하기**
+        - 예측 가능한 상태 컨테이너
+        - React 등 뷰 라이브러리와 함께 사용 가능
+        - 2kb
+    - **기본 예제**
+        - 하나의 store안에 객체 트리에 앱의 상태 전부가 저장됨
+        - 상태 트리 변경은 action 객체를 보낼때만
+        - 상태 트리 변경 명시는 reducers에
+        
+    - **Redux를 사용해야 할때**
+        - 계속해서 바뀌는 상당한 양의 데이터가 있을때
+        - 상태를 위한 단 하나의 근원이 필요할때
+        - 최상위 컴포넌트가 모든 상태를 가지고 있는 것은 더이상 적절하지 않을때
 3. ReduxSaga
 4. Nextjs with Redux & Redux Saga
     - npm i axios redux react-redux redux-saga immer next-redux-wrapper redux-devtools-extension
