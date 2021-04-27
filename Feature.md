@@ -16,10 +16,10 @@
     - [O] API Error
     - [] API Error Message
     - [] Form Error Message
-- [] Loading Handling
+- [O] Loading Handling
     - [] Frontend Page Loading 
     - [] Frontend Page Rendering Loading
-    - [] API Loading
+    - [O] API Loading
 - [] Public Resources
     - [] icons
     - [] images
@@ -55,8 +55,18 @@
     - [] Deploy
 - [] Devops
 ---
+- [-] /
+    - [] layout(grid, flex)
+    - [] slider 
+    - [] dropdown
+    - [] modal
+    - [] interactive page(animation)
+    - [] video
+    - [] img
+    - [] font
+    - [] storybook
 - [-] /signup
-- [] /login
+- [-] /login
 - [] /users
 - [] /user
 - [] /createPost

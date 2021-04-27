@@ -16,9 +16,9 @@ import LoadingBar from '../Common/LoadingBar';
 const Header = styled.header`
 	position: fixed;
 	z-index: 7;
-
-    display: flex;	
-	padding: 0 10px;
+    display: flex;
+	justify-content: center;
+	align-items: center;	
 	margin-bottom: 3vh;
 	width: 100%;
 	height: 10vh;
@@ -81,9 +81,6 @@ const Header = styled.header`
 		justify-content: space-around;
 		align-itmes: center;
 		font-size: 0.8em;
-		a {
-			padding: 20px;
-		}
 	}
 	.header__search-bar {
 		width: 100%;
@@ -113,6 +110,9 @@ const Header = styled.header`
 			cursor: pointer;
 		}
 		.header__logo {
+			display: none;
+		}
+		.header__user {
 			display: none;
 		}
 	}
@@ -165,7 +165,6 @@ const TopNavigation = () => {
 						<Link href="/">
 							<a>
 								<img src="/icon-192x192.png" alt="logo" width="30" height="30" />
-								<h1>Utopier</h1>
 							</a>
 						</Link>
 					</div>

@@ -11,8 +11,10 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import { useSelector } from 'react-redux';
-// import { RootState } from '../../store/redux/reducers';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '../../store/reducers';
+import { LOG_OUT_REQUEST } from '../../store/reducers/user';
+
 
 // import Switch from 'react-switch';
 //import { askPermission, subscribeUser } from '../../public/push';
@@ -65,8 +67,10 @@ const LeftNavigationWrapper = styled.nav`
 
 const LeftNavigation = () => {
 	// const { me } = useSelector<RootState, any>((state) => state.user);
-    // test code
-    const me = {name: 'utopier'}
+	
+	const me = {name:"test"};
+	const dispatch = useDispatch();
+
     const router = useRouter();
     let [leftNavHoverStyle, setLeftNavHoverStyle] = React.useState<SerializedStyles>();
    
@@ -146,6 +150,12 @@ const LeftNavigation = () => {
         }
     };
 
+	const onClickLogout = (e:React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+        e.preventDefault();
+        console.log('onClickLogout');
+        dispatch({ type: LOG_OUT_REQUEST });
+    }
+
 	return (
 		<LeftNavigationWrapper css={leftNavHoverStyle} className="LeftNavigation">
 			<div className="left-nav--home">
@@ -195,7 +205,36 @@ const LeftNavigation = () => {
             <Button id="pwaInstall" aria-label="Install" hidden text="PWA Install" width="170px" height="30px">
                 Install App
 			</Button>
-		</LeftNavigationWrapper>
+			{me ? (
+							<>
+								<div>
+									<Link href="/user">
+										<a>
+											<img src="/icons/user.svg" width="25" height="25" alt="" />
+										</a>
+									</Link>
+								</div>
+								<div>
+									<a className="header__user--logout" onClick={onClickLogout}>
+										logout
+									</a>
+								</div>
+							</>
+						) : (
+							<>
+								<div>
+									<Link href="/signup">
+										<a>signup</a>
+									</Link>
+								</div>
+								<div>
+									<Link href="/login">
+										<a>login</a>
+									</Link>
+								</div>
+							</>
+			)}
+			</LeftNavigationWrapper>
 	);
 };
 

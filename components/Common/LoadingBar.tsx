@@ -13,7 +13,6 @@ const override = css`
 
 
 const LoadingBar = () => {
-	console.log('LoadingBar renderings')
     const {
 		loadMyInfoLoading,
 		loadUserLoading,

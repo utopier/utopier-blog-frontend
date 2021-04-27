@@ -13,6 +13,7 @@ const SearchBarWrapper = styled.div`
 	align-items: center;
 	position: relative;
 	cursor: none;
+	padding: 0 5px;
 	input {
 		height: 50%;
 		width: 100%;
@@ -23,7 +24,7 @@ const SearchBarWrapper = styled.div`
 	.search--icon {
 		position: absolute;
 		top: 10px;
-		right: 0;
+		right: 2px;
 	}
 	@media (max-width: 800px) {
 		.search--icon {
