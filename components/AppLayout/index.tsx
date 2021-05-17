@@ -8,7 +8,7 @@ import Footer from './Footer';
 const ContentWrapper = styled.div`
     display: flex;
     width: 100%;
-
+    z-index: 10000;
     #content {
         width: 100%;
         padding-top: 10vh;

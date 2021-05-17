@@ -21,6 +21,8 @@ const MyProfile = ({}: InferGetServerSidePropsType<typeof getServerSideProps>) =
 		}
 	}, [me && me.id]);
 
+	console.log(me);
+
 	return (
 		<>
 			<Head>

@@ -1,4 +1,5 @@
-import React from 'react';
+import React,{useState, useEffect} from 'react';
+import {Router} from 'next/router'
 import { css } from '@emotion/core';
 
 import {useSelector} from 'react-redux';
@@ -13,7 +14,12 @@ const override = css`
 
 
 const LoadingBar = () => {
-    const {
+	const [routeChanged, setRouteChanged] = useState(false);
+	useEffect(() => {
+		Router.events.on('routeChangeStart', () => setRouteChanged(true));
+    	Router.events.on('routeChangeComplete', () => setRouteChanged(false));
+	})
+	const {
 		loadMyInfoLoading,
 		loadUserLoading,
 		loadUsersLoading,
@@ -46,6 +52,7 @@ const LoadingBar = () => {
 		postRemoveImagesLoading,
 	} = useSelector<RootState, any>((state) => state.post);
 	const isLoading =
+		routeChanged ||
 		loadMyInfoLoading ||
 		loadUserLoading ||
 		loadUsersLoading ||

@@ -9,6 +9,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import _ from 'lodash';
 import { RootState } from '../../store/reducers';
 
+import Button from '../Common/Button'
+
 import useInput from '../../hooks/useInput';
 // import { SelectionState } from 'draft-js';
 
@@ -17,12 +19,20 @@ const ChatRoomWrapper = styled.div`
 	display: flex;
 	.chat__room-user-list {
 		width: 20%;
+		overflow: auto;
+		overflow-x:hidden;
+		overflow-y:visible;
+		background-color: none;
+		height: 630px;
 		.chat__room-user-list--title {
 			height: 10%;
 			padding: 10px;
 			padding-left: 30px;
 			font-size: 2em;
 			font-weight: 600;
+			button {
+				display: none;
+			}
 		}
 		.chat__room-user-card {
 			display: flex;
@@ -35,16 +45,23 @@ const ChatRoomWrapper = styled.div`
 		min-height: 600px;
 		width: 80%;
 	}
+	.chat__room-body--title {
+		background-color: #283149;
+		display: flex;
+		height: 10%;
+		padding: 10px;
+		padding-left: 30px;
+		font-size: 2em;
+		font-weight: 600;
+		img {
+			display: none;
+		}
+	}
 	.chat__room-body--message-list {
 		overflow: auto;
-		height: 90%;
-		.chat__room-body--title {
-			height: 10%;
-			padding: 10px;
-			padding-left: 30px;
-			font-size: 2em;
-			font-weight: 600;
-		}
+		overflow-x:hidden;
+		overflow-y:visible;
+		height: 500px;
 		.chat__room--message-card {
 			display: flex;
 			width: 100%;
@@ -71,61 +88,48 @@ const ChatRoomWrapper = styled.div`
 			height: 100%;
 		}
 	}
+	@media(max-width: 1200px){
+		.chat__room-body--title{
+			justify-content: space-between;
+			img {
+				display: block;
+				cursor: pointer;
+			}
+		}
+		.chat__room-user-list{
+			display: none;
+			background-color: #283149;
+			transform: 0.5s;
+			right:0;
+		}
+		.chat__room-user-list{
+			.chat__room-user-list--title {
+				display: flex;
+				justify-content: space-around;
+				button {
+					display: block;
+					transition: 0.5s;
+				}
+			}
+		}
+		.chat__room-body{
+			width: 100%;
+			z-index: 1;
+		}
+	}
 `;
 
 const ChatRoom = () => {
 	const { me } = useSelector<RootState, any>((state) => state.user);
 	const [messages, setMessages] = useState<any[]>([]);
 	const socket = useContext(SocketContext);
-	const [messageInput, onChageMessageInput, setMessageInput] = useInput(null);
+	const [messageInput, onChageMessageInput, setMessageInput] = useInput('');
 	const [randomNick, setRandomNick] = useState(`손님${Math.floor(Math.random() * 1000)}`);
 	const [chatUsers, setChatUsers] = useState<any[]>([]);
 
-	const onKeyPressMessageInput = (e: any) => {
-		if (e.key === 'Enter') {
-			sendMessage();
-		}
-	};
+	let elem;
 
-	const sendMessage = () => {
-		socket.emit('message', {
-			type: 'chat',
-			avatar: (me && me.avatar.src) || '/images/avatar.svg',
-			nickname: (me && me.nickname) || randomNick,
-			message: messageInput,
-		});
-		setMessageInput('');
-	};
-	const receiveMessage = () => {
-		socket.on('message', (data: any) => {
-			setMessages([...messages, data]);
-		});
-	};
-
-	const sendJoinUser = useCallback(() => {
-		console.log('sendJoinUser Func');
-		socket.emit('join', {
-			type: 'join',
-			nickname: (me && me.nickname) || randomNick,
-			avatar: (me && me.avatar && me.avatar.src) || '/images/avatar.svg',
-		});
-	}, []);
-	const getJoinUser = useCallback(() => {
-		socket.on('join', ({ data, chatUsers }: any) => {
-			setMessages([...messages, data]);
-			setChatUsers(chatUsers);
-		});
-	}, []);
-
-	const sendLeaveUser = useCallback(() => {
-		socket.emit('leave', { type: 'leave', nickname: (me && me.nickname) || randomNick });
-	}, []);
-	const getLeaveUser = () => {
-		socket.on('leave', ({ data, chatUsers }: any) => {
-			setMessages([...messages, data]);
-			setChatUsers(chatUsers);
-		});
-	};
+	console.log(socket);
 	useEffect(() => {
 		sendJoinUser();
 		return () => {
@@ -136,16 +140,124 @@ const ChatRoom = () => {
 		receiveMessage();
 		getJoinUser();
 		getLeaveUser();
+		getDisconnectUser();
+		console.log('------------ ChatRoom Rendering useEffect --------')
 	});
+	useEffect(() => {
+		elem = document.getElementsByClassName("chat__room-body--message-list")[0];
+		if(elem){
+			elem.scrollTop = elem.scrollHeight;
+		}
+	},[messages])
+
+	console.log('ChatRoom me : ',me);
+	console.log('ChatRoom socket : ', socket);
+	console.log('ChatRoom messages : ', messages);
+	console.log('ChatRoom messageInput : ',messageInput);
+	console.log('ChatRoom randomNick : ', randomNick);
+	console.log('ChatRoom chatUsers : ', chatUsers);
+	console.log('MessageInptut : ', messageInput);
+	
+	const onKeyPressMessageInput = (e: any) => {
+		if (e.key === 'Enter') {
+			sendMessage();
+		}
+		// const elem = document.getElementsByClassName("chat__room-body--message-list")[0];
+		// elem.scrollTop = elem.scrollHeight;
+	};
+
+	const sendMessage = useCallback(() => {
+		console.log('sendMessage Func')
+		console.log(me)
+		console.log('messageInput : ', messageInput);
+		socket.emit('message', {
+			type: 'chat',
+			avatar: (me && me.avatar && me.avatar.src) || '/images/avatar.svg',
+			nickname: (me && me.nickname) || randomNick,
+			message: messageInput,
+		});
+		setMessageInput('');
+	},[messageInput])
+	const receiveMessage = useCallback(() => {
+		console.log('receiveMessage Func');
+		socket.on('message', (data: any) => {
+			setMessages([...messages, data]);
+		}); 
+		console.log(elem);
+		if(elem){
+			console.log('auto scroll down')
+			elem.scrollTop = elem.scrollHeight;
+		}
+	},[messages])
+
+	const sendJoinUser = useCallback(() => {
+		console.log('sendJoinUser Func');
+		socket.emit('join', {
+			type: 'join',
+			socketId: socket.id,
+			nickname: (me && me.nickname) || randomNick,
+			avatar: (me && me.avatar && me.avatar.src) || '/images/avatar.svg',
+		});
+	}, []);
+	const getJoinUser = useCallback(() => {
+		console.log('getJoinUser Crrunt Messages : ', messages);
+		socket.on('join', ({ data, chatUsers }: any) => {
+			setMessages([...messages, data]);
+			setChatUsers(chatUsers);
+		});
+	}, [messages, chatUsers]);
+
+	const sendLeaveUser = useCallback(() => {
+		socket.emit('leave', { type: 'leave',socketId: socket.id, nickname: (me && me.nickname) || randomNick });
+	}, []);
+	const getLeaveUser = useCallback(() => {
+		socket.on('leave', ({ data, chatUsers }: any) => {
+			console.log('leave chatUsers : ', chatUsers);
+			setMessages([...messages, data]);
+			setChatUsers(chatUsers);
+		});
+	},[messages, chatUsers]);
+	const getDisconnectUser = useCallback(() => {
+		socket.on('disconnectEvt', ({ disconnectedSocketId, chatUsers:resChatUsers}: any) => {
+			console.log('disconnect-evt socket');
+			console.log('disconnectedSocketId : ', disconnectedSocketId)
+			console.log('disconnectEvt resChatUsers : ', resChatUsers)
+			const disconnectedUser = chatUsers.find((user) => {
+				return user.socketId === disconnectedSocketId;
+			})
+			console.log('disconnectedUser : ',disconnectedUser);
+			console.log('disconnected Message : ', {
+				...disconnectedUser,
+				type:"disconnect"
+			})
+			setMessages([...messages, {
+				...disconnectedUser,
+				type:"disconnect"
+			}])
+			setChatUsers(resChatUsers);
+		})
+	},[chatUsers,messages])
 	console.log('state chatusers : ', chatUsers);
+
+	const onClickUserListIcon = () => {
+		console.log('onClickUserListIcon');
+		console.log(document.getElementsByClassName("chat__room-user-list")[0].setAttribute("style","width:250px;display:block;z-index:2;position:absolute;"));
+		// document.getElementsByClassName("chat__room-user-list")[0].style.width = "250px";
+	}
+	
+	const onClickCloseUserList = () => {
+		console.log('onClickCloseUserList');
+		document.getElementsByClassName("chat__room-user-list")[0].setAttribute("style","width:0")
+	}
 	return (
 		<>
 			<ChatRoomWrapper>
 				<div className="chat__room-body">
-					<div className="chat__room-body--message-list">
-						<div className="chat__room-body--title">
+					<div className="chat__room-body--title">
 							<h2>React</h2>
-						</div>
+							<img src="/icons/user-list.svg" width="39px" height="39px" onClick={onClickUserListIcon}/>
+					</div>
+					<div className="chat__room-body--message-list">
 						{messages.map(({ type, nickname, avatar, message }) => {
 							if (type === 'chat') {
 								return (
@@ -174,7 +286,7 @@ const ChatRoom = () => {
 										</div>
 									</div>
 								);
-							} else if (type === 'leave') {
+							} else if (type === 'leave' || type === 'disconnect') {
 								return (
 									<div className="chat__room--message-card">
 										<div className="message-card--detail">
@@ -199,6 +311,7 @@ const ChatRoom = () => {
 				<div className="chat__room-user-list">
 					<div className="chat__room-user-list--title">
 						<h2>User List</h2>
+						<Button onClick={onClickCloseUserList} text={"X"}/>
 					</div>
 					<div>
 						{chatUsers &&

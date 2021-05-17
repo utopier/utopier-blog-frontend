@@ -6,6 +6,7 @@ import CommentList from '../../../components/CommentList';
 import Head from 'next/head';
 import { InferGetServerSidePropsType, GetServerSideProps } from 'next';
 
+import {useState, useEffect} from 'react';
 import { END } from 'redux-saga';
 import axios from 'axios';
 import wrapper from '../../../store';
@@ -151,7 +152,7 @@ const PostPageWrapper = styled.div`
 const PostPage = ({}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
 	const dispatch = useDispatch();
 	const { me } = useSelector<RootState, any>((state) => state.user);
-	const { singlePost } = useSelector<RootState, any>((state) => state.post);
+	const { singlePost, likePostDone, likePostError } = useSelector<RootState, any>((state) => state.post);
 	const {
 		id,
 		createdDate,
@@ -165,14 +166,23 @@ const PostPage = ({}: InferGetServerSidePropsType<typeof getServerSideProps>) =>
 		tags,
 		likers,
 	} = singlePost;
-	let isLiked = me && likers && likers.find((v) => v.id === me.id);
+	const [isLiked, setIsLiked] = useState(me && likers && likers.find((v) => v.id === me.id))
+	useEffect(() => {
+		if(likePostDone && !likePostError){
+			setIsLiked(true);
+		}
+		console.log('singlePost : ',singlePost.likers)
+	},[likePostDone]);
 	const onClickLikeBtn = (e) => {
 		if (isLiked) {
 			dispatch({ type: UNLIKE_POST_REQUEST, data: id });
+			setIsLiked(false);
+			console.log('singlePost : ',singlePost)
 		} else {
 			dispatch({ type: LIKE_POST_REQUEST, data: id });
 		}
 	};
+	
 	return (
 		<>
 			<Head>
@@ -218,7 +228,7 @@ const PostPage = ({}: InferGetServerSidePropsType<typeof getServerSideProps>) =>
 						</div>
 					</div>
 					<div className="post__main-img">
-						<img src={(mainImgUrl && mainImgUrl.src) || '/images/nextjs.png'} alt="포스트 메인 이미지" />
+						<img src={(mainImgUrl && mainImgUrl.src) || '/images/postMainDefault.jpg'} alt="포스트 메인 이미지" />
 					</div>
 				</div>
 				<WysiwygViewerWrapper className="post__viewer">

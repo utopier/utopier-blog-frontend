@@ -66,9 +66,7 @@ const LeftNavigationWrapper = styled.nav`
 `;
 
 const LeftNavigation = () => {
-	// const { me } = useSelector<RootState, any>((state) => state.user);
-	
-	const me = {name:"test"};
+	const { me } = useSelector<RootState, any>((state) => state.user);
 	const dispatch = useDispatch();
 
     const router = useRouter();

@@ -2,8 +2,9 @@ import styled from '@emotion/styled';
 import Button from '../../components/Common/Button';
 import WysiwygEditor from '../../components/WysiwygEditor';
 
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import useInput from '../../hooks/useInput';
+import Router from 'next/router';
 
 import { END } from 'redux-saga';
 import axios from 'axios';
@@ -16,203 +17,203 @@ import { useDispatch, useSelector } from 'react-redux';
 import { UPLOAD_IMAGES_REQUEST, CREATE_POST_REQUEST, REMOVE_IMAGES_REQUEST } from '../../store/reducers/post';
 
 const CreatePostWrapper = styled.div`
-	.te-preview {
-		background-color: none;
-		color: white;
+.te-preview {
+	background-color: none;
+	color: white;
+}
+.tui-editor-contents p {
+	color: white;
+}
+.tui-editor-contents h1,
+.tui-editor-contents h2,
+.tui-editor-contents h3,
+.tui-editor-contents h4,
+.tui-editor-contents h5,
+.tui-editor-contents h6 {
+	color: white;
+}
+.tui-editor-contents del {
+	color: gray;
+}
+.tui-editor-contents ol > li::before {
+	color: white;
+}
+.tui-editor-contents table,
+.tui-editor-contents table th,
+.tui-editor-contents table td {
+	border-color: #dbedf3;
+	color: white;
+}
+.tui-editor-contents table th {
+	background-color: #00818a;
+}
+.tui-editor-contents pre {
+	background-color: #404b69;
+}
+.tui-editor-contents pre code {
+	color: white;
+	background-color: #404b69;
+}
+
+.tui-editor-defaultUI-toolbar {
+	background-color: #404b69;
+	border: 1px solid #00818a;
+
+	box-shadow: 0 0 10px #00818a;
+}
+.tui-editor-defaultUI-toolbar button,
+.tui-editor-defaultUI-toolbar button:hover,
+.tui-editor-defaultUI-toolbar button:active,
+.tui-editor-defaultUI-toolbar button.active {
+	border: 1px solid #00818a;
+
+	box-shadow: 0 0 10px #00818a;
+	&:foucus {
+		box-shadow: 0 0 5px #00818a inset, 0 0 30px #00818a;
 	}
-	.tui-editor-contents p {
-		color: white;
+	&:hover {
+		box-shadow: 0 0 5px #00818a inset, 0 0 30px #00818a;
 	}
-	.tui-editor-contents h1,
-	.tui-editor-contents h2,
-	.tui-editor-contents h3,
-	.tui-editor-contents h4,
-	.tui-editor-contents h5,
-	.tui-editor-contents h6 {
-		color: white;
+}
+.tui-editor-defaultUI {
+	border: 1px solid #00818a;
+	box-shadow: 0 0 20px #00818a;
+}
+.te-ww-container {
+	background-color: #283149;
+	color: white;
+}
+.te-mode-switch-section {
+	border: 1px solid #00818a;
+	background-color: #404b69;
+	box-shadow: 0 0 10px #00818a;
+}
+.te-mode-switch button {
+	color: #555;
+}
+.te-mode-switch button.active {
+	border: 1px solid #00818a;
+	box-shadow: 0 0 5px #00818a inset, 0 0 10px #00818a;
+}
+
+padding: 10px;
+width: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+.create-post__field-group {
+	min-height: 100px;
+	width: 100%;
+	max-width: 1000px;
+	border: 1px solid #00818a;
+	box-shadow: 0 0 5px #00818a inset, 0 0 10px #00818a;
+
+	label {
+		margin-right: 10px;
 	}
-	.tui-editor-contents del {
-		color: gray;
+	input {
+		margin-top: 10px;
+		width: 100%;
+		max-width: 600px;
 	}
-	.tui-editor-contents ol > li::before {
-		color: white;
+	input[type='file'] {
+		max-width: 245px;
+		box-shadow: 0 0 5px #00818a inset, 0 0 10px #00818a;
 	}
-	.tui-editor-contents table,
-	.tui-editor-contents table th,
-	.tui-editor-contents table td {
-		border-color: #dbedf3;
-		color: white;
-	}
-	.tui-editor-contents table th {
-		background-color: #00818a;
-	}
-	.tui-editor-contents pre {
-		background-color: #404b69;
-	}
-	.tui-editor-contents pre code {
-		color: white;
-		background-color: #404b69;
+	div {
+		font-size: 1.2em;
+		padding: 1px 10px;
 	}
 
-	.tui-editor-defaultUI-toolbar {
-		background-color: #404b69;
+	.tag-container {
+		background-color: white;
+		margin-top: 10px;
+		max-width: 600px;
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		padding: 0;
+		align-content: flex-start;
+		outline: none;
+		border-radius: 5px;
 		border: 1px solid #00818a;
-
-		box-shadow: 0 0 10px #00818a;
-	}
-	.tui-editor-defaultUI-toolbar button,
-	.tui-editor-defaultUI-toolbar button:hover,
-	.tui-editor-defaultUI-toolbar button:active,
-	.tui-editor-defaultUI-toolbar button.active {
-		border: 1px solid #00818a;
-
-		box-shadow: 0 0 10px #00818a;
+		height: 25px;
 		&:foucus {
-			box-shadow: 0 0 5px #00818a inset, 0 0 30px #00818a;
+			box-shadow: 0 0 5px #00818a inset, 0 0 20px #00818a;
 		}
 		&:hover {
-			box-shadow: 0 0 5px #00818a inset, 0 0 30px #00818a;
+			box-shadow: 0 0 5px #00818a inset, 0 0 20px #00818a;
 		}
-	}
-	.tui-editor-defaultUI {
-		border: 1px solid #00818a;
-		box-shadow: 0 0 20px #00818a;
-	}
-	.te-ww-container {
-		background-color: #283149;
-		color: white;
-	}
-	.te-mode-switch-section {
-		border: 1px solid #00818a;
-		background-color: #404b69;
-		box-shadow: 0 0 10px #00818a;
-	}
-	.te-mode-switch button {
-		color: #555;
-	}
-	.te-mode-switch button.active {
-		border: 1px solid #00818a;
-		box-shadow: 0 0 5px #00818a inset, 0 0 10px #00818a;
-	}
-
-	padding: 10px;
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	.create-post__field-group {
-		min-height: 100px;
-		width: 100%;
-		max-width: 1000px;
-		border: 1px solid #00818a;
-		box-shadow: 0 0 5px #00818a inset, 0 0 10px #00818a;
-
-		label {
-			margin-right: 10px;
-		}
-		input {
-			margin-top: 10px;
-			width: 100%;
-			max-width: 600px;
-		}
-		input[type='file'] {
-			max-width: 245px;
-			box-shadow: 0 0 5px #00818a inset, 0 0 10px #00818a;
-		}
-		div {
-			font-size: 1.2em;
-			padding: 1px 10px;
-		}
-
-		.tag-container {
-			background-color: white;
-			margin-top: 10px;
-			max-width: 600px;
-			width: 100%;
+		.tag {
 			display: flex;
-			flex-wrap: wrap;
-			padding: 0;
-			align-content: flex-start;
-			outline: none;
-			border-radius: 5px;
-			border: 1px solid #00818a;
-			height: 25px;
-			&:foucus {
-				box-shadow: 0 0 5px #00818a inset, 0 0 20px #00818a;
-			}
-			&:hover {
-				box-shadow: 0 0 5px #00818a inset, 0 0 20px #00818a;
-			}
-			.tag {
-				display: flex;
-				align-items: center;
-				font-size: 0.6em;
-				background-color: #dbedf3;
-				color: #00818a;
-				border-radius: 10px;
-				height: 20px;
-				padding: 0 5px;
-				margin: 0 1px;
-				i {
-					padding-left: 2px;
-					color: white;
-					cursor: pointer;
-					&:hover {
-						color: red;
-					}
+			align-items: center;
+			font-size: 0.6em;
+			background-color: #dbedf3;
+			color: #00818a;
+			border-radius: 10px;
+			height: 20px;
+			padding: 0 5px;
+			margin: 0 1px;
+			i {
+				padding-left: 2px;
+				color: white;
+				cursor: pointer;
+				&:hover {
+					color: red;
 				}
 			}
-			input {
-				outline: 0;
-				border: 0;
-				margin: 0 1px;
-				flex: 1;
-				border-radius: 0;
-			}
 		}
-		.remove-img-btn {
-			margin-left: 2px;
-			border-radius: 5px;
-			width: 30px;
-			height: 30px;
-		}
-		.create-post__field-group--create-btn {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			button {
-				box-shadow: 0 0 5px #00818a inset, 0 0 10px #00818a;
-			}
+		input {
+			outline: 0;
+			border: 0;
+			margin: 0 1px;
+			flex: 1;
+			border-radius: 0;
 		}
 	}
-	.create-post__field-group--fields {
-		div {
-			margin: 2px 0;
+	.remove-img-btn {
+		margin-left: 2px;
+		border-radius: 5px;
+		width: 30px;
+		height: 30px;
+	}
+	.create-post__field-group--create-btn {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		button {
+			box-shadow: 0 0 5px #00818a inset, 0 0 10px #00818a;
 		}
 	}
-	.create-post__editor {
-		width: 100%;
+}
+.create-post__field-group--fields {
+	div {
+		margin: 2px 0;
+	}
+}
+.create-post__editor {
+	width: 100%;
+}
+.mainImage-field-wrapper {
+	display: flex;
+	align-items: center;
+	div {
+		padding: 0;
+	}
+}
+@media (max-width: 904px) {
+	.tags-field-wrapper {
+		flex-direction: column;
 	}
 	.mainImage-field-wrapper {
-		display: flex;
-		align-items: center;
-		div {
-			padding: 0;
+		flex-direction: column;
+		align-items: flex-start;
+		#mainImage {
+			width: 200px;
 		}
 	}
-	@media (max-width: 904px) {
-		.tags-field-wrapper {
-			flex-direction: column;
-		}
-		.mainImage-field-wrapper {
-			flex-direction: column;
-			align-items: flex-start;
-			#mainImage {
-				width: 200px;
-			}
-		}
-	}
+}
 `;
 
 const CreatePost = () => {
@@ -220,12 +221,18 @@ const CreatePost = () => {
 	const tags = useRef([]);
 	const content = useRef('');
 
-	const { createPostMainImg } = useSelector<RootState, any>((state) => state.post);
+	const { createPostMainImg, addPostDone, addPostError } = useSelector<RootState, any>((state) => state.post);
 	const dispatch = useDispatch();
+
+	useEffect(() => {
+		if (addPostDone && !addPostError) {
+			Router.replace('/posts');
+		}
+	}, [addPostDone]);
 
 	let tagContainer: null | HTMLDivElement;
 	let input;
-	if (process.browser) {
+	if ((process as any).browser) {
 		tagContainer = document.querySelector('.tag-container');
 		input = document.querySelector('.tag-container input');
 	}
@@ -323,6 +330,8 @@ const CreatePost = () => {
 			},
 		});
 	};
+
+	console.log('createPostMainImg : ', createPostMainImg);
 
 	return (
 		<CreatePostWrapper>

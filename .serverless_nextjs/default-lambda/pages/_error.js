@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "JS07");
+/******/ 	return __webpack_require__(__webpack_require__.s = "anbK");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1290,6 +1290,39 @@ module.exports.wrap = wrap;
 
 /***/ }),
 
+/***/ "0Bsm":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__("TqRt");
+
+exports.__esModule = true;
+exports.default = withRouter;
+
+var _react = _interopRequireDefault(__webpack_require__("q1tI"));
+
+var _router = __webpack_require__("nOHt");
+
+function withRouter(ComposedComponent) {
+  function WithRouterWrapper(props) {
+    return /*#__PURE__*/_react.default.createElement(ComposedComponent, Object.assign({
+      router: (0, _router.useRouter)()
+    }, props));
+  }
+
+  WithRouterWrapper.getInitialProps = ComposedComponent.getInitialProps // This is needed to allow checking for custom getInitialProps in _app
+  ;
+  WithRouterWrapper.origGetInitialProps = ComposedComponent.origGetInitialProps;
+
+  if (false) {}
+
+  return WithRouterWrapper;
+}
+
+/***/ }),
+
 /***/ "0G5g":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1318,6 +1351,15 @@ const cancelIdleCallback = typeof self !== 'undefined' && self.cancelIdleCallbac
 };
 
 exports.cancelIdleCallback = cancelIdleCallback;
+
+/***/ }),
+
+/***/ "0JEF":
+/***/ (function(module, exports, __webpack_require__) {
+
+(function(e,r){ true?r(exports):undefined})(this,(function(e){"use strict";var r="-ms-";var a="-moz-";var c="-webkit-";var t="comm";var n="rule";var s="decl";var i="@page";var u="@media";var o="@import";var f="@charset";var l="@viewport";var h="@supports";var p="@document";var v="@namespace";var b="@keyframes";var m="@font-face";var d="@counter-style";var w="@font-feature-values";var $=Math.abs;var k=String.fromCharCode;function x(e,r){return(((r<<2^A(e,0))<<2^A(e,1))<<2^A(e,2))<<2^A(e,3)}function g(e){return e.trim()}function E(e,r){return(e=r.exec(e))?e[0]:e}function y(e,r,a){return e.replace(r,a)}function T(e,r){return e.indexOf(r)}function A(e,r){return e.charCodeAt(r)|0}function O(e,r,a){return e.slice(r,a)}function M(e){return e.length}function C(e){return e.length}function S(e,r){return r.push(e),e}function R(e,r){return e.map(r).join("")}e.line=1;e.column=1;e.length=0;e.position=0;e.character=0;e.characters="";function z(r,a,c,t,n,s,i){return{value:r,root:a,parent:c,type:t,props:n,children:s,line:e.line,column:e.column,length:i,return:""}}function N(e,r,a){return z(e,r.root,r.parent,a,r.props,r.children,0)}function P(){return e.character}function U(){e.character=e.position>0?A(e.characters,--e.position):0;if(e.column--,e.character===10)e.column=1,e.line--;return e.character}function _(){e.character=e.position<e.length?A(e.characters,e.position++):0;if(e.column++,e.character===10)e.column=1,e.line++;return e.character}function j(){return A(e.characters,e.position)}function F(){return e.position}function I(r,a){return O(e.characters,r,a)}function L(e){switch(e){case 0:case 9:case 10:case 13:case 32:return 5;case 33:case 43:case 44:case 47:case 62:case 64:case 126:case 59:case 123:case 125:return 4;case 58:return 3;case 34:case 39:case 40:case 91:return 2;case 41:case 93:return 1}return 0}function D(r){return e.line=e.column=1,e.length=M(e.characters=r),e.position=0,[]}function K(r){return e.characters="",r}function V(r){return g(I(e.position-1,G(r===91?r+2:r===40?r+1:r)))}function W(e){return K(B(D(e)))}function Y(r){while(e.character=j())if(e.character<33)_();else break;return L(r)>2||L(e.character)>3?"":" "}function B(r){while(_())switch(L(e.character)){case 0:S(Z(e.position-1),r);break;case 2:S(V(e.character),r);break;default:S(k(e.character),r)}return r}function G(r){while(_())switch(e.character){case r:return e.position;case 34:case 39:return G(r===34||r===39?r:e.character);case 40:if(r===41)G(r);break;case 92:_();break}return e.position}function H(r,a){while(_())if(r+e.character===47+10)break;else if(r+e.character===42+42&&j()===47)break;return"/*"+I(a,e.position-1)+"*"+k(r===47?r:_())}function Z(r){while(!L(j()))_();return I(r,e.position)}function q(e){return K(J("",null,null,null,[""],e=D(e),0,[0],e))}function J(e,r,a,c,t,n,s,i,u){var o=0;var f=0;var l=s;var h=0;var p=0;var v=0;var b=1;var m=1;var d=1;var w=0;var $="";var x=t;var g=n;var E=c;var T=$;while(m)switch(v=w,w=_()){case 34:case 39:case 91:case 40:T+=V(w);break;case 9:case 10:case 13:case 32:T+=Y(v);break;case 47:switch(j()){case 42:case 47:S(X(H(_(),F()),r,a),u);break;default:T+="/"}break;case 123*b:i[o++]=M(T)*d;case 125*b:case 59:case 0:switch(w){case 0:case 125:m=0;case 59+f:if(p>0&&M(T)-l)S(p>32?ee(T+";",c,a,l-1):ee(y(T," ","")+";",c,a,l-2),u);break;case 59:T+=";";default:S(E=Q(T,r,a,o,f,t,i,$,x=[],g=[],l),n);if(w===123)if(f===0)J(T,r,E,E,x,n,l,i,g);else switch(h){case 100:case 109:case 115:J(e,E,E,c&&S(Q(e,E,E,0,0,t,i,$,t,x=[],l),g),t,g,l,i,c?x:g);break;default:J(T,E,E,E,[""],g,l,i,g)}}o=f=p=0,b=d=1,$=T="",l=s;break;case 58:l=1+M(T),p=v;default:if(b<1){if(w==123){--b}else if(w==125&&b++==0&&U()==125){continue}}switch(T+=k(w),w*b){case 38:d=f>0?1:(T+="\f",-1);break;case 44:i[o++]=(M(T)-1)*d,d=1;break;case 64:if(j()===45)T+=V(_());h=j(),f=M($=T+=Z(F())),w++;break;case 45:if(v===45&&M(T)==2)b=0}}return n}function Q(e,r,a,c,t,s,i,u,o,f,l){var h=t-1;var p=t===0?s:[""];var v=C(p);for(var b=0,m=0,d=0;b<c;++b)for(var w=0,k=O(e,h+1,h=$(m=i[b])),x=e;w<v;++w)if(x=g(m>0?p[w]+" "+k:y(k,/&\f/g,p[w])))o[d++]=x;return z(e,r,a,t===0?n:u,o,f,l)}function X(e,r,a){return z(e,r,a,t,k(P()),O(e,2,-2),0)}function ee(e,r,a,c){return z(e,r,a,s,O(e,0,c),O(e,c+1,-1),c)}function re(e,t){switch(x(e,t)){case 5103:return c+"print-"+e+e;case 5737:case 4201:case 3177:case 3433:case 1641:case 4457:case 2921:case 5572:case 6356:case 5844:case 3191:case 6645:case 3005:case 6391:case 5879:case 5623:case 6135:case 4599:case 4855:case 4215:case 6389:case 5109:case 5365:case 5621:case 3829:return c+e+e;case 5349:case 4246:case 4810:case 6968:case 2756:return c+e+a+e+r+e+e;case 6828:case 4268:return c+e+r+e+e;case 6165:return c+e+r+"flex-"+e+e;case 5187:return c+e+y(e,/(\w+).+(:[^]+)/,c+"box-$1$2"+r+"flex-$1$2")+e;case 5443:return c+e+r+"flex-item-"+y(e,/flex-|-self/,"")+e;case 4675:return c+e+r+"flex-line-pack"+y(e,/align-content|flex-|-self/,"")+e;case 5548:return c+e+r+y(e,"shrink","negative")+e;case 5292:return c+e+r+y(e,"basis","preferred-size")+e;case 6060:return c+"box-"+y(e,"-grow","")+c+e+r+y(e,"grow","positive")+e;case 4554:return c+y(e,/([^-])(transform)/g,"$1"+c+"$2")+e;case 6187:return y(y(y(e,/(zoom-|grab)/,c+"$1"),/(image-set)/,c+"$1"),e,"")+e;case 5495:case 3959:return y(e,/(image-set\([^]*)/,c+"$1"+"$`$1");case 4968:return y(y(e,/(.+:)(flex-)?(.*)/,c+"box-pack:$3"+r+"flex-pack:$3"),/s.+-b[^;]+/,"justify")+c+e+e;case 4095:case 3583:case 4068:case 2532:return y(e,/(.+)-inline(.+)/,c+"$1$2")+e;case 8116:case 7059:case 5753:case 5535:case 5445:case 5701:case 4933:case 4677:case 5533:case 5789:case 5021:case 4765:if(M(e)-1-t>6)switch(A(e,t+1)){case 109:if(A(e,t+4)!==45)break;case 102:return y(e,/(.+:)(.+)-([^]+)/,"$1"+c+"$2-$3"+"$1"+a+(A(e,t+3)==108?"$3":"$2-$3"))+e;case 115:return~T(e,"stretch")?re(y(e,"stretch","fill-available"),t)+e:e}break;case 4949:if(A(e,t+1)!==115)break;case 6444:switch(A(e,M(e)-3-(~T(e,"!important")&&10))){case 107:return y(e,":",":"+c)+e;case 101:return y(e,/(.+:)([^;!]+)(;|!.+)?/,"$1"+c+(A(e,14)===45?"inline-":"")+"box$3"+"$1"+c+"$2$3"+"$1"+r+"$2box$3")+e}break;case 5936:switch(A(e,t+11)){case 114:return c+e+r+y(e,/[svh]\w+-[tblr]{2}/,"tb")+e;case 108:return c+e+r+y(e,/[svh]\w+-[tblr]{2}/,"tb-rl")+e;case 45:return c+e+r+y(e,/[svh]\w+-[tblr]{2}/,"lr")+e}return c+e+r+e+e}return e}function ae(e,r){var a="";var c=C(e);for(var t=0;t<c;t++)a+=r(e[t],t,e,r)||"";return a}function ce(e,r,a,c){switch(e.type){case o:case s:return e.return=e.return||e.value;case t:return"";case n:e.value=e.props.join(",")}return M(a=ae(e.children,c))?e.return=e.value+"{"+a+"}":""}function te(e){var r=C(e);return function(a,c,t,n){var s="";for(var i=0;i<r;i++)s+=e[i](a,c,t,n)||"";return s}}function ne(e){return function(r){if(!r.root)if(r=r.return)e(r)}}function se(e,t,i,u){if(!e.return)switch(e.type){case s:e.return=re(e.value,e.length);break;case b:return ae([N(y(e.value,"@","@"+c),e,"")],u);case n:if(e.length)return R(e.props,(function(t){switch(E(t,/(::plac\w+|:read-\w+)/)){case":read-only":case":read-write":return ae([N(y(t,/:(read-\w+)/,":"+a+"$1"),e,"")],u);case"::placeholder":return ae([N(y(t,/:(plac\w+)/,":"+c+"input-$1"),e,""),N(y(t,/:(plac\w+)/,":"+a+"$1"),e,""),N(y(t,/:(plac\w+)/,r+"input-$1"),e,"")],u)}return""}))}}function ie(e){switch(e.type){case n:e.props=e.props.map((function(r){return R(W(r),(function(r,a,c){switch(A(r,0)){case 12:return O(r,1,M(r));case 0:case 40:case 43:case 62:case 126:return r;case 58:if(c[++a]==="global")c[a]="",c[++a]="\f"+O(c[a],a=1,-1);case 32:return a===1?"":r;default:switch(a){case 0:e=r;return C(c)>1?"":r;case a=C(c)-1:case 2:return a===2?r+e+e:r+e;default:return r}}}))}))}}e.CHARSET=f;e.COMMENT=t;e.COUNTER_STYLE=d;e.DECLARATION=s;e.DOCUMENT=p;e.FONT_FACE=m;e.FONT_FEATURE_VALUES=w;e.IMPORT=o;e.KEYFRAMES=b;e.MEDIA=u;e.MOZ=a;e.MS=r;e.NAMESPACE=v;e.PAGE=i;e.RULESET=n;e.SUPPORTS=h;e.VIEWPORT=l;e.WEBKIT=c;e.abs=$;e.alloc=D;e.append=S;e.caret=F;e.char=P;e.charat=A;e.combine=R;e.comment=X;e.commenter=H;e.compile=q;e.copy=N;e.dealloc=K;e.declaration=ee;e.delimit=V;e.delimiter=G;e.from=k;e.hash=x;e.identifier=Z;e.indexof=T;e.match=E;e.middleware=te;e.namespace=ie;e.next=_;e.node=z;e.parse=J;e.peek=j;e.prefix=re;e.prefixer=se;e.prev=U;e.replace=y;e.ruleset=Q;e.rulesheet=ne;e.serialize=ae;e.sizeof=C;e.slice=I;e.stringify=ce;e.strlen=M;e.substr=O;e.token=L;e.tokenize=W;e.tokenizer=B;e.trim=g;e.whitespace=Y;Object.defineProperty(e,"__esModule",{value:true})}));
+//# sourceMappingURL=stylis.js.map
+
 
 /***/ }),
 
@@ -1503,6 +1545,14 @@ Object.defineProperty(exports, "NodeType", { enumerable: true, get: function () 
 "use strict";
 exports.__esModule=true;exports.wait=wait;exports.error=error;exports.warn=warn;exports.ready=ready;exports.info=info;exports.event=event;exports.prefixes=void 0;var _chalk=_interopRequireDefault(__webpack_require__("4JQ2"));function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}const prefixes={wait:_chalk.default.cyan('wait')+'  -',error:_chalk.default.red('error')+' -',warn:_chalk.default.yellow('warn')+'  -',ready:_chalk.default.green('ready')+' -',info:_chalk.default.cyan('info')+'  -',event:_chalk.default.magenta('event')+' -'};exports.prefixes=prefixes;function wait(...message){console.log(prefixes.wait,...message);}function error(...message){console.error(prefixes.error,...message);}function warn(...message){console.warn(prefixes.warn,...message);}function ready(...message){console.log(prefixes.ready,...message);}function info(...message){console.log(prefixes.info,...message);}function event(...message){console.log(prefixes.event,...message);}
 //# sourceMappingURL=log.js.map
+
+/***/ }),
+
+/***/ "20a2":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("nOHt")
+
 
 /***/ }),
 
@@ -2977,6 +3027,160 @@ module.exports.default = module.exports; // For TypeScript
 
 /***/ }),
 
+/***/ "4PQP":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: !0
+});
+
+var sheet = __webpack_require__("Kmcs"), stylis = __webpack_require__("0JEF"), weakMemoize = __webpack_require__("kXgE"), memoize = __webpack_require__("TiPX");
+
+function _interopDefault(e) {
+  return e && e.__esModule ? e : {
+    default: e
+  };
+}
+
+var weakMemoize__default = _interopDefault(weakMemoize), memoize__default = _interopDefault(memoize), last = function(arr) {
+  return arr.length ? arr[arr.length - 1] : null;
+}, toRules = function(parsed, points) {
+  var index = -1, character = 44;
+  do {
+    switch (stylis.token(character)) {
+     case 0:
+      38 === character && 12 === stylis.peek() && (points[index] = 1), parsed[index] += stylis.identifier(stylis.position - 1);
+      break;
+
+     case 2:
+      parsed[index] += stylis.delimit(character);
+      break;
+
+     case 4:
+      if (44 === character) {
+        parsed[++index] = 58 === stylis.peek() ? "&\f" : "", points[index] = parsed[index].length;
+        break;
+      }
+
+     default:
+      parsed[index] += stylis.from(character);
+    }
+  } while (character = stylis.next());
+  return parsed;
+}, getRules = function(value, points) {
+  return stylis.dealloc(toRules(stylis.alloc(value), points));
+}, fixedElements = new WeakMap, compat = function(element) {
+  if ("rule" === element.type && element.parent && element.length) {
+    for (var value = element.value, parent = element.parent, isImplicitRule = element.column === parent.column && element.line === parent.line; "rule" !== parent.type; ) if (!(parent = parent.parent)) return;
+    if ((1 !== element.props.length || 58 === value.charCodeAt(0) || fixedElements.get(parent)) && !isImplicitRule) {
+      fixedElements.set(element, !0);
+      for (var points = [], rules = getRules(value, points), parentRules = parent.props, i = 0, k = 0; i < rules.length; i++) for (var j = 0; j < parentRules.length; j++, 
+      k++) element.props[k] = points[i] ? rules[i].replace(/&\f/g, parentRules[j]) : parentRules[j] + " " + rules[i];
+    }
+  }
+}, removeLabel = function(element) {
+  if ("decl" === element.type) {
+    var value = element.value;
+    108 === value.charCodeAt(0) && 98 === value.charCodeAt(2) && (element.return = "", 
+    element.value = "");
+  }
+}, ignoreFlag = "emotion-disable-server-rendering-unsafe-selector-warning-please-do-not-use-this-the-warning-exists-for-a-reason", isIgnoringComment = function(element) {
+  return !!element && "comm" === element.type && element.children.indexOf(ignoreFlag) > -1;
+}, createUnsafeSelectorsAlarm = function(cache) {
+  return function(element, index, children) {
+    if ("rule" === element.type) {
+      var unsafePseudoClasses = element.value.match(/(:first|:nth|:nth-last)-child/g);
+      if (unsafePseudoClasses && !0 !== cache.compat) {
+        var prevElement = index > 0 ? children[index - 1] : null;
+        if (prevElement && isIgnoringComment(last(prevElement.children))) return;
+        unsafePseudoClasses.forEach((function(unsafePseudoClass) {
+          console.error('The pseudo class "' + unsafePseudoClass + '" is potentially unsafe when doing server-side rendering. Try changing it to "' + unsafePseudoClass.split("-child")[0] + '-of-type".');
+        }));
+      }
+    }
+  };
+}, isImportRule = function(element) {
+  return 105 === element.type.charCodeAt(1) && 64 === element.type.charCodeAt(0);
+}, isPrependedWithRegularRules = function(index, children) {
+  for (var i = index - 1; i >= 0; i--) if (!isImportRule(children[i])) return !0;
+  return !1;
+}, nullifyElement = function(element) {
+  element.type = "", element.value = "", element.return = "", element.children = "", 
+  element.props = "";
+}, incorrectImportAlarm = function(element, index, children) {
+  isImportRule(element) && (element.parent ? (console.error("`@import` rules can't be nested inside other rules. Please move it to the top level and put it before regular rules. Keep in mind that they can only be used within global styles."), 
+  nullifyElement(element)) : isPrependedWithRegularRules(index, children) && (console.error("`@import` rules can't be after other rules. Please put your `@import` rules before your other rules."), 
+  nullifyElement(element)));
+}, isBrowser = "undefined" != typeof document, getServerStylisCache = isBrowser ? void 0 : weakMemoize__default.default((function() {
+  return memoize__default.default((function() {
+    var cache = {};
+    return function(name) {
+      return cache[name];
+    };
+  }));
+})), defaultStylisPlugins = [ stylis.prefixer ], createCache = function(options) {
+  var key = options.key;
+  if (isBrowser && "css" === key) {
+    var ssrStyles = document.querySelectorAll("style[data-emotion]:not([data-s])");
+    Array.prototype.forEach.call(ssrStyles, (function(node) {
+      document.head.appendChild(node), node.setAttribute("data-s", "");
+    }));
+  }
+  var stylisPlugins = options.stylisPlugins || defaultStylisPlugins;
+  var container, _insert, inserted = {}, nodesToHydrate = [];
+  isBrowser && (container = options.container || document.head, Array.prototype.forEach.call(document.querySelectorAll("style[data-emotion]"), (function(node) {
+    var attrib = node.getAttribute("data-emotion").split(" ");
+    if (attrib[0] === key) {
+      for (var i = 1; i < attrib.length; i++) inserted[attrib[i]] = !0;
+      nodesToHydrate.push(node);
+    }
+  })));
+  var omnipresentPlugins = [ compat, removeLabel ];
+  if (isBrowser) {
+    var currentSheet, finalizingPlugins = [ stylis.stringify, stylis.rulesheet((function(rule) {
+      currentSheet.insert(rule);
+    })) ], serializer = stylis.middleware(omnipresentPlugins.concat(stylisPlugins, finalizingPlugins));
+    _insert = function(selector, serialized, sheet, shouldCache) {
+      var styles;
+      currentSheet = sheet, styles = selector ? selector + "{" + serialized.styles + "}" : serialized.styles, 
+      stylis.serialize(stylis.compile(styles), serializer), shouldCache && (cache.inserted[serialized.name] = !0);
+    };
+  } else {
+    var _finalizingPlugins = [ stylis.stringify ], _serializer = stylis.middleware(omnipresentPlugins.concat(stylisPlugins, _finalizingPlugins)), serverStylisCache = getServerStylisCache(stylisPlugins)(key), getRules = function(selector, serialized) {
+      var styles, name = serialized.name;
+      return void 0 === serverStylisCache[name] && (serverStylisCache[name] = (styles = selector ? selector + "{" + serialized.styles + "}" : serialized.styles, 
+      stylis.serialize(stylis.compile(styles), _serializer))), serverStylisCache[name];
+    };
+    _insert = function(selector, serialized, sheet, shouldCache) {
+      var name = serialized.name, rules = getRules(selector, serialized);
+      return void 0 === cache.compat ? (shouldCache && (cache.inserted[name] = !0), rules) : shouldCache ? void (cache.inserted[name] = rules) : rules;
+    };
+  }
+  var cache = {
+    key: key,
+    sheet: new sheet.StyleSheet({
+      key: key,
+      container: container,
+      nonce: options.nonce,
+      speedy: options.speedy,
+      prepend: options.prepend
+    }),
+    nonce: options.nonce,
+    inserted: inserted,
+    registered: {},
+    insert: _insert
+  };
+  return cache.sheet.hydrate(nodesToHydrate), cache;
+};
+
+exports.default = createCache;
+
+
+/***/ }),
+
 /***/ "4hjO":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3018,6 +3222,107 @@ var getBatch = function getBatch() {
 };
 
 exports.getBatch = getBatch;
+
+/***/ }),
+
+/***/ "5AyK":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var React = __webpack_require__("q1tI"), createCache = __webpack_require__("YWla"), _extends = __webpack_require__("pVnL"), weakMemoize = __webpack_require__("kXgE"), isolatedHoistNonReactStaticsDoNotUseThisInYourCode_dist_emotionReactIsolatedHoistNonReactStaticsDoNotUseThisInYourCode = __webpack_require__("QaWx"), utils = __webpack_require__("a1lD"), serialize = __webpack_require__("H790");
+
+function _interopDefault(e) {
+  return e && e.__esModule ? e : {
+    default: e
+  };
+}
+
+var createCache__default = _interopDefault(createCache), _extends__default = _interopDefault(_extends), weakMemoize__default = _interopDefault(weakMemoize), isBrowser = "undefined" != typeof document, hasOwnProperty = Object.prototype.hasOwnProperty, EmotionCacheContext = React.createContext("undefined" != typeof HTMLElement ? createCache__default.default({
+  key: "css"
+}) : null), CacheProvider = EmotionCacheContext.Provider;
+
+exports.withEmotionCache = function(func) {
+  return React.forwardRef((function(props, ref) {
+    var cache = React.useContext(EmotionCacheContext);
+    return func(props, cache, ref);
+  }));
+}, isBrowser || (exports.withEmotionCache = function(func) {
+  return function(props) {
+    var cache = React.useContext(EmotionCacheContext);
+    return null === cache ? (cache = createCache__default.default({
+      key: "css"
+    }), React.createElement(EmotionCacheContext.Provider, {
+      value: cache
+    }, func(props, cache))) : func(props, cache);
+  };
+});
+
+var ThemeContext = React.createContext({}), useTheme = function() {
+  return React.useContext(ThemeContext);
+}, getTheme = function(outerTheme, theme) {
+  if ("function" == typeof theme) {
+    var mergedTheme = theme(outerTheme);
+    return mergedTheme;
+  }
+  return _extends__default.default({}, outerTheme, {}, theme);
+}, createCacheWithTheme = weakMemoize__default.default((function(outerTheme) {
+  return weakMemoize__default.default((function(theme) {
+    return getTheme(outerTheme, theme);
+  }));
+})), ThemeProvider = function(props) {
+  var theme = React.useContext(ThemeContext);
+  return props.theme !== theme && (theme = createCacheWithTheme(theme)(props.theme)), 
+  React.createElement(ThemeContext.Provider, {
+    value: theme
+  }, props.children);
+};
+
+function withTheme(Component) {
+  var componentName = Component.displayName || Component.name || "Component", render = function(props, ref) {
+    var theme = React.useContext(ThemeContext);
+    return React.createElement(Component, _extends__default.default({
+      theme: theme,
+      ref: ref
+    }, props));
+  }, WithTheme = React.forwardRef(render);
+  return WithTheme.displayName = "WithTheme(" + componentName + ")", isolatedHoistNonReactStaticsDoNotUseThisInYourCode_dist_emotionReactIsolatedHoistNonReactStaticsDoNotUseThisInYourCode.default(WithTheme, Component);
+}
+
+var sanitizeIdentifier = function(identifier) {
+  return identifier.replace(/\$/g, "-");
+}, typePropName = "__EMOTION_TYPE_PLEASE_DO_NOT_USE__", labelPropName = "__EMOTION_LABEL_PLEASE_DO_NOT_USE__", createEmotionProps = function(type, props) {
+  var newProps = {};
+  for (var key in props) hasOwnProperty.call(props, key) && (newProps[key] = props[key]);
+  return newProps[typePropName] = type, newProps;
+}, Emotion = exports.withEmotionCache((function(props, cache, ref) {
+  var cssProp = props.css;
+  "string" == typeof cssProp && void 0 !== cache.registered[cssProp] && (cssProp = cache.registered[cssProp]);
+  var type = props[typePropName], registeredStyles = [ cssProp ], className = "";
+  "string" == typeof props.className ? className = utils.getRegisteredStyles(cache.registered, registeredStyles, props.className) : null != props.className && (className = props.className + " ");
+  var serialized = serialize.serializeStyles(registeredStyles, void 0, "function" == typeof cssProp || Array.isArray(cssProp) ? React.useContext(ThemeContext) : void 0), rules = utils.insertStyles(cache, serialized, "string" == typeof type);
+  className += cache.key + "-" + serialized.name;
+  var newProps = {};
+  for (var key in props) hasOwnProperty.call(props, key) && "css" !== key && key !== typePropName && (newProps[key] = props[key]);
+  newProps.ref = ref, newProps.className = className;
+  var ele = React.createElement(type, newProps);
+  if (!isBrowser && void 0 !== rules) {
+    for (var _ref, serializedNames = serialized.name, next = serialized.next; void 0 !== next; ) serializedNames += " " + next.name, 
+    next = next.next;
+    return React.createElement(React.Fragment, null, React.createElement("style", ((_ref = {})["data-emotion"] = cache.key + " " + serializedNames, 
+    _ref.dangerouslySetInnerHTML = {
+      __html: rules
+    }, _ref.nonce = cache.sheet.nonce, _ref)), ele);
+  }
+  return ele;
+}));
+
+exports.CacheProvider = CacheProvider, exports.Emotion = Emotion, exports.ThemeContext = ThemeContext, 
+exports.ThemeProvider = ThemeProvider, exports.createEmotionProps = createEmotionProps, 
+exports.hasOwnProperty = hasOwnProperty, exports.isBrowser = isBrowser, exports.useTheme = useTheme, 
+exports.withTheme = withTheme;
+
 
 /***/ }),
 
@@ -3210,10 +3515,92 @@ function detectLocaleCookie(req, locales) {
 
 /***/ }),
 
+/***/ "63yd":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cooked, raw) {
+    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
+    return cooked;
+};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Loader = void 0;
+/** @jsx jsx */
+var React = __importStar(__webpack_require__("q1tI"));
+var core_1 = __webpack_require__("fR8Y");
+var helpers_1 = __webpack_require__("LDyf");
+var long = core_1.keyframes(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  0% {left: -35%;right: 100%}\n  60% {left: 100%;right: -90%}\n  100% {left: 100%;right: -90%}\n"], ["\n  0% {left: -35%;right: 100%}\n  60% {left: 100%;right: -90%}\n  100% {left: 100%;right: -90%}\n"])));
+var short = core_1.keyframes(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  0% {left: -200%;right: 100%}\n  60% {left: 107%;right: -8%}\n  100% {left: 107%;right: -8%}\n"], ["\n  0% {left: -200%;right: 100%}\n  60% {left: 107%;right: -8%}\n  100% {left: 107%;right: -8%}\n"])));
+var Loader = /** @class */ (function (_super) {
+    __extends(Loader, _super);
+    function Loader() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.style = function (i) {
+            var _a = _this.props, height = _a.height, color = _a.color;
+            return core_1.css(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n      position: absolute;\n      height: ", ";\n      overflow: hidden;\n      background-color: ", ";\n      background-clip: padding-box;\n      display: block;\n      border-radius: 2px;\n      will-change: left, right;\n      animation-fill-mode: forwards;\n      animation: ", " 2.1s ", "\n        ", "\n        infinite;\n    "], ["\n      position: absolute;\n      height: ", ";\n      overflow: hidden;\n      background-color: ", ";\n      background-clip: padding-box;\n      display: block;\n      border-radius: 2px;\n      will-change: left, right;\n      animation-fill-mode: forwards;\n      animation: ", " 2.1s ", "\n        ",
+                "\n        infinite;\n    "])), helpers_1.cssValue(height || Loader.defaultProps.height), color, i === 1 ? long : short, i === 2 ? "1.15s" : "", i === 1
+                ? "cubic-bezier(0.65, 0.815, 0.735, 0.395)"
+                : "cubic-bezier(0.165, 0.84, 0.44, 1)");
+        };
+        _this.wrapper = function () {
+            var _a = _this.props, width = _a.width, height = _a.height, color = _a.color;
+            return core_1.css(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n      position: relative;\n      width: ", ";\n      height: ", ";\n      overflow: hidden;\n      background-color: ", ";\n      background-clip: padding-box;\n    "], ["\n      position: relative;\n      width: ", ";\n      height: ", ";\n      overflow: hidden;\n      background-color: ", ";\n      background-clip: padding-box;\n    "])), helpers_1.cssValue(width || Loader.defaultProps.width), helpers_1.cssValue(height || Loader.defaultProps.height), helpers_1.calculateRgba(color || Loader.defaultProps.color, 0.2));
+        };
+        return _this;
+    }
+    Loader.prototype.render = function () {
+        var _a = this.props, loading = _a.loading, css = _a.css;
+        return loading ? (core_1.jsx("span", { css: [this.wrapper(), css] },
+            core_1.jsx("span", { css: this.style(1) }),
+            core_1.jsx("span", { css: this.style(2) }))) : null;
+    };
+    Loader.defaultProps = helpers_1.heightWidthDefaults(4, 100);
+    return Loader;
+}(React.PureComponent));
+exports.Loader = Loader;
+exports.default = Loader;
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4;
+
+
+/***/ }),
+
 /***/ "67Bq":
 /***/ (function(module) {
 
-module.exports = JSON.parse("{}");
+module.exports = JSON.parse("{\"./TuiEditorWrapper\":[{\"id\":\"oK5D\",\"file\":\"static/chunks/0139f756.c110c89915b50b7218ab.js\"},{\"id\":\"VrN/\",\"file\":\"static/chunks/f65a48b9.fc8e3e00d98dc0c3f78f.js\"},{\"id\":\"8Flu\",\"file\":\"static/chunks/de49cc29.2e9200a3e3ab8057a2bf.js\"},{\"id\":\"\",\"file\":\"static/css/6500056958126c4aa36a.css\"},{\"id\":\"9RMS\",\"file\":\"static/css/6500056958126c4aa36a.css\"},{\"id\":\"LBtM\",\"file\":\"static/css/6500056958126c4aa36a.css\"},{\"id\":\"g0Zl\",\"file\":\"static/css/6500056958126c4aa36a.css\"},{\"id\":\"p77/\",\"file\":\"static/css/6500056958126c4aa36a.css\"},{\"id\":\"\",\"file\":\"static/chunks/34.611e1f35c7d682eab54c.js\"},{\"id\":\"9RMS\",\"file\":\"static/chunks/34.611e1f35c7d682eab54c.js\"},{\"id\":\"LBtM\",\"file\":\"static/chunks/34.611e1f35c7d682eab54c.js\"},{\"id\":\"g0Zl\",\"file\":\"static/chunks/34.611e1f35c7d682eab54c.js\"},{\"id\":\"p77/\",\"file\":\"static/chunks/34.611e1f35c7d682eab54c.js\"}],\"./TuiViewerWrapper\":[{\"id\":\"oK5D\",\"file\":\"static/chunks/0139f756.c110c89915b50b7218ab.js\"},{\"id\":\"VrN/\",\"file\":\"static/chunks/f65a48b9.fc8e3e00d98dc0c3f78f.js\"},{\"id\":\"8Flu\",\"file\":\"static/chunks/de49cc29.2e9200a3e3ab8057a2bf.js\"},{\"id\":\"AJPw\",\"file\":\"static/chunks/35.901c9e562e0efd3efd12.js\"},{\"id\":\"g0Zl\",\"file\":\"static/chunks/35.901c9e562e0efd3efd12.js\"}]}");
 
 /***/ }),
 
@@ -5163,13 +5550,15 @@ function Custom404() {
 "use strict";
 
 
+var _interopRequireDefault = __webpack_require__("TqRt");
+
 exports.__esModule = true;
 exports.whenMapDispatchToPropsIsFunction = whenMapDispatchToPropsIsFunction;
 exports.whenMapDispatchToPropsIsMissing = whenMapDispatchToPropsIsMissing;
 exports.whenMapDispatchToPropsIsObject = whenMapDispatchToPropsIsObject;
 exports["default"] = void 0;
 
-var _redux = __webpack_require__("pn57");
+var _bindActionCreators = _interopRequireDefault(__webpack_require__("KzgV"));
 
 var _wrapMapToProps = __webpack_require__("GBcg");
 
@@ -5187,7 +5576,7 @@ function whenMapDispatchToPropsIsMissing(mapDispatchToProps) {
 
 function whenMapDispatchToPropsIsObject(mapDispatchToProps) {
   return mapDispatchToProps && typeof mapDispatchToProps === 'object' ? (0, _wrapMapToProps.wrapMapToPropsConstant)(function (dispatch) {
-    return (0, _redux.bindActionCreators)(mapDispatchToProps, dispatch);
+    return (0, _bindActionCreators["default"])(mapDispatchToProps, dispatch);
   }) : undefined;
 }
 
@@ -6827,6 +7216,43 @@ if (true) {
 
 /***/ }),
 
+/***/ "G8eF":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: !0
+});
+
+var isBrowser = "undefined" != typeof document;
+
+function getRegisteredStyles(registered, registeredStyles, classNames) {
+  var rawClassName = "";
+  return classNames.split(" ").forEach((function(className) {
+    void 0 !== registered[className] ? registeredStyles.push(registered[className] + ";") : rawClassName += className + " ";
+  })), rawClassName;
+}
+
+var insertStyles = function(cache, serialized, isStringTag) {
+  var className = cache.key + "-" + serialized.name;
+  if ((!1 === isStringTag || !1 === isBrowser && void 0 !== cache.compat) && void 0 === cache.registered[className] && (cache.registered[className] = serialized.styles), 
+  void 0 === cache.inserted[serialized.name]) {
+    var stylesForSSR = "", current = serialized;
+    do {
+      var maybeStyles = cache.insert(serialized === current ? "." + className : "", current, cache.sheet, !0);
+      isBrowser || void 0 === maybeStyles || (stylesForSSR += maybeStyles), current = current.next;
+    } while (void 0 !== current);
+    if (!isBrowser && 0 !== stylesForSSR.length) return stylesForSSR;
+  }
+};
+
+exports.getRegisteredStyles = getRegisteredStyles, exports.insertStyles = insertStyles;
+
+
+/***/ }),
+
 /***/ "GBcg":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -6949,6 +7375,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "GXs3":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.default = resolveRewrites;
+
+function resolveRewrites() {}
+
+/***/ }),
+
 /***/ "GlC0":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -6974,6 +7413,19 @@ module.exports = function (condition, ...args) {
 
     throw new AssertError(args);
 };
+
+
+/***/ }),
+
+/***/ "H790":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+if (true) {
+  module.exports = __webpack_require__("Qxt3");
+} else {}
 
 
 /***/ }),
@@ -7178,6 +7630,69 @@ module.exports = function bind(fn, thisArg) {
   };
 };
 
+
+/***/ }),
+
+/***/ "HULz":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("nKUr");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _emotion_styled_base__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("NWvw");
+/* harmony import */ var _emotion_styled_base__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_emotion_styled_base__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+
+
+const ButtonWrapper = _emotion_styled_base__WEBPACK_IMPORTED_MODULE_1___default()("div", true ? {
+  target: "eh832xc0"
+} : undefined)("width:", props => props.width, ";height:", props => props.height, ";padding:", props => props.padding, ";label{display:none;}button{cursor:pointer;width:100%;height:100%;font-weight:400;color:", ({
+  theme
+}) => theme.blueGreen, ";font-size:1em;background-color:white;border-radius:", props => props.borderRadius || '10px', ";-webkit-transition:all 0.3s ease-in-out;-moz-transition:all 0.3s ease-in-out;-ms-transition:all 0.3s ease-in-out;-o-transition:all 0.3s ease-in-out;outline:none;border:1px solid ", ({
+  theme
+}) => theme.blueGreen, ";}button:hover{width:100%;height:100%;background:#dbedf3;border:1px solid rgba(0, 0, 0, 0.05);box-shadow:0 0 20px ", ({
+  theme
+}) => theme.blueGreen, ";}button:focus{width:100%;height:100%;box-shadow:0 0 20px ", ({
+  theme
+}) => theme.blueGreen, ";}" + (true ? "" : undefined));
+
+const Button = ({
+  id,
+  label,
+  ariaLabel,
+  hidden,
+  type,
+  text,
+  width,
+  height,
+  borderRadius,
+  onClick
+}) => {
+  return /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["Fragment"], {
+    children: /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxs"])(ButtonWrapper, {
+      style: {
+        width: width,
+        height: height,
+        borderRadius: borderRadius
+      },
+      children: [/*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("label", {
+        htmlFor: id,
+        children: label
+      }), /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("button", {
+        id: id,
+        "aria-label": ariaLabel,
+        type: type,
+        hidden: hidden,
+        onClick: onClick,
+        children: text
+      })]
+    })
+  });
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (Button);
 
 /***/ }),
 
@@ -7454,111 +7969,6 @@ type==='boolean'||type==='number'||type==='string'){return true;}if(type==='unde
 // const type: "bigint" | "symbol" | "object" | "function"
 throw new SerializableError(page,method,path,'`'+type+'`'+(type==='object'?` ("${Object.prototype.toString.call(value)}")`:'')+' cannot be serialized as JSON. Please only return JSON serializable data types.');}return isSerializable(new Map(),input,'');}class SerializableError extends Error{constructor(page,method,path,message){super(path?`Error serializing \`${path}\` returned from \`${method}\` in "${page}".\nReason: ${message}`:`Error serializing props returned from \`${method}\` in "${page}".\nReason: ${message}`);}}exports.SerializableError=SerializableError;
 //# sourceMappingURL=is-serializable-props.js.map
-
-/***/ }),
-
-/***/ "JS07":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getStaticProps", function() { return getStaticProps; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getStaticPaths", function() { return getStaticPaths; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getServerSideProps", function() { return getServerSideProps; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unstable_getStaticParams", function() { return unstable_getStaticParams; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unstable_getStaticProps", function() { return unstable_getStaticProps; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unstable_getStaticPaths", function() { return unstable_getStaticPaths; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unstable_getServerProps", function() { return unstable_getServerProps; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "config", function() { return config; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "_app", function() { return _app; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "renderReqToHTML", function() { return renderReqToHTML; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony import */ var next_plugin_loader_middleware_on_init_server___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("GX0O");
-/* harmony import */ var next_plugin_loader_middleware_on_error_server___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("KqAr");
-/* harmony import */ var next_dist_next_server_server_node_polyfill_fetch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("fkL1");
-/* harmony import */ var next_dist_next_server_server_node_polyfill_fetch__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_dist_next_server_server_node_polyfill_fetch__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var private_dot_next_routes_manifest_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("Skye");
-var private_dot_next_routes_manifest_json__WEBPACK_IMPORTED_MODULE_3___namespace = /*#__PURE__*/__webpack_require__.t("Skye", 1);
-/* harmony import */ var private_dot_next_build_manifest_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("LZ9C");
-var private_dot_next_build_manifest_json__WEBPACK_IMPORTED_MODULE_4___namespace = /*#__PURE__*/__webpack_require__.t("LZ9C", 1);
-/* harmony import */ var private_dot_next_react_loadable_manifest_json__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("67Bq");
-var private_dot_next_react_loadable_manifest_json__WEBPACK_IMPORTED_MODULE_5___namespace = /*#__PURE__*/__webpack_require__.t("67Bq", 1);
-/* harmony import */ var next_dist_build_webpack_loaders_next_serverless_loader_page_handler__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("7ZOo");
-/* harmony import */ var next_dist_build_webpack_loaders_next_serverless_loader_page_handler__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(next_dist_build_webpack_loaders_next_serverless_loader_page_handler__WEBPACK_IMPORTED_MODULE_6__);
-
-      
-      
-      
-      
-      
-      
-
-      
-      const { processEnv } = __webpack_require__("fXeI")
-      processEnv([{"path":".env.local","contents":"NEXT_PUBLIC_TEST=hello\r\nBACK_URL=http://localhost:2025"}])
-    
-      
-      const runtimeConfig = {}
-      
-
-      const documentModule = __webpack_require__("Y7Z2")
-
-      const appMod = __webpack_require__("cha2")
-      let App = appMod.default || appMod.then && appMod.then(mod => mod.default);
-
-      const compMod = __webpack_require__("D4/9")
-
-      const Component = compMod.default || compMod.then && compMod.then(mod => mod.default)
-      /* harmony default export */ __webpack_exports__["default"] = (Component);
-      const getStaticProps = compMod['getStaticProp' + 's'] || compMod.then && compMod.then(mod => mod['getStaticProp' + 's'])
-      const getStaticPaths = compMod['getStaticPath' + 's'] || compMod.then && compMod.then(mod => mod['getStaticPath' + 's'])
-      const getServerSideProps = compMod['getServerSideProp' + 's'] || compMod.then && compMod.then(mod => mod['getServerSideProp' + 's'])
-
-      // kept for detecting legacy exports
-      const unstable_getStaticParams = compMod['unstable_getStaticParam' + 's'] || compMod.then && compMod.then(mod => mod['unstable_getStaticParam' + 's'])
-      const unstable_getStaticProps = compMod['unstable_getStaticProp' + 's'] || compMod.then && compMod.then(mod => mod['unstable_getStaticProp' + 's'])
-      const unstable_getStaticPaths = compMod['unstable_getStaticPath' + 's'] || compMod.then && compMod.then(mod => mod['unstable_getStaticPath' + 's'])
-      const unstable_getServerProps = compMod['unstable_getServerProp' + 's'] || compMod.then && compMod.then(mod => mod['unstable_getServerProp' + 's'])
-
-      let config = compMod['confi' + 'g'] || (compMod.then && compMod.then(mod => mod['confi' + 'g'])) || {}
-      const _app = App
-
-      const { renderReqToHTML, render } = Object(next_dist_build_webpack_loaders_next_serverless_loader_page_handler__WEBPACK_IMPORTED_MODULE_6__["getPageHandler"])({
-        pageModule: compMod,
-        pageComponent: Component,
-        pageConfig: config,
-        appModule: App,
-        documentModule: documentModule,
-        errorModule: __webpack_require__("D4/9"),
-        notFoundModule: __webpack_require__("BdxU"),
-        pageGetStaticProps: getStaticProps,
-        pageGetStaticPaths: getStaticPaths,
-        pageGetServerSideProps: getServerSideProps,
-
-        assetPrefix: "",
-        canonicalBase: "",
-        generateEtags: true,
-        poweredByHeader: true,
-
-        runtimeConfig,
-        buildManifest: private_dot_next_build_manifest_json__WEBPACK_IMPORTED_MODULE_4__,
-        reactLoadableManifest: private_dot_next_react_loadable_manifest_json__WEBPACK_IMPORTED_MODULE_5__,
-
-        rewrites: private_dot_next_routes_manifest_json__WEBPACK_IMPORTED_MODULE_3__.rewrites,
-        i18n: undefined,
-        page: "/_error",
-        buildId: "fagYRj-0Ex9nXkNd2RtuD",
-        escapedBuildId: "fagYRj\-0Ex9nXkNd2RtuD",
-        basePath: "",
-        pageIsDynamic: false,
-        encodedPreviewProps: {previewModeId:"d178453b0f6befe7141234b91f38490d",previewModeSigningKey:"fd9559aec77ada1f1c78bb8c77e030aa35e708cc82926494738577ba0a35ee18",previewModeEncryptionKey:"f64bcd30709ddc9eb326ce5cdcfd8c6f3c659a300c9249f2abe771f7f6d4e699"},
-        experimental: {
-          onError: next_plugin_loader_middleware_on_error_server___WEBPACK_IMPORTED_MODULE_1__["default"],
-          initServer: next_plugin_loader_middleware_on_init_server___WEBPACK_IMPORTED_MODULE_0__["default"],
-        }
-      })
-      
-    
 
 /***/ }),
 
@@ -8275,6 +8685,209 @@ exports.default = TextNode;
 
 /***/ }),
 
+/***/ "KkBy":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: !0
+});
+
+var React = __webpack_require__("q1tI");
+
+__webpack_require__("YWla");
+
+var emotionElement = __webpack_require__("5AyK");
+
+__webpack_require__("pVnL"), __webpack_require__("kXgE"), __webpack_require__("2mql"), 
+__webpack_require__("QaWx");
+
+var utils = __webpack_require__("a1lD"), serialize = __webpack_require__("H790"), sheet = __webpack_require__("Kmcs"), pkg = {
+  name: "@emotion/react",
+  version: "11.1.5",
+  main: "dist/emotion-react.cjs.js",
+  module: "dist/emotion-react.esm.js",
+  browser: {
+    "./dist/emotion-react.cjs.js": "./dist/emotion-react.browser.cjs.js",
+    "./dist/emotion-react.esm.js": "./dist/emotion-react.browser.esm.js"
+  },
+  types: "types/index.d.ts",
+  files: [ "src", "dist", "jsx-runtime", "jsx-dev-runtime", "isolated-hoist-non-react-statics-do-not-use-this-in-your-code", "types/*.d.ts", "macro.js", "macro.d.ts", "macro.js.flow" ],
+  sideEffects: !1,
+  author: "mitchellhamilton <mitchell@mitchellhamilton.me>",
+  license: "MIT",
+  scripts: {
+    "test:typescript": "dtslint types"
+  },
+  dependencies: {
+    "@babel/runtime": "^7.7.2",
+    "@emotion/cache": "^11.1.3",
+    "@emotion/serialize": "^1.0.0",
+    "@emotion/sheet": "^1.0.1",
+    "@emotion/utils": "^1.0.0",
+    "@emotion/weak-memoize": "^0.2.5",
+    "hoist-non-react-statics": "^3.3.1"
+  },
+  peerDependencies: {
+    "@babel/core": "^7.0.0",
+    react: ">=16.8.0"
+  },
+  peerDependenciesMeta: {
+    "@babel/core": {
+      optional: !0
+    },
+    "@types/react": {
+      optional: !0
+    }
+  },
+  devDependencies: {
+    "@babel/core": "^7.7.2",
+    "@emotion/css": "11.1.3",
+    "@emotion/css-prettifier": "1.0.0",
+    "@emotion/server": "11.0.0",
+    "@emotion/styled": "11.1.5",
+    "@types/react": "^16.9.11",
+    dtslint: "^0.3.0",
+    "html-tag-names": "^1.1.2",
+    react: "16.14.0",
+    "svg-tag-names": "^1.1.1"
+  },
+  repository: "https://github.com/emotion-js/emotion/tree/master/packages/react",
+  publishConfig: {
+    access: "public"
+  },
+  "umd:main": "dist/emotion-react.umd.min.js",
+  preconstruct: {
+    entrypoints: [ "./index.js", "./jsx-runtime.js", "./jsx-dev-runtime.js", "./isolated-hoist-non-react-statics-do-not-use-this-in-your-code.js" ],
+    umdName: "emotionReact"
+  }
+}, jsx = function(type, props) {
+  var args = arguments;
+  if (null == props || !emotionElement.hasOwnProperty.call(props, "css")) return React.createElement.apply(void 0, args);
+  var argsLength = args.length, createElementArgArray = new Array(argsLength);
+  createElementArgArray[0] = emotionElement.Emotion, createElementArgArray[1] = emotionElement.createEmotionProps(type, props);
+  for (var i = 2; i < argsLength; i++) createElementArgArray[i] = args[i];
+  return React.createElement.apply(null, createElementArgArray);
+}, warnedAboutCssPropForGlobal = !1, Global = emotionElement.withEmotionCache((function(props, cache) {
+  var styles = props.styles, serialized = serialize.serializeStyles([ styles ], void 0, "function" == typeof styles || Array.isArray(styles) ? React.useContext(emotionElement.ThemeContext) : void 0);
+  if (!emotionElement.isBrowser) {
+    for (var _ref, serializedNames = serialized.name, serializedStyles = serialized.styles, next = serialized.next; void 0 !== next; ) serializedNames += " " + next.name, 
+    serializedStyles += next.styles, next = next.next;
+    var shouldCache = !0 === cache.compat, rules = cache.insert("", {
+      name: serializedNames,
+      styles: serializedStyles
+    }, cache.sheet, shouldCache);
+    return shouldCache ? null : React.createElement("style", ((_ref = {})["data-emotion"] = cache.key + "-global " + serializedNames, 
+    _ref.dangerouslySetInnerHTML = {
+      __html: rules
+    }, _ref.nonce = cache.sheet.nonce, _ref));
+  }
+  var sheetRef = React.useRef();
+  return React.useLayoutEffect((function() {
+    var key = cache.key + "-global", sheet$1 = new sheet.StyleSheet({
+      key: key,
+      nonce: cache.sheet.nonce,
+      container: cache.sheet.container,
+      speedy: cache.sheet.isSpeedy
+    }), node = document.querySelector('style[data-emotion="' + key + " " + serialized.name + '"]');
+    return cache.sheet.tags.length && (sheet$1.before = cache.sheet.tags[0]), null !== node && sheet$1.hydrate([ node ]), 
+    sheetRef.current = sheet$1, function() {
+      sheet$1.flush();
+    };
+  }), [ cache ]), React.useLayoutEffect((function() {
+    void 0 !== serialized.next && utils.insertStyles(cache, serialized.next, !0);
+    var sheet = sheetRef.current;
+    if (sheet.tags.length) {
+      var element = sheet.tags[sheet.tags.length - 1].nextElementSibling;
+      sheet.before = element, sheet.flush();
+    }
+    cache.insert("", serialized, sheet, !1);
+  }), [ cache, serialized.name ]), null;
+}));
+
+function css() {
+  for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) args[_key] = arguments[_key];
+  return serialize.serializeStyles(args);
+}
+
+var keyframes = function() {
+  var insertable = css.apply(void 0, arguments), name = "animation-" + insertable.name;
+  return {
+    name: name,
+    styles: "@keyframes " + name + "{" + insertable.styles + "}",
+    anim: 1,
+    toString: function() {
+      return "_EMO_" + this.name + "_" + this.styles + "_EMO_";
+    }
+  };
+}, classnames = function classnames(args) {
+  for (var len = args.length, i = 0, cls = ""; i < len; i++) {
+    var arg = args[i];
+    if (null != arg) {
+      var toAdd = void 0;
+      switch (typeof arg) {
+       case "boolean":
+        break;
+
+       case "object":
+        if (Array.isArray(arg)) toAdd = classnames(arg); else for (var k in toAdd = "", 
+        arg) arg[k] && k && (toAdd && (toAdd += " "), toAdd += k);
+        break;
+
+       default:
+        toAdd = arg;
+      }
+      toAdd && (cls && (cls += " "), cls += toAdd);
+    }
+  }
+  return cls;
+};
+
+function merge(registered, css, className) {
+  var registeredStyles = [], rawClassName = utils.getRegisteredStyles(registered, registeredStyles, className);
+  return registeredStyles.length < 2 ? className : rawClassName + css(registeredStyles);
+}
+
+var isBrowser, isJest, globalContext, globalKey, ClassNames = emotionElement.withEmotionCache((function(props, cache) {
+  var _ref, rules = "", serializedHashes = "", css = function() {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) args[_key] = arguments[_key];
+    var serialized = serialize.serializeStyles(args, cache.registered);
+    if (emotionElement.isBrowser) utils.insertStyles(cache, serialized, !1); else {
+      var res = utils.insertStyles(cache, serialized, !1);
+      void 0 !== res && (rules += res);
+    }
+    return emotionElement.isBrowser || (serializedHashes += " " + serialized.name), 
+    cache.key + "-" + serialized.name;
+  }, content = {
+    css: css,
+    cx: function() {
+      for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) args[_key2] = arguments[_key2];
+      return merge(cache.registered, css, classnames(args));
+    },
+    theme: React.useContext(emotionElement.ThemeContext)
+  }, ele = props.children(content);
+  return !0, emotionElement.isBrowser || 0 === rules.length ? ele : React.createElement(React.Fragment, null, React.createElement("style", ((_ref = {})["data-emotion"] = cache.key + " " + serializedHashes.substring(1), 
+  _ref.dangerouslySetInnerHTML = {
+    __html: rules
+  }, _ref.nonce = cache.sheet.nonce, _ref)), ele);
+}));
+
+exports.CacheProvider = emotionElement.CacheProvider, exports.ThemeContext = emotionElement.ThemeContext, 
+exports.ThemeProvider = emotionElement.ThemeProvider, exports.useTheme = emotionElement.useTheme, 
+Object.defineProperty(exports, "withEmotionCache", {
+  enumerable: !0,
+  get: function() {
+    return emotionElement.withEmotionCache;
+  }
+}), exports.withTheme = emotionElement.withTheme, exports.ClassNames = ClassNames, 
+exports.Global = Global, exports.createElement = jsx, exports.css = css, exports.jsx = jsx, 
+exports.keyframes = keyframes;
+
+
+/***/ }),
+
 /***/ "KmAU":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8288,6 +8901,19 @@ var NodeType;
     NodeType[NodeType["COMMENT_NODE"] = 8] = "COMMENT_NODE";
 })(NodeType || (NodeType = {}));
 exports.default = NodeType;
+
+
+/***/ }),
+
+/***/ "Kmcs":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+if (true) {
+  module.exports = __webpack_require__("WxCB");
+} else {}
 
 
 /***/ }),
@@ -8318,6 +8944,60 @@ exports.__esModule=true;exports.setRevalidateHeaders=setRevalidateHeaders;export
      * ETag, Expires, and Vary. https://tools.ietf.org/html/rfc7232#section-4.1
      */res.setHeader('ETag',etag);}if((0,_fresh.default)(req.headers,{etag})){res.statusCode=304;res.end();return true;}return false;}
 //# sourceMappingURL=send-payload.js.map
+
+/***/ }),
+
+/***/ "KzgV":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports["default"] = bindActionCreators;
+
+function bindActionCreators(actionCreators, dispatch) {
+  var boundActionCreators = {};
+
+  var _loop = function _loop(key) {
+    var actionCreator = actionCreators[key];
+
+    if (typeof actionCreator === 'function') {
+      boundActionCreators[key] = function () {
+        return dispatch(actionCreator.apply(void 0, arguments));
+      };
+    }
+  };
+
+  for (var key in actionCreators) {
+    _loop(key);
+  }
+
+  return boundActionCreators;
+}
+
+/***/ }),
+
+/***/ "LDyf":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+__exportStar(__webpack_require__("PZj6"), exports);
+__exportStar(__webpack_require__("Rw4t"), exports);
+__exportStar(__webpack_require__("z+Cf"), exports);
+
 
 /***/ }),
 
@@ -8466,7 +9146,37 @@ module.exports = function createError(message, config, code, request, response) 
 /***/ "LZ9C":
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"polyfillFiles\":[\"static/chunks/polyfills-ad30d1320810fa304e64.js\"],\"devFiles\":[],\"ampDevFiles\":[],\"lowPriorityFiles\":[\"static/fagYRj-0Ex9nXkNd2RtuD/_buildManifest.js\",\"static/fagYRj-0Ex9nXkNd2RtuD/_ssgManifest.js\"],\"pages\":{\"/\":[\"static/chunks/main-6f511319ecfb62dc97cd.js\",\"static/chunks/webpack-50bee04d1dc61f8adf5b.js\",\"static/chunks/framework.8e1e7dd2905dd582fd51.js\",\"static/chunks/pages/index-90e3e9a6059e9dff9795.js\"],\"/404\":[\"static/chunks/main-6f511319ecfb62dc97cd.js\",\"static/chunks/webpack-50bee04d1dc61f8adf5b.js\",\"static/chunks/framework.8e1e7dd2905dd582fd51.js\",\"static/chunks/pages/404-314b728a24c10969555e.js\"],\"/_app\":[\"static/chunks/main-6f511319ecfb62dc97cd.js\",\"static/chunks/webpack-50bee04d1dc61f8adf5b.js\",\"static/chunks/framework.8e1e7dd2905dd582fd51.js\",\"static/chunks/f6078781a05fe1bcb0902d23dbbb2662c8d200b3.ee4ee32689773ca79b5c.js\",\"static/chunks/pages/_app-70b3b5d770f8bca696e4.js\"],\"/_error\":[\"static/chunks/main-6f511319ecfb62dc97cd.js\",\"static/chunks/webpack-50bee04d1dc61f8adf5b.js\",\"static/chunks/framework.8e1e7dd2905dd582fd51.js\",\"static/chunks/pages/_error-63981de21934b37b3e6d.js\"],\"/chat\":[\"static/chunks/main-6f511319ecfb62dc97cd.js\",\"static/chunks/webpack-50bee04d1dc61f8adf5b.js\",\"static/chunks/framework.8e1e7dd2905dd582fd51.js\",\"static/chunks/pages/chat-15d32421d5405b2326c6.js\"],\"/login\":[\"static/chunks/main-6f511319ecfb62dc97cd.js\",\"static/chunks/webpack-50bee04d1dc61f8adf5b.js\",\"static/chunks/framework.8e1e7dd2905dd582fd51.js\",\"static/chunks/pages/login-be75922b59dde890c002.js\"],\"/post/[postId]\":[\"static/chunks/main-6f511319ecfb62dc97cd.js\",\"static/chunks/webpack-50bee04d1dc61f8adf5b.js\",\"static/chunks/framework.8e1e7dd2905dd582fd51.js\",\"static/chunks/pages/post/[postId]-0c948b60d838753b3d48.js\"],\"/post/[postId]/update\":[\"static/chunks/main-6f511319ecfb62dc97cd.js\",\"static/chunks/webpack-50bee04d1dc61f8adf5b.js\",\"static/chunks/framework.8e1e7dd2905dd582fd51.js\",\"static/chunks/pages/post/[postId]/update-75160356691d339a49f9.js\"],\"/post/create\":[\"static/chunks/main-6f511319ecfb62dc97cd.js\",\"static/chunks/webpack-50bee04d1dc61f8adf5b.js\",\"static/chunks/framework.8e1e7dd2905dd582fd51.js\",\"static/chunks/pages/post/create-e7ab2d9a6a7f1634f7c4.js\"],\"/posts\":[\"static/chunks/main-6f511319ecfb62dc97cd.js\",\"static/chunks/webpack-50bee04d1dc61f8adf5b.js\",\"static/chunks/framework.8e1e7dd2905dd582fd51.js\",\"static/chunks/pages/posts-ee790326e6f4ccc10409.js\"],\"/signup\":[\"static/chunks/main-6f511319ecfb62dc97cd.js\",\"static/chunks/webpack-50bee04d1dc61f8adf5b.js\",\"static/chunks/framework.8e1e7dd2905dd582fd51.js\",\"static/chunks/pages/signup-413a4fd81ace43e318eb.js\"],\"/tag/[tagId]\":[\"static/chunks/main-6f511319ecfb62dc97cd.js\",\"static/chunks/webpack-50bee04d1dc61f8adf5b.js\",\"static/chunks/framework.8e1e7dd2905dd582fd51.js\",\"static/chunks/pages/tag/[tagId]-4eac4e5d59c532f983c1.js\"],\"/tags\":[\"static/chunks/main-6f511319ecfb62dc97cd.js\",\"static/chunks/webpack-50bee04d1dc61f8adf5b.js\",\"static/chunks/framework.8e1e7dd2905dd582fd51.js\",\"static/chunks/pages/tags-f5821a08d73b3e39000d.js\"],\"/trends\":[\"static/chunks/main-6f511319ecfb62dc97cd.js\",\"static/chunks/webpack-50bee04d1dc61f8adf5b.js\",\"static/chunks/framework.8e1e7dd2905dd582fd51.js\",\"static/chunks/pages/trends-b3aa317f2822161c316e.js\"],\"/user\":[\"static/chunks/main-6f511319ecfb62dc97cd.js\",\"static/chunks/webpack-50bee04d1dc61f8adf5b.js\",\"static/chunks/framework.8e1e7dd2905dd582fd51.js\",\"static/chunks/pages/user-bb9dc44650bed47c4502.js\"],\"/user/[userId]\":[\"static/chunks/main-6f511319ecfb62dc97cd.js\",\"static/chunks/webpack-50bee04d1dc61f8adf5b.js\",\"static/chunks/framework.8e1e7dd2905dd582fd51.js\",\"static/chunks/pages/user/[userId]-6df882873ff37c979a7f.js\"],\"/users\":[\"static/chunks/main-6f511319ecfb62dc97cd.js\",\"static/chunks/webpack-50bee04d1dc61f8adf5b.js\",\"static/chunks/framework.8e1e7dd2905dd582fd51.js\",\"static/chunks/pages/users-c6dcd5892a2f2ab8389a.js\"]},\"ampFirstPages\":[]}");
+module.exports = JSON.parse("{\"polyfillFiles\":[\"static/chunks/polyfills-66eb52db556fc265c826.js\"],\"devFiles\":[],\"ampDevFiles\":[],\"lowPriorityFiles\":[\"static/hHsT4b2XEWlnId4FkXi0c/_buildManifest.js\",\"static/hHsT4b2XEWlnId4FkXi0c/_ssgManifest.js\"],\"pages\":{\"/\":[\"static/chunks/main-ab6c2d7c5fd7812c3954.js\",\"static/chunks/webpack-b65c3b3caea33ff59463.js\",\"static/chunks/framework.1ca34f6898d8c56e0ffd.js\",\"static/chunks/pages/index-969df3bb6677cfd5b4ff.js\"],\"/404\":[\"static/chunks/main-ab6c2d7c5fd7812c3954.js\",\"static/chunks/webpack-b65c3b3caea33ff59463.js\",\"static/chunks/framework.1ca34f6898d8c56e0ffd.js\",\"static/chunks/pages/404-20309a56e8d7bbb8679f.js\"],\"/_app\":[\"static/chunks/main-ab6c2d7c5fd7812c3954.js\",\"static/chunks/webpack-b65c3b3caea33ff59463.js\",\"static/chunks/framework.1ca34f6898d8c56e0ffd.js\",\"static/chunks/38f727e959009ef22ce554cbdd240cf1055416cb.ee4ee32689773ca79b5c.js\",\"static/chunks/f8e823dc343b480ab6b081021f8aaec2fe406a6c.98336f833d74918fe200.js\",\"static/chunks/2cd9f183fd2c608fbd7d514dc9aca05c7fa2f21f.bffb03a07f71c199887a.js\",\"static/chunks/7e0844ca1055b51b83ecdd1f87d454a912b8406c.1d5c67f8cb07b02b7c00.js\",\"static/chunks/5076d1bd464157b75135d370526893c57b925130.4308425ac5cad4415af7.js\",\"static/chunks/pages/_app-2a9bc99986f11222378b.js\"],\"/_error\":[\"static/chunks/main-ab6c2d7c5fd7812c3954.js\",\"static/chunks/webpack-b65c3b3caea33ff59463.js\",\"static/chunks/framework.1ca34f6898d8c56e0ffd.js\",\"static/chunks/pages/_error-a8fc14fa48decb8d409a.js\"],\"/chat\":[\"static/chunks/main-ab6c2d7c5fd7812c3954.js\",\"static/chunks/webpack-b65c3b3caea33ff59463.js\",\"static/chunks/framework.1ca34f6898d8c56e0ffd.js\",\"static/chunks/f8e823dc343b480ab6b081021f8aaec2fe406a6c.98336f833d74918fe200.js\",\"static/chunks/2cd9f183fd2c608fbd7d514dc9aca05c7fa2f21f.bffb03a07f71c199887a.js\",\"static/chunks/pages/chat-8b1e7e72792edd362d72.js\"],\"/login\":[\"static/chunks/main-ab6c2d7c5fd7812c3954.js\",\"static/chunks/webpack-b65c3b3caea33ff59463.js\",\"static/chunks/framework.1ca34f6898d8c56e0ffd.js\",\"static/chunks/38f727e959009ef22ce554cbdd240cf1055416cb.ee4ee32689773ca79b5c.js\",\"static/chunks/f8e823dc343b480ab6b081021f8aaec2fe406a6c.98336f833d74918fe200.js\",\"static/chunks/2cd9f183fd2c608fbd7d514dc9aca05c7fa2f21f.bffb03a07f71c199887a.js\",\"static/chunks/7e0844ca1055b51b83ecdd1f87d454a912b8406c.1d5c67f8cb07b02b7c00.js\",\"static/chunks/d9c63645d93c98d598649b8f318238287d8916d0.5b2904af2713226e662b.js\",\"static/chunks/pages/login-3dd220b45f12ca196123.js\"],\"/post/[postId]\":[\"static/chunks/main-ab6c2d7c5fd7812c3954.js\",\"static/chunks/webpack-b65c3b3caea33ff59463.js\",\"static/chunks/framework.1ca34f6898d8c56e0ffd.js\",\"static/chunks/38f727e959009ef22ce554cbdd240cf1055416cb.ee4ee32689773ca79b5c.js\",\"static/chunks/f8e823dc343b480ab6b081021f8aaec2fe406a6c.98336f833d74918fe200.js\",\"static/chunks/2cd9f183fd2c608fbd7d514dc9aca05c7fa2f21f.bffb03a07f71c199887a.js\",\"static/chunks/7e0844ca1055b51b83ecdd1f87d454a912b8406c.1d5c67f8cb07b02b7c00.js\",\"static/chunks/448c5845dc42c8ed07b106c832599f6601aab1fe.aa67880381dd42f67c94.js\",\"static/chunks/pages/post/[postId]-8f16ad3c628e40fb1a11.js\"],\"/post/[postId]/update\":[\"static/chunks/main-ab6c2d7c5fd7812c3954.js\",\"static/chunks/webpack-b65c3b3caea33ff59463.js\",\"static/chunks/framework.1ca34f6898d8c56e0ffd.js\",\"static/chunks/38f727e959009ef22ce554cbdd240cf1055416cb.ee4ee32689773ca79b5c.js\",\"static/chunks/f8e823dc343b480ab6b081021f8aaec2fe406a6c.98336f833d74918fe200.js\",\"static/chunks/2cd9f183fd2c608fbd7d514dc9aca05c7fa2f21f.bffb03a07f71c199887a.js\",\"static/chunks/7e0844ca1055b51b83ecdd1f87d454a912b8406c.1d5c67f8cb07b02b7c00.js\",\"static/chunks/448c5845dc42c8ed07b106c832599f6601aab1fe.aa67880381dd42f67c94.js\",\"static/chunks/pages/post/[postId]/update-30a58a7b3a612e260657.js\"],\"/post/create\":[\"static/chunks/main-ab6c2d7c5fd7812c3954.js\",\"static/chunks/webpack-b65c3b3caea33ff59463.js\",\"static/chunks/framework.1ca34f6898d8c56e0ffd.js\",\"static/chunks/38f727e959009ef22ce554cbdd240cf1055416cb.ee4ee32689773ca79b5c.js\",\"static/chunks/f8e823dc343b480ab6b081021f8aaec2fe406a6c.98336f833d74918fe200.js\",\"static/chunks/2cd9f183fd2c608fbd7d514dc9aca05c7fa2f21f.bffb03a07f71c199887a.js\",\"static/chunks/7e0844ca1055b51b83ecdd1f87d454a912b8406c.1d5c67f8cb07b02b7c00.js\",\"static/chunks/448c5845dc42c8ed07b106c832599f6601aab1fe.aa67880381dd42f67c94.js\",\"static/chunks/pages/post/create-8be04448e954572d9ebf.js\"],\"/posts\":[\"static/chunks/main-ab6c2d7c5fd7812c3954.js\",\"static/chunks/webpack-b65c3b3caea33ff59463.js\",\"static/chunks/framework.1ca34f6898d8c56e0ffd.js\",\"static/chunks/38f727e959009ef22ce554cbdd240cf1055416cb.ee4ee32689773ca79b5c.js\",\"static/chunks/f8e823dc343b480ab6b081021f8aaec2fe406a6c.98336f833d74918fe200.js\",\"static/chunks/2cd9f183fd2c608fbd7d514dc9aca05c7fa2f21f.bffb03a07f71c199887a.js\",\"static/chunks/7e0844ca1055b51b83ecdd1f87d454a912b8406c.1d5c67f8cb07b02b7c00.js\",\"static/chunks/5076d1bd464157b75135d370526893c57b925130.4308425ac5cad4415af7.js\",\"static/chunks/7f6222931974605df2a185c560d798c49dec453f.8216d0cd2f1457039f46.js\",\"static/chunks/b6b8e7b66f4794a1b23b5bf33d68d73ac77c2974.7ff3ba5791971d89a3fc.js\",\"static/chunks/pages/posts-de16cc0a20a15baf37c4.js\"],\"/signup\":[\"static/chunks/main-ab6c2d7c5fd7812c3954.js\",\"static/chunks/webpack-b65c3b3caea33ff59463.js\",\"static/chunks/framework.1ca34f6898d8c56e0ffd.js\",\"static/chunks/38f727e959009ef22ce554cbdd240cf1055416cb.ee4ee32689773ca79b5c.js\",\"static/chunks/f8e823dc343b480ab6b081021f8aaec2fe406a6c.98336f833d74918fe200.js\",\"static/chunks/2cd9f183fd2c608fbd7d514dc9aca05c7fa2f21f.bffb03a07f71c199887a.js\",\"static/chunks/7e0844ca1055b51b83ecdd1f87d454a912b8406c.1d5c67f8cb07b02b7c00.js\",\"static/chunks/d9c63645d93c98d598649b8f318238287d8916d0.5b2904af2713226e662b.js\",\"static/chunks/pages/signup-524794a3c98cd76450dd.js\"],\"/tag/[tagId]\":[\"static/chunks/main-ab6c2d7c5fd7812c3954.js\",\"static/chunks/webpack-b65c3b3caea33ff59463.js\",\"static/chunks/framework.1ca34f6898d8c56e0ffd.js\",\"static/chunks/38f727e959009ef22ce554cbdd240cf1055416cb.ee4ee32689773ca79b5c.js\",\"static/chunks/pages/tag/[tagId]-d7ccf2960df58ba0b008.js\"],\"/tags\":[\"static/chunks/main-ab6c2d7c5fd7812c3954.js\",\"static/chunks/webpack-b65c3b3caea33ff59463.js\",\"static/chunks/framework.1ca34f6898d8c56e0ffd.js\",\"static/chunks/38f727e959009ef22ce554cbdd240cf1055416cb.ee4ee32689773ca79b5c.js\",\"static/chunks/f8e823dc343b480ab6b081021f8aaec2fe406a6c.98336f833d74918fe200.js\",\"static/chunks/2cd9f183fd2c608fbd7d514dc9aca05c7fa2f21f.bffb03a07f71c199887a.js\",\"static/chunks/7e0844ca1055b51b83ecdd1f87d454a912b8406c.1d5c67f8cb07b02b7c00.js\",\"static/chunks/5076d1bd464157b75135d370526893c57b925130.4308425ac5cad4415af7.js\",\"static/chunks/b6b8e7b66f4794a1b23b5bf33d68d73ac77c2974.7ff3ba5791971d89a3fc.js\",\"static/chunks/pages/tags-4202356c0521e64890e7.js\"],\"/trends\":[\"static/chunks/main-ab6c2d7c5fd7812c3954.js\",\"static/chunks/webpack-b65c3b3caea33ff59463.js\",\"static/chunks/framework.1ca34f6898d8c56e0ffd.js\",\"static/chunks/f8e823dc343b480ab6b081021f8aaec2fe406a6c.98336f833d74918fe200.js\",\"static/chunks/pages/trends-fcb24a6023b023410b95.js\"],\"/user\":[\"static/chunks/main-ab6c2d7c5fd7812c3954.js\",\"static/chunks/webpack-b65c3b3caea33ff59463.js\",\"static/chunks/framework.1ca34f6898d8c56e0ffd.js\",\"static/chunks/38f727e959009ef22ce554cbdd240cf1055416cb.ee4ee32689773ca79b5c.js\",\"static/chunks/f8e823dc343b480ab6b081021f8aaec2fe406a6c.98336f833d74918fe200.js\",\"static/chunks/2cd9f183fd2c608fbd7d514dc9aca05c7fa2f21f.bffb03a07f71c199887a.js\",\"static/chunks/7e0844ca1055b51b83ecdd1f87d454a912b8406c.1d5c67f8cb07b02b7c00.js\",\"static/chunks/5076d1bd464157b75135d370526893c57b925130.4308425ac5cad4415af7.js\",\"static/chunks/7f6222931974605df2a185c560d798c49dec453f.8216d0cd2f1457039f46.js\",\"static/chunks/95d89ef4f3f681f951a908d8099606875a83ba9a.f388b24a2d3abb0dfdf9.js\",\"static/chunks/pages/user-2175ece63922b0d017a3.js\"],\"/user/[userId]\":[\"static/chunks/main-ab6c2d7c5fd7812c3954.js\",\"static/chunks/webpack-b65c3b3caea33ff59463.js\",\"static/chunks/framework.1ca34f6898d8c56e0ffd.js\",\"static/chunks/38f727e959009ef22ce554cbdd240cf1055416cb.ee4ee32689773ca79b5c.js\",\"static/chunks/f8e823dc343b480ab6b081021f8aaec2fe406a6c.98336f833d74918fe200.js\",\"static/chunks/2cd9f183fd2c608fbd7d514dc9aca05c7fa2f21f.bffb03a07f71c199887a.js\",\"static/chunks/7e0844ca1055b51b83ecdd1f87d454a912b8406c.1d5c67f8cb07b02b7c00.js\",\"static/chunks/5076d1bd464157b75135d370526893c57b925130.4308425ac5cad4415af7.js\",\"static/chunks/7f6222931974605df2a185c560d798c49dec453f.8216d0cd2f1457039f46.js\",\"static/chunks/95d89ef4f3f681f951a908d8099606875a83ba9a.f388b24a2d3abb0dfdf9.js\",\"static/chunks/pages/user/[userId]-b0ac88d3ecb7398ed924.js\"],\"/users\":[\"static/chunks/main-ab6c2d7c5fd7812c3954.js\",\"static/chunks/webpack-b65c3b3caea33ff59463.js\",\"static/chunks/framework.1ca34f6898d8c56e0ffd.js\",\"static/chunks/38f727e959009ef22ce554cbdd240cf1055416cb.ee4ee32689773ca79b5c.js\",\"static/chunks/f8e823dc343b480ab6b081021f8aaec2fe406a6c.98336f833d74918fe200.js\",\"static/chunks/2cd9f183fd2c608fbd7d514dc9aca05c7fa2f21f.bffb03a07f71c199887a.js\",\"static/chunks/7e0844ca1055b51b83ecdd1f87d454a912b8406c.1d5c67f8cb07b02b7c00.js\",\"static/chunks/5076d1bd464157b75135d370526893c57b925130.4308425ac5cad4415af7.js\",\"static/chunks/b6b8e7b66f4794a1b23b5bf33d68d73ac77c2974.7ff3ba5791971d89a3fc.js\",\"static/chunks/pages/users-2477f652665faaf497af.js\"]},\"ampFirstPages\":[]}");
+
+/***/ }),
+
+/***/ "Lab5":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.default = getAssetPathFromRoute; // Translates a logical route into its pages asset path (relative from a common prefix)
+// "asset path" being its javascript file, data file, prerendered html,...
+
+function getAssetPathFromRoute(route, ext = '') {
+  const path = route === '/' ? '/index' : /^\/index(\/|$)/.test(route) ? `/index${route}` : `${route}`;
+  return path + ext;
+}
+
+/***/ }),
+
+/***/ "LkOU":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+if (true) {
+  module.exports = __webpack_require__("ufHL");
+} else {}
+
 
 /***/ }),
 
@@ -9017,6 +9727,292 @@ function localstorage() {
   } catch (e) {}
 }
 
+
+/***/ }),
+
+/***/ "NWvw":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+if (true) {
+  module.exports = __webpack_require__("yr0H");
+} else {}
+
+
+/***/ }),
+
+/***/ "Nh2W":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__("TqRt");
+
+exports.__esModule = true;
+exports.markAssetError = markAssetError;
+exports.isAssetError = isAssetError;
+exports.getClientBuildManifest = getClientBuildManifest;
+exports.default = void 0;
+
+var _getAssetPathFromRoute = _interopRequireDefault(__webpack_require__("Lab5"));
+
+var _requestIdleCallback = __webpack_require__("0G5g"); // 3.8s was arbitrarily chosen as it's what https://web.dev/interactive
+// considers as "Good" time-to-interactive. We must assume something went
+// wrong beyond this point, and then fall-back to a full page transition to
+// show the user something of value.
+
+
+const MS_MAX_IDLE_DELAY = 3800;
+
+function withFuture(key, map, generator) {
+  let entry = map.get(key);
+
+  if (entry) {
+    if ('future' in entry) {
+      return entry.future;
+    }
+
+    return Promise.resolve(entry);
+  }
+
+  let resolver;
+  const prom = new Promise(resolve => {
+    resolver = resolve;
+  });
+  map.set(key, entry = {
+    resolve: resolver,
+    future: prom
+  });
+  return generator ? // eslint-disable-next-line no-sequences
+  generator().then(value => (resolver(value), value)) : prom;
+}
+
+function hasPrefetch(link) {
+  try {
+    link = document.createElement('link');
+    return (// detect IE11 since it supports prefetch but isn't detected
+      // with relList.support
+      !!window.MSInputMethodContext && !!document.documentMode || link.relList.supports('prefetch')
+    );
+  } catch (_unused) {
+    return false;
+  }
+}
+
+const canPrefetch = hasPrefetch();
+
+function prefetchViaDom(href, as, link) {
+  return new Promise((res, rej) => {
+    if (document.querySelector(`link[rel="prefetch"][href^="${href}"]`)) {
+      return res();
+    }
+
+    link = document.createElement('link'); // The order of property assignment here is intentional:
+
+    if (as) link.as = as;
+    link.rel = `prefetch`;
+    link.crossOrigin = undefined;
+    link.onload = res;
+    link.onerror = rej; // `href` should always be last:
+
+    link.href = href;
+    document.head.appendChild(link);
+  });
+}
+
+const ASSET_LOAD_ERROR = Symbol('ASSET_LOAD_ERROR'); // TODO: unexport
+
+function markAssetError(err) {
+  return Object.defineProperty(err, ASSET_LOAD_ERROR, {});
+}
+
+function isAssetError(err) {
+  return err && ASSET_LOAD_ERROR in err;
+}
+
+function appendScript(src, script) {
+  return new Promise((resolve, reject) => {
+    script = document.createElement('script'); // The order of property assignment here is intentional.
+    // 1. Setup success/failure hooks in case the browser synchronously
+    //    executes when `src` is set.
+
+    script.onload = resolve;
+
+    script.onerror = () => reject(markAssetError(new Error(`Failed to load script: ${src}`))); // 2. Configure the cross-origin attribute before setting `src` in case the
+    //    browser begins to fetch.
+
+
+    script.crossOrigin = undefined; // 3. Finally, set the source and inject into the DOM in case the child
+    //    must be appended for fetching to start.
+
+    script.src = src;
+    document.body.appendChild(script);
+  });
+} // Resolve a promise that times out after given amount of milliseconds.
+
+
+function resolvePromiseWithTimeout(p, ms, err) {
+  return new Promise((resolve, reject) => {
+    let cancelled = false;
+    p.then(r => {
+      // Resolved, cancel the timeout
+      cancelled = true;
+      resolve(r);
+    }).catch(reject);
+    (0, _requestIdleCallback.requestIdleCallback)(() => setTimeout(() => {
+      if (!cancelled) {
+        reject(err);
+      }
+    }, ms));
+  });
+} // TODO: stop exporting or cache the failure
+// It'd be best to stop exporting this. It's an implementation detail. We're
+// only exporting it for backwards compatibilty with the `page-loader`.
+// Only cache this response as a last resort if we cannot eliminate all other
+// code branches that use the Build Manifest Callback and push them through
+// the Route Loader interface.
+
+
+function getClientBuildManifest() {
+  if (self.__BUILD_MANIFEST) {
+    return Promise.resolve(self.__BUILD_MANIFEST);
+  }
+
+  const onBuildManifest = new Promise(resolve => {
+    // Mandatory because this is not concurrent safe:
+    const cb = self.__BUILD_MANIFEST_CB;
+
+    self.__BUILD_MANIFEST_CB = () => {
+      resolve(self.__BUILD_MANIFEST);
+      cb && cb();
+    };
+  });
+  return resolvePromiseWithTimeout(onBuildManifest, MS_MAX_IDLE_DELAY, markAssetError(new Error('Failed to load client build manifest')));
+}
+
+function getFilesForRoute(assetPrefix, route) {
+  if (false) {}
+
+  return getClientBuildManifest().then(manifest => {
+    if (!(route in manifest)) {
+      throw markAssetError(new Error(`Failed to lookup route: ${route}`));
+    }
+
+    const allFiles = manifest[route].map(entry => assetPrefix + '/_next/' + encodeURI(entry));
+    return {
+      scripts: allFiles.filter(v => v.endsWith('.js')),
+      css: allFiles.filter(v => v.endsWith('.css'))
+    };
+  });
+}
+
+function createRouteLoader(assetPrefix) {
+  const entrypoints = new Map();
+  const loadedScripts = new Map();
+  const styleSheets = new Map();
+  const routes = new Map();
+
+  function maybeExecuteScript(src) {
+    let prom = loadedScripts.get(src);
+
+    if (prom) {
+      return prom;
+    } // Skip executing script if it's already in the DOM:
+
+
+    if (document.querySelector(`script[src^="${src}"]`)) {
+      return Promise.resolve();
+    }
+
+    loadedScripts.set(src, prom = appendScript(src));
+    return prom;
+  }
+
+  function fetchStyleSheet(href) {
+    let prom = styleSheets.get(href);
+
+    if (prom) {
+      return prom;
+    }
+
+    styleSheets.set(href, prom = fetch(href).then(res => {
+      if (!res.ok) {
+        throw new Error(`Failed to load stylesheet: ${href}`);
+      }
+
+      return res.text().then(text => ({
+        href: href,
+        content: text
+      }));
+    }).catch(err => {
+      throw markAssetError(err);
+    }));
+    return prom;
+  }
+
+  return {
+    whenEntrypoint(route) {
+      return withFuture(route, entrypoints);
+    },
+
+    onEntrypoint(route, execute) {
+      Promise.resolve(execute).then(fn => fn()).then(exports => ({
+        component: exports && exports.default || exports,
+        exports: exports
+      }), err => ({
+        error: err
+      })).then(input => {
+        const old = entrypoints.get(route);
+        entrypoints.set(route, input);
+        if (old && 'resolve' in old) old.resolve(input);
+      });
+    },
+
+    loadRoute(route) {
+      return withFuture(route, routes, async () => {
+        try {
+          const {
+            scripts,
+            css
+          } = await getFilesForRoute(assetPrefix, route);
+          const [, styles] = await Promise.all([entrypoints.has(route) ? [] : Promise.all(scripts.map(maybeExecuteScript)), Promise.all(css.map(fetchStyleSheet))]);
+          const entrypoint = await resolvePromiseWithTimeout(this.whenEntrypoint(route), MS_MAX_IDLE_DELAY, markAssetError(new Error(`Route did not complete loading: ${route}`)));
+          const res = Object.assign({
+            styles
+          }, entrypoint);
+          return 'error' in entrypoint ? entrypoint : res;
+        } catch (err) {
+          return {
+            error: err
+          };
+        }
+      });
+    },
+
+    prefetch(route) {
+      // https://github.com/GoogleChromeLabs/quicklink/blob/453a661fa1fa940e2d2e044452398e38c67a98fb/src/index.mjs#L115-L118
+      // License: Apache 2.0
+      let cn;
+
+      if (cn = navigator.connection) {
+        // Don't prefetch if using 2G or if Save-Data is enabled.
+        if (cn.saveData || /2g/.test(cn.effectiveType)) return Promise.resolve();
+      }
+
+      return getFilesForRoute(assetPrefix, route).then(output => Promise.all(canPrefetch ? output.scripts.map(script => prefetchViaDom(script, 'script')) : [])).then(() => {
+        (0, _requestIdleCallback.requestIdleCallback)(() => this.loadRoute(route));
+      }).catch( // swallow prefetch errors
+      () => {});
+    }
+
+  };
+}
+
+var _default = createRouteLoader;
+exports.default = _default;
 
 /***/ }),
 
@@ -9643,6 +10639,47 @@ exports.__esModule=true;exports.isBlockedPage=isBlockedPage;exports.cleanAmpPath
 
 /***/ }),
 
+/***/ "PZj6":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.heightWidthRadiusDefaults = exports.heightWidthDefaults = exports.sizeMarginDefaults = exports.sizeDefaults = void 0;
+var commonValues = {
+    loading: true,
+    color: "#000000",
+    css: ""
+};
+function sizeDefaults(sizeValue) {
+    return Object.assign({}, commonValues, { size: sizeValue });
+}
+exports.sizeDefaults = sizeDefaults;
+function sizeMarginDefaults(sizeValue) {
+    return Object.assign({}, sizeDefaults(sizeValue), {
+        margin: 2
+    });
+}
+exports.sizeMarginDefaults = sizeMarginDefaults;
+function heightWidthDefaults(height, width) {
+    return Object.assign({}, commonValues, {
+        height: height,
+        width: width
+    });
+}
+exports.heightWidthDefaults = heightWidthDefaults;
+function heightWidthRadiusDefaults(height, width, radius) {
+    if (radius === void 0) { radius = 2; }
+    return Object.assign({}, heightWidthDefaults(height, width), {
+        radius: radius,
+        margin: 2
+    });
+}
+exports.heightWidthRadiusDefaults = heightWidthRadiusDefaults;
+
+
+/***/ }),
+
 /***/ "PeA9":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9802,6 +10839,19 @@ if (true) {
 
 /***/ }),
 
+/***/ "QLRY":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+if (true) {
+  module.exports = __webpack_require__("KkBy");
+} else {}
+
+
+/***/ }),
+
 /***/ "QWwp":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9819,6 +10869,33 @@ if (typeof process !== 'undefined' && process.type === 'renderer') {
 
 /***/ }),
 
+/***/ "QaWx":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: !0
+});
+
+var hoistNonReactStatics$1 = __webpack_require__("2mql");
+
+function _interopDefault(e) {
+  return e && e.__esModule ? e : {
+    default: e
+  };
+}
+
+var hoistNonReactStatics__default = _interopDefault(hoistNonReactStatics$1), hoistNonReactStatics = function(targetComponent, sourceComponent) {
+  return hoistNonReactStatics__default.default(targetComponent, sourceComponent);
+};
+
+exports.default = hoistNonReactStatics;
+
+
+/***/ }),
+
 /***/ "Qs2e":
 /***/ (function(module, exports) {
 
@@ -9830,6 +10907,848 @@ module.exports = require("net");
 /***/ (function(module, exports) {
 
 module.exports = require("assert");
+
+/***/ }),
+
+/***/ "Qxt3":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: !0
+});
+
+var hashString = __webpack_require__("G3yu"), unitless = __webpack_require__("4hjO"), memoize = __webpack_require__("TiPX");
+
+function _interopDefault(e) {
+  return e && e.__esModule ? e : {
+    default: e
+  };
+}
+
+var contentValuePattern, contentValues, oldProcessStyleValue, msPattern, hyphenPattern, hyphenatedCache, hashString__default = _interopDefault(hashString), unitless__default = _interopDefault(unitless), memoize__default = _interopDefault(memoize), ILLEGAL_ESCAPE_SEQUENCE_ERROR = "You have illegal escape sequence in your template literal, most likely inside content's property value.\nBecause you write your CSS inside a JavaScript string you actually have to do double escaping, so for example \"content: '\\00d7';\" should become \"content: '\\\\00d7';\".\nYou can read more about this here:\nhttps://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#ES2018_revision_of_illegal_escape_sequences", UNDEFINED_AS_OBJECT_KEY_ERROR = "You have passed in falsy value as style object's key (can happen when in example you pass unexported component as computed key).", hyphenateRegex = /[A-Z]|^ms/g, animationRegex = /_EMO_([^_]+?)_([^]*?)_EMO_/g, isCustomProperty = function(property) {
+  return 45 === property.charCodeAt(1);
+}, isProcessableValue = function(value) {
+  return null != value && "boolean" != typeof value;
+}, processStyleName = memoize__default.default((function(styleName) {
+  return isCustomProperty(styleName) ? styleName : styleName.replace(hyphenateRegex, "-$&").toLowerCase();
+})), processStyleValue = function(key, value) {
+  switch (key) {
+   case "animation":
+   case "animationName":
+    if ("string" == typeof value) return value.replace(animationRegex, (function(match, p1, p2) {
+      return cursor = {
+        name: p1,
+        styles: p2,
+        next: cursor
+      }, p1;
+    }));
+  }
+  return 1 === unitless__default.default[key] || isCustomProperty(key) || "number" != typeof value || 0 === value ? value : value + "px";
+};
+
+function handleInterpolation(mergedProps, registered, interpolation) {
+  if (null == interpolation) return "";
+  if (void 0 !== interpolation.__emotion_styles) return interpolation;
+  switch (typeof interpolation) {
+   case "boolean":
+    return "";
+
+   case "object":
+    if (1 === interpolation.anim) return cursor = {
+      name: interpolation.name,
+      styles: interpolation.styles,
+      next: cursor
+    }, interpolation.name;
+    if (void 0 !== interpolation.styles) {
+      var next = interpolation.next;
+      if (void 0 !== next) for (;void 0 !== next; ) cursor = {
+        name: next.name,
+        styles: next.styles,
+        next: cursor
+      }, next = next.next;
+      var styles = interpolation.styles + ";";
+      return styles;
+    }
+    return createStringFromObject(mergedProps, registered, interpolation);
+
+   case "function":
+    if (void 0 !== mergedProps) {
+      var previousCursor = cursor, result = interpolation(mergedProps);
+      return cursor = previousCursor, handleInterpolation(mergedProps, registered, result);
+    }
+    break;
+
+   case "string":
+  }
+  if (null == registered) return interpolation;
+  var cached = registered[interpolation];
+  return void 0 !== cached ? cached : interpolation;
+}
+
+function createStringFromObject(mergedProps, registered, obj) {
+  var string = "";
+  if (Array.isArray(obj)) for (var i = 0; i < obj.length; i++) string += handleInterpolation(mergedProps, registered, obj[i]) + ";"; else for (var _key in obj) {
+    var value = obj[_key];
+    if ("object" != typeof value) null != registered && void 0 !== registered[value] ? string += _key + "{" + registered[value] + "}" : isProcessableValue(value) && (string += processStyleName(_key) + ":" + processStyleValue(_key, value) + ";"); else if (!Array.isArray(value) || "string" != typeof value[0] || null != registered && void 0 !== registered[value[0]]) {
+      var interpolated = handleInterpolation(mergedProps, registered, value);
+      switch (_key) {
+       case "animation":
+       case "animationName":
+        string += processStyleName(_key) + ":" + interpolated + ";";
+        break;
+
+       default:
+        string += _key + "{" + interpolated + "}";
+      }
+    } else for (var _i = 0; _i < value.length; _i++) isProcessableValue(value[_i]) && (string += processStyleName(_key) + ":" + processStyleValue(_key, value[_i]) + ";");
+  }
+  return string;
+}
+
+var sourceMapPattern, cursor, labelPattern = /label:\s*([^\s;\n{]+)\s*;/g;
+
+var serializeStyles = function(args, registered, mergedProps) {
+  if (1 === args.length && "object" == typeof args[0] && null !== args[0] && void 0 !== args[0].styles) return args[0];
+  var stringMode = !0, styles = "";
+  cursor = void 0;
+  var strings = args[0];
+  null == strings || void 0 === strings.raw ? (stringMode = !1, styles += handleInterpolation(mergedProps, registered, strings)) : styles += strings[0];
+  for (var i = 1; i < args.length; i++) styles += handleInterpolation(mergedProps, registered, args[i]), 
+  stringMode && (styles += strings[i]);
+  labelPattern.lastIndex = 0;
+  for (var match, identifierName = ""; null !== (match = labelPattern.exec(styles)); ) identifierName += "-" + match[1];
+  var name = hashString__default.default(styles) + identifierName;
+  return {
+    name: name,
+    styles: styles,
+    next: cursor
+  };
+};
+
+exports.serializeStyles = serializeStyles;
+
+
+/***/ }),
+
+/***/ "RJKx":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "q", function() { return LOAD_MY_INFO_REQUEST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "r", function() { return LOAD_MY_INFO_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return LOAD_MY_INFO_FAILURE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "w", function() { return LOAD_USER_REQUEST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "x", function() { return LOAD_USER_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "v", function() { return LOAD_USER_FAILURE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "t", function() { return LOAD_USERS_REQUEST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "u", function() { return LOAD_USERS_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s", function() { return LOAD_USERS_FAILURE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "z", function() { return LOG_IN_REQUEST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "A", function() { return LOG_IN_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "y", function() { return LOG_IN_FAILURE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "C", function() { return LOG_OUT_REQUEST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "D", function() { return LOG_OUT_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B", function() { return LOG_OUT_FAILURE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "M", function() { return SIGN_UP_REQUEST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "N", function() { return SIGN_UP_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "L", function() { return SIGN_UP_FAILURE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "S", function() { return UPLOAD_IMAGES_REQUEST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "T", function() { return UPLOAD_IMAGES_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "R", function() { return UPLOAD_IMAGES_FAILURE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "I", function() { return REMOVE_IMAGES_REQUEST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "J", function() { return REMOVE_IMAGES_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "H", function() { return REMOVE_IMAGES_FAILURE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return CHANGE_NICKNAME_REQUEST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return CHANGE_NICKNAME_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return CHANGE_NICKNAME_FAILURE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return CHANGE_BIO_REQUEST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return CHANGE_BIO_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CHANGE_BIO_FAILURE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return FOLLOW_REQUEST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return FOLLOW_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return FOLLOW_FAILURE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "P", function() { return UNFOLLOW_REQUEST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Q", function() { return UNFOLLOW_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "O", function() { return UNFOLLOW_FAILURE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "F", function() { return REMOVE_FOLLOWER_REQUEST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "G", function() { return REMOVE_FOLLOWER_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "E", function() { return REMOVE_FOLLOWER_FAILURE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return LOAD_FOLLOWINGS_REQUEST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return LOAD_FOLLOWINGS_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return LOAD_FOLLOWINGS_FAILURE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return LOAD_FOLLOWERS_REQUEST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return LOAD_FOLLOWERS_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return LOAD_FOLLOWERS_FAILURE; });
+/* unused harmony export ADD_POST_TO_ME */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "K", function() { return REMOVE_POST_OF_ME; });
+/* unused harmony export ADD_USER_TO_ROOM */
+/* unused harmony export REMOVE_USER_TO_ROOM */
+/* unused harmony export loadMyInfoRequest */
+/* unused harmony export loadMyInfoSuccess */
+/* unused harmony export loadMyInfoFailure */
+/* unused harmony export loadUserRequest */
+/* unused harmony export loadUserSuccess */
+/* unused harmony export loadUserFailure */
+/* unused harmony export loadUsersRequest */
+/* unused harmony export loadUsersSuccess */
+/* unused harmony export loadUsersFailure */
+/* unused harmony export loginRequest */
+/* unused harmony export loginSuccess */
+/* unused harmony export loginFailure */
+/* unused harmony export logoutRequest */
+/* unused harmony export logoutSuccess */
+/* unused harmony export logoutFailure */
+/* unused harmony export signupRequest */
+/* unused harmony export signupSuccess */
+/* unused harmony export signupFailure */
+/* unused harmony export uploadImagesRequest */
+/* unused harmony export uploadImagesSuccess */
+/* unused harmony export uploadImagesFailure */
+/* unused harmony export removeImagesRequest */
+/* unused harmony export removeImagesSuccess */
+/* unused harmony export removeImagesFailure */
+/* unused harmony export changeNicknameRequest */
+/* unused harmony export changeNicknameSuccess */
+/* unused harmony export changeNicknameFailure */
+/* unused harmony export changeBioRequest */
+/* unused harmony export changeBioSuccess */
+/* unused harmony export changeBioFailure */
+/* unused harmony export followRequest */
+/* unused harmony export followSuccess */
+/* unused harmony export followFailure */
+/* unused harmony export unfollowRequest */
+/* unused harmony export unfollowSuccess */
+/* unused harmony export unfollowFailure */
+/* unused harmony export removeFollowerRequest */
+/* unused harmony export removeFollowerSuccess */
+/* unused harmony export removeFollowerFailure */
+/* unused harmony export loadFollowingsRequest */
+/* unused harmony export loadFollowingsSuccess */
+/* unused harmony export loadFollowingsFailure */
+/* unused harmony export loadFollowersRequest */
+/* unused harmony export loadFollowersSuccess */
+/* unused harmony export loadFollowersFailure */
+/* unused harmony export addPostToMe */
+/* unused harmony export removePostOfMe */
+/* unused harmony export addUserToRoom */
+/* unused harmony export removeUserToRoom */
+/* harmony import */ var immer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("93Hy");
+/* harmony import */ var immer__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(immer__WEBPACK_IMPORTED_MODULE_0__);
+ // 액션 type
+// as const (const assertions) : 액션 생성함수를 통해 액션 객체를 만들때 typescript type이 string이 아닌 실제값을 가리킴.
+
+const LOAD_MY_INFO_REQUEST = 'LOAD_MY_INFO_REQUEST';
+const LOAD_MY_INFO_SUCCESS = 'LOAD_MY_INFO_SUCCESS';
+const LOAD_MY_INFO_FAILURE = 'LOAD_MY_INFO_FAILURE';
+const LOAD_USER_REQUEST = 'LOAD_USER_REQUEST';
+const LOAD_USER_SUCCESS = 'LOAD_USER_SUCCESS';
+const LOAD_USER_FAILURE = 'LOAD_USER_FAILURE';
+const LOAD_USERS_REQUEST = 'LOAD_USERS_REQUEST';
+const LOAD_USERS_SUCCESS = 'LOAD_USERS_SUCCESS';
+const LOAD_USERS_FAILURE = 'LOAD_USERS_FAILURE';
+const LOG_IN_REQUEST = 'LOG_IN_REQUEST';
+const LOG_IN_SUCCESS = 'LOG_IN_SUCCESS';
+const LOG_IN_FAILURE = 'LOG_IN_FAILURE';
+const LOG_OUT_REQUEST = 'LOG_OUT_REQUEST';
+const LOG_OUT_SUCCESS = 'LOG_OUT_SUCCESS';
+const LOG_OUT_FAILURE = 'LOG_OUT_FAILURE';
+const SIGN_UP_REQUEST = 'SIGN_UP_REQUEST';
+const SIGN_UP_SUCCESS = 'SIGN_UP_SUCCESS';
+const SIGN_UP_FAILURE = 'SIGN_UP_FAILURE';
+const UPLOAD_IMAGES_REQUEST = 'UPLOAD_IMAGES_REQUEST';
+const UPLOAD_IMAGES_SUCCESS = 'UPLOAD_IMAGES_SUCCESS';
+const UPLOAD_IMAGES_FAILURE = 'UPLOAD_IMAGES_FAILURE';
+const REMOVE_IMAGES_REQUEST = 'REMOVE_IMAGES_REQUEST';
+const REMOVE_IMAGES_SUCCESS = 'REMOVE_IMAGES_SUCCESS';
+const REMOVE_IMAGES_FAILURE = 'REMOVE_IMAGES_FAILURE';
+const CHANGE_NICKNAME_REQUEST = 'CHANGE_NICKNAME_REQUEST';
+const CHANGE_NICKNAME_SUCCESS = 'CHANGE_NICKNAME_SUCCESS';
+const CHANGE_NICKNAME_FAILURE = 'CHANGE_NICKNAME_FAILURE';
+const CHANGE_BIO_REQUEST = 'CHANGE_BIO_REQUEST';
+const CHANGE_BIO_SUCCESS = 'CHANGE_BIO_SUCCESS';
+const CHANGE_BIO_FAILURE = 'CHANGE_BIO_FAILURE';
+const FOLLOW_REQUEST = 'FOLLOW_REQUEST';
+const FOLLOW_SUCCESS = 'FOLLOW_SUCCESS';
+const FOLLOW_FAILURE = 'FOLLOW_FAILURE';
+const UNFOLLOW_REQUEST = 'UNFOLLOW_REQUEST';
+const UNFOLLOW_SUCCESS = 'UNFOLLOW_SUCCESS';
+const UNFOLLOW_FAILURE = 'UNFOLLOW_FAILURE';
+const REMOVE_FOLLOWER_REQUEST = 'REMOVE_FOLLOWER_REQUEST';
+const REMOVE_FOLLOWER_SUCCESS = 'REMOVE_FOLLOWER_SUCCESS';
+const REMOVE_FOLLOWER_FAILURE = 'REMOVE_FOLLOWER_FAILURE';
+const LOAD_FOLLOWINGS_REQUEST = 'LOAD_FOLLOWINGS_REQUEST';
+const LOAD_FOLLOWINGS_SUCCESS = 'LOAD_FOLLOWINGS_SUCCESS';
+const LOAD_FOLLOWINGS_FAILURE = 'LOAD_FOLLOWINGS_FAILURE';
+const LOAD_FOLLOWERS_REQUEST = 'LOAD_FOLLOWERS_REQUEST';
+const LOAD_FOLLOWERS_SUCCESS = 'LOAD_FOLLOWERS_SUCCESS';
+const LOAD_FOLLOWERS_FAILURE = 'LOAD_FOLLOWERS_FAILURE';
+const ADD_POST_TO_ME = 'ADD_POST_TO_ME';
+const REMOVE_POST_OF_ME = 'REMOVE_POST_OF_ME';
+const ADD_USER_TO_ROOM = 'ADD_USER_TO_ROOM';
+const REMOVE_USER_TO_ROOM = 'REMOVE_USER_TO_ROOM'; // 액션 생성 함수
+// FSA(flux-standard-action) 규칙을 따를 경우 payload안에 data를 담아서 사용.
+
+const loadMyInfoRequest = data => ({
+  type: LOAD_MY_INFO_REQUEST,
+  data
+});
+const loadMyInfoSuccess = data => ({
+  type: LOAD_MY_INFO_SUCCESS,
+  data
+});
+const loadMyInfoFailure = data => ({
+  type: LOAD_MY_INFO_FAILURE,
+  data
+});
+const loadUserRequest = data => ({
+  type: LOAD_USER_REQUEST,
+  data
+});
+const loadUserSuccess = data => ({
+  type: LOAD_USER_SUCCESS,
+  data
+});
+const loadUserFailure = data => ({
+  type: LOAD_USER_FAILURE,
+  data
+});
+const loadUsersRequest = data => ({
+  type: LOAD_USERS_REQUEST,
+  data
+});
+const loadUsersSuccess = data => ({
+  type: LOAD_USERS_SUCCESS,
+  data
+});
+const loadUsersFailure = data => ({
+  type: LOAD_USERS_FAILURE,
+  data
+});
+const loginRequest = data => ({
+  type: LOG_IN_REQUEST,
+  data
+});
+const loginSuccess = data => ({
+  type: LOG_IN_SUCCESS,
+  data
+});
+const loginFailure = data => ({
+  type: LOG_IN_FAILURE,
+  data
+});
+const logoutRequest = data => ({
+  type: LOG_OUT_REQUEST,
+  data
+});
+const logoutSuccess = data => ({
+  type: LOG_OUT_SUCCESS,
+  data
+});
+const logoutFailure = data => ({
+  type: LOG_OUT_FAILURE,
+  data
+});
+const signupRequest = data => ({
+  type: SIGN_UP_REQUEST,
+  data
+});
+const signupSuccess = data => ({
+  type: SIGN_UP_SUCCESS,
+  data
+});
+const signupFailure = data => ({
+  type: SIGN_UP_FAILURE,
+  data
+});
+const uploadImagesRequest = id => ({
+  type: UPLOAD_IMAGES_REQUEST,
+  data: id
+});
+const uploadImagesSuccess = id => ({
+  type: UPLOAD_IMAGES_SUCCESS,
+  data: id
+});
+const uploadImagesFailure = id => ({
+  type: UPLOAD_IMAGES_FAILURE,
+  data: id
+});
+const removeImagesRequest = id => ({
+  type: REMOVE_IMAGES_REQUEST,
+  data: id
+});
+const removeImagesSuccess = id => ({
+  type: REMOVE_IMAGES_SUCCESS,
+  data: id
+});
+const removeImagesFailure = id => ({
+  type: REMOVE_IMAGES_FAILURE,
+  data: id
+});
+const changeNicknameRequest = data => ({
+  type: CHANGE_NICKNAME_REQUEST,
+  data
+});
+const changeNicknameSuccess = data => ({
+  type: CHANGE_NICKNAME_SUCCESS,
+  data
+});
+const changeNicknameFailure = data => ({
+  type: CHANGE_NICKNAME_FAILURE,
+  data
+});
+const changeBioRequest = data => ({
+  type: CHANGE_BIO_REQUEST,
+  data
+});
+const changeBioSuccess = data => ({
+  type: CHANGE_BIO_SUCCESS,
+  data
+});
+const changeBioFailure = data => ({
+  type: CHANGE_BIO_FAILURE,
+  data
+});
+const followRequest = data => ({
+  type: FOLLOW_REQUEST,
+  data
+});
+const followSuccess = data => ({
+  type: FOLLOW_SUCCESS,
+  data
+});
+const followFailure = data => ({
+  type: FOLLOW_FAILURE,
+  data
+});
+const unfollowRequest = data => ({
+  type: UNFOLLOW_REQUEST,
+  data
+});
+const unfollowSuccess = data => ({
+  type: UNFOLLOW_SUCCESS,
+  data
+});
+const unfollowFailure = data => ({
+  type: UNFOLLOW_FAILURE,
+  data
+});
+const removeFollowerRequest = data => ({
+  type: REMOVE_FOLLOWER_REQUEST,
+  data
+});
+const removeFollowerSuccess = data => ({
+  type: REMOVE_FOLLOWER_SUCCESS,
+  data
+});
+const removeFollowerFailure = data => ({
+  type: REMOVE_FOLLOWER_FAILURE,
+  data
+});
+const loadFollowingsRequest = data => ({
+  type: LOAD_FOLLOWINGS_REQUEST,
+  data
+});
+const loadFollowingsSuccess = data => ({
+  type: LOAD_FOLLOWINGS_SUCCESS,
+  data
+});
+const loadFollowingsFailure = data => ({
+  type: LOAD_FOLLOWINGS_FAILURE,
+  data
+});
+const loadFollowersRequest = data => ({
+  type: LOAD_FOLLOWERS_REQUEST,
+  data
+});
+const loadFollowersSuccess = data => ({
+  type: LOAD_FOLLOWERS_SUCCESS,
+  data
+});
+const loadFollowersFailure = data => ({
+  type: LOAD_FOLLOWERS_FAILURE,
+  data
+});
+const addPostToMe = data => ({
+  type: ADD_POST_TO_ME,
+  data
+});
+const removePostOfMe = data => ({
+  type: REMOVE_POST_OF_ME,
+  data
+});
+const addUserToRoom = data => ({
+  type: ADD_USER_TO_ROOM,
+  data
+});
+const removeUserToRoom = data => ({
+  type: REMOVE_USER_TO_ROOM,
+  data
+}); // 액션 타입스크립트 타입
+// 리듀서 작성시 action 파라미터 타입을 설정하기 위해 사용
+// 액션 type 설정시 as const를 사용하지 않으면 ReturnType의 type이 string으로 처리되어 리듀서를 제대로 구현할 수 없음
+
+// 초깃값
+const initialState = {
+  hasMoreUsers: true,
+  loadMyInfoLoading: false,
+  // 유저 정보 가져오기 시도중
+  loadMyInfoDone: false,
+  loadMyInfoError: null,
+  loadUserLoading: false,
+  // 유저 정보 가져오기 시도중
+  loadUserDone: false,
+  loadUserError: null,
+  loadUsersLoading: false,
+  // 유저 목록 가져오기 시도중
+  loadUsersDone: false,
+  loadUsersError: null,
+  followLoading: false,
+  // 팔로우 시도중
+  followDone: false,
+  followError: null,
+  unfollowLoading: false,
+  // 언팔로우 시도중
+  unfollowDone: false,
+  unfollowError: null,
+  logInLoading: false,
+  // 로그인 시도중
+  logInDone: false,
+  logInError: null,
+  logOutLoading: false,
+  // 로그아웃 시도중
+  logOutDone: false,
+  logOutError: null,
+  signUpLoading: false,
+  // 회원가입 시도중
+  signUpDone: false,
+  signUpError: null,
+  uploadImagesLoading: false,
+  uploadImagesDone: false,
+  uploadImagesError: null,
+  removeImagesLoading: false,
+  removeImagesDone: false,
+  removeImagesError: null,
+  changeNicknameLoading: false,
+  // 닉네임 변경 시도중
+  changeNicknameDone: false,
+  changeNicknameError: null,
+  changeBioLoading: false,
+  // 닉네임 변경 시도중
+  changeBioDone: false,
+  changeBioError: null,
+  loadFollowingsLoading: false,
+  loadFollowingsDone: false,
+  loadFollowingsError: null,
+  loadFollowersLoading: false,
+  loadFollowersDone: false,
+  loadFollowersError: null,
+  removeFollowerLoading: false,
+  removeFollowerDone: false,
+  removeFollowerError: null,
+  me: null,
+  userInfo: null,
+  usersInfo: null,
+  allUsersCount: '',
+  searchedUsersCount: '',
+  createAvatarImg: null,
+  chatUsers: []
+}; // 리듀서
+
+const reducer = (state = initialState, action) => immer__WEBPACK_IMPORTED_MODULE_0___default()(state, draft => {
+  switch (action.type) {
+    case REMOVE_FOLLOWER_REQUEST:
+      draft.removeFollowerLoading = true;
+      draft.removeFollowerError = null;
+      draft.removeFollowerDone = false;
+      break;
+
+    case REMOVE_FOLLOWER_SUCCESS:
+      draft.removeFollowerLoading = false;
+      draft.me.followers = draft.me.followers.filter(v => v.id !== action.data.UserId);
+      draft.removeFollowerDone = true;
+      break;
+
+    case REMOVE_FOLLOWER_FAILURE:
+      draft.removeFollowerLoading = false;
+      draft.removeFollowerError = action.error;
+      break;
+
+    case LOAD_FOLLOWINGS_REQUEST:
+      draft.loadFollowingsLoading = true;
+      draft.loadFollowingsError = null;
+      draft.loadFollowingsDone = false;
+      break;
+
+    case LOAD_FOLLOWINGS_SUCCESS:
+      draft.loadFollowingsLoading = false;
+      draft.me.followings = action.data;
+      draft.loadFollowingsDone = true;
+      break;
+
+    case LOAD_FOLLOWINGS_FAILURE:
+      draft.loadFollowingsLoading = false;
+      draft.loadFollowingsError = action.error;
+      break;
+
+    case LOAD_FOLLOWERS_REQUEST:
+      draft.loadFollowersLoading = true;
+      draft.loadFollowersError = null;
+      draft.loadFollowersDone = false;
+      break;
+
+    case LOAD_FOLLOWERS_SUCCESS:
+      draft.loadFollowersLoading = false;
+      draft.me.followers = action.data;
+      draft.loadFollowersDone = true;
+      break;
+
+    case LOAD_FOLLOWERS_FAILURE:
+      draft.loadFollowersLoading = false;
+      draft.loadFollowersError = action.error;
+      break;
+
+    case LOAD_MY_INFO_REQUEST:
+      draft.loadMyInfoLoading = true;
+      draft.loadMyInfoError = null;
+      draft.loadMyInfoDone = false;
+      break;
+
+    case LOAD_MY_INFO_SUCCESS:
+      draft.loadMyInfoLoading = false;
+      draft.me = action.data;
+      draft.loadMyInfoDone = true;
+      break;
+
+    case LOAD_MY_INFO_FAILURE:
+      draft.loadMyInfoLoading = false;
+      draft.loadMyInfoError = action.error;
+      break;
+
+    case LOAD_USER_REQUEST:
+      draft.loadUserLoading = true;
+      draft.loadUserError = null;
+      draft.loadUserDone = false;
+      break;
+
+    case LOAD_USER_SUCCESS:
+      draft.loadUserLoading = false;
+      draft.userInfo = action.data;
+      draft.loadUserDone = true;
+      break;
+
+    case LOAD_USER_FAILURE:
+      draft.loadUserLoading = false;
+      draft.loadUserError = action.error;
+      break;
+
+    case LOAD_USERS_REQUEST:
+      draft.loadUserLoading = true;
+      draft.loadUserError = null;
+      draft.loadUserDone = false;
+      break;
+
+    case LOAD_USERS_SUCCESS:
+      draft.loadUserLoading = false;
+
+      if (action.data.filtering && !action.data.skipNum) {
+        draft.usersInfo = action.data.users;
+
+        if (action.data.searchedUsersCount) {
+          draft.searchedUsersCount = action.data.searchedUsersCount;
+        }
+
+        if (action.data.usersCount) {
+          draft.allUsersCount = action.data.usersCount;
+        }
+      } else if (action.data.skipNum >= 10) {
+        draft.usersInfo = draft.usersInfo.concat(action.data.users);
+      }
+
+      draft.hasMoreUsers = action.data.users.length === 10;
+      draft.loadUserDone = true;
+      break;
+
+    case LOAD_USERS_FAILURE:
+      draft.loadUserLoading = false;
+      draft.loadUserError = action.error;
+      break;
+
+    case FOLLOW_REQUEST:
+      draft.followLoading = true;
+      draft.followError = null;
+      draft.followDone = false;
+      break;
+
+    case FOLLOW_SUCCESS:
+      draft.followLoading = false;
+      draft.me.followings.push({
+        id: action.data.UserId
+      });
+      draft.followDone = true;
+      break;
+
+    case FOLLOW_FAILURE:
+      draft.followLoading = false;
+      draft.followError = action.error;
+      break;
+
+    case UNFOLLOW_REQUEST:
+      draft.unfollowLoading = true;
+      draft.unfollowError = null;
+      draft.unfollowDone = false;
+      break;
+
+    case UNFOLLOW_SUCCESS:
+      draft.unfollowLoading = false;
+      draft.me.followings = draft.me.followings.filter(v => v.id !== action.data.UserId);
+      draft.unfollowDone = true;
+      break;
+
+    case UNFOLLOW_FAILURE:
+      draft.unfollowLoading = false;
+      draft.unfollowError = action.error;
+      break;
+
+    case LOG_IN_REQUEST:
+      draft.logInLoading = true;
+      draft.logInError = null;
+      draft.logInDone = false;
+      break;
+
+    case LOG_IN_SUCCESS:
+      draft.logInLoading = false;
+      draft.me = action.data;
+      draft.logInDone = true;
+      break;
+
+    case LOG_IN_FAILURE:
+      draft.logInLoading = false;
+      draft.logInError = action.error;
+      break;
+
+    case LOG_OUT_REQUEST:
+      draft.logOutLoading = true;
+      draft.logOutError = null;
+      draft.logOutDone = false;
+      break;
+
+    case LOG_OUT_SUCCESS:
+      draft.logOutLoading = false;
+      draft.logOutDone = true;
+      draft.me = null;
+      break;
+
+    case LOG_OUT_FAILURE:
+      draft.logOutLoading = false;
+      draft.logOutError = action.error;
+      break;
+
+    case SIGN_UP_REQUEST:
+      draft.signUpLoading = true;
+      draft.signUpError = null;
+      draft.signUpDone = false;
+      break;
+
+    case SIGN_UP_SUCCESS:
+      draft.signUpLoading = false;
+      draft.signUpDone = true;
+      break;
+
+    case SIGN_UP_FAILURE:
+      draft.signUpLoading = false;
+      draft.signUpError = action.error;
+      break;
+
+    case UPLOAD_IMAGES_REQUEST:
+      draft.uploadImagesLoading = true;
+      draft.uploadImagesDone = false;
+      draft.uploadImagesError = null;
+      break;
+
+    case UPLOAD_IMAGES_SUCCESS:
+      draft.createAvatarImg = action.data;
+      draft.uploadImagesLoading = false;
+      draft.uploadImagesDone = true;
+      break;
+
+    case UPLOAD_IMAGES_FAILURE:
+      draft.uploadImagesLoading = false;
+      draft.uploadImagesError = action.error;
+      break;
+
+    case REMOVE_IMAGES_REQUEST:
+      draft.removeImagesLoading = true;
+      draft.removeImagesDone = false;
+      draft.removeImagesError = null;
+      break;
+
+    case REMOVE_IMAGES_SUCCESS:
+      draft.createAvatarImg = '';
+      draft.me.src = '';
+      draft.removeImagesLoading = false;
+      draft.removeImagesDone = true;
+      break;
+
+    case REMOVE_IMAGES_FAILURE:
+      draft.removeImagesLoading = false;
+      draft.removeImagesError = action.error;
+      break;
+
+    case CHANGE_NICKNAME_REQUEST:
+      draft.changeNicknameLoading = true;
+      draft.changeNicknameError = null;
+      draft.changeNicknameDone = false;
+      break;
+
+    case CHANGE_NICKNAME_SUCCESS:
+      console.log('change nickname success : ', action.data);
+      draft.me.nickname = action.data.nickname;
+      draft.changeNicknameLoading = false;
+      draft.changeNicknameDone = true;
+      break;
+
+    case CHANGE_NICKNAME_FAILURE:
+      draft.changeNicknameLoading = false;
+      draft.changeNicknameError = action.error;
+      break;
+
+    case CHANGE_BIO_REQUEST:
+      draft.changeBioLoading = true;
+      draft.changeBioError = null;
+      draft.changeBioDone = false;
+      break;
+
+    case CHANGE_BIO_SUCCESS:
+      draft.me.bio = action.data.bio;
+      draft.changeBioLoading = false;
+      draft.changeBioDone = true;
+      break;
+
+    case CHANGE_BIO_FAILURE:
+      draft.changeBioLoading = false;
+      draft.changeBioError = action.error;
+      break;
+
+    case ADD_POST_TO_ME:
+      draft.me.Posts.unshift({
+        id: action.data
+      });
+      break;
+
+    case REMOVE_POST_OF_ME:
+      console.log('REMOVE_POST_OF_ME', action);
+      draft.me.posts = draft.me.posts.filter(v => v.id !== action.data);
+      break;
+
+    default:
+      break;
+  }
+});
+
+/* harmony default export */ __webpack_exports__["U"] = (reducer);
 
 /***/ }),
 
@@ -10089,6 +12008,58 @@ internals.reachCopy = function (dst, src, path) {
 
 /***/ }),
 
+/***/ "Rw4t":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.calculateRgba = void 0;
+var BasicColors;
+(function (BasicColors) {
+    BasicColors["maroon"] = "#800000";
+    BasicColors["red"] = "#FF0000";
+    BasicColors["orange"] = "#FFA500";
+    BasicColors["yellow"] = "#FFFF00";
+    BasicColors["olive"] = "#808000";
+    BasicColors["green"] = "#008000";
+    BasicColors["purple"] = "#800080";
+    BasicColors["fuchsia"] = "#FF00FF";
+    BasicColors["lime"] = "#00FF00";
+    BasicColors["teal"] = "#008080";
+    BasicColors["aqua"] = "#00FFFF";
+    BasicColors["blue"] = "#0000FF";
+    BasicColors["navy"] = "#000080";
+    BasicColors["black"] = "#000000";
+    BasicColors["gray"] = "#808080";
+    BasicColors["silver"] = "#C0C0C0";
+    BasicColors["white"] = "#FFFFFF";
+})(BasicColors || (BasicColors = {}));
+var calculateRgba = function (color, opacity) {
+    if (Object.keys(BasicColors).includes(color)) {
+        color = BasicColors[color];
+    }
+    if (color[0] === "#") {
+        color = color.slice(1);
+    }
+    if (color.length === 3) {
+        var res_1 = "";
+        color.split("").forEach(function (c) {
+            res_1 += c;
+            res_1 += c;
+        });
+        color = res_1;
+    }
+    var rgbValues = (color.match(/.{2}/g) || [])
+        .map(function (hex) { return parseInt(hex, 16); })
+        .join(", ");
+    return "rgba(" + rgbValues + ", " + opacity + ")";
+};
+exports.calculateRgba = calculateRgba;
+
+
+/***/ }),
+
 /***/ "S6s8":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10260,14 +12231,14 @@ function connectAdvanced(
 /*
   selectorFactory is a func that is responsible for returning the selector function used to
   compute new props from state, props, and dispatch. For example:
-     export default connectAdvanced((dispatch, options) => (state, props) => ({
+      export default connectAdvanced((dispatch, options) => (state, props) => ({
       thing: state.things[props.thingId],
       saveThing: fields => dispatch(actionCreators.saveThing(props.thingId, fields)),
     }))(YourComponent)
-   Access to dispatch is provided to the factory so selectorFactories can bind actionCreators
+    Access to dispatch is provided to the factory so selectorFactories can bind actionCreators
   outside of their selector as an optimization. Options passed to connectAdvanced are passed to
   the selectorFactory, along with displayName and WrappedComponent, as the second argument.
-   Note that selectorFactory is responsible for all caching/memoization of inbound and outbound
+    Note that selectorFactory is responsible for all caching/memoization of inbound and outbound
   props. Do not use connectAdvanced directly without memoizing results between calls to your
   selector, otherwise the Connect component will re-render on every state or props change.
 */
@@ -10463,7 +12434,7 @@ _ref) {
 
     var Connect = pure ? _react["default"].memo(ConnectFunction) : ConnectFunction;
     Connect.WrappedComponent = WrappedComponent;
-    Connect.displayName = displayName;
+    Connect.displayName = ConnectFunction.displayName = displayName;
 
     if (forwardRef) {
       var forwarded = _react["default"].forwardRef(function forwardConnectRef(props, ref) {
@@ -12719,1155 +14690,12 @@ var redux_devtools_extension = __webpack_require__("5HXA");
 var redux_saga_core_npm_proxy_cjs = __webpack_require__("D2Nl");
 var redux_saga_core_npm_proxy_cjs_default = /*#__PURE__*/__webpack_require__.n(redux_saga_core_npm_proxy_cjs);
 
-// EXTERNAL MODULE: ./node_modules/immer/dist/index.js
-var dist = __webpack_require__("93Hy");
-var dist_default = /*#__PURE__*/__webpack_require__.n(dist);
+// EXTERNAL MODULE: ./store/reducers/post.ts
+var post = __webpack_require__("trRK");
 
-// CONCATENATED MODULE: ./store/reducers/post.ts
- // 액션 type
+// EXTERNAL MODULE: ./store/reducers/user.ts
+var user = __webpack_require__("RJKx");
 
-const CREATE_POST_REQUEST = 'post/CREATE_POST_REQUEST';
-const CREATE_POST_SUCCESS = 'post/CREATE_POST_SUCCESS';
-const CREATE_POST_FAILURE = 'post/CREATE_POST_FAILURE';
-const UPLOAD_IMAGES_REQUEST = 'post/UPLOAD_IMAGES_REQUEST';
-const UPLOAD_IMAGES_SUCCESS = 'post/UPLOAD_IMAGES_SUCCESS';
-const UPLOAD_IMAGES_FAILURE = 'post/UPLOAD_IMAGES_FAILURE';
-const REMOVE_IMAGES_REQUEST = 'post/REMOVE_IMAGES_REQUEST';
-const REMOVE_IMAGES_SUCCESS = 'post/REMOVE_IMAGES_SUCCESS';
-const REMOVE_IMAGES_FAILURE = 'post/REMOVE_IMAGES_FAILURE'; //export const REMOVE_IMAGE = 'post/REMOVE_IMAGE' as const;
-
-const LOAD_POSTS_REQUEST = 'post/LOAD_POSTS_REQUEST';
-const LOAD_POSTS_SUCCESS = 'post/LOAD_POSTS_SUCCESS';
-const LOAD_POSTS_FAILURE = 'post/LOAD_POSTS_FAILURE';
-const LOAD_TAGS_REQUEST = 'post/LOAD_TAGS_REQUEST';
-const LOAD_TAGS_SUCCESS = 'post/LOAD_TAGS_SUCCESS';
-const LOAD_TAGS_FAILURE = 'post/LOAD_TAGS_FAILURE';
-const LOAD_POST_REQUEST = 'post/LOAD_POST_REQUEST';
-const LOAD_POST_SUCCESS = 'post/LOAD_POST_SUCCESS';
-const LOAD_POST_FAILURE = 'post/LOAD_POST_FAILURE';
-const UPDATE_POST_REQUEST = 'post/UPDATE_POST_REQUEST';
-const UPDATE_POST_SUCCESS = 'post/UPDATE_POST_SUCCESS';
-const UPDATE_POST_FAILURE = 'post/UPDATE_POST_FAILURE';
-const REMOVE_POST_REQUEST = 'post/REMOVE_POST_REQUEST';
-const REMOVE_POST_SUCCESS = 'post/REMOVE_POST_SUCCESS';
-const REMOVE_POST_FAILURE = 'post/REMOVE_POST_FAILURE';
-const LIKE_POST_REQUEST = 'post/LIKE_POST_REQUEST';
-const LIKE_POST_SUCCESS = 'post/LIKE_POST_SUCCESS';
-const LIKE_POST_FAILURE = 'post/LIKE_POST_FAILURE';
-const UNLIKE_POST_REQUEST = 'post/UNLIKE_POST_REQUEST';
-const UNLIKE_POST_SUCCESS = 'post/UNLIKE_POST_SUCCESS';
-const UNLIKE_POST_FAILURE = 'post/UNLIKE_POST_FAILURE';
-const ADD_COMMENT_REQUEST = 'post/ADD_COMMENT_REQUEST';
-const ADD_COMMENT_SUCCESS = 'post/ADD_COMMENT_SUCCESS';
-const ADD_COMMENT_FAILURE = 'post/ADD_COMMENT_FAILURE';
-const UPDATE_COMMENT_REQUEST = 'post/UPDATE_COMMENT_REQUEST';
-const UPDATE_COMMENT_SUCCESS = 'post/UPDATE_COMMENT_SUCCESS';
-const UPDATE_COMMENT_FAILURE = 'post/UPDATE_COMMENT_FAILURE';
-const REMOVE_COMMENT_REQUEST = 'post/REMOVE_COMMENT_REQUEST';
-const REMOVE_COMMENT_SUCCESS = 'post/REMOVE_COMMENT_SUCCESS';
-const REMOVE_COMMENT_FAILURE = 'post/REMOVE_COMMENT_FAILURE'; // 액션 생성함수
-
-const createPostRequest = data => ({
-  type: CREATE_POST_REQUEST,
-  data
-});
-const createPostSuccess = data => ({
-  type: CREATE_POST_SUCCESS,
-  data
-});
-const createPostFailure = data => ({
-  type: CREATE_POST_FAILURE,
-  data
-});
-const uploadImagesRequest = id => ({
-  type: UPLOAD_IMAGES_REQUEST,
-  data: id
-});
-const uploadImagesSuccess = id => ({
-  type: UPLOAD_IMAGES_SUCCESS,
-  data: id
-});
-const uploadImagesFailure = id => ({
-  type: UPLOAD_IMAGES_FAILURE,
-  data: id
-});
-const removeImagesRequest = id => ({
-  type: REMOVE_IMAGES_REQUEST,
-  data: id
-});
-const removeImagesSuccess = id => ({
-  type: REMOVE_IMAGES_SUCCESS,
-  data: id
-});
-const removeImagesFailure = id => ({
-  type: REMOVE_IMAGES_FAILURE,
-  data: id
-}); // export const removeImages = (id: number) => ({
-// 	type: REMOVE_IMAGE,
-// 	data: id,
-// });
-
-const loadPostsRequest = id => ({
-  type: LOAD_POSTS_REQUEST,
-  data: id
-});
-const loadPostsSuccess = id => ({
-  type: LOAD_POSTS_SUCCESS,
-  data: id
-});
-const loadPostsFailure = id => ({
-  type: LOAD_POSTS_FAILURE,
-  data: id
-});
-const loadTagsRequest = id => ({
-  type: LOAD_TAGS_REQUEST,
-  data: id
-});
-const loadTagsSuccess = id => ({
-  type: LOAD_TAGS_SUCCESS,
-  data: id
-});
-const loadTagsFailure = id => ({
-  type: LOAD_TAGS_FAILURE,
-  data: id
-});
-const loadPostRequest = id => ({
-  type: LOAD_POST_REQUEST,
-  data: id
-});
-const loadPostSuccess = id => ({
-  type: LOAD_POST_SUCCESS,
-  data: id
-});
-const loadPostFailure = id => ({
-  type: LOAD_POST_FAILURE,
-  data: id
-});
-const updatePostRequest = id => ({
-  type: UPDATE_POST_REQUEST,
-  data: id
-});
-const updatePostSuccess = id => ({
-  type: UPDATE_POST_SUCCESS,
-  data: id
-});
-const updatePostFailure = id => ({
-  type: UPDATE_POST_FAILURE,
-  data: id
-});
-const removePostRequest = id => ({
-  type: REMOVE_POST_REQUEST,
-  data: id
-});
-const removePostSuccess = id => ({
-  type: REMOVE_POST_SUCCESS,
-  data: id
-});
-const removePostFailure = id => ({
-  type: REMOVE_POST_FAILURE,
-  data: id
-});
-const likePostRequest = id => ({
-  type: LIKE_POST_REQUEST,
-  data: id
-});
-const likePostSuccess = id => ({
-  type: LIKE_POST_SUCCESS,
-  data: id
-});
-const likePostFailure = id => ({
-  type: LIKE_POST_FAILURE,
-  data: id
-});
-const unlikePostRequest = id => ({
-  type: UNLIKE_POST_REQUEST,
-  data: id
-});
-const unlikePostSuccess = id => ({
-  type: UNLIKE_POST_SUCCESS,
-  data: id
-});
-const unlikePostFailure = id => ({
-  type: UNLIKE_POST_FAILURE,
-  data: id
-});
-const addCommentRequest = id => ({
-  type: ADD_COMMENT_REQUEST,
-  data: id
-});
-const addCommentSuccess = id => ({
-  type: ADD_COMMENT_SUCCESS,
-  data: id
-});
-const addCommentFailure = id => ({
-  type: ADD_COMMENT_FAILURE,
-  data: id
-});
-const updateCommentRequest = id => ({
-  type: UPDATE_COMMENT_REQUEST,
-  data: id
-});
-const updateCommentSuccess = id => ({
-  type: UPDATE_COMMENT_SUCCESS,
-  data: id
-});
-const updateCommentFailure = id => ({
-  type: UPDATE_COMMENT_FAILURE,
-  data: id
-});
-const removeCommentRequest = id => ({
-  type: REMOVE_COMMENT_REQUEST,
-  data: id
-});
-const removeCommentSuccess = id => ({
-  type: REMOVE_COMMENT_SUCCESS,
-  data: id
-});
-const removeCommentFailure = id => ({
-  type: REMOVE_COMMENT_FAILURE,
-  data: id
-}); // 액션 타입스크립트 타입
-
-// 초깃값 설정
-const initialState = {
-  mainPosts: [],
-  allPostsCount: '',
-  searchedPostsCount: '',
-  tags: [],
-  allTagsCount: '',
-  searchedTagsCount: '',
-  singlePost: null,
-  createPostMainImg: '',
-  hasMorePosts: true,
-  hasMoreTags: true,
-  likePostLoading: false,
-  likePostDone: false,
-  likePostError: null,
-  unlikePostLoading: false,
-  unlikePostDone: false,
-  unlikePostError: null,
-  loadPostLoading: false,
-  loadPostDone: false,
-  loadPostError: null,
-  loadPostsLoading: false,
-  loadPostsDone: false,
-  loadPostsError: null,
-  loadTagsLoading: false,
-  loadTagsDone: false,
-  loadTagsError: null,
-  addPostLoading: false,
-  addPostDone: false,
-  addPostError: null,
-  updatePostLoading: false,
-  updatePostDone: false,
-  updatePostError: null,
-  removePostLoading: false,
-  removePostDone: false,
-  removePostError: null,
-  addCommentLoading: false,
-  addCommentDone: false,
-  addCommentError: null,
-  updateCommentLoading: false,
-  updateCommentDone: false,
-  updateCommentError: null,
-  removeCommentLoading: false,
-  removeCommentDone: false,
-  removeCommentError: null,
-  postUploadImagesLoading: false,
-  postUploadImagesDone: false,
-  postUploadImagesError: null,
-  postRemoveImagesLoading: false,
-  postRemoveImagesDone: false,
-  postRemoveImagesError: null
-}; // 리듀서
-
-const reducer = (state = initialState, action) => dist_default()(state, draft => {
-  switch (action.type) {
-    case 'post/CREATE_POST_REQUEST':
-      draft.addPostLoading = true;
-      draft.addPostDone = false;
-      draft.addPostError = null;
-      break;
-
-    case 'post/CREATE_POST_SUCCESS':
-      draft.addPostLoading = false;
-      draft.addPostDone = true;
-      draft.mainPosts.unshift(action.data);
-      draft.createPostMainImg = '';
-      break;
-
-    case 'post/CREATE_POST_FAILURE':
-      draft.addPostLoading = false;
-      draft.addPostError = action.error;
-      break;
-
-    case 'post/UPLOAD_IMAGES_REQUEST':
-      draft.postUploadImagesLoading = true;
-      draft.postUploadImagesDone = false;
-      draft.postUploadImagesError = null;
-      break;
-
-    case 'post/UPLOAD_IMAGES_SUCCESS':
-      draft.createPostMainImg = action.data;
-      draft.postUploadImagesLoading = false;
-      draft.postUploadImagesDone = true;
-      break;
-
-    case 'post/UPLOAD_IMAGES_FAILURE':
-      draft.postUploadImagesLoading = false;
-      draft.postUploadImagesError = action.error;
-      break;
-
-    case 'post/REMOVE_IMAGES_REQUEST':
-      draft.postRemoveImagesLoading = true;
-      draft.postRemoveImagesDone = false;
-      draft.postRemoveImagesError = null;
-      break;
-
-    case 'post/REMOVE_IMAGES_SUCCESS':
-      draft.createPostMainImg = '';
-      draft.postRemoveImagesLoading = false;
-      draft.postRemoveImagesDone = true;
-      break;
-
-    case 'post/REMOVE_IMAGES_FAILURE':
-      draft.postRemoveImagesLoading = false;
-      draft.postRemoveImagesError = action.error;
-      break;
-    // case 'post/REMOVE_IMAGE':
-    // 	draft.createPostMainImg = draft.createPostMainImg.filter((v, i) => i !== action.data);
-    // 	break;
-
-    case 'post/LOAD_POSTS_REQUEST':
-      draft.loadPostsLoading = true;
-      draft.loadPostsDone = false;
-      draft.loadPostsError = null;
-      break;
-
-    case 'post/LOAD_POSTS_SUCCESS':
-      draft.loadPostsLoading = false;
-
-      if (action.data.filtering && !action.data.skipNum) {
-        draft.mainPosts = action.data.posts;
-
-        if (action.data.searchedPostsCount) {
-          draft.searchedPostsCount = action.data.searchedPostsCount;
-        }
-
-        if (action.data.postsCount) {
-          draft.allPostsCount = action.data.postsCount;
-        }
-      } else if (action.data.skipNum >= 10) {
-        draft.mainPosts = draft.mainPosts.concat(action.data.posts);
-      }
-
-      draft.hasMorePosts = action.data.posts.length === 10;
-      draft.loadPostsDone = true;
-      break;
-
-    case 'post/LOAD_POSTS_FAILURE':
-      draft.loadPostsLoading = false;
-      draft.loadPostsError = action.error;
-      break;
-
-    case 'post/LOAD_TAGS_REQUEST':
-      draft.loadTagsLoading = true;
-      draft.loadTagsDone = false;
-      draft.loadTagsError = null;
-      break;
-
-    case 'post/LOAD_TAGS_SUCCESS':
-      draft.loadTagsLoading = false;
-      draft.loadTagsDone = true;
-      console.log('load tags success : ', action.data);
-
-      if (action.data.filtering) {
-        draft.tags = action.data.tags;
-
-        if (action.data.searchedTagsCount) {
-          draft.searchedTagsCount = action.data.searchedTagsCount;
-        }
-
-        if (action.data.tagsCount) {
-          draft.allTagsCount = action.data.tagsCount;
-        }
-      } else if (action.data.skipNum) {
-        draft.tags = draft.tags.concat(action.data.tags);
-      } else {
-        draft.tags = draft.tags.concat(action.data.tags);
-      }
-
-      draft.hasMoreTags = action.data.tags.length === 10;
-      break;
-
-    case 'post/LOAD_TAGS_FAILURE':
-      draft.loadTagsLoading = false;
-      draft.loadTagsError = action.error;
-      break;
-
-    case 'post/LOAD_POST_REQUEST':
-      draft.loadPostLoading = true;
-      draft.loadPostDone = false;
-      draft.loadPostError = null;
-      break;
-
-    case 'post/LOAD_POST_SUCCESS':
-      draft.loadPostLoading = false;
-      draft.loadPostDone = true;
-      draft.singlePost = action.data;
-      break;
-
-    case 'post/LOAD_POST_FAILURE':
-      draft.loadPostLoading = false;
-      draft.loadPostError = action.error;
-      break;
-
-    case 'post/UPDATE_POST_REQUEST':
-      draft.updatePostLoading = true;
-      draft.updatePostDone = false;
-      draft.updatePostError = null;
-      break;
-
-    case 'post/UPDATE_POST_SUCCESS':
-      console.log('update_post_success : ', action.data); //draft.mainPosts.find((v) => v.id === action.data.PostId) = action.data.newPost;
-
-      draft.updatePostLoading = false;
-      draft.updatePostDone = true;
-      break;
-
-    case 'post/UPDATE_POST_FAILURE':
-      draft.updatePostLoading = false;
-      draft.updatePostError = action.error;
-      break;
-
-    case 'post/REMOVE_POST_REQUEST':
-      draft.removePostLoading = true;
-      draft.removePostDone = false;
-      draft.removePostError = null;
-      break;
-
-    case 'post/REMOVE_POST_SUCCESS':
-      console.log('remove post : ', action.data);
-      draft.removePostLoading = false;
-      draft.removePostDone = true;
-      draft.mainPosts = draft.mainPosts.filter(v => v.id !== action.data.PostId);
-      break;
-
-    case 'post/REMOVE_POST_FAILURE':
-      draft.removePostLoading = false;
-      draft.removePostError = action.error;
-      break;
-
-    case 'post/LIKE_POST_REQUEST':
-      draft.likePostLoading = true;
-      draft.likePostDone = false;
-      draft.likePostError = null;
-      break;
-
-    case 'post/LIKE_POST_SUCCESS':
-      {
-        const post = draft.mainPosts.find(v => v.id === action.data.PostId);
-        post === null || post === void 0 ? void 0 : post.likers.push({
-          id: action.data.UserId
-        });
-        draft.likePostLoading = false;
-        draft.likePostDone = true;
-        break;
-      }
-
-    case 'post/LIKE_POST_FAILURE':
-      draft.likePostLoading = false;
-      draft.likePostError = action.error;
-      break;
-
-    case 'post/UNLIKE_POST_REQUEST':
-      draft.unlikePostLoading = true;
-      draft.unlikePostDone = false;
-      draft.unlikePostError = null;
-      break;
-
-    case 'post/UNLIKE_POST_SUCCESS':
-      {
-        const post = draft.mainPosts.find(v => v.id === action.data.PostId);
-        post.likers = post.likers.filter(v => v.id !== action.data.UserId);
-        draft.unlikePostLoading = false;
-        draft.unlikePostDone = true;
-        break;
-      }
-
-    case 'post/UNLIKE_POST_FAILURE':
-      draft.unlikePostLoading = false;
-      draft.unlikePostError = action.error;
-      break;
-
-    case 'post/ADD_COMMENT_REQUEST':
-      draft.addCommentLoading = true;
-      draft.addCommentDone = false;
-      draft.addCommentError = null;
-      break;
-
-    case 'post/ADD_COMMENT_SUCCESS':
-      console.log('action.data : ', action.data);
-      draft.singlePost.comments.unshift(action.data);
-      draft.addCommentLoading = false;
-      draft.addCommentDone = true;
-      break;
-
-    case 'post/ADD_COMMENT_FAILURE':
-      draft.addCommentLoading = false;
-      draft.addCommentError = action.error;
-      break;
-
-    case 'post/UPDATE_COMMENT_REQUEST':
-      draft.updateCommentLoading = true;
-      draft.updateCommentDone = false;
-      draft.updateCommentError = null;
-      break;
-
-    case 'post/UPDATE_COMMENT_SUCCESS':
-      console.log('action.data : ', action.data);
-      const comment = draft.singlePost.comments.find(v => v.id === action.data.id);
-      comment.content = action.data.content;
-      draft.updateCommentLoading = false;
-      draft.updateCommentDone = true;
-      break;
-
-    case 'post/UPDATE_COMMENT_FAILURE':
-      draft.updateCommentLoading = false;
-      draft.updateCommentError = action.error;
-      break;
-
-    case 'post/REMOVE_COMMENT_REQUEST':
-      draft.removeCommentLoading = true;
-      draft.removeCommentDone = false;
-      draft.removeCommentError = null;
-      break;
-
-    case 'post/REMOVE_COMMENT_SUCCESS':
-      draft.singlePost.comments = draft.singlePost.comments.filter(v => v.id !== action.data.CommentId);
-      draft.removeCommentLoading = false;
-      draft.removeCommentDone = true;
-      break;
-
-    case 'post/REMOVE_COMMENT_FAILURE':
-      draft.removeCommentLoading = false;
-      draft.removeCommentError = action.error;
-
-    default:
-      return state;
-  }
-});
-
-/* harmony default export */ var post = (reducer);
-// CONCATENATED MODULE: ./store/reducers/user.ts
- // 액션 type
-
-const LOAD_MY_INFO_REQUEST = 'LOAD_MY_INFO_REQUEST';
-const LOAD_MY_INFO_SUCCESS = 'LOAD_MY_INFO_SUCCESS';
-const LOAD_MY_INFO_FAILURE = 'LOAD_MY_INFO_FAILURE';
-const LOAD_USER_REQUEST = 'LOAD_USER_REQUEST';
-const LOAD_USER_SUCCESS = 'LOAD_USER_SUCCESS';
-const LOAD_USER_FAILURE = 'LOAD_USER_FAILURE';
-const LOAD_USERS_REQUEST = 'LOAD_USERS_REQUEST';
-const LOAD_USERS_SUCCESS = 'LOAD_USERS_SUCCESS';
-const LOAD_USERS_FAILURE = 'LOAD_USERS_FAILURE';
-const LOG_IN_REQUEST = 'LOG_IN_REQUEST';
-const LOG_IN_SUCCESS = 'LOG_IN_SUCCESS';
-const LOG_IN_FAILURE = 'LOG_IN_FAILURE';
-const LOG_OUT_REQUEST = 'LOG_OUT_REQUEST';
-const LOG_OUT_SUCCESS = 'LOG_OUT_SUCCESS';
-const LOG_OUT_FAILURE = 'LOG_OUT_FAILURE';
-const SIGN_UP_REQUEST = 'SIGN_UP_REQUEST';
-const SIGN_UP_SUCCESS = 'SIGN_UP_SUCCESS';
-const SIGN_UP_FAILURE = 'SIGN_UP_FAILURE';
-const user_UPLOAD_IMAGES_REQUEST = 'UPLOAD_IMAGES_REQUEST';
-const user_UPLOAD_IMAGES_SUCCESS = 'UPLOAD_IMAGES_SUCCESS';
-const user_UPLOAD_IMAGES_FAILURE = 'UPLOAD_IMAGES_FAILURE';
-const user_REMOVE_IMAGES_REQUEST = 'REMOVE_IMAGES_REQUEST';
-const user_REMOVE_IMAGES_SUCCESS = 'REMOVE_IMAGES_SUCCESS';
-const user_REMOVE_IMAGES_FAILURE = 'REMOVE_IMAGES_FAILURE';
-const CHANGE_NICKNAME_REQUEST = 'CHANGE_NICKNAME_REQUEST';
-const CHANGE_NICKNAME_SUCCESS = 'CHANGE_NICKNAME_SUCCESS';
-const CHANGE_NICKNAME_FAILURE = 'CHANGE_NICKNAME_FAILURE';
-const CHANGE_BIO_REQUEST = 'CHANGE_BIO_REQUEST';
-const CHANGE_BIO_SUCCESS = 'CHANGE_BIO_SUCCESS';
-const CHANGE_BIO_FAILURE = 'CHANGE_BIO_FAILURE';
-const FOLLOW_REQUEST = 'FOLLOW_REQUEST';
-const FOLLOW_SUCCESS = 'FOLLOW_SUCCESS';
-const FOLLOW_FAILURE = 'FOLLOW_FAILURE';
-const UNFOLLOW_REQUEST = 'UNFOLLOW_REQUEST';
-const UNFOLLOW_SUCCESS = 'UNFOLLOW_SUCCESS';
-const UNFOLLOW_FAILURE = 'UNFOLLOW_FAILURE';
-const REMOVE_FOLLOWER_REQUEST = 'REMOVE_FOLLOWER_REQUEST';
-const REMOVE_FOLLOWER_SUCCESS = 'REMOVE_FOLLOWER_SUCCESS';
-const REMOVE_FOLLOWER_FAILURE = 'REMOVE_FOLLOWER_FAILURE';
-const LOAD_FOLLOWINGS_REQUEST = 'LOAD_FOLLOWINGS_REQUEST';
-const LOAD_FOLLOWINGS_SUCCESS = 'LOAD_FOLLOWINGS_SUCCESS';
-const LOAD_FOLLOWINGS_FAILURE = 'LOAD_FOLLOWINGS_FAILURE';
-const LOAD_FOLLOWERS_REQUEST = 'LOAD_FOLLOWERS_REQUEST';
-const LOAD_FOLLOWERS_SUCCESS = 'LOAD_FOLLOWERS_SUCCESS';
-const LOAD_FOLLOWERS_FAILURE = 'LOAD_FOLLOWERS_FAILURE';
-const ADD_POST_TO_ME = 'ADD_POST_TO_ME';
-const REMOVE_POST_OF_ME = 'REMOVE_POST_OF_ME';
-const ADD_USER_TO_ROOM = 'ADD_USER_TO_ROOM';
-const REMOVE_USER_TO_ROOM = 'REMOVE_USER_TO_ROOM'; // 액션 생성 함수
-
-const loadMyInfoRequest = data => ({
-  type: LOAD_MY_INFO_REQUEST,
-  data
-});
-const loadMyInfoSuccess = data => ({
-  type: LOAD_MY_INFO_SUCCESS,
-  data
-});
-const loadMyInfoFailure = data => ({
-  type: LOAD_MY_INFO_FAILURE,
-  data
-});
-const loadUserRequest = data => ({
-  type: LOAD_USER_REQUEST,
-  data
-});
-const loadUserSuccess = data => ({
-  type: LOAD_USER_SUCCESS,
-  data
-});
-const loadUserFailure = data => ({
-  type: LOAD_USER_FAILURE,
-  data
-});
-const loadUsersRequest = data => ({
-  type: LOAD_USERS_REQUEST,
-  data
-});
-const loadUsersSuccess = data => ({
-  type: LOAD_USERS_SUCCESS,
-  data
-});
-const loadUsersFailure = data => ({
-  type: LOAD_USERS_FAILURE,
-  data
-});
-const loginRequest = data => ({
-  type: LOG_IN_REQUEST,
-  data
-});
-const loginSuccess = data => ({
-  type: LOG_IN_SUCCESS,
-  data
-});
-const loginFailure = data => ({
-  type: LOG_IN_FAILURE,
-  data
-});
-const logoutRequest = data => ({
-  type: LOG_OUT_REQUEST,
-  data
-});
-const logoutSuccess = data => ({
-  type: LOG_OUT_SUCCESS,
-  data
-});
-const logoutFailure = data => ({
-  type: LOG_OUT_FAILURE,
-  data
-});
-const signupRequest = data => ({
-  type: SIGN_UP_REQUEST,
-  data
-});
-const signupSuccess = data => ({
-  type: SIGN_UP_SUCCESS,
-  data
-});
-const signupFailure = data => ({
-  type: SIGN_UP_FAILURE,
-  data
-});
-const user_uploadImagesRequest = id => ({
-  type: user_UPLOAD_IMAGES_REQUEST,
-  data: id
-});
-const user_uploadImagesSuccess = id => ({
-  type: user_UPLOAD_IMAGES_SUCCESS,
-  data: id
-});
-const user_uploadImagesFailure = id => ({
-  type: user_UPLOAD_IMAGES_FAILURE,
-  data: id
-});
-const user_removeImagesRequest = id => ({
-  type: user_REMOVE_IMAGES_REQUEST,
-  data: id
-});
-const user_removeImagesSuccess = id => ({
-  type: user_REMOVE_IMAGES_SUCCESS,
-  data: id
-});
-const user_removeImagesFailure = id => ({
-  type: user_REMOVE_IMAGES_FAILURE,
-  data: id
-});
-const changeNicknameRequest = data => ({
-  type: CHANGE_NICKNAME_REQUEST,
-  data
-});
-const changeNicknameSuccess = data => ({
-  type: CHANGE_NICKNAME_SUCCESS,
-  data
-});
-const changeNicknameFailure = data => ({
-  type: CHANGE_NICKNAME_FAILURE,
-  data
-});
-const changeBioRequest = data => ({
-  type: CHANGE_BIO_REQUEST,
-  data
-});
-const changeBioSuccess = data => ({
-  type: CHANGE_BIO_SUCCESS,
-  data
-});
-const changeBioFailure = data => ({
-  type: CHANGE_BIO_FAILURE,
-  data
-});
-const followRequest = data => ({
-  type: FOLLOW_REQUEST,
-  data
-});
-const followSuccess = data => ({
-  type: FOLLOW_SUCCESS,
-  data
-});
-const followFailure = data => ({
-  type: FOLLOW_FAILURE,
-  data
-});
-const unfollowRequest = data => ({
-  type: UNFOLLOW_REQUEST,
-  data
-});
-const unfollowSuccess = data => ({
-  type: UNFOLLOW_SUCCESS,
-  data
-});
-const unfollowFailure = data => ({
-  type: UNFOLLOW_FAILURE,
-  data
-});
-const removeFollowerRequest = data => ({
-  type: REMOVE_FOLLOWER_REQUEST,
-  data
-});
-const removeFollowerSuccess = data => ({
-  type: REMOVE_FOLLOWER_SUCCESS,
-  data
-});
-const removeFollowerFailure = data => ({
-  type: REMOVE_FOLLOWER_FAILURE,
-  data
-});
-const loadFollowingsRequest = data => ({
-  type: LOAD_FOLLOWINGS_REQUEST,
-  data
-});
-const loadFollowingsSuccess = data => ({
-  type: LOAD_FOLLOWINGS_SUCCESS,
-  data
-});
-const loadFollowingsFailure = data => ({
-  type: LOAD_FOLLOWINGS_FAILURE,
-  data
-});
-const loadFollowersRequest = data => ({
-  type: LOAD_FOLLOWERS_REQUEST,
-  data
-});
-const loadFollowersSuccess = data => ({
-  type: LOAD_FOLLOWERS_SUCCESS,
-  data
-});
-const loadFollowersFailure = data => ({
-  type: LOAD_FOLLOWERS_FAILURE,
-  data
-});
-const addPostToMe = data => ({
-  type: ADD_POST_TO_ME,
-  data
-});
-const removePostOfMe = data => ({
-  type: REMOVE_POST_OF_ME,
-  data
-});
-const addUserToRoom = data => ({
-  type: ADD_USER_TO_ROOM,
-  data
-});
-const removeUserToRoom = data => ({
-  type: REMOVE_USER_TO_ROOM,
-  data
-}); // 액션 타입스크립트 타입
-
-// 초깃값
-const user_initialState = {
-  hasMoreUsers: true,
-  loadMyInfoLoading: false,
-  // 유저 정보 가져오기 시도중
-  loadMyInfoDone: false,
-  loadMyInfoError: null,
-  loadUserLoading: false,
-  // 유저 정보 가져오기 시도중
-  loadUserDone: false,
-  loadUserError: null,
-  loadUsersLoading: false,
-  // 유저 목록 가져오기 시도중
-  loadUsersDone: false,
-  loadUsersError: null,
-  followLoading: false,
-  // 팔로우 시도중
-  followDone: false,
-  followError: null,
-  unfollowLoading: false,
-  // 언팔로우 시도중
-  unfollowDone: false,
-  unfollowError: null,
-  logInLoading: false,
-  // 로그인 시도중
-  logInDone: false,
-  logInError: null,
-  logOutLoading: false,
-  // 로그아웃 시도중
-  logOutDone: false,
-  logOutError: null,
-  signUpLoading: false,
-  // 회원가입 시도중
-  signUpDone: false,
-  signUpError: null,
-  uploadImagesLoading: false,
-  uploadImagesDone: false,
-  uploadImagesError: null,
-  removeImagesLoading: false,
-  removeImagesDone: false,
-  removeImagesError: null,
-  changeNicknameLoading: false,
-  // 닉네임 변경 시도중
-  changeNicknameDone: false,
-  changeNicknameError: null,
-  changeBioLoading: false,
-  // 닉네임 변경 시도중
-  changeBioDone: false,
-  changeBioError: null,
-  loadFollowingsLoading: false,
-  loadFollowingsDone: false,
-  loadFollowingsError: null,
-  loadFollowersLoading: false,
-  loadFollowersDone: false,
-  loadFollowersError: null,
-  removeFollowerLoading: false,
-  removeFollowerDone: false,
-  removeFollowerError: null,
-  me: null,
-  userInfo: null,
-  usersInfo: null,
-  allUsersCount: '',
-  searchedUsersCount: '',
-  createAvatarImg: null,
-  chatUsers: []
-}; // 리듀서
-
-const user_reducer = (state = user_initialState, action) => dist_default()(state, draft => {
-  switch (action.type) {
-    case REMOVE_FOLLOWER_REQUEST:
-      draft.removeFollowerLoading = true;
-      draft.removeFollowerError = null;
-      draft.removeFollowerDone = false;
-      break;
-
-    case REMOVE_FOLLOWER_SUCCESS:
-      draft.removeFollowerLoading = false;
-      draft.me.followers = draft.me.followers.filter(v => v.id !== action.data.UserId);
-      draft.removeFollowerDone = true;
-      break;
-
-    case REMOVE_FOLLOWER_FAILURE:
-      draft.removeFollowerLoading = false;
-      draft.removeFollowerError = action.error;
-      break;
-
-    case LOAD_FOLLOWINGS_REQUEST:
-      draft.loadFollowingsLoading = true;
-      draft.loadFollowingsError = null;
-      draft.loadFollowingsDone = false;
-      break;
-
-    case LOAD_FOLLOWINGS_SUCCESS:
-      draft.loadFollowingsLoading = false;
-      draft.me.followings = action.data;
-      draft.loadFollowingsDone = true;
-      break;
-
-    case LOAD_FOLLOWINGS_FAILURE:
-      draft.loadFollowingsLoading = false;
-      draft.loadFollowingsError = action.error;
-      break;
-
-    case LOAD_FOLLOWERS_REQUEST:
-      draft.loadFollowersLoading = true;
-      draft.loadFollowersError = null;
-      draft.loadFollowersDone = false;
-      break;
-
-    case LOAD_FOLLOWERS_SUCCESS:
-      draft.loadFollowersLoading = false;
-      draft.me.followers = action.data;
-      draft.loadFollowersDone = true;
-      break;
-
-    case LOAD_FOLLOWERS_FAILURE:
-      draft.loadFollowersLoading = false;
-      draft.loadFollowersError = action.error;
-      break;
-
-    case LOAD_MY_INFO_REQUEST:
-      draft.loadMyInfoLoading = true;
-      draft.loadMyInfoError = null;
-      draft.loadMyInfoDone = false;
-      break;
-
-    case LOAD_MY_INFO_SUCCESS:
-      draft.loadMyInfoLoading = false;
-      draft.me = action.data;
-      draft.loadMyInfoDone = true;
-      break;
-
-    case LOAD_MY_INFO_FAILURE:
-      draft.loadMyInfoLoading = false;
-      draft.loadMyInfoError = action.error;
-      break;
-
-    case LOAD_USER_REQUEST:
-      draft.loadUserLoading = true;
-      draft.loadUserError = null;
-      draft.loadUserDone = false;
-      break;
-
-    case LOAD_USER_SUCCESS:
-      draft.loadUserLoading = false;
-      draft.userInfo = action.data;
-      draft.loadUserDone = true;
-      break;
-
-    case LOAD_USER_FAILURE:
-      draft.loadUserLoading = false;
-      draft.loadUserError = action.error;
-      break;
-
-    case LOAD_USERS_REQUEST:
-      draft.loadUserLoading = true;
-      draft.loadUserError = null;
-      draft.loadUserDone = false;
-      break;
-
-    case LOAD_USERS_SUCCESS:
-      draft.loadUserLoading = false;
-
-      if (action.data.filtering && !action.data.skipNum) {
-        draft.usersInfo = action.data.users;
-
-        if (action.data.searchedUsersCount) {
-          draft.searchedUsersCount = action.data.searchedUsersCount;
-        }
-
-        if (action.data.usersCount) {
-          draft.allUsersCount = action.data.usersCount;
-        }
-      } else if (action.data.skipNum >= 10) {
-        draft.usersInfo = draft.usersInfo.concat(action.data.users);
-      }
-
-      draft.hasMoreUsers = action.data.users.length === 10;
-      draft.loadUserDone = true;
-      break;
-
-    case LOAD_USERS_FAILURE:
-      draft.loadUserLoading = false;
-      draft.loadUserError = action.error;
-      break;
-
-    case FOLLOW_REQUEST:
-      draft.followLoading = true;
-      draft.followError = null;
-      draft.followDone = false;
-      break;
-
-    case FOLLOW_SUCCESS:
-      draft.followLoading = false;
-      draft.me.followings.push({
-        id: action.data.UserId
-      });
-      draft.followDone = true;
-      break;
-
-    case FOLLOW_FAILURE:
-      draft.followLoading = false;
-      draft.followError = action.error;
-      break;
-
-    case UNFOLLOW_REQUEST:
-      draft.unfollowLoading = true;
-      draft.unfollowError = null;
-      draft.unfollowDone = false;
-      break;
-
-    case UNFOLLOW_SUCCESS:
-      draft.unfollowLoading = false;
-      draft.me.followings = draft.me.followings.filter(v => v.id !== action.data.UserId);
-      draft.unfollowDone = true;
-      break;
-
-    case UNFOLLOW_FAILURE:
-      draft.unfollowLoading = false;
-      draft.unfollowError = action.error;
-      break;
-
-    case LOG_IN_REQUEST:
-      draft.logInLoading = true;
-      draft.logInError = null;
-      draft.logInDone = false;
-      break;
-
-    case LOG_IN_SUCCESS:
-      draft.logInLoading = false;
-      draft.me = action.data;
-      draft.logInDone = true;
-      break;
-
-    case LOG_IN_FAILURE:
-      draft.logInLoading = false;
-      draft.logInError = action.error;
-      break;
-
-    case LOG_OUT_REQUEST:
-      draft.logOutLoading = true;
-      draft.logOutError = null;
-      draft.logOutDone = false;
-      break;
-
-    case LOG_OUT_SUCCESS:
-      draft.logOutLoading = false;
-      draft.logOutDone = true;
-      draft.me = null;
-      break;
-
-    case LOG_OUT_FAILURE:
-      draft.logOutLoading = false;
-      draft.logOutError = action.error;
-      break;
-
-    case SIGN_UP_REQUEST:
-      draft.signUpLoading = true;
-      draft.signUpError = null;
-      draft.signUpDone = false;
-      break;
-
-    case SIGN_UP_SUCCESS:
-      draft.signUpLoading = false;
-      draft.signUpDone = true;
-      break;
-
-    case SIGN_UP_FAILURE:
-      draft.signUpLoading = false;
-      draft.signUpError = action.error;
-      break;
-
-    case user_UPLOAD_IMAGES_REQUEST:
-      draft.uploadImagesLoading = true;
-      draft.uploadImagesDone = false;
-      draft.uploadImagesError = null;
-      break;
-
-    case user_UPLOAD_IMAGES_SUCCESS:
-      draft.createAvatarImg = action.data;
-      draft.uploadImagesLoading = false;
-      draft.uploadImagesDone = true;
-      break;
-
-    case user_UPLOAD_IMAGES_FAILURE:
-      draft.uploadImagesLoading = false;
-      draft.uploadImagesError = action.error;
-      break;
-
-    case user_REMOVE_IMAGES_REQUEST:
-      draft.removeImagesLoading = true;
-      draft.removeImagesDone = false;
-      draft.removeImagesError = null;
-      break;
-
-    case user_REMOVE_IMAGES_SUCCESS:
-      draft.createAvatarImg = '';
-      draft.me.src = '';
-      draft.removeImagesLoading = false;
-      draft.removeImagesDone = true;
-      break;
-
-    case user_REMOVE_IMAGES_FAILURE:
-      draft.removeImagesLoading = false;
-      draft.removeImagesError = action.error;
-      break;
-
-    case CHANGE_NICKNAME_REQUEST:
-      draft.changeNicknameLoading = true;
-      draft.changeNicknameError = null;
-      draft.changeNicknameDone = false;
-      break;
-
-    case CHANGE_NICKNAME_SUCCESS:
-      console.log('change nickname success : ', action.data);
-      draft.me.nickname = action.data.nickname;
-      draft.changeNicknameLoading = false;
-      draft.changeNicknameDone = true;
-      break;
-
-    case CHANGE_NICKNAME_FAILURE:
-      draft.changeNicknameLoading = false;
-      draft.changeNicknameError = action.error;
-      break;
-
-    case CHANGE_BIO_REQUEST:
-      draft.changeBioLoading = true;
-      draft.changeBioError = null;
-      draft.changeBioDone = false;
-      break;
-
-    case CHANGE_BIO_SUCCESS:
-      draft.me.bio = action.data.bio;
-      draft.changeBioLoading = false;
-      draft.changeBioDone = true;
-      break;
-
-    case CHANGE_BIO_FAILURE:
-      draft.changeBioLoading = false;
-      draft.changeBioError = action.error;
-      break;
-
-    case ADD_POST_TO_ME:
-      draft.me.Posts.unshift({
-        id: action.data
-      });
-      break;
-
-    case REMOVE_POST_OF_ME:
-      console.log('REMOVE_POST_OF_ME', action);
-      draft.me.posts = draft.me.posts.filter(v => v.id !== action.data);
-      break;
-
-    default:
-      break;
-  }
-});
-
-/* harmony default export */ var user = (user_reducer);
 // CONCATENATED MODULE: ./store/reducers/index.ts
 
 
@@ -13883,8 +14711,8 @@ const rootReducer = (state, action) => {
     default:
       {
         const combinedReducer = Object(redux["combineReducers"])({
-          user: user,
-          post: post
+          user: user["U" /* default */],
+          post: post["N" /* default */]
         });
         return combinedReducer(state, action);
       }
@@ -13916,7 +14744,7 @@ function* createPost(action) {
     const result = yield Object(redux_saga_effects_npm_proxy_cjs["call"])(createPostAPI, action.data);
     console.log('createPost result : ', result);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: CREATE_POST_SUCCESS,
+      type: post["f" /* CREATE_POST_SUCCESS */],
       data: result.data
     }); // yield put({
     // 	type: ADD_POST_TO_ME,
@@ -13925,8 +14753,8 @@ function* createPost(action) {
   } catch (err) {
     console.error(err);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: CREATE_POST_FAILURE,
-      error: err.response.data
+      type: post["d" /* CREATE_POST_FAILURE */],
+      error: err.response ? err.response.data : JSON.stringify(err)
     });
   }
 }
@@ -13941,14 +14769,14 @@ function* uploadImages(action) {
   try {
     const result = yield Object(redux_saga_effects_npm_proxy_cjs["call"])(uploadImagesAPI, action.data);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: UPLOAD_IMAGES_SUCCESS,
+      type: post["M" /* UPLOAD_IMAGES_SUCCESS */],
       data: result.data
     });
   } catch (err) {
     console.error(err);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: UPLOAD_IMAGES_FAILURE,
-      error: err.response.data
+      type: post["K" /* UPLOAD_IMAGES_FAILURE */],
+      error: err.response ? err.response.data : JSON.stringify(err)
     });
   }
 }
@@ -13963,14 +14791,14 @@ function* removeImages(action) {
   try {
     const result = yield Object(redux_saga_effects_npm_proxy_cjs["call"])(removeImagesAPI, action.data);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: REMOVE_IMAGES_SUCCESS,
+      type: post["x" /* REMOVE_IMAGES_SUCCESS */],
       data: result.data
     });
   } catch (err) {
     console.error(err);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: REMOVE_IMAGES_FAILURE,
-      error: err.response.data
+      type: post["v" /* REMOVE_IMAGES_FAILURE */],
+      error: err.response ? err.response.data : JSON.stringify(err)
     });
   }
 }
@@ -13986,14 +14814,14 @@ function* loadPosts(action) {
   try {
     const result = yield Object(redux_saga_effects_npm_proxy_cjs["call"])(loadPostsAPI, action.data);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: LOAD_POSTS_SUCCESS,
+      type: post["l" /* LOAD_POSTS_SUCCESS */],
       data: result.data
     });
   } catch (err) {
     console.error(err);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: LOAD_POSTS_FAILURE,
-      error: err.response.data
+      type: post["j" /* LOAD_POSTS_FAILURE */],
+      error: err.response ? err.response.data : JSON.stringify(err)
     });
   }
 }
@@ -14007,14 +14835,14 @@ function* loadTags(action) {
   try {
     const result = yield Object(redux_saga_effects_npm_proxy_cjs["call"])(loadTagsAPI, action.data);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: LOAD_TAGS_SUCCESS,
+      type: post["r" /* LOAD_TAGS_SUCCESS */],
       data: result.data
     });
   } catch (err) {
     console.error(err);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: LOAD_TAGS_FAILURE,
-      error: err.response.data
+      type: post["p" /* LOAD_TAGS_FAILURE */],
+      error: err.response ? err.response.data : JSON.stringify(err)
     });
   }
 }
@@ -14029,14 +14857,14 @@ function* loadPost(action) {
   try {
     const result = yield Object(redux_saga_effects_npm_proxy_cjs["call"])(loadPostAPI, action.data);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: LOAD_POST_SUCCESS,
+      type: post["o" /* LOAD_POST_SUCCESS */],
       data: result.data
     });
   } catch (err) {
     console.error(err);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: LOAD_POST_FAILURE,
-      error: err.response.data
+      type: post["m" /* LOAD_POST_FAILURE */],
+      error: err.response ? err.response.data : JSON.stringify(err)
     });
   }
 }
@@ -14049,14 +14877,14 @@ function* updatePost(action) {
   try {
     const result = yield Object(redux_saga_effects_npm_proxy_cjs["call"])(updatePostAPI, action.data);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: UPDATE_POST_SUCCESS,
+      type: post["J" /* UPDATE_POST_SUCCESS */],
       data: result.data
     });
   } catch (err) {
     console.error(err);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: UPDATE_POST_FAILURE,
-      error: err.response.data
+      type: post["H" /* UPDATE_POST_FAILURE */],
+      error: err.response ? err.response.data : JSON.stringify(err)
     });
   }
 }
@@ -14069,18 +14897,18 @@ function* removePost(action) {
   try {
     const result = yield Object(redux_saga_effects_npm_proxy_cjs["call"])(removePostAPI, action.data);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: REMOVE_POST_SUCCESS,
+      type: post["A" /* REMOVE_POST_SUCCESS */],
       data: result.data
     });
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: REMOVE_POST_OF_ME,
+      type: user["K" /* REMOVE_POST_OF_ME */],
       data: action.data
     });
   } catch (err) {
     console.error(err);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: REMOVE_POST_FAILURE,
-      error: err.response.data
+      type: post["y" /* REMOVE_POST_FAILURE */],
+      error: err.response ? err.response.data : JSON.stringify(err)
     });
   }
 }
@@ -14093,14 +14921,14 @@ function* likePost(action) {
   try {
     const result = yield Object(redux_saga_effects_npm_proxy_cjs["call"])(likePostAPI, action.data);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: LIKE_POST_SUCCESS,
+      type: post["i" /* LIKE_POST_SUCCESS */],
       data: result.data
     });
   } catch (err) {
     console.error(err);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: LIKE_POST_FAILURE,
-      error: err.response.data
+      type: post["g" /* LIKE_POST_FAILURE */],
+      error: err.response ? err.response.data : JSON.stringify(err)
     });
   }
 }
@@ -14113,14 +14941,14 @@ function* unlikePost(action) {
   try {
     const result = yield Object(redux_saga_effects_npm_proxy_cjs["call"])(unlikePostAPI, action.data);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: UNLIKE_POST_SUCCESS,
+      type: post["D" /* UNLIKE_POST_SUCCESS */],
       data: result.data
     });
   } catch (err) {
     console.error(err);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: UNLIKE_POST_FAILURE,
-      error: err.response.data
+      type: post["B" /* UNLIKE_POST_FAILURE */],
+      error: err.response ? err.response.data : JSON.stringify(err)
     });
   }
 }
@@ -14133,14 +14961,14 @@ function* addComment(action) {
   try {
     const result = yield Object(redux_saga_effects_npm_proxy_cjs["call"])(addCommentAPI, action.data);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: ADD_COMMENT_SUCCESS,
+      type: post["c" /* ADD_COMMENT_SUCCESS */],
       data: result.data
     });
   } catch (err) {
     console.error(err);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: ADD_COMMENT_FAILURE,
-      error: err.response.data
+      type: post["a" /* ADD_COMMENT_FAILURE */],
+      error: err.response ? err.response.data : JSON.stringify(err)
     });
   }
 }
@@ -14153,14 +14981,14 @@ function* updateComment(action) {
   try {
     const result = yield Object(redux_saga_effects_npm_proxy_cjs["call"])(updateCommentAPI, action.data);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: UPDATE_COMMENT_SUCCESS,
+      type: post["G" /* UPDATE_COMMENT_SUCCESS */],
       data: result.data
     });
   } catch (err) {
     console.error(err);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: UPDATE_COMMENT_FAILURE,
-      error: err.response.data
+      type: post["E" /* UPDATE_COMMENT_FAILURE */],
+      error: err.response ? err.response.data : JSON.stringify(err)
     });
   }
 }
@@ -14173,68 +15001,68 @@ function* removeComment(action) {
   try {
     const result = yield Object(redux_saga_effects_npm_proxy_cjs["call"])(removeCommentAPI, action.data);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: REMOVE_COMMENT_SUCCESS,
+      type: post["u" /* REMOVE_COMMENT_SUCCESS */],
       data: result.data
     });
   } catch (err) {
     console.error(err);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: REMOVE_COMMENT_FAILURE,
-      error: err.response.data
+      type: post["s" /* REMOVE_COMMENT_FAILURE */],
+      error: err.response ? err.response.data : JSON.stringify(err)
     });
   }
 }
 
 function* watchCreatePost() {
-  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(CREATE_POST_REQUEST, createPost);
+  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(post["e" /* CREATE_POST_REQUEST */], createPost);
 }
 
 function* watchUploadImages() {
-  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(UPLOAD_IMAGES_REQUEST, uploadImages);
+  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(post["L" /* UPLOAD_IMAGES_REQUEST */], uploadImages);
 }
 
 function* watchRemoveImages() {
-  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(REMOVE_IMAGES_REQUEST, removeImages);
+  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(post["w" /* REMOVE_IMAGES_REQUEST */], removeImages);
 }
 
 function* watchLoadPosts() {
-  yield Object(redux_saga_effects_npm_proxy_cjs["throttle"])(5000, LOAD_POSTS_REQUEST, loadPosts);
+  yield Object(redux_saga_effects_npm_proxy_cjs["throttle"])(5000, post["k" /* LOAD_POSTS_REQUEST */], loadPosts);
 }
 
 function* watchLoadTags() {
-  yield Object(redux_saga_effects_npm_proxy_cjs["throttle"])(5000, LOAD_TAGS_REQUEST, loadTags);
+  yield Object(redux_saga_effects_npm_proxy_cjs["throttle"])(5000, post["q" /* LOAD_TAGS_REQUEST */], loadTags);
 }
 
 function* watchLoadPost() {
-  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(LOAD_POST_REQUEST, loadPost);
+  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(post["n" /* LOAD_POST_REQUEST */], loadPost);
 }
 
 function* watchUpdatePost() {
-  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(UPDATE_POST_REQUEST, updatePost);
+  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(post["I" /* UPDATE_POST_REQUEST */], updatePost);
 }
 
 function* watchRemovePost() {
-  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(REMOVE_POST_REQUEST, removePost);
+  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(post["z" /* REMOVE_POST_REQUEST */], removePost);
 }
 
 function* watchLikePost() {
-  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(LIKE_POST_REQUEST, likePost);
+  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(post["h" /* LIKE_POST_REQUEST */], likePost);
 }
 
 function* watchUnlikePost() {
-  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(UNLIKE_POST_REQUEST, unlikePost);
+  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(post["C" /* UNLIKE_POST_REQUEST */], unlikePost);
 }
 
 function* watchAddComment() {
-  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(ADD_COMMENT_REQUEST, addComment);
+  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(post["b" /* ADD_COMMENT_REQUEST */], addComment);
 }
 
 function* watchUpdateComment() {
-  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(UPDATE_COMMENT_REQUEST, updateComment);
+  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(post["F" /* UPDATE_COMMENT_REQUEST */], updateComment);
 }
 
 function* watchRemoveComment() {
-  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(REMOVE_COMMENT_REQUEST, removeComment);
+  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(post["t" /* REMOVE_COMMENT_REQUEST */], removeComment);
 }
 
 function* postSaga() {
@@ -14253,14 +15081,14 @@ function* removeFollower(action) {
   try {
     const result = yield Object(redux_saga_effects_npm_proxy_cjs["call"])(removeFollowerAPI, action.data);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: REMOVE_FOLLOWER_SUCCESS,
+      type: user["G" /* REMOVE_FOLLOWER_SUCCESS */],
       data: result.data
     });
   } catch (err) {
     console.error(err);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: REMOVE_FOLLOWER_FAILURE,
-      error: err.response.data
+      type: user["E" /* REMOVE_FOLLOWER_FAILURE */],
+      error: err.response ? err.response.data : JSON.stringify(err)
     });
   }
 }
@@ -14273,14 +15101,14 @@ function* loadFollowers(action) {
   try {
     const result = yield Object(redux_saga_effects_npm_proxy_cjs["call"])(loadFollowersAPI, action.data);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: LOAD_FOLLOWERS_SUCCESS,
+      type: user["l" /* LOAD_FOLLOWERS_SUCCESS */],
       data: result.data
     });
   } catch (err) {
     console.error(err);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: LOAD_FOLLOWERS_FAILURE,
-      error: err.response.data
+      type: user["j" /* LOAD_FOLLOWERS_FAILURE */],
+      error: err.response ? err.response.data : JSON.stringify(err)
     });
   }
 }
@@ -14293,14 +15121,14 @@ function* loadFollowings(action) {
   try {
     const result = yield Object(redux_saga_effects_npm_proxy_cjs["call"])(loadFollowingsAPI, action.data);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: LOAD_FOLLOWINGS_SUCCESS,
+      type: user["o" /* LOAD_FOLLOWINGS_SUCCESS */],
       data: result.data
     });
   } catch (err) {
     console.error(err);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: LOAD_FOLLOWINGS_FAILURE,
-      error: err.response.data
+      type: user["m" /* LOAD_FOLLOWINGS_FAILURE */],
+      error: err.response ? err.response.data : JSON.stringify(err)
     });
   }
 }
@@ -14313,14 +15141,14 @@ function* changeNickname(action) {
   try {
     const result = yield Object(redux_saga_effects_npm_proxy_cjs["call"])(changeNicknameAPI, action.data);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: CHANGE_NICKNAME_SUCCESS,
+      type: user["f" /* CHANGE_NICKNAME_SUCCESS */],
       data: result.data
     });
   } catch (err) {
     console.error(err);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: CHANGE_NICKNAME_FAILURE,
-      error: err.response.data
+      type: user["d" /* CHANGE_NICKNAME_FAILURE */],
+      error: err.response ? err.response.data : JSON.stringify(err)
     });
   }
 }
@@ -14333,14 +15161,14 @@ function* changeBio(action) {
   try {
     const result = yield Object(redux_saga_effects_npm_proxy_cjs["call"])(changeBioAPI, action.data);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: CHANGE_BIO_SUCCESS,
+      type: user["c" /* CHANGE_BIO_SUCCESS */],
       data: result.data
     });
   } catch (err) {
     console.error(err);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: CHANGE_BIO_FAILURE,
-      error: err.response.data
+      type: user["a" /* CHANGE_BIO_FAILURE */],
+      error: err.response ? err.response.data : JSON.stringify(err)
     });
   }
 }
@@ -14354,14 +15182,14 @@ function* loadUser(action) {
     const result = yield Object(redux_saga_effects_npm_proxy_cjs["call"])(loadUserAPI, action.data);
     console.log('loadUserData', result.data);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: LOAD_USER_SUCCESS,
+      type: user["x" /* LOAD_USER_SUCCESS */],
       data: result.data
     });
   } catch (err) {
     console.error(err);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: LOAD_USER_FAILURE,
-      error: err.response.data
+      type: user["v" /* LOAD_USER_FAILURE */],
+      error: err.response ? err.response.data : JSON.stringify(err)
     });
   }
 }
@@ -14376,14 +15204,14 @@ function* loadsUser(action) {
     const result = yield Object(redux_saga_effects_npm_proxy_cjs["call"])(loadUsersAPI, action.data);
     console.log('loadsUserData', result.data);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: LOAD_USERS_SUCCESS,
+      type: user["u" /* LOAD_USERS_SUCCESS */],
       data: result.data
     });
   } catch (err) {
     console.error(err);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: LOAD_USERS_FAILURE,
-      error: err.response.data
+      type: user["s" /* LOAD_USERS_FAILURE */],
+      error: err.response ? err.response.data : JSON.stringify(err)
     });
   }
 }
@@ -14397,14 +15225,14 @@ function* loadMyInfo() {
     const result = yield Object(redux_saga_effects_npm_proxy_cjs["call"])(loadMyInfoAPI);
     console.log('result : ', result);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: LOAD_MY_INFO_SUCCESS,
+      type: user["r" /* LOAD_MY_INFO_SUCCESS */],
       data: result.data
     });
   } catch (err) {
-    console.error(err);
+    console.error('loadMyInfo Error : ', err);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: LOAD_MY_INFO_FAILURE,
-      error: err.response.data
+      type: user["p" /* LOAD_MY_INFO_FAILURE */],
+      error: err.response ? err.response.data : JSON.stringify(err)
     });
   }
 }
@@ -14417,14 +15245,14 @@ function* logIn(action) {
   try {
     const result = yield Object(redux_saga_effects_npm_proxy_cjs["call"])(logInAPI, action.data);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: LOG_IN_SUCCESS,
+      type: user["A" /* LOG_IN_SUCCESS */],
       data: result.data
     });
   } catch (err) {
     console.error(err);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: LOG_IN_FAILURE,
-      error: err.response.data
+      type: user["y" /* LOG_IN_FAILURE */],
+      error: err.response ? err.response.data : JSON.stringify(err)
     });
   }
 }
@@ -14437,13 +15265,13 @@ function* logOut() {
   try {
     yield Object(redux_saga_effects_npm_proxy_cjs["call"])(logOutAPI);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: LOG_OUT_SUCCESS
+      type: user["D" /* LOG_OUT_SUCCESS */]
     });
   } catch (err) {
     console.error(err);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: LOG_OUT_FAILURE,
-      error: err.response.data
+      type: user["B" /* LOG_OUT_FAILURE */],
+      error: err.response ? err.response.data : JSON.stringify(err)
     });
   }
 }
@@ -14460,13 +15288,13 @@ function* signUp(action) {
     const result = yield Object(redux_saga_effects_npm_proxy_cjs["call"])(signUpAPI, action.data);
     console.log(result);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: SIGN_UP_SUCCESS
+      type: user["N" /* SIGN_UP_SUCCESS */]
     });
   } catch (err) {
     console.error(err);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: SIGN_UP_FAILURE,
-      error: err.response.data
+      type: user["L" /* SIGN_UP_FAILURE */],
+      error: err.response ? err.response.data : JSON.stringify(err)
     });
   }
 }
@@ -14481,14 +15309,14 @@ function* user_uploadImages(action) {
   try {
     const result = yield Object(redux_saga_effects_npm_proxy_cjs["call"])(user_uploadImagesAPI, action.data);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: user_UPLOAD_IMAGES_SUCCESS,
+      type: user["T" /* UPLOAD_IMAGES_SUCCESS */],
       data: result.data
     });
   } catch (err) {
     console.error(err);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: user_UPLOAD_IMAGES_FAILURE,
-      error: err.response.data
+      type: user["R" /* UPLOAD_IMAGES_FAILURE */],
+      error: err.response ? err.response.data : JSON.stringify(err)
     });
   }
 }
@@ -14503,14 +15331,14 @@ function* user_removeImages(action) {
   try {
     const result = yield Object(redux_saga_effects_npm_proxy_cjs["call"])(user_removeImagesAPI, action.data);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: user_REMOVE_IMAGES_SUCCESS,
+      type: user["J" /* REMOVE_IMAGES_SUCCESS */],
       data: result.data
     });
   } catch (err) {
     console.error(err);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: user_REMOVE_IMAGES_FAILURE,
-      error: err.response.data
+      type: user["H" /* REMOVE_IMAGES_FAILURE */],
+      error: err.response ? err.response.data : JSON.stringify(err)
     });
   }
 }
@@ -14525,14 +15353,14 @@ function* follow(action) {
     const result = yield Object(redux_saga_effects_npm_proxy_cjs["call"])(followAPI, action.data);
     console.log('result : ', result);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: FOLLOW_SUCCESS,
+      type: user["i" /* FOLLOW_SUCCESS */],
       data: result.data
     });
   } catch (err) {
     console.error(err);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: FOLLOW_FAILURE,
-      error: err.response.data
+      type: user["g" /* FOLLOW_FAILURE */],
+      error: err.response ? err.response.data : JSON.stringify(err)
     });
   }
 }
@@ -14545,76 +15373,76 @@ function* unfollow(action) {
   try {
     const result = yield Object(redux_saga_effects_npm_proxy_cjs["call"])(unfollowAPI, action.data);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: UNFOLLOW_SUCCESS,
+      type: user["Q" /* UNFOLLOW_SUCCESS */],
       data: result.data
     });
   } catch (err) {
     console.error(err);
     yield Object(redux_saga_effects_npm_proxy_cjs["put"])({
-      type: UNFOLLOW_FAILURE,
-      error: err.response.data
+      type: user["O" /* UNFOLLOW_FAILURE */],
+      error: err.response ? err.response.data : JSON.stringify(err)
     });
   }
 }
 
 function* watchRemoveFollower() {
-  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(REMOVE_FOLLOWER_REQUEST, removeFollower);
+  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(user["F" /* REMOVE_FOLLOWER_REQUEST */], removeFollower);
 }
 
 function* watchLoadFollowers() {
-  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(LOAD_FOLLOWERS_REQUEST, loadFollowers);
+  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(user["k" /* LOAD_FOLLOWERS_REQUEST */], loadFollowers);
 }
 
 function* watchLoadFollowings() {
-  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(LOAD_FOLLOWINGS_REQUEST, loadFollowings);
+  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(user["n" /* LOAD_FOLLOWINGS_REQUEST */], loadFollowings);
 }
 
 function* watchChangeNickname() {
-  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(CHANGE_NICKNAME_REQUEST, changeNickname);
+  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(user["e" /* CHANGE_NICKNAME_REQUEST */], changeNickname);
 }
 
 function* watchChangeBio() {
-  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(CHANGE_BIO_REQUEST, changeBio);
+  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(user["b" /* CHANGE_BIO_REQUEST */], changeBio);
 }
 
 function* watchLoadUser() {
-  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(LOAD_USER_REQUEST, loadUser);
+  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(user["w" /* LOAD_USER_REQUEST */], loadUser);
 }
 
 function* watchLoadUsers() {
-  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(LOAD_USERS_REQUEST, loadsUser);
+  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(user["t" /* LOAD_USERS_REQUEST */], loadsUser);
 }
 
 function* watchLoadMyInfo() {
-  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(LOAD_MY_INFO_REQUEST, loadMyInfo);
+  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(user["q" /* LOAD_MY_INFO_REQUEST */], loadMyInfo);
 }
 
 function* watchFollow() {
-  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(FOLLOW_REQUEST, follow);
+  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(user["h" /* FOLLOW_REQUEST */], follow);
 }
 
 function* watchUnfollow() {
-  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(UNFOLLOW_REQUEST, unfollow);
+  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(user["P" /* UNFOLLOW_REQUEST */], unfollow);
 }
 
 function* watchLogIn() {
-  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(LOG_IN_REQUEST, logIn);
+  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(user["z" /* LOG_IN_REQUEST */], logIn);
 }
 
 function* watchLogOut() {
-  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(LOG_OUT_REQUEST, logOut);
+  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(user["C" /* LOG_OUT_REQUEST */], logOut);
 }
 
 function* watchSignUp() {
-  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(SIGN_UP_REQUEST, signUp);
+  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(user["M" /* SIGN_UP_REQUEST */], signUp);
 }
 
 function* user_watchUploadImages() {
-  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(user_UPLOAD_IMAGES_REQUEST, user_uploadImages);
+  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(user["S" /* UPLOAD_IMAGES_REQUEST */], user_uploadImages);
 }
 
 function* user_watchRemoveImages() {
-  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(user_REMOVE_IMAGES_REQUEST, user_removeImages);
+  yield Object(redux_saga_effects_npm_proxy_cjs["takeLatest"])(user["I" /* REMOVE_IMAGES_REQUEST */], user_removeImages);
 }
 
 function* userSaga() {
@@ -14679,6 +15507,92 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 
 module.exports = ReactPropTypesSecret;
 
+
+/***/ }),
+
+/***/ "WxCB":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function sheetForTag(tag) {
+  if (tag.sheet) return tag.sheet;
+  for (var i = 0; i < document.styleSheets.length; i++) if (document.styleSheets[i].ownerNode === tag) return document.styleSheets[i];
+}
+
+function createStyleElement(options) {
+  var tag = document.createElement("style");
+  return tag.setAttribute("data-emotion", options.key), void 0 !== options.nonce && tag.setAttribute("nonce", options.nonce), 
+  tag.appendChild(document.createTextNode("")), tag.setAttribute("data-s", ""), tag;
+}
+
+Object.defineProperty(exports, "__esModule", {
+  value: !0
+});
+
+var StyleSheet = function() {
+  function StyleSheet(options) {
+    var _this = this;
+    this._insertTag = function(tag) {
+      var before;
+      before = 0 === _this.tags.length ? _this.prepend ? _this.container.firstChild : _this.before : _this.tags[_this.tags.length - 1].nextSibling, 
+      _this.container.insertBefore(tag, before), _this.tags.push(tag);
+    }, this.isSpeedy = void 0 === options.speedy || options.speedy, this.tags = [], 
+    this.ctr = 0, this.nonce = options.nonce, this.key = options.key, this.container = options.container, 
+    this.prepend = options.prepend, this.before = null;
+  }
+  var _proto = StyleSheet.prototype;
+  return _proto.hydrate = function(nodes) {
+    nodes.forEach(this._insertTag);
+  }, _proto.insert = function(rule) {
+    this.ctr % (this.isSpeedy ? 65e3 : 1) == 0 && this._insertTag(createStyleElement(this));
+    var tag = this.tags[this.tags.length - 1];
+    if (this.isSpeedy) {
+      var sheet = sheetForTag(tag);
+      try {
+        sheet.insertRule(rule, sheet.cssRules.length);
+      } catch (e) {
+        0;
+      }
+    } else tag.appendChild(document.createTextNode(rule));
+    this.ctr++;
+  }, _proto.flush = function() {
+    this.tags.forEach((function(tag) {
+      return tag.parentNode.removeChild(tag);
+    })), this.tags = [], this.ctr = 0;
+  }, StyleSheet;
+}();
+
+exports.StyleSheet = StyleSheet;
+
+
+/***/ }),
+
+/***/ "X24+":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.removePathTrailingSlash = removePathTrailingSlash;
+exports.normalizePathTrailingSlash = void 0;
+/**
+* Removes the trailing slash of a path if there is one. Preserves the root path `/`.
+*/
+
+function removePathTrailingSlash(path) {
+  return path.endsWith('/') && path !== '/' ? path.slice(0, -1) : path;
+}
+/**
+* Normalizes the trailing slash of a path according to the `trailingSlash` option
+* in `next.config.js`.
+*/
+
+
+const normalizePathTrailingSlash =  false ? undefined : removePathTrailingSlash;
+exports.normalizePathTrailingSlash = normalizePathTrailingSlash;
 
 /***/ }),
 
@@ -15320,6 +16234,14 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
 
 /***/ }),
 
+/***/ "YFqc":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("cTJO")
+
+
+/***/ }),
+
 /***/ "YSYp":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15712,6 +16634,19 @@ exports.unstable_batchedUpdates = void 0;
 var _reactDom = __webpack_require__("i8i4");
 
 exports.unstable_batchedUpdates = _reactDom.unstable_batchedUpdates;
+
+/***/ }),
+
+/***/ "YWla":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+if (true) {
+  module.exports = __webpack_require__("4PQP");
+} else {}
+
 
 /***/ }),
 
@@ -16149,6 +17084,19 @@ internals.sort = function (a, b) {
 
 /***/ }),
 
+/***/ "a1lD":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+if (true) {
+  module.exports = __webpack_require__("ater");
+} else {}
+
+
+/***/ }),
+
 /***/ "a9ph":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16297,6 +17245,148 @@ exports.useDispatch = useDispatch;
 if (true) {
   module.exports = __webpack_require__("+QHS");
 } else {}
+
+
+/***/ }),
+
+/***/ "anbK":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getStaticProps", function() { return getStaticProps; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getStaticPaths", function() { return getStaticPaths; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getServerSideProps", function() { return getServerSideProps; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unstable_getStaticParams", function() { return unstable_getStaticParams; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unstable_getStaticProps", function() { return unstable_getStaticProps; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unstable_getStaticPaths", function() { return unstable_getStaticPaths; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unstable_getServerProps", function() { return unstable_getServerProps; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "config", function() { return config; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "_app", function() { return _app; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "renderReqToHTML", function() { return renderReqToHTML; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony import */ var next_plugin_loader_middleware_on_init_server___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("GX0O");
+/* harmony import */ var next_plugin_loader_middleware_on_error_server___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("KqAr");
+/* harmony import */ var next_dist_next_server_server_node_polyfill_fetch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("fkL1");
+/* harmony import */ var next_dist_next_server_server_node_polyfill_fetch__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_dist_next_server_server_node_polyfill_fetch__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var private_dot_next_routes_manifest_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("Skye");
+var private_dot_next_routes_manifest_json__WEBPACK_IMPORTED_MODULE_3___namespace = /*#__PURE__*/__webpack_require__.t("Skye", 1);
+/* harmony import */ var private_dot_next_build_manifest_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("LZ9C");
+var private_dot_next_build_manifest_json__WEBPACK_IMPORTED_MODULE_4___namespace = /*#__PURE__*/__webpack_require__.t("LZ9C", 1);
+/* harmony import */ var private_dot_next_react_loadable_manifest_json__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("67Bq");
+var private_dot_next_react_loadable_manifest_json__WEBPACK_IMPORTED_MODULE_5___namespace = /*#__PURE__*/__webpack_require__.t("67Bq", 1);
+/* harmony import */ var next_dist_build_webpack_loaders_next_serverless_loader_page_handler__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("7ZOo");
+/* harmony import */ var next_dist_build_webpack_loaders_next_serverless_loader_page_handler__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(next_dist_build_webpack_loaders_next_serverless_loader_page_handler__WEBPACK_IMPORTED_MODULE_6__);
+
+      
+      
+      
+      
+      
+      
+
+      
+      const { processEnv } = __webpack_require__("fXeI")
+      processEnv([{"path":".env.local","contents":"NEXT_PUBLIC_TEST=hello\r\nBACK_URL=http://localhost:2025"}])
+    
+      
+      const runtimeConfig = {}
+      
+
+      const documentModule = __webpack_require__("Y7Z2")
+
+      const appMod = __webpack_require__("cha2")
+      let App = appMod.default || appMod.then && appMod.then(mod => mod.default);
+
+      const compMod = __webpack_require__("D4/9")
+
+      const Component = compMod.default || compMod.then && compMod.then(mod => mod.default)
+      /* harmony default export */ __webpack_exports__["default"] = (Component);
+      const getStaticProps = compMod['getStaticProp' + 's'] || compMod.then && compMod.then(mod => mod['getStaticProp' + 's'])
+      const getStaticPaths = compMod['getStaticPath' + 's'] || compMod.then && compMod.then(mod => mod['getStaticPath' + 's'])
+      const getServerSideProps = compMod['getServerSideProp' + 's'] || compMod.then && compMod.then(mod => mod['getServerSideProp' + 's'])
+
+      // kept for detecting legacy exports
+      const unstable_getStaticParams = compMod['unstable_getStaticParam' + 's'] || compMod.then && compMod.then(mod => mod['unstable_getStaticParam' + 's'])
+      const unstable_getStaticProps = compMod['unstable_getStaticProp' + 's'] || compMod.then && compMod.then(mod => mod['unstable_getStaticProp' + 's'])
+      const unstable_getStaticPaths = compMod['unstable_getStaticPath' + 's'] || compMod.then && compMod.then(mod => mod['unstable_getStaticPath' + 's'])
+      const unstable_getServerProps = compMod['unstable_getServerProp' + 's'] || compMod.then && compMod.then(mod => mod['unstable_getServerProp' + 's'])
+
+      let config = compMod['confi' + 'g'] || (compMod.then && compMod.then(mod => mod['confi' + 'g'])) || {}
+      const _app = App
+
+      const { renderReqToHTML, render } = Object(next_dist_build_webpack_loaders_next_serverless_loader_page_handler__WEBPACK_IMPORTED_MODULE_6__["getPageHandler"])({
+        pageModule: compMod,
+        pageComponent: Component,
+        pageConfig: config,
+        appModule: App,
+        documentModule: documentModule,
+        errorModule: __webpack_require__("D4/9"),
+        notFoundModule: __webpack_require__("BdxU"),
+        pageGetStaticProps: getStaticProps,
+        pageGetStaticPaths: getStaticPaths,
+        pageGetServerSideProps: getServerSideProps,
+
+        assetPrefix: "",
+        canonicalBase: "",
+        generateEtags: true,
+        poweredByHeader: true,
+
+        runtimeConfig,
+        buildManifest: private_dot_next_build_manifest_json__WEBPACK_IMPORTED_MODULE_4__,
+        reactLoadableManifest: private_dot_next_react_loadable_manifest_json__WEBPACK_IMPORTED_MODULE_5__,
+
+        rewrites: private_dot_next_routes_manifest_json__WEBPACK_IMPORTED_MODULE_3__.rewrites,
+        i18n: undefined,
+        page: "/_error",
+        buildId: "hHsT4b2XEWlnId4FkXi0c",
+        escapedBuildId: "hHsT4b2XEWlnId4FkXi0c",
+        basePath: "",
+        pageIsDynamic: false,
+        encodedPreviewProps: {previewModeId:"8364d9a93365f5531ae1b5de1e41cdb4",previewModeSigningKey:"2440c677f4e7c415b3143a43352d613a9eb85260c4a02242d2194019ab3c2917",previewModeEncryptionKey:"934395b0113e872d709bd628c0a38b76247df21843138eb9e160f32d10307a1d"},
+        experimental: {
+          onError: next_plugin_loader_middleware_on_error_server___WEBPACK_IMPORTED_MODULE_1__["default"],
+          initServer: next_plugin_loader_middleware_on_init_server___WEBPACK_IMPORTED_MODULE_0__["default"],
+        }
+      })
+      
+    
+
+/***/ }),
+
+/***/ "ater":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: !0
+});
+
+var isBrowser = "undefined" != typeof document;
+
+function getRegisteredStyles(registered, registeredStyles, classNames) {
+  var rawClassName = "";
+  return classNames.split(" ").forEach((function(className) {
+    void 0 !== registered[className] ? registeredStyles.push(registered[className] + ";") : rawClassName += className + " ";
+  })), rawClassName;
+}
+
+var insertStyles = function(cache, serialized, isStringTag) {
+  var className = cache.key + "-" + serialized.name;
+  if ((!1 === isStringTag || !1 === isBrowser && void 0 !== cache.compat) && void 0 === cache.registered[className] && (cache.registered[className] = serialized.styles), 
+  void 0 === cache.inserted[serialized.name]) {
+    var stylesForSSR = "", current = serialized;
+    do {
+      var maybeStyles = cache.insert(serialized === current ? "." + className : "", current, cache.sheet, !0);
+      isBrowser || void 0 === maybeStyles || (stylesForSSR += maybeStyles), current = current.next;
+    } while (void 0 !== current);
+    if (!isBrowser && 0 !== stylesForSSR.length) return stylesForSSR;
+  }
+};
+
+exports.getRegisteredStyles = getRegisteredStyles, exports.insertStyles = insertStyles;
 
 
 /***/ }),
@@ -16740,6 +17830,19 @@ module.exports = require("url");
 
 /***/ }),
 
+/***/ "c/nj":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+if (true) {
+  module.exports = __webpack_require__("p7dq");
+} else {}
+
+
+/***/ }),
+
 /***/ "c21q":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17017,6 +18120,183 @@ module.exports = _typeof;
 
 /***/ }),
 
+/***/ "cTJO":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireWildcard = __webpack_require__("284h");
+
+exports.__esModule = true;
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(__webpack_require__("q1tI"));
+
+var _router = __webpack_require__("elyg");
+
+var _router2 = __webpack_require__("nOHt");
+
+var _useIntersection = __webpack_require__("vNVm");
+
+const prefetched = {};
+
+function prefetch(router, href, as, options) {
+  if (true) return;
+  if (!(0, _router.isLocalURL)(href)) return; // Prefetch the JSON page if asked (only in the client)
+  // We need to handle a prefetch error here since we may be
+  // loading with priority which can reject but we don't
+  // want to force navigation since this is only a prefetch
+
+  router.prefetch(href, as, options).catch(err => {
+    if (false) {}
+  });
+  const curLocale = options && typeof options.locale !== 'undefined' ? options.locale : router && router.locale; // Join on an invalid URI character
+
+  prefetched[href + '%' + as + (curLocale ? '%' + curLocale : '')] = true;
+}
+
+function isModifiedEvent(event) {
+  const {
+    target
+  } = event.currentTarget;
+  return target && target !== '_self' || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || // triggers resource download
+  event.nativeEvent && event.nativeEvent.which === 2;
+}
+
+function linkClicked(e, router, href, as, replace, shallow, scroll, locale) {
+  const {
+    nodeName
+  } = e.currentTarget;
+
+  if (nodeName === 'A' && (isModifiedEvent(e) || !(0, _router.isLocalURL)(href))) {
+    // ignore click for browser’s default behavior
+    return;
+  }
+
+  e.preventDefault(); //  avoid scroll for urls with anchor refs
+
+  if (scroll == null) {
+    scroll = as.indexOf('#') < 0;
+  } // replace state instead of push if prop is present
+
+
+  router[replace ? 'replace' : 'push'](href, as, {
+    shallow,
+    locale,
+    scroll
+  }).then(success => {
+    if (!success) return;
+
+    if (scroll) {
+      // FIXME: proper route announcing at Router level, not Link:
+      document.body.focus();
+    }
+  });
+}
+
+function Link(props) {
+  if (false) {}
+
+  const p = props.prefetch !== false;
+  const router = (0, _router2.useRouter)();
+  const pathname = router && router.pathname || '/';
+
+  const {
+    href,
+    as
+  } = _react.default.useMemo(() => {
+    const [resolvedHref, resolvedAs] = (0, _router.resolveHref)(pathname, props.href, true);
+    return {
+      href: resolvedHref,
+      as: props.as ? (0, _router.resolveHref)(pathname, props.as) : resolvedAs || resolvedHref
+    };
+  }, [pathname, props.href, props.as]);
+
+  let {
+    children,
+    replace,
+    shallow,
+    scroll,
+    locale
+  } = props; // Deprecated. Warning shown by propType check. If the children provided is a string (<Link>example</Link>) we wrap it in an <a> tag
+
+  if (typeof children === 'string') {
+    children = /*#__PURE__*/_react.default.createElement("a", null, children);
+  } // This will return the first child, if multiple are provided it will throw an error
+
+
+  const child = _react.Children.only(children);
+
+  const childRef = child && typeof child === 'object' && child.ref;
+  const [setIntersectionRef, isVisible] = (0, _useIntersection.useIntersection)({
+    rootMargin: '200px'
+  });
+
+  const setRef = _react.default.useCallback(el => {
+    setIntersectionRef(el);
+
+    if (childRef) {
+      if (typeof childRef === 'function') childRef(el);else if (typeof childRef === 'object') {
+        childRef.current = el;
+      }
+    }
+  }, [childRef, setIntersectionRef]);
+
+  (0, _react.useEffect)(() => {
+    const shouldPrefetch = isVisible && p && (0, _router.isLocalURL)(href);
+    const curLocale = typeof locale !== 'undefined' ? locale : router && router.locale;
+    const isPrefetched = prefetched[href + '%' + as + (curLocale ? '%' + curLocale : '')];
+
+    if (shouldPrefetch && !isPrefetched) {
+      prefetch(router, href, as, {
+        locale: curLocale
+      });
+    }
+  }, [as, href, isVisible, locale, p, router]);
+  const childProps = {
+    ref: setRef,
+    onClick: e => {
+      if (child.props && typeof child.props.onClick === 'function') {
+        child.props.onClick(e);
+      }
+
+      if (!e.defaultPrevented) {
+        linkClicked(e, router, href, as, replace, shallow, scroll, locale);
+      }
+    }
+  };
+
+  childProps.onMouseEnter = e => {
+    if (!(0, _router.isLocalURL)(href)) return;
+
+    if (child.props && typeof child.props.onMouseEnter === 'function') {
+      child.props.onMouseEnter(e);
+    }
+
+    prefetch(router, href, as, {
+      priority: true
+    });
+  }; // If child is an <a> tag and doesn't have a href attribute, or if the 'passHref' property is
+  // defined, we specify the current 'href', so that repetition is not needed by the user
+
+
+  if (props.passHref || child.type === 'a' && !('href' in child.props)) {
+    const curLocale = typeof locale !== 'undefined' ? locale : router && router.locale; // we only render domain locales if we are currently on a domain locale
+    // so that locale links are still visitable in development/preview envs
+
+    const localeDomain = router && router.isLocaleDomain && (0, _router.getDomainLocale)(as, curLocale, router && router.locales, router && router.domainLocales);
+    childProps.href = localeDomain || (0, _router.addBasePath)((0, _router.addLocale)(as, curLocale, router && router.defaultLocale));
+  }
+
+  return /*#__PURE__*/_react.default.cloneElement(child, childProps);
+}
+
+var _default = Link;
+exports.default = _default;
+
+/***/ }),
+
 /***/ "cfAG":
 /***/ (function(module) {
 
@@ -17031,32 +18311,578 @@ module.exports = JSON.parse("[[\"8740\",\"䏰䰲䘃䖦䕸𧉧䵷䖳𧲱䳢𧳅�
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
-var jsx_runtime = __webpack_require__("nKUr");
+// EXTERNAL MODULE: ./node_modules/@emotion/react/dist/emotion-react.cjs.js
+var emotion_react_cjs = __webpack_require__("QLRY");
 
 // EXTERNAL MODULE: ./node_modules/react/index.js
 var react = __webpack_require__("q1tI");
+var react_default = /*#__PURE__*/__webpack_require__.n(react);
 
-// EXTERNAL MODULE: ./node_modules/emotion-reset/dist/index.js
-var dist = __webpack_require__("SObL");
-var dist_default = /*#__PURE__*/__webpack_require__.n(dist);
+// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
+var jsx_runtime = __webpack_require__("nKUr");
+
+// CONCATENATED MODULE: ./components/ErrorBoundary/index.tsx
+
+
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+class ErrorBoundary_ErrorBoundaries extends react["Component"] {
+  constructor(...args) {
+    super(...args);
+
+    _defineProperty(this, "state", {
+      hasError: false,
+      error: null
+    });
+  }
+
+  getDerivedStateFromError(error) {
+    return {
+      hasError: true,
+      error
+    };
+  }
+
+  componentDidCatch(error, errorInfo) {// 서버로 로그 전송
+  }
+
+  render() {
+    console.log("ErrorBoundary Component");
+    const {
+      hasError,
+      error
+    } = this.state;
+    console.log("ErrorBoundary Error : ", error);
+
+    if (!hasError) {
+      return this.props.children;
+    }
+
+    return /*#__PURE__*/Object(jsx_runtime["jsxs"])("div", {
+      style: {
+        flex: 1,
+        backgroundColor: 'black'
+      },
+      children: [/*#__PURE__*/Object(jsx_runtime["jsx"])("span", {
+        style: {
+          marginTop: 60,
+          fontWeight: 'bold',
+          color: 'white',
+          fontSize: 24
+        },
+        children: "\uC5D0\uB7EC \uBC1C\uC0DD"
+      }), /*#__PURE__*/Object(jsx_runtime["jsx"])("span", {
+        style: {
+          marginTop: 16,
+          fontSize: 14,
+          color: 'white'
+        },
+        children: error + ''
+      })]
+    });
+  }
+
+}
+
+/* harmony default export */ var ErrorBoundary = (ErrorBoundary_ErrorBoundaries);
+// EXTERNAL MODULE: ./node_modules/@emotion/styled/base/dist/emotion-styled-base.cjs.js
+var emotion_styled_base_cjs = __webpack_require__("NWvw");
+var emotion_styled_base_cjs_default = /*#__PURE__*/__webpack_require__.n(emotion_styled_base_cjs);
+
+// EXTERNAL MODULE: ./node_modules/react-redux/lib/index.js
+var lib = __webpack_require__("Vg22");
+
+// EXTERNAL MODULE: ./store/reducers/user.ts
+var user = __webpack_require__("RJKx");
+
+// EXTERNAL MODULE: ./node_modules/next/link.js
+var next_link = __webpack_require__("YFqc");
+var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
+
+// EXTERNAL MODULE: ./components/Common/SearchBar.tsx
+var SearchBar = __webpack_require__("oucG");
 
 // EXTERNAL MODULE: ./node_modules/@emotion/core/dist/core.cjs.js
 var core_cjs = __webpack_require__("fR8Y");
 
+// EXTERNAL MODULE: ./node_modules/react-spinners/BarLoader.js
+var BarLoader = __webpack_require__("63yd");
+var BarLoader_default = /*#__PURE__*/__webpack_require__.n(BarLoader);
+
+// CONCATENATED MODULE: ./components/Common/LoadingBar.tsx
+
+
+
+
+
+
+const override = core_cjs["css"]`
+	display:block;
+	position: fixed;
+	z-index: 10;
+`;
+
+const LoadingBar = () => {
+  const {
+    loadMyInfoLoading,
+    loadUserLoading,
+    loadUsersLoading,
+    followLoading,
+    unfollowLoading,
+    logInLoading,
+    logOutLoading,
+    signUpLoading,
+    uploadImagesLoading,
+    removeImagesLoading,
+    changeNicknameLoading,
+    changeBioLoading,
+    loadFollowingsLoading,
+    loadFollowersLoading,
+    removeFollowerLoading
+  } = Object(lib["useSelector"])(state => state.user);
+  const {
+    likePostLoading,
+    unlikePostLoading,
+    loadPostLoading,
+    loadPostsLoading,
+    loadTagsLoading,
+    addPostLoading,
+    updatePostLoading,
+    removePostLoading,
+    addCommentLoading,
+    updateCommentLoading,
+    removeCommentLoading,
+    postUploadImagesLoading,
+    postRemoveImagesLoading
+  } = Object(lib["useSelector"])(state => state.post);
+  const isLoading = loadMyInfoLoading || loadUserLoading || loadUsersLoading || followLoading || unfollowLoading || logInLoading || logOutLoading || signUpLoading || uploadImagesLoading || removeImagesLoading || changeNicknameLoading || changeBioLoading || loadFollowersLoading || loadFollowingsLoading || removeFollowerLoading || likePostLoading || unlikePostLoading || loadPostLoading || loadPostsLoading || loadTagsLoading || addPostLoading || updatePostLoading || removePostLoading || addCommentLoading || updateCommentLoading || removePostLoading || postUploadImagesLoading || postRemoveImagesLoading || removeCommentLoading;
+  return /*#__PURE__*/Object(jsx_runtime["jsx"])(jsx_runtime["Fragment"], {
+    children: /*#__PURE__*/Object(jsx_runtime["jsx"])(BarLoader_default.a, {
+      css: override,
+      width: 4000,
+      height: 10,
+      color: '#00818a',
+      loading: isLoading
+    })
+  });
+};
+
+/* harmony default export */ var Common_LoadingBar = (LoadingBar);
+// CONCATENATED MODULE: ./components/AppLayout/TopNavigation.tsx
+
+
+/** @jsxRuntime classic */
+
+/** @jsx jsx */
+
+
+
+
+
+
+
+
+const Header = emotion_styled_base_cjs_default()("header", true ? {
+  target: "enzwtuw0"
+} : undefined)("position:fixed;z-index:7;display:flex;justify-content:center;align-items:center;margin-bottom:3vh;width:100%;height:10vh;background-color:", ({
+  theme
+}) => theme.bgColor, ";border-bottom:", ({
+  theme
+}) => theme.borderBottom, ";a{display:flex;align-items:center;justify-content:center;cursor:pointer;&:foucus{box-shadow:", ({
+  theme
+}) => theme.focusBoxShadows, ";}&:hover{box-shadow:", ({
+  theme
+}) => theme.focusBoxShadows, ";}}.header__logo{display:flex;width:10%;justify-content:center;align-itmes:center;h1{margin-left:15px;font-size:1.4em;font-weight:700;color:#00818a;}a{width:100%;}}@media (max-width: 1260px){.header__logo{h1{display:none;}}}.header__menu{display:flex;width:40%;justify-content:space-around;align-itmes:center;a{width:100%;}}@media (max-width: 900px){.header__menu{display:none;}}input{width:96%;}.header__user{display:flex;width:20%;justify-content:space-around;align-itmes:center;font-size:0.8em;}.header__search-bar{width:100%;height:100%;display:flex;justify-conent:center;align-items:center;.header__search-bar-icon{display:none;}}.header__responsive-nav{display:none;img{transition:transform 0.2s;}}@media (max-width: 700px){.header__user .header__user--logout{display:none;}.header__responsive-nav{display:flex;justify-content:center;align-items:center;width:20%;cursor:pointer;}.header__logo{display:none;}.header__user{display:none;}}" + (true ? "" : undefined));
+
+const TopNavigation = () => {
+  const {
+    me
+  } = Object(lib["useSelector"])(state => state.user);
+  const dispatch = Object(lib["useDispatch"])(); // test code
+  // const me = {name: 'utopier'};
+  // const isLoading = true;
+
+  const clikedMenu = react_default.a.useRef(false); // Event Handler
+
+  const onClickMenu = e => {
+    e.preventDefault();
+    console.log('onClickMenu');
+    const leftNav = document.querySelector('.LeftNavigation');
+    const menuImg = document.querySelector('.header__responsive-nav img');
+
+    if (clikedMenu.current) {
+      leftNav.style.display = 'none';
+      menuImg.style.transform = 'rotate(0deg)';
+      clikedMenu.current = false;
+      leftNav === null || leftNav === void 0 ? void 0 : leftNav.removeAttribute('style');
+    } else {
+      leftNav.style.display = 'block';
+      menuImg.style.transform = 'rotate(90deg)';
+      clikedMenu.current = true;
+    }
+  };
+
+  const onClickLogout = e => {
+    e.preventDefault();
+    console.log('onClickLogout');
+    dispatch({
+      type: user["C" /* LOG_OUT_REQUEST */]
+    });
+  };
+
+  return Object(emotion_react_cjs["jsx"])(react_default.a.Fragment, null, Object(emotion_react_cjs["jsx"])(Common_LoadingBar, null), Object(emotion_react_cjs["jsx"])(Header, null, Object(emotion_react_cjs["jsx"])("div", {
+    onClick: onClickMenu,
+    className: "header__responsive-nav"
+  }, Object(emotion_react_cjs["jsx"])("img", {
+    src: "/icons/menu.svg",
+    width: "25",
+    height: "25",
+    alt: "\uBA54\uB274 \uC544\uC774\uCF58"
+  })), Object(emotion_react_cjs["jsx"])("div", {
+    className: "header__logo"
+  }, Object(emotion_react_cjs["jsx"])(link_default.a, {
+    href: "/"
+  }, Object(emotion_react_cjs["jsx"])("a", null, Object(emotion_react_cjs["jsx"])("img", {
+    src: "/icon-192x192.png",
+    alt: "logo",
+    width: "30",
+    height: "30"
+  })))), Object(emotion_react_cjs["jsx"])("div", {
+    className: "header__menu"
+  }, Object(emotion_react_cjs["jsx"])(link_default.a, {
+    href: "/posts"
+  }, Object(emotion_react_cjs["jsx"])("a", null, "Posts")), Object(emotion_react_cjs["jsx"])(link_default.a, {
+    href: "/tags"
+  }, Object(emotion_react_cjs["jsx"])("a", null, "Tags")), Object(emotion_react_cjs["jsx"])(link_default.a, {
+    href: "/users"
+  }, Object(emotion_react_cjs["jsx"])("a", null, "Users"))), Object(emotion_react_cjs["jsx"])("div", {
+    className: "header__search-bar"
+  }, Object(emotion_react_cjs["jsx"])(SearchBar["a" /* default */], {
+    id: "main-search-bar",
+    placeholder: "...search"
+  })), Object(emotion_react_cjs["jsx"])("div", {
+    className: "header__user"
+  }, me ? Object(emotion_react_cjs["jsx"])(react_default.a.Fragment, null, Object(emotion_react_cjs["jsx"])("a", {
+    className: "header__user--logout",
+    onClick: onClickLogout
+  }, "logout"), Object(emotion_react_cjs["jsx"])(link_default.a, {
+    href: "/user"
+  }, Object(emotion_react_cjs["jsx"])("a", null, Object(emotion_react_cjs["jsx"])("img", {
+    src: "/icons/user.svg",
+    width: "25",
+    height: "25",
+    alt: ""
+  })))) : Object(emotion_react_cjs["jsx"])(react_default.a.Fragment, null, Object(emotion_react_cjs["jsx"])(link_default.a, {
+    href: "/signup"
+  }, Object(emotion_react_cjs["jsx"])("a", null, "signup")), Object(emotion_react_cjs["jsx"])(link_default.a, {
+    href: "/login"
+  }, Object(emotion_react_cjs["jsx"])("a", null, "login"))))));
+};
+
+/* harmony default export */ var AppLayout_TopNavigation = (TopNavigation);
+// EXTERNAL MODULE: ./components/Common/Button.tsx
+var Button = __webpack_require__("HULz");
+
+// EXTERNAL MODULE: ./node_modules/next/router.js
+var next_router = __webpack_require__("20a2");
+
+// CONCATENATED MODULE: ./components/AppLayout/LeftNavigation.tsx
+
+
+function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
+
+/** @jsxRuntime classic */
+
+/** @jsx jsx */
+
+
+
+
+
+
+
+ // import Switch from 'react-switch';
+//import { askPermission, subscribeUser } from '../../public/push';
+
+const LeftNavigationWrapper = emotion_styled_base_cjs_default()("nav", true ? {
+  target: "ejry7go0"
+} : undefined)("position:fixed;width:170px;height:100%;border-right:1px solid ", ({
+  theme
+}) => theme.bgColor2, ";margin-top:10vh;z-index:1000;background-color:", ({
+  theme
+}) => theme.bgColor, ";div{display:flex;justify-content:center;align-items:center;height:40px;a{margin-left:5px;}}div:hover{cursor:pointer;background-color:", ({
+  theme
+}) => theme.bgColor2, ";}@media (max-width: 700px){display:none;}@media (min-width: 700px){display:block;z-index:1000;}.push-toggle-switch{margin:10px 0;height:100px;cursor:pointer;box-shadow:", ({
+  theme
+}) => theme.focusBoxShadows, ";&:hover{cursor:pointer;background-color:", ({
+  theme
+}) => theme.bgColor2, ";}}@media (hover: none) and (pointer: coarse){div:hover{cursor:pointer;background-color:", ({
+  theme
+}) => theme.bgColor2, ";}}" + (true ? "" : undefined));
+
+var _ref = true ? {
+  name: "11km1au",
+  styles: ".left-nav--trends{background-color:#404b69;border-right:3px solid #00818a;}"
+} : undefined;
+
+var _ref2 = true ? {
+  name: "1bc02ml",
+  styles: ".left-nav--users{background-color:#404b69;border-right:3px solid #00818a;}"
+} : undefined;
+
+var _ref3 = true ? {
+  name: "qgd10s",
+  styles: ".left-nav--tags{background-color:#404b69;border-right:3px solid #00818a;}"
+} : undefined;
+
+var _ref4 = true ? {
+  name: "za4zvk",
+  styles: ".left-nav--posts{background-color:#404b69;border-right:3px solid #00818a;}"
+} : undefined;
+
+var _ref5 = true ? {
+  name: "16gudfg",
+  styles: ".left-nav--home{background-color:#404b69;border-right:3px solid #00818a;}"
+} : undefined;
+
+const LeftNavigation = () => {
+  const {
+    me
+  } = Object(lib["useSelector"])(state => state.user);
+  const dispatch = Object(lib["useDispatch"])();
+  const router = Object(next_router["useRouter"])();
+  let [leftNavHoverStyle, setLeftNavHoverStyle] = react_default.a.useState(); //const [isCheckedPushToggle, setIsCheckedPushToggle] = useState(false);
+  // const onChangePushToggle = () => {
+  // 	setIsCheckedPushToggle(!isCheckedPushToggle);
+  // 	// 브라우저 푸시 지원 여부 확인
+  // 	if (!('serviceWorker' in navigator) && !('PushManager' in window)) {
+  // 		alert('Push Message 지원하지 않음, 최신 Chrome 브라우저를 사용하세요');
+  // 		return;
+  // 	}
+  // 	if (!isCheckedPushToggle) {
+  // 		// 권한 요청
+  // 		askPermission();
+  // 		// PushManager로 사용자 구독
+  // 		subscribeUser();
+  // 		//router.reload();
+  // 	}
+  // };
+  // const changeToggle = () => {
+  // 	if (Notification.permission === 'granted') {
+  // 		setIsCheckedPushToggle(true);
+  // 	} else {
+  // 		setIsCheckedPushToggle(false);
+  // 	}
+  // };
+  // useEffect(() => {
+  // 	changeToggle();
+  // }, [isCheckedPushToggle]);
+
+  Object(react["useEffect"])(() => {
+    setLeftNavHoverStyle(pageName(router.pathname));
+  }, [router.pathname]);
+
+  const pageName = pageName => {
+    if (pageName === '/') {
+      return _ref5;
+    } else if (pageName.match('post')) {
+      return _ref4;
+    } else if (pageName.match('tag')) {
+      return _ref3;
+    } else if (pageName.match('user')) {
+      return _ref2;
+    } else if (pageName.match('trends')) {
+      return _ref;
+    } else {
+      return /*#__PURE__*/Object(emotion_react_cjs["css"])(true ? "" : undefined, true ? "" : undefined);
+    }
+  };
+
+  const onClickLogout = e => {
+    e.preventDefault();
+    console.log('onClickLogout');
+    dispatch({
+      type: user["C" /* LOG_OUT_REQUEST */]
+    });
+  };
+
+  return Object(emotion_react_cjs["jsx"])(LeftNavigationWrapper, {
+    css: leftNavHoverStyle,
+    className: "LeftNavigation"
+  }, Object(emotion_react_cjs["jsx"])("div", {
+    className: "left-nav--home"
+  }, Object(emotion_react_cjs["jsx"])("img", {
+    src: "/icons/home.svg",
+    width: "20",
+    height: "20",
+    alt: ""
+  }), Object(emotion_react_cjs["jsx"])(link_default.a, {
+    href: "/"
+  }, Object(emotion_react_cjs["jsx"])("a", null, "Home"))), Object(emotion_react_cjs["jsx"])("div", {
+    className: "left-nav--posts"
+  }, Object(emotion_react_cjs["jsx"])("img", {
+    src: "/icons/posts.svg",
+    width: "20",
+    height: "20",
+    alt: ""
+  }), Object(emotion_react_cjs["jsx"])(link_default.a, {
+    href: "/posts"
+  }, Object(emotion_react_cjs["jsx"])("a", null, "Posts"))), Object(emotion_react_cjs["jsx"])("div", {
+    className: "left-nav--tags"
+  }, Object(emotion_react_cjs["jsx"])("img", {
+    src: "/icons/tags.svg",
+    width: "20",
+    height: "20",
+    alt: ""
+  }), Object(emotion_react_cjs["jsx"])(link_default.a, {
+    href: "/tags"
+  }, Object(emotion_react_cjs["jsx"])("a", null, "Tags"))), Object(emotion_react_cjs["jsx"])("div", {
+    className: "left-nav--users"
+  }, Object(emotion_react_cjs["jsx"])("img", {
+    src: "/icons/users.svg",
+    width: "20",
+    height: "20",
+    alt: ""
+  }), Object(emotion_react_cjs["jsx"])(link_default.a, {
+    href: "/users"
+  }, Object(emotion_react_cjs["jsx"])("a", null, "Users"))), Object(emotion_react_cjs["jsx"])("div", {
+    className: "left-nav--chat"
+  }, Object(emotion_react_cjs["jsx"])("img", {
+    src: "/icons/chat.svg",
+    width: "20",
+    height: "20",
+    alt: ""
+  }), Object(emotion_react_cjs["jsx"])(link_default.a, {
+    href: "/chat"
+  }, Object(emotion_react_cjs["jsx"])("a", null, "Chat"))), Object(emotion_react_cjs["jsx"])("div", {
+    className: "left-nav--trends"
+  }, Object(emotion_react_cjs["jsx"])("img", {
+    src: "/icons/trends.svg",
+    width: "20",
+    height: "20",
+    alt: ""
+  }), Object(emotion_react_cjs["jsx"])(link_default.a, {
+    href: "/trends"
+  }, Object(emotion_react_cjs["jsx"])("a", null, "Trends"))), me && Object(emotion_react_cjs["jsx"])("div", {
+    className: "push-toggle-switch"
+  }, Object(emotion_react_cjs["jsx"])("label", {
+    style: {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center'
+    }
+  }, Object(emotion_react_cjs["jsx"])("span", {
+    style: {
+      marginBottom: '10px'
+    }
+  }, "Post Push Message"))), Object(emotion_react_cjs["jsx"])(Button["a" /* default */], {
+    id: "pwaInstall",
+    "aria-label": "Install",
+    hidden: true,
+    text: "PWA Install",
+    width: "170px",
+    height: "30px"
+  }, "Install App"), me ? Object(emotion_react_cjs["jsx"])(react_default.a.Fragment, null, Object(emotion_react_cjs["jsx"])("div", null, Object(emotion_react_cjs["jsx"])(link_default.a, {
+    href: "/user"
+  }, Object(emotion_react_cjs["jsx"])("a", null, Object(emotion_react_cjs["jsx"])("img", {
+    src: "/icons/user.svg",
+    width: "25",
+    height: "25",
+    alt: ""
+  })))), Object(emotion_react_cjs["jsx"])("div", null, Object(emotion_react_cjs["jsx"])("a", {
+    className: "header__user--logout",
+    onClick: onClickLogout
+  }, "logout"))) : Object(emotion_react_cjs["jsx"])(react_default.a.Fragment, null, Object(emotion_react_cjs["jsx"])("div", null, Object(emotion_react_cjs["jsx"])(link_default.a, {
+    href: "/signup"
+  }, Object(emotion_react_cjs["jsx"])("a", null, "signup"))), Object(emotion_react_cjs["jsx"])("div", null, Object(emotion_react_cjs["jsx"])(link_default.a, {
+    href: "/login"
+  }, Object(emotion_react_cjs["jsx"])("a", null, "login")))));
+};
+
+/* harmony default export */ var AppLayout_LeftNavigation = (LeftNavigation);
+// CONCATENATED MODULE: ./components/AppLayout/Footer.tsx
+
+
+
+function Footer_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
+
+const FooterWrapper = emotion_styled_base_cjs_default()("div", true ? {
+  target: "e6erz2f0"
+} : undefined)(true ? {
+  name: "12tczuu",
+  styles: "margin-top:10px;padding-top:10px;background-color:#404b69;height:20vh;display:flex;justify-content:center;align-items:center"
+} : undefined);
+
+const Footer = () => {
+  return /*#__PURE__*/Object(jsx_runtime["jsx"])(FooterWrapper, {
+    children: /*#__PURE__*/Object(jsx_runtime["jsx"])("footer", {
+      children: /*#__PURE__*/Object(jsx_runtime["jsx"])("div", {
+        children: /*#__PURE__*/Object(jsx_runtime["jsx"])("p", {
+          children: "Copyright @ 2020- Utopier Inc. "
+        })
+      })
+    })
+  });
+};
+
+/* harmony default export */ var AppLayout_Footer = (Footer);
+// CONCATENATED MODULE: ./components/AppLayout/index.tsx
+
+
+
+
+
+function AppLayout_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
+
+
+
+
+
+
+const ContentWrapper = emotion_styled_base_cjs_default()("div", true ? {
+  target: "e1j8id100"
+} : undefined)(true ? {
+  name: "c5ynsa",
+  styles: "display:flex;width:100%;#content{width:100%;padding-top:10vh;padding-left:170px;min-height:800px;}@media (max-width: 700px){#content{padding-left:0;}}"
+} : undefined);
+
+const AppLayout = ({
+  children
+}) => {
+  return /*#__PURE__*/Object(jsx_runtime["jsxs"])(jsx_runtime["Fragment"], {
+    children: ["  ", /*#__PURE__*/Object(jsx_runtime["jsx"])(AppLayout_TopNavigation, {}), /*#__PURE__*/Object(jsx_runtime["jsxs"])(ContentWrapper, {
+      children: [/*#__PURE__*/Object(jsx_runtime["jsx"])(AppLayout_LeftNavigation, {}), /*#__PURE__*/Object(jsx_runtime["jsx"])("div", {
+        id: "content",
+        children: children
+      })]
+    }), /*#__PURE__*/Object(jsx_runtime["jsx"])(AppLayout_Footer, {})]
+  });
+};
+
+/* harmony default export */ var components_AppLayout = (AppLayout);
+// EXTERNAL MODULE: ./node_modules/emotion-reset/dist/index.js
+var dist = __webpack_require__("SObL");
+var dist_default = /*#__PURE__*/__webpack_require__.n(dist);
+
 // CONCATENATED MODULE: ./styles/GlobalStyles.tsx
+/** @jsxRuntime classic */
+
+/** @jsx jsx */
 
 
-// css reset : emotion-reset
+
+ // css reset : emotion-reset
 // 공통 Design 적용
 // font
 
-
-
 const GlobalStyles = () => {
-  return /*#__PURE__*/Object(jsx_runtime["jsx"])(jsx_runtime["Fragment"], {
-    children: /*#__PURE__*/Object(jsx_runtime["jsx"])(core_cjs["Global"], {
-      styles: core_cjs["css"]`
+  const theme = Object(emotion_react_cjs["useTheme"])();
+  return Object(emotion_react_cjs["jsx"])(react_default.a.Fragment, null, Object(emotion_react_cjs["jsx"])(core_cjs["Global"], {
+    styles: core_cjs["css"]`
 					${dist_default.a}
 					*, *::after, *::before {
 						box-sizing: border-box;
@@ -17065,9 +18891,12 @@ const GlobalStyles = () => {
 						font-smoothing: antialiased;
 					}
 					body {
-						background-color: #283149;
+						background-color: ${theme.bgColor};
 						color: white;
 						font-family: 'Noto Sans KR', sans-serif;
+						// div {
+						// 	border: 1px solid green;
+						// }
 					}
 					a {
 						color: white;
@@ -17088,38 +18917,54 @@ const GlobalStyles = () => {
 						border-radius: 5px;
 						padding: 3px 0px 3px 3px;
 						margin: 5px 1px 3px 0px;
-						border: 1px solid #00818a;
+						border: 1px solid ${theme.blueGreen};
 					}
 					input:focus,
 					textarea:focus {
-						box-shadow: 0 0 20px #00818a;
+						box-shadow: 0 0 20px ${theme.blueGreen};
 						padding: 3px 0px 3px 3px;
 						margin: 5px 1px 3px 0px;
-						border: 1px solid #00818a;
+						border: 1px solid ${theme.blueGreen};
 					}
 					a {
 						outline: none;
 						cursor: pointer;
 					}
 				`
-    })
-  });
+  }));
 };
 
 /* harmony default export */ var styles_GlobalStyles = (GlobalStyles);
-// EXTERNAL MODULE: ./store/index.ts + 6 modules
+// CONCATENATED MODULE: ./styles/Theme.ts
+// 공통 Color
+// - dark mode : https://colorhunt.co/palette/118962
+// blueGreen : #00818a
+const Theme_theme = {
+  bgColor: '#283149',
+  bgColor2: '#404b69',
+  blueGreen: '#00818a',
+  blueGreenLight: '#dbedf3',
+  redColor: '#e94560',
+  borderBottom: '1px solid #00818a',
+  focusBoxShadows: '0 0 20px #00818a inset, 0 0 20px #00818a'
+};
+/* harmony default export */ var Theme = (Theme_theme);
+// EXTERNAL MODULE: ./store/index.ts + 4 modules
 var store = __webpack_require__("WYo3");
 
 // CONCATENATED MODULE: ./pages/_app.tsx
-
-
-
-
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _app_defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _app_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+/** @jsxRuntime classic */
+
+/** @jsx jsx */
+
+
+
 
 
 
@@ -17139,9 +18984,9 @@ function MyApp({
       });
     }
   }, []);
-  return /*#__PURE__*/Object(jsx_runtime["jsxs"])(jsx_runtime["Fragment"], {
-    children: [/*#__PURE__*/Object(jsx_runtime["jsx"])(styles_GlobalStyles, {}), /*#__PURE__*/Object(jsx_runtime["jsx"])(Component, _objectSpread({}, pageProps))]
-  });
+  return Object(emotion_react_cjs["jsx"])(ErrorBoundary, null, Object(emotion_react_cjs["jsx"])(emotion_react_cjs["ThemeProvider"], {
+    theme: Theme
+  }, Object(emotion_react_cjs["jsx"])(styles_GlobalStyles, null), Object(emotion_react_cjs["jsx"])(components_AppLayout, null, Object(emotion_react_cjs["jsx"])(Component, _objectSpread({}, pageProps)))));
 }
 
 /* harmony default export */ var _app = __webpack_exports__["default"] = (store["a" /* default */].withRedux(MyApp));
@@ -17245,6 +19090,1121 @@ function isPlainObject(obj) {
 
   return proto === baseProto;
 }
+
+/***/ }),
+
+/***/ "elyg":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.getDomainLocale = getDomainLocale;
+exports.addLocale = addLocale;
+exports.delLocale = delLocale;
+exports.hasBasePath = hasBasePath;
+exports.addBasePath = addBasePath;
+exports.delBasePath = delBasePath;
+exports.isLocalURL = isLocalURL;
+exports.interpolateAs = interpolateAs;
+exports.resolveHref = resolveHref;
+exports.default = void 0;
+
+var _normalizeTrailingSlash = __webpack_require__("X24+");
+
+var _routeLoader = __webpack_require__("Nh2W");
+
+var _denormalizePagePath = __webpack_require__("wkBG");
+
+var _normalizeLocalePath = __webpack_require__("3wub");
+
+var _mitt = _interopRequireDefault(__webpack_require__("dZ6Y"));
+
+var _utils = __webpack_require__("g/15");
+
+var _isDynamic = __webpack_require__("/jkW");
+
+var _parseRelativeUrl = __webpack_require__("hS4m");
+
+var _querystring = __webpack_require__("3WeD");
+
+var _resolveRewrites = _interopRequireDefault(__webpack_require__("GXs3"));
+
+var _routeMatcher = __webpack_require__("gguc");
+
+var _routeRegex = __webpack_require__("YTqd");
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    default: obj
+  };
+}
+/* global __NEXT_DATA__ */
+// tslint:disable:no-console
+
+
+let detectDomainLocale;
+
+if (false) {}
+
+const basePath =  false || '';
+
+function buildCancellationError() {
+  return Object.assign(new Error('Route Cancelled'), {
+    cancelled: true
+  });
+}
+
+function addPathPrefix(path, prefix) {
+  return prefix && path.startsWith('/') ? path === '/' ? (0, _normalizeTrailingSlash.normalizePathTrailingSlash)(prefix) : `${prefix}${pathNoQueryHash(path) === '/' ? path.substring(1) : path}` : path;
+}
+
+function getDomainLocale(path, locale, locales, domainLocales) {
+  if (false) {}
+
+  return false;
+}
+
+function addLocale(path, locale, defaultLocale) {
+  if (false) {}
+
+  return path;
+}
+
+function delLocale(path, locale) {
+  if (false) {}
+
+  return path;
+}
+
+function pathNoQueryHash(path) {
+  const queryIndex = path.indexOf('?');
+  const hashIndex = path.indexOf('#');
+
+  if (queryIndex > -1 || hashIndex > -1) {
+    path = path.substring(0, queryIndex > -1 ? queryIndex : hashIndex);
+  }
+
+  return path;
+}
+
+function hasBasePath(path) {
+  path = pathNoQueryHash(path);
+  return path === basePath || path.startsWith(basePath + '/');
+}
+
+function addBasePath(path) {
+  // we only add the basepath on relative urls
+  return addPathPrefix(path, basePath);
+}
+
+function delBasePath(path) {
+  path = path.slice(basePath.length);
+  if (!path.startsWith('/')) path = `/${path}`;
+  return path;
+}
+/**
+* Detects whether a given url is routable by the Next.js router (browser only).
+*/
+
+
+function isLocalURL(url) {
+  // prevent a hydration mismatch on href for url with anchor refs
+  if (url.startsWith('/') || url.startsWith('#')) return true;
+
+  try {
+    // absolute urls can be local if they are on the same origin
+    const locationOrigin = (0, _utils.getLocationOrigin)();
+    const resolved = new URL(url, locationOrigin);
+    return resolved.origin === locationOrigin && hasBasePath(resolved.pathname);
+  } catch (_) {
+    return false;
+  }
+}
+
+function interpolateAs(route, asPathname, query) {
+  let interpolatedRoute = '';
+  const dynamicRegex = (0, _routeRegex.getRouteRegex)(route);
+  const dynamicGroups = dynamicRegex.groups;
+  const dynamicMatches = // Try to match the dynamic route against the asPath
+  (asPathname !== route ? (0, _routeMatcher.getRouteMatcher)(dynamicRegex)(asPathname) : '') || // Fall back to reading the values from the href
+  // TODO: should this take priority; also need to change in the router.
+  query;
+  interpolatedRoute = route;
+  const params = Object.keys(dynamicGroups);
+
+  if (!params.every(param => {
+    let value = dynamicMatches[param] || '';
+    const {
+      repeat,
+      optional
+    } = dynamicGroups[param]; // support single-level catch-all
+    // TODO: more robust handling for user-error (passing `/`)
+
+    let replaced = `[${repeat ? '...' : ''}${param}]`;
+
+    if (optional) {
+      replaced = `${!value ? '/' : ''}[${replaced}]`;
+    }
+
+    if (repeat && !Array.isArray(value)) value = [value];
+    return (optional || param in dynamicMatches) && ( // Interpolate group into data URL if present
+    interpolatedRoute = interpolatedRoute.replace(replaced, repeat ? value.map( // these values should be fully encoded instead of just
+    // path delimiter escaped since they are being inserted
+    // into the URL and we expect URL encoded segments
+    // when parsing dynamic route params
+    segment => encodeURIComponent(segment)).join('/') : encodeURIComponent(value)) || '/');
+  })) {
+    interpolatedRoute = ''; // did not satisfy all requirements
+    // n.b. We ignore this error because we handle warning for this case in
+    // development in the `<Link>` component directly.
+  }
+
+  return {
+    params,
+    result: interpolatedRoute
+  };
+}
+
+function omitParmsFromQuery(query, params) {
+  const filteredQuery = {};
+  Object.keys(query).forEach(key => {
+    if (!params.includes(key)) {
+      filteredQuery[key] = query[key];
+    }
+  });
+  return filteredQuery;
+}
+/**
+* Resolves a given hyperlink with a certain router state (basePath not included).
+* Preserves absolute urls.
+*/
+
+
+function resolveHref(currentPath, href, resolveAs) {
+  // we use a dummy base url for relative urls
+  const base = new URL(currentPath, 'http://n');
+  const urlAsString = typeof href === 'string' ? href : (0, _utils.formatWithValidation)(href); // Return because it cannot be routed by the Next.js router
+
+  if (!isLocalURL(urlAsString)) {
+    return resolveAs ? [urlAsString] : urlAsString;
+  }
+
+  try {
+    const finalUrl = new URL(urlAsString, base);
+    finalUrl.pathname = (0, _normalizeTrailingSlash.normalizePathTrailingSlash)(finalUrl.pathname);
+    let interpolatedAs = '';
+
+    if ((0, _isDynamic.isDynamicRoute)(finalUrl.pathname) && finalUrl.searchParams && resolveAs) {
+      const query = (0, _querystring.searchParamsToUrlQuery)(finalUrl.searchParams);
+      const {
+        result,
+        params
+      } = interpolateAs(finalUrl.pathname, finalUrl.pathname, query);
+
+      if (result) {
+        interpolatedAs = (0, _utils.formatWithValidation)({
+          pathname: result,
+          hash: finalUrl.hash,
+          query: omitParmsFromQuery(query, params)
+        });
+      }
+    } // if the origin didn't change, it means we received a relative href
+
+
+    const resolvedHref = finalUrl.origin === base.origin ? finalUrl.href.slice(finalUrl.origin.length) : finalUrl.href;
+    return resolveAs ? [resolvedHref, interpolatedAs || resolvedHref] : resolvedHref;
+  } catch (_) {
+    return resolveAs ? [urlAsString] : urlAsString;
+  }
+}
+
+function stripOrigin(url) {
+  const origin = (0, _utils.getLocationOrigin)();
+  return url.startsWith(origin) ? url.substring(origin.length) : url;
+}
+
+function prepareUrlAs(router, url, as) {
+  // If url and as provided as an object representation,
+  // we'll format them into the string version here.
+  let [resolvedHref, resolvedAs] = resolveHref(router.pathname, url, true);
+  const origin = (0, _utils.getLocationOrigin)();
+  const hrefHadOrigin = resolvedHref.startsWith(origin);
+  const asHadOrigin = resolvedAs && resolvedAs.startsWith(origin);
+  resolvedHref = stripOrigin(resolvedHref);
+  resolvedAs = resolvedAs ? stripOrigin(resolvedAs) : resolvedAs;
+  const preparedUrl = hrefHadOrigin ? resolvedHref : addBasePath(resolvedHref);
+  const preparedAs = as ? stripOrigin(resolveHref(router.pathname, as)) : resolvedAs || resolvedHref;
+  return {
+    url: preparedUrl,
+    as: asHadOrigin ? preparedAs : addBasePath(preparedAs)
+  };
+}
+
+function resolveDynamicRoute(parsedHref, pages, applyBasePath = true) {
+  const {
+    pathname
+  } = parsedHref;
+  const cleanPathname = (0, _normalizeTrailingSlash.removePathTrailingSlash)((0, _denormalizePagePath.denormalizePagePath)(applyBasePath ? delBasePath(pathname) : pathname));
+
+  if (cleanPathname === '/404' || cleanPathname === '/_error') {
+    return parsedHref;
+  } // handle resolving href for dynamic routes
+
+
+  if (!pages.includes(cleanPathname)) {
+    // eslint-disable-next-line array-callback-return
+    pages.some(page => {
+      if ((0, _isDynamic.isDynamicRoute)(page) && (0, _routeRegex.getRouteRegex)(page).re.test(cleanPathname)) {
+        parsedHref.pathname = applyBasePath ? addBasePath(page) : page;
+        return true;
+      }
+    });
+  }
+
+  parsedHref.pathname = (0, _normalizeTrailingSlash.removePathTrailingSlash)(parsedHref.pathname);
+  return parsedHref;
+}
+
+const manualScrollRestoration =  false && false;
+const SSG_DATA_NOT_FOUND = Symbol('SSG_DATA_NOT_FOUND');
+
+function fetchRetry(url, attempts) {
+  return fetch(url, {
+    // Cookies are required to be present for Next.js' SSG "Preview Mode".
+    // Cookies may also be required for `getServerSideProps`.
+    //
+    // > `fetch` won’t send cookies, unless you set the credentials init
+    // > option.
+    // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+    //
+    // > For maximum browser compatibility when it comes to sending &
+    // > receiving cookies, always supply the `credentials: 'same-origin'`
+    // > option instead of relying on the default.
+    // https://github.com/github/fetch#caveats
+    credentials: 'same-origin'
+  }).then(res => {
+    if (!res.ok) {
+      if (attempts > 1 && res.status >= 500) {
+        return fetchRetry(url, attempts - 1);
+      }
+
+      if (res.status === 404) {
+        return res.json().then(data => {
+          if (data.notFound) {
+            return {
+              notFound: SSG_DATA_NOT_FOUND
+            };
+          }
+
+          throw new Error(`Failed to load static props`);
+        });
+      }
+
+      throw new Error(`Failed to load static props`);
+    }
+
+    return res.json();
+  });
+}
+
+function fetchNextData(dataHref, isServerRender) {
+  return fetchRetry(dataHref, isServerRender ? 3 : 1).catch(err => {
+    // We should only trigger a server-side transition if this was caused
+    // on a client-side transition. Otherwise, we'd get into an infinite
+    // loop.
+    if (!isServerRender) {
+      (0, _routeLoader.markAssetError)(err);
+    }
+
+    throw err;
+  });
+}
+
+class Router {
+  /**
+  * Map of all components loaded in `Router`
+  */
+  // Static Data Cache
+  // In-flight Server Data Requests, for deduping
+  constructor(_pathname, _query, _as, {
+    initialProps,
+    pageLoader,
+    App,
+    wrapApp,
+    Component,
+    err,
+    subscription,
+    isFallback,
+    locale,
+    locales,
+    defaultLocale,
+    domainLocales,
+    isPreview
+  }) {
+    this.route = void 0;
+    this.pathname = void 0;
+    this.query = void 0;
+    this.asPath = void 0;
+    this.basePath = void 0;
+    this.components = void 0;
+    this.sdc = {};
+    this.sdr = {};
+    this.sub = void 0;
+    this.clc = void 0;
+    this.pageLoader = void 0;
+    this._bps = void 0;
+    this.events = void 0;
+    this._wrapApp = void 0;
+    this.isSsr = void 0;
+    this.isFallback = void 0;
+    this._inFlightRoute = void 0;
+    this._shallow = void 0;
+    this.locale = void 0;
+    this.locales = void 0;
+    this.defaultLocale = void 0;
+    this.domainLocales = void 0;
+    this.isReady = void 0;
+    this.isPreview = void 0;
+    this.isLocaleDomain = void 0;
+    this._idx = 0;
+
+    this.onPopState = e => {
+      const state = e.state;
+
+      if (!state) {
+        // We get state as undefined for two reasons.
+        //  1. With older safari (< 8) and older chrome (< 34)
+        //  2. When the URL changed with #
+        //
+        // In the both cases, we don't need to proceed and change the route.
+        // (as it's already changed)
+        // But we can simply replace the state with the new changes.
+        // Actually, for (1) we don't need to nothing. But it's hard to detect that event.
+        // So, doing the following for (1) does no harm.
+        const {
+          pathname,
+          query
+        } = this;
+        this.changeState('replaceState', (0, _utils.formatWithValidation)({
+          pathname: addBasePath(pathname),
+          query
+        }), (0, _utils.getURL)());
+        return;
+      }
+
+      if (!state.__N) {
+        return;
+      }
+
+      let forcedScroll;
+      const {
+        url,
+        as,
+        options,
+        idx
+      } = state;
+
+      if (false) {}
+
+      this._idx = idx;
+      const {
+        pathname
+      } = (0, _parseRelativeUrl.parseRelativeUrl)(url); // Make sure we don't re-render on initial load,
+      // can be caused by navigating back from an external site
+
+      if (this.isSsr && as === this.asPath && pathname === this.pathname) {
+        return;
+      } // If the downstream application returns falsy, return.
+      // They will then be responsible for handling the event.
+
+
+      if (this._bps && !this._bps(state)) {
+        return;
+      }
+
+      this.change('replaceState', url, as, Object.assign({}, options, {
+        shallow: options.shallow && this._shallow,
+        locale: options.locale || this.defaultLocale
+      }), forcedScroll);
+    }; // represents the current component key
+
+
+    this.route = (0, _normalizeTrailingSlash.removePathTrailingSlash)(_pathname); // set up the component cache (by route keys)
+
+    this.components = {}; // We should not keep the cache, if there's an error
+    // Otherwise, this cause issues when when going back and
+    // come again to the errored page.
+
+    if (_pathname !== '/_error') {
+      this.components[this.route] = {
+        Component,
+        initial: true,
+        props: initialProps,
+        err,
+        __N_SSG: initialProps && initialProps.__N_SSG,
+        __N_SSP: initialProps && initialProps.__N_SSP
+      };
+    }
+
+    this.components['/_app'] = {
+      Component: App,
+      styleSheets: [
+        /* /_app does not need its stylesheets managed */
+      ]
+    }; // Backwards compat for Router.router.events
+    // TODO: Should be remove the following major version as it was never documented
+
+    this.events = Router.events;
+    this.pageLoader = pageLoader;
+    this.pathname = _pathname;
+    this.query = _query; // if auto prerendered and dynamic route wait to update asPath
+    // until after mount to prevent hydration mismatch
+
+    const autoExportDynamic = (0, _isDynamic.isDynamicRoute)(_pathname) && self.__NEXT_DATA__.autoExport;
+
+    this.asPath = autoExportDynamic ? _pathname : _as;
+    this.basePath = basePath;
+    this.sub = subscription;
+    this.clc = null;
+    this._wrapApp = wrapApp; // make sure to ignore extra popState in safari on navigating
+    // back from external site
+
+    this.isSsr = true;
+    this.isFallback = isFallback;
+    this.isReady = !!(self.__NEXT_DATA__.gssp || self.__NEXT_DATA__.gip || !autoExportDynamic && !self.location.search);
+    this.isPreview = !!isPreview;
+    this.isLocaleDomain = false;
+
+    if (false) {}
+
+    if (false) {}
+  }
+
+  reload() {
+    window.location.reload();
+  }
+  /**
+  * Go back in history
+  */
+
+
+  back() {
+    window.history.back();
+  }
+  /**
+  * Performs a `pushState` with arguments
+  * @param url of the route
+  * @param as masks `url` for the browser
+  * @param options object you can define `shallow` and other options
+  */
+
+
+  push(url, as, options = {}) {
+    if (false) {}
+
+    ;
+    ({
+      url,
+      as
+    } = prepareUrlAs(this, url, as));
+    return this.change('pushState', url, as, options);
+  }
+  /**
+  * Performs a `replaceState` with arguments
+  * @param url of the route
+  * @param as masks `url` for the browser
+  * @param options object you can define `shallow` and other options
+  */
+
+
+  replace(url, as, options = {}) {
+    ;
+    ({
+      url,
+      as
+    } = prepareUrlAs(this, url, as));
+    return this.change('replaceState', url, as, options);
+  }
+
+  async change(method, url, as, options, forcedScroll) {
+    var _options$scroll;
+
+    if (!isLocalURL(url)) {
+      window.location.href = url;
+      return false;
+    } // for static pages with query params in the URL we delay
+    // marking the router ready until after the query is updated
+
+
+    if (options._h) {
+      this.isReady = true;
+    } // Default to scroll reset behavior unless explicitly specified to be
+    // `false`! This makes the behavior between using `Router#push` and a
+    // `<Link />` consistent.
+
+
+    options.scroll = !!((_options$scroll = options.scroll) != null ? _options$scroll : true);
+    let localeChange = options.locale !== this.locale;
+
+    if (false) { var _this$locales; }
+
+    if (!options._h) {
+      this.isSsr = false;
+    } // marking route changes as a navigation start entry
+
+
+    if (_utils.ST) {
+      performance.mark('routeChange');
+    }
+
+    const {
+      shallow = false
+    } = options;
+    const routeProps = {
+      shallow
+    };
+
+    if (this._inFlightRoute) {
+      this.abortComponentLoad(this._inFlightRoute, routeProps);
+    }
+
+    as = addBasePath(addLocale(hasBasePath(as) ? delBasePath(as) : as, options.locale, this.defaultLocale));
+    const cleanedAs = delLocale(hasBasePath(as) ? delBasePath(as) : as, this.locale);
+    this._inFlightRoute = as; // If the url change is only related to a hash change
+    // We should not proceed. We should only change the state.
+    // WARNING: `_h` is an internal option for handing Next.js client-side
+    // hydration. Your app should _never_ use this property. It may change at
+    // any time without notice.
+
+    if (!options._h && this.onlyAHashChange(cleanedAs)) {
+      this.asPath = cleanedAs;
+      Router.events.emit('hashChangeStart', as, routeProps); // TODO: do we need the resolved href when only a hash change?
+
+      this.changeState(method, url, as, options);
+      this.scrollToHash(cleanedAs);
+      this.notify(this.components[this.route], null);
+      Router.events.emit('hashChangeComplete', as, routeProps);
+      return true;
+    }
+
+    let parsed = (0, _parseRelativeUrl.parseRelativeUrl)(url);
+    let {
+      pathname,
+      query
+    } = parsed; // The build manifest needs to be loaded before auto-static dynamic pages
+    // get their query parameters to allow ensuring they can be parsed properly
+    // when rewritten to
+
+    let pages, rewrites;
+
+    try {
+      pages = await this.pageLoader.getPageList();
+      ({
+        __rewrites: rewrites
+      } = await (0, _routeLoader.getClientBuildManifest)());
+    } catch (err) {
+      // If we fail to resolve the page list or client-build manifest, we must
+      // do a server-side transition:
+      window.location.href = as;
+      return false;
+    }
+
+    parsed = resolveDynamicRoute(parsed, pages);
+
+    if (parsed.pathname !== pathname) {
+      pathname = parsed.pathname;
+      url = (0, _utils.formatWithValidation)(parsed);
+    } // url and as should always be prefixed with basePath by this
+    // point by either next/link or router.push/replace so strip the
+    // basePath from the pathname to match the pages dir 1-to-1
+
+
+    pathname = pathname ? (0, _normalizeTrailingSlash.removePathTrailingSlash)(delBasePath(pathname)) : pathname; // If asked to change the current URL we should reload the current page
+    // (not location.reload() but reload getInitialProps and other Next.js stuffs)
+    // We also need to set the method = replaceState always
+    // as this should not go into the history (That's how browsers work)
+    // We should compare the new asPath to the current asPath, not the url
+
+    if (!this.urlIsNew(cleanedAs) && !localeChange) {
+      method = 'replaceState';
+    }
+
+    let route = (0, _normalizeTrailingSlash.removePathTrailingSlash)(pathname); // we need to resolve the as value using rewrites for dynamic SSG
+    // pages to allow building the data URL correctly
+
+    let resolvedAs = as;
+
+    if (false) {}
+
+    if (!isLocalURL(as)) {
+      if (false) {}
+
+      window.location.href = as;
+      return false;
+    }
+
+    resolvedAs = delLocale(delBasePath(resolvedAs), this.locale);
+
+    if ((0, _isDynamic.isDynamicRoute)(route)) {
+      const parsedAs = (0, _parseRelativeUrl.parseRelativeUrl)(resolvedAs);
+      const asPathname = parsedAs.pathname;
+      const routeRegex = (0, _routeRegex.getRouteRegex)(route);
+      const routeMatch = (0, _routeMatcher.getRouteMatcher)(routeRegex)(asPathname);
+      const shouldInterpolate = route === asPathname;
+      const interpolatedAs = shouldInterpolate ? interpolateAs(route, asPathname, query) : {};
+
+      if (!routeMatch || shouldInterpolate && !interpolatedAs.result) {
+        const missingParams = Object.keys(routeRegex.groups).filter(param => !query[param]);
+
+        if (missingParams.length > 0) {
+          if (false) {}
+
+          throw new Error((shouldInterpolate ? `The provided \`href\` (${url}) value is missing query values (${missingParams.join(', ')}) to be interpolated properly. ` : `The provided \`as\` value (${asPathname}) is incompatible with the \`href\` value (${route}). `) + `Read more: https://err.sh/vercel/next.js/${shouldInterpolate ? 'href-interpolation-failed' : 'incompatible-href-as'}`);
+        }
+      } else if (shouldInterpolate) {
+        as = (0, _utils.formatWithValidation)(Object.assign({}, parsedAs, {
+          pathname: interpolatedAs.result,
+          query: omitParmsFromQuery(query, interpolatedAs.params)
+        }));
+      } else {
+        // Merge params into `query`, overwriting any specified in search
+        Object.assign(query, routeMatch);
+      }
+    }
+
+    Router.events.emit('routeChangeStart', as, routeProps);
+
+    try {
+      var _self$__NEXT_DATA__$p, _self$__NEXT_DATA__$p2;
+
+      let routeInfo = await this.getRouteInfo(route, pathname, query, as, resolvedAs, routeProps);
+      let {
+        error,
+        props,
+        __N_SSG,
+        __N_SSP
+      } = routeInfo; // handle redirect on client-transition
+
+      if ((__N_SSG || __N_SSP) && props) {
+        if (props.pageProps && props.pageProps.__N_REDIRECT) {
+          const destination = props.pageProps.__N_REDIRECT; // check if destination is internal (resolves to a page) and attempt
+          // client-navigation if it is falling back to hard navigation if
+          // it's not
+
+          if (destination.startsWith('/')) {
+            const parsedHref = (0, _parseRelativeUrl.parseRelativeUrl)(destination);
+            resolveDynamicRoute(parsedHref, pages, false);
+
+            if (pages.includes(parsedHref.pathname)) {
+              const {
+                url: newUrl,
+                as: newAs
+              } = prepareUrlAs(this, destination, destination);
+              return this.change(method, newUrl, newAs, options);
+            }
+          }
+
+          window.location.href = destination;
+          return new Promise(() => {});
+        }
+
+        this.isPreview = !!props.__N_PREVIEW; // handle SSG data 404
+
+        if (props.notFound === SSG_DATA_NOT_FOUND) {
+          let notFoundRoute;
+
+          try {
+            await this.fetchComponent('/404');
+            notFoundRoute = '/404';
+          } catch (_) {
+            notFoundRoute = '/_error';
+          }
+
+          routeInfo = await this.getRouteInfo(notFoundRoute, notFoundRoute, query, as, resolvedAs, {
+            shallow: false
+          });
+        }
+      }
+
+      Router.events.emit('beforeHistoryChange', as, routeProps);
+      this.changeState(method, url, as, options);
+
+      if (false) {} // shallow routing is only allowed for same page URL changes.
+
+
+      const isValidShallowRoute = options.shallow && this.route === route;
+
+      if (options._h && pathname === '/_error' && ((_self$__NEXT_DATA__$p = self.__NEXT_DATA__.props) == null ? void 0 : (_self$__NEXT_DATA__$p2 = _self$__NEXT_DATA__$p.pageProps) == null ? void 0 : _self$__NEXT_DATA__$p2.statusCode) === 500 && props != null && props.pageProps) {
+        // ensure statusCode is still correct for static 500 page
+        // when updating query information
+        props.pageProps.statusCode = 500;
+      }
+
+      await this.set(route, pathname, query, cleanedAs, routeInfo, forcedScroll || (isValidShallowRoute || !options.scroll ? null : {
+        x: 0,
+        y: 0
+      })).catch(e => {
+        if (e.cancelled) error = error || e;else throw e;
+      });
+
+      if (error) {
+        Router.events.emit('routeChangeError', error, cleanedAs, routeProps);
+        throw error;
+      }
+
+      if (false) {}
+
+      Router.events.emit('routeChangeComplete', as, routeProps);
+      return true;
+    } catch (err) {
+      if (err.cancelled) {
+        return false;
+      }
+
+      throw err;
+    }
+  }
+
+  changeState(method, url, as, options = {}) {
+    if (false) {}
+
+    if (method !== 'pushState' || (0, _utils.getURL)() !== as) {
+      this._shallow = options.shallow;
+      window.history[method]({
+        url,
+        as,
+        options,
+        __N: true,
+        idx: this._idx = method !== 'pushState' ? this._idx : this._idx + 1
+      }, // Most browsers currently ignores this parameter, although they may use it in the future.
+      // Passing the empty string here should be safe against future changes to the method.
+      // https://developer.mozilla.org/en-US/docs/Web/API/History/replaceState
+      '', as);
+    }
+  }
+
+  async handleRouteInfoError(err, pathname, query, as, routeProps, loadErrorFail) {
+    if (err.cancelled) {
+      // bubble up cancellation errors
+      throw err;
+    }
+
+    if ((0, _routeLoader.isAssetError)(err) || loadErrorFail) {
+      Router.events.emit('routeChangeError', err, as, routeProps); // If we can't load the page it could be one of following reasons
+      //  1. Page doesn't exists
+      //  2. Page does exist in a different zone
+      //  3. Internal error while loading the page
+      // So, doing a hard reload is the proper way to deal with this.
+
+      window.location.href = as; // Changing the URL doesn't block executing the current code path.
+      // So let's throw a cancellation error stop the routing logic.
+
+      throw buildCancellationError();
+    }
+
+    try {
+      let Component;
+      let styleSheets;
+      let props;
+
+      if (typeof Component === 'undefined' || typeof styleSheets === 'undefined') {
+        ;
+        ({
+          page: Component,
+          styleSheets
+        } = await this.fetchComponent('/_error'));
+      }
+
+      const routeInfo = {
+        props,
+        Component,
+        styleSheets,
+        err,
+        error: err
+      };
+
+      if (!routeInfo.props) {
+        try {
+          routeInfo.props = await this.getInitialProps(Component, {
+            err,
+            pathname,
+            query
+          });
+        } catch (gipErr) {
+          console.error('Error in error page `getInitialProps`: ', gipErr);
+          routeInfo.props = {};
+        }
+      }
+
+      return routeInfo;
+    } catch (routeInfoErr) {
+      return this.handleRouteInfoError(routeInfoErr, pathname, query, as, routeProps, true);
+    }
+  }
+
+  async getRouteInfo(route, pathname, query, as, resolvedAs, routeProps) {
+    try {
+      const existingRouteInfo = this.components[route];
+
+      if (routeProps.shallow && existingRouteInfo && this.route === route) {
+        return existingRouteInfo;
+      }
+
+      const cachedRouteInfo = existingRouteInfo && 'initial' in existingRouteInfo ? undefined : existingRouteInfo;
+      const routeInfo = cachedRouteInfo ? cachedRouteInfo : await this.fetchComponent(route).then(res => ({
+        Component: res.page,
+        styleSheets: res.styleSheets,
+        __N_SSG: res.mod.__N_SSG,
+        __N_SSP: res.mod.__N_SSP
+      }));
+      const {
+        Component,
+        __N_SSG,
+        __N_SSP
+      } = routeInfo;
+
+      if (false) {}
+
+      let dataHref;
+
+      if (__N_SSG || __N_SSP) {
+        dataHref = this.pageLoader.getDataHref((0, _utils.formatWithValidation)({
+          pathname,
+          query
+        }), resolvedAs, __N_SSG, this.locale);
+      }
+
+      const props = await this._getData(() => __N_SSG ? this._getStaticData(dataHref) : __N_SSP ? this._getServerData(dataHref) : this.getInitialProps(Component, // we provide AppTree later so this needs to be `any`
+      {
+        pathname,
+        query,
+        asPath: as
+      }));
+      routeInfo.props = props;
+      this.components[route] = routeInfo;
+      return routeInfo;
+    } catch (err) {
+      return this.handleRouteInfoError(err, pathname, query, as, routeProps);
+    }
+  }
+
+  set(route, pathname, query, as, data, resetScroll) {
+    this.isFallback = false;
+    this.route = route;
+    this.pathname = pathname;
+    this.query = query;
+    this.asPath = as;
+    return this.notify(data, resetScroll);
+  }
+  /**
+  * Callback to execute before replacing router state
+  * @param cb callback to be executed
+  */
+
+
+  beforePopState(cb) {
+    this._bps = cb;
+  }
+
+  onlyAHashChange(as) {
+    if (!this.asPath) return false;
+    const [oldUrlNoHash, oldHash] = this.asPath.split('#');
+    const [newUrlNoHash, newHash] = as.split('#'); // Makes sure we scroll to the provided hash if the url/hash are the same
+
+    if (newHash && oldUrlNoHash === newUrlNoHash && oldHash === newHash) {
+      return true;
+    } // If the urls are change, there's more than a hash change
+
+
+    if (oldUrlNoHash !== newUrlNoHash) {
+      return false;
+    } // If the hash has changed, then it's a hash only change.
+    // This check is necessary to handle both the enter and
+    // leave hash === '' cases. The identity case falls through
+    // and is treated as a next reload.
+
+
+    return oldHash !== newHash;
+  }
+
+  scrollToHash(as) {
+    const [, hash] = as.split('#'); // Scroll to top if the hash is just `#` with no value or `#top`
+    // To mirror browsers
+
+    if (hash === '' || hash === 'top') {
+      window.scrollTo(0, 0);
+      return;
+    } // First we check if the element by id is found
+
+
+    const idEl = document.getElementById(hash);
+
+    if (idEl) {
+      idEl.scrollIntoView();
+      return;
+    } // If there's no element with the id, we check the `name` property
+    // To mirror browsers
+
+
+    const nameEl = document.getElementsByName(hash)[0];
+
+    if (nameEl) {
+      nameEl.scrollIntoView();
+    }
+  }
+
+  urlIsNew(asPath) {
+    return this.asPath !== asPath;
+  }
+  /**
+  * Prefetch page code, you may wait for the data during page rendering.
+  * This feature only works in production!
+  * @param url the href of prefetched page
+  * @param asPath the as path of the prefetched page
+  */
+
+
+  async prefetch(url, asPath = url, options = {}) {
+    let parsed = (0, _parseRelativeUrl.parseRelativeUrl)(url);
+    let {
+      pathname
+    } = parsed;
+
+    if (false) {}
+
+    const pages = await this.pageLoader.getPageList();
+    parsed = resolveDynamicRoute(parsed, pages, false);
+
+    if (parsed.pathname !== pathname) {
+      pathname = parsed.pathname;
+      url = (0, _utils.formatWithValidation)(parsed);
+    }
+
+    let route = (0, _normalizeTrailingSlash.removePathTrailingSlash)(pathname);
+    let resolvedAs = asPath;
+
+    if (false) {} // Prefetch is not supported in development mode because it would trigger on-demand-entries
+
+
+    if (false) {}
+
+    await Promise.all([this.pageLoader._isSsg(url).then(isSsg => {
+      return isSsg ? this._getStaticData(this.pageLoader.getDataHref(url, resolvedAs, true, typeof options.locale !== 'undefined' ? options.locale : this.locale)) : false;
+    }), this.pageLoader[options.priority ? 'loadPage' : 'prefetch'](route)]);
+  }
+
+  async fetchComponent(route) {
+    let cancelled = false;
+
+    const cancel = this.clc = () => {
+      cancelled = true;
+    };
+
+    const componentResult = await this.pageLoader.loadPage(route);
+
+    if (cancelled) {
+      const error = new Error(`Abort fetching component for route: "${route}"`);
+      error.cancelled = true;
+      throw error;
+    }
+
+    if (cancel === this.clc) {
+      this.clc = null;
+    }
+
+    return componentResult;
+  }
+
+  _getData(fn) {
+    let cancelled = false;
+
+    const cancel = () => {
+      cancelled = true;
+    };
+
+    this.clc = cancel;
+    return fn().then(data => {
+      if (cancel === this.clc) {
+        this.clc = null;
+      }
+
+      if (cancelled) {
+        const err = new Error('Loading initial props cancelled');
+        err.cancelled = true;
+        throw err;
+      }
+
+      return data;
+    });
+  }
+
+  _getStaticData(dataHref) {
+    const {
+      href: cacheKey
+    } = new URL(dataHref, window.location.href);
+
+    if ( true && !this.isPreview && this.sdc[cacheKey]) {
+      return Promise.resolve(this.sdc[cacheKey]);
+    }
+
+    return fetchNextData(dataHref, this.isSsr).then(data => {
+      this.sdc[cacheKey] = data;
+      return data;
+    });
+  }
+
+  _getServerData(dataHref) {
+    const {
+      href: resourceKey
+    } = new URL(dataHref, window.location.href);
+
+    if (this.sdr[resourceKey]) {
+      return this.sdr[resourceKey];
+    }
+
+    return this.sdr[resourceKey] = fetchNextData(dataHref, this.isSsr).then(data => {
+      delete this.sdr[resourceKey];
+      return data;
+    }).catch(err => {
+      delete this.sdr[resourceKey];
+      throw err;
+    });
+  }
+
+  getInitialProps(Component, ctx) {
+    const {
+      Component: App
+    } = this.components['/_app'];
+
+    const AppTree = this._wrapApp(App);
+
+    ctx.AppTree = AppTree;
+    return (0, _utils.loadGetInitialProps)(App, {
+      AppTree,
+      Component,
+      router: this,
+      ctx
+    });
+  }
+
+  abortComponentLoad(as, routeProps) {
+    if (this.clc) {
+      Router.events.emit('routeChangeError', buildCancellationError(), as, routeProps);
+      this.clc();
+      this.clc = null;
+    }
+  }
+
+  notify(data, resetScroll) {
+    return this.sub(data, this.components['/_app'].Component, resetScroll);
+  }
+
+}
+
+exports.default = Router;
+Router.events = (0, _mitt.default)();
 
 /***/ }),
 
@@ -22511,6 +25471,19 @@ module.exports = function () { };
 
 /***/ }),
 
+/***/ "kurX":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+if (true) {
+  module.exports = __webpack_require__("G8eF");
+} else {}
+
+
+/***/ }),
+
 /***/ "lLtp":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24941,6 +27914,158 @@ if (true) {
 
 /***/ }),
 
+/***/ "nOHt":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireWildcard = __webpack_require__("284h");
+
+var _interopRequireDefault = __webpack_require__("TqRt");
+
+exports.__esModule = true;
+exports.useRouter = useRouter;
+exports.makePublicRouterInstance = makePublicRouterInstance;
+exports.createRouter = exports.withRouter = exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__("q1tI"));
+
+var _router2 = _interopRequireWildcard(__webpack_require__("elyg"));
+
+exports.Router = _router2.default;
+exports.NextRouter = _router2.NextRouter;
+
+var _routerContext = __webpack_require__("qOIg");
+
+var _withRouter = _interopRequireDefault(__webpack_require__("0Bsm"));
+
+exports.withRouter = _withRouter.default;
+/* global window */
+
+const singletonRouter = {
+  router: null,
+  // holds the actual router instance
+  readyCallbacks: [],
+
+  ready(cb) {
+    if (this.router) return cb();
+
+    if (false) {}
+  }
+
+}; // Create public properties and methods of the router in the singletonRouter
+
+const urlPropertyFields = ['pathname', 'route', 'query', 'asPath', 'components', 'isFallback', 'basePath', 'locale', 'locales', 'defaultLocale', 'isReady', 'isPreview', 'isLocaleDomain'];
+const routerEvents = ['routeChangeStart', 'beforeHistoryChange', 'routeChangeComplete', 'routeChangeError', 'hashChangeStart', 'hashChangeComplete'];
+const coreMethodFields = ['push', 'replace', 'reload', 'back', 'prefetch', 'beforePopState']; // Events is a static property on the router, the router doesn't have to be initialized to use it
+
+Object.defineProperty(singletonRouter, 'events', {
+  get() {
+    return _router2.default.events;
+  }
+
+});
+urlPropertyFields.forEach(field => {
+  // Here we need to use Object.defineProperty because, we need to return
+  // the property assigned to the actual router
+  // The value might get changed as we change routes and this is the
+  // proper way to access it
+  Object.defineProperty(singletonRouter, field, {
+    get() {
+      const router = getRouter();
+      return router[field];
+    }
+
+  });
+});
+coreMethodFields.forEach(field => {
+  // We don't really know the types here, so we add them later instead
+  ;
+
+  singletonRouter[field] = (...args) => {
+    const router = getRouter();
+    return router[field](...args);
+  };
+});
+routerEvents.forEach(event => {
+  singletonRouter.ready(() => {
+    _router2.default.events.on(event, (...args) => {
+      const eventField = `on${event.charAt(0).toUpperCase()}${event.substring(1)}`;
+      const _singletonRouter = singletonRouter;
+
+      if (_singletonRouter[eventField]) {
+        try {
+          _singletonRouter[eventField](...args);
+        } catch (err) {
+          console.error(`Error when running the Router event: ${eventField}`);
+          console.error(`${err.message}\n${err.stack}`);
+        }
+      }
+    });
+  });
+});
+
+function getRouter() {
+  if (!singletonRouter.router) {
+    const message = 'No router instance found.\n' + 'You should only use "next/router" inside the client side of your app.\n';
+    throw new Error(message);
+  }
+
+  return singletonRouter.router;
+} // Export the singletonRouter and this is the public API.
+
+
+var _default = singletonRouter; // Reexport the withRoute HOC
+
+exports.default = _default;
+
+function useRouter() {
+  return _react.default.useContext(_routerContext.RouterContext);
+} // INTERNAL APIS
+// -------------
+// (do not use following exports inside the app)
+// Create a router and assign it as the singleton instance.
+// This is used in client side when we are initilizing the app.
+// This should **not** use inside the server.
+
+
+const createRouter = (...args) => {
+  singletonRouter.router = new _router2.default(...args);
+  singletonRouter.readyCallbacks.forEach(cb => cb());
+  singletonRouter.readyCallbacks = [];
+  return singletonRouter.router;
+}; // This function is used to create the `withRouter` router instance
+
+
+exports.createRouter = createRouter;
+
+function makePublicRouterInstance(router) {
+  const _router = router;
+  const instance = {};
+
+  for (const property of urlPropertyFields) {
+    if (typeof _router[property] === 'object') {
+      instance[property] = Object.assign(Array.isArray(_router[property]) ? [] : {}, _router[property]); // makes sure query is not stateful
+
+      continue;
+    }
+
+    instance[property] = _router[property];
+  } // Events is a static property on the router, the router doesn't have to be initialized to use it
+
+
+  instance.events = _router2.default.events;
+  coreMethodFields.forEach(field => {
+    instance[field] = (...args) => {
+      return _router[field](...args);
+    };
+  });
+  return instance;
+}
+
+/***/ }),
+
 /***/ "nRxi":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25152,6 +28277,84 @@ module.exports = function (fromModel) {
 
 /***/ }),
 
+/***/ "oucG":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("nKUr");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _emotion_styled_base__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("NWvw");
+/* harmony import */ var _emotion_styled_base__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_emotion_styled_base__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("q1tI");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+
+function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
+
+// import { useRouter } from 'next/router';
+// import { useDispatch, useSelector } from 'react-redux';
+ // import { LOAD_POSTS_REQUEST, LOAD_TAGS_REQUEST } from '../../store/redux/reducers/post';
+// import { LOAD_USERS_REQUEST } from '../../store/redux/reducers/user';
+
+const SearchBarWrapper = _emotion_styled_base__WEBPACK_IMPORTED_MODULE_1___default()("div", true ? {
+  target: "e55en260"
+} : undefined)(true ? {
+  name: "dly0zx",
+  styles: "display:flex;width:100%;justify-content:center;align-items:center;position:relative;cursor:none;padding:0 5px;input{height:50%;width:100%;}img{height:45%;}.search--icon{position:absolute;top:10px;right:2px;}@media (max-width: 800px){.search--icon{right:0;}}@media (max-width: 500px){.search--icon{right:0;}}"
+} : undefined);
+
+const SearchBar = ({
+  placeholder,
+  id
+}) => {
+  // const dispatch = useDispatch();
+  // const router = useRouter();
+  // const route = router.route.slice(1).toUpperCase();
+  // const [searchQuery, setSearchQuery] = useState(0);
+  const onChangeSearchBar = e => {
+    console.log('onChangeSearchBar'); // setSearchQuery(e.target.value);
+  };
+
+  const onKeyPressSearchBar = e => {
+    console.log('onKeyPressSearchBar'); // if (e.target.id === 'main-search-bar') {
+    // 	router.push('/posts');
+    // }
+    // if (e.key === 'Enter') {
+    // 	dispatch({
+    // 		type:
+    // 			e.target.id === 'main-search-bar'
+    // 				? LOAD_POSTS_REQUEST
+    // 				: route === 'TAGS'
+    // 				? LOAD_TAGS_REQUEST
+    // 				: LOAD_USERS_REQUEST,
+    // 		data: { searchQuery },
+    // 	});
+    // 	setSearchQuery(0);
+    // }
+  };
+
+  return /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxs"])(SearchBarWrapper, {
+    children: [/*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("input", {
+      id: id,
+      type: "text",
+      placeholder: placeholder || 'Search...',
+      onChange: onChangeSearchBar,
+      onKeyPress: onKeyPressSearchBar
+    }), /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("img", {
+      className: "search--icon",
+      src: "/icons/search.svg",
+      width: "35",
+      height: "35"
+    })]
+  });
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (SearchBar);
+
+/***/ }),
+
 /***/ "oxjq":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25175,6 +28378,33 @@ module.exports = function (str) {
 /***/ (function(module, exports) {
 
 module.exports = require("path");
+
+/***/ }),
+
+/***/ "p7dq":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: !0
+});
+
+var memoize = __webpack_require__("TiPX");
+
+function _interopDefault(e) {
+  return e && e.__esModule ? e : {
+    default: e
+  };
+}
+
+var memoize__default = _interopDefault(memoize), reactPropsRegex = /^((children|dangerouslySetInnerHTML|key|ref|autoFocus|defaultValue|defaultChecked|innerHTML|suppressContentEditableWarning|suppressHydrationWarning|valueLink|accept|acceptCharset|accessKey|action|allow|allowUserMedia|allowPaymentRequest|allowFullScreen|allowTransparency|alt|async|autoComplete|autoPlay|capture|cellPadding|cellSpacing|challenge|charSet|checked|cite|classID|className|cols|colSpan|content|contentEditable|contextMenu|controls|controlsList|coords|crossOrigin|data|dateTime|decoding|default|defer|dir|disabled|disablePictureInPicture|download|draggable|encType|form|formAction|formEncType|formMethod|formNoValidate|formTarget|frameBorder|headers|height|hidden|high|href|hrefLang|htmlFor|httpEquiv|id|inputMode|integrity|is|keyParams|keyType|kind|label|lang|list|loading|loop|low|marginHeight|marginWidth|max|maxLength|media|mediaGroup|method|min|minLength|multiple|muted|name|nonce|noValidate|open|optimum|pattern|placeholder|playsInline|poster|preload|profile|radioGroup|readOnly|referrerPolicy|rel|required|reversed|role|rows|rowSpan|sandbox|scope|scoped|scrolling|seamless|selected|shape|size|sizes|slot|span|spellCheck|src|srcDoc|srcLang|srcSet|start|step|style|summary|tabIndex|target|title|translate|type|useMap|value|width|wmode|wrap|about|datatype|inlist|prefix|property|resource|typeof|vocab|autoCapitalize|autoCorrect|autoSave|color|fallback|inert|itemProp|itemScope|itemType|itemID|itemRef|on|option|results|security|unselectable|accentHeight|accumulate|additive|alignmentBaseline|allowReorder|alphabetic|amplitude|arabicForm|ascent|attributeName|attributeType|autoReverse|azimuth|baseFrequency|baselineShift|baseProfile|bbox|begin|bias|by|calcMode|capHeight|clip|clipPathUnits|clipPath|clipRule|colorInterpolation|colorInterpolationFilters|colorProfile|colorRendering|contentScriptType|contentStyleType|cursor|cx|cy|d|decelerate|descent|diffuseConstant|direction|display|divisor|dominantBaseline|dur|dx|dy|edgeMode|elevation|enableBackground|end|exponent|externalResourcesRequired|fill|fillOpacity|fillRule|filter|filterRes|filterUnits|floodColor|floodOpacity|focusable|fontFamily|fontSize|fontSizeAdjust|fontStretch|fontStyle|fontVariant|fontWeight|format|from|fr|fx|fy|g1|g2|glyphName|glyphOrientationHorizontal|glyphOrientationVertical|glyphRef|gradientTransform|gradientUnits|hanging|horizAdvX|horizOriginX|ideographic|imageRendering|in|in2|intercept|k|k1|k2|k3|k4|kernelMatrix|kernelUnitLength|kerning|keyPoints|keySplines|keyTimes|lengthAdjust|letterSpacing|lightingColor|limitingConeAngle|local|markerEnd|markerMid|markerStart|markerHeight|markerUnits|markerWidth|mask|maskContentUnits|maskUnits|mathematical|mode|numOctaves|offset|opacity|operator|order|orient|orientation|origin|overflow|overlinePosition|overlineThickness|panose1|paintOrder|pathLength|patternContentUnits|patternTransform|patternUnits|pointerEvents|points|pointsAtX|pointsAtY|pointsAtZ|preserveAlpha|preserveAspectRatio|primitiveUnits|r|radius|refX|refY|renderingIntent|repeatCount|repeatDur|requiredExtensions|requiredFeatures|restart|result|rotate|rx|ry|scale|seed|shapeRendering|slope|spacing|specularConstant|specularExponent|speed|spreadMethod|startOffset|stdDeviation|stemh|stemv|stitchTiles|stopColor|stopOpacity|strikethroughPosition|strikethroughThickness|string|stroke|strokeDasharray|strokeDashoffset|strokeLinecap|strokeLinejoin|strokeMiterlimit|strokeOpacity|strokeWidth|surfaceScale|systemLanguage|tableValues|targetX|targetY|textAnchor|textDecoration|textRendering|textLength|to|transform|u1|u2|underlinePosition|underlineThickness|unicode|unicodeBidi|unicodeRange|unitsPerEm|vAlphabetic|vHanging|vIdeographic|vMathematical|values|vectorEffect|version|vertAdvY|vertOriginX|vertOriginY|viewBox|viewTarget|visibility|widths|wordSpacing|writingMode|x|xHeight|x1|x2|xChannelSelector|xlinkActuate|xlinkArcrole|xlinkHref|xlinkRole|xlinkShow|xlinkTitle|xlinkType|xmlBase|xmlns|xmlnsXlink|xmlLang|xmlSpace|y|y1|y2|yChannelSelector|z|zoomAndPan|for|class|autofocus)|(([Dd][Aa][Tt][Aa]|[Aa][Rr][Ii][Aa]|x)-.*))$/, isPropValid = memoize__default.default((function(prop) {
+  return reactPropsRegex.test(prop) || 111 === prop.charCodeAt(0) && 110 === prop.charCodeAt(1) && prop.charCodeAt(2) < 91;
+}));
+
+exports.default = isPropValid;
+
 
 /***/ }),
 
@@ -26643,6 +29873,8 @@ var _Context = __webpack_require__("ikmm");
 
 var _Subscription = _interopRequireDefault(__webpack_require__("ZfTA"));
 
+var _useIsomorphicLayoutEffect = __webpack_require__("5MzV");
+
 function Provider(_ref) {
   var store = _ref.store,
       context = _ref.context,
@@ -26658,7 +29890,7 @@ function Provider(_ref) {
   var previousState = (0, _react.useMemo)(function () {
     return store.getState();
   }, [store]);
-  (0, _react.useEffect)(function () {
+  (0, _useIsomorphicLayoutEffect.useIsomorphicLayoutEffect)(function () {
     var subscription = contextValue.subscription;
     subscription.trySubscribe();
 
@@ -26792,7 +30024,7 @@ function toIdentifier (str) {
 /***/ "soy+":
 /***/ (function(module, exports) {
 
-function t(t){for(var n=arguments.length,r=Array(n>1?n-1:0),e=1;e<n;e++)r[e-1]=arguments[e];throw Error("[Immer] minified error nr: "+t+(r.length?" "+r.map((function(t){return"'"+t+"'"})).join(","):"")+". Find the full error at: https://bit.ly/3cXEKWf")}function n(t){return!!t&&!!t[H]}function r(t){return!!t&&(function(t){if(!t||"object"!=typeof t)return!1;var n=Object.getPrototypeOf(t);if(null===n)return!0;var r=Object.hasOwnProperty.call(n,"constructor")&&n.constructor;return"function"==typeof r&&Function.toString.call(r)===Q}(t)||Array.isArray(t)||!!t[G]||!!t.constructor[G]||c(t)||v(t))}function e(t,n,r){void 0===r&&(r=!1),0===i(t)?(r?Object.keys:T)(t).forEach((function(e){r&&"symbol"==typeof e||n(e,t[e],t)})):t.forEach((function(r,e){return n(e,r,t)}))}function i(t){var n=t[H];return n?n.t>3?n.t-4:n.t:Array.isArray(t)?1:c(t)?2:v(t)?3:0}function u(t,n){return 2===i(t)?t.has(n):Object.prototype.hasOwnProperty.call(t,n)}function o(t,n){return 2===i(t)?t.get(n):t[n]}function f(t,n,r){var e=i(t);2===e?t.set(n,r):3===e?(t.delete(n),t.add(r)):t[n]=r}function a(t,n){return t===n?0!==t||1/t==1/n:t!=t&&n!=n}function c(t){return W&&t instanceof Map}function v(t){return X&&t instanceof Set}function s(t){return t.i||t.u}function p(t){if(Array.isArray(t))return Array.prototype.slice.call(t);var n=U(t);delete n[H];for(var r=T(n),e=0;e<r.length;e++){var i=r[e],u=n[i];!1===u.writable&&(u.writable=!0,u.configurable=!0),(u.get||u.set)&&(n[i]={configurable:!0,writable:!0,enumerable:u.enumerable,value:t[i]})}return Object.create(Object.getPrototypeOf(t),n)}function l(t,u){return void 0===u&&(u=!1),d(t)||n(t)||!r(t)?t:(i(t)>1&&(t.set=t.add=t.clear=t.delete=h),Object.freeze(t),u&&e(t,(function(t,n){return l(n,!0)}),!0),t)}function h(){t(2)}function d(t){return null==t||"object"!=typeof t||Object.isFrozen(t)}function y(n){var r=V[n];return r||t(18,n),r}function _(t,n){V[t]||(V[t]=n)}function b(){return J}function m(t,n){n&&(y("Patches"),t.o=[],t.v=[],t.s=n)}function j(t){O(t),t.p.forEach(w),t.p=null}function O(t){t===J&&(J=t.l)}function x(t){return J={p:[],l:J,h:t,_:!0,m:0}}function w(t){var n=t[H];0===n.t||1===n.t?n.j():n.O=!0}function S(n,e){e.m=e.p.length;var i=e.p[0],u=void 0!==n&&n!==i;return e.h.S||y("ES5").M(e,n,u),u?(i[H].P&&(j(e),t(4)),r(n)&&(n=M(e,n),e.l||g(e,n)),e.o&&y("Patches").g(i[H],n,e.o,e.v)):n=M(e,i,[]),j(e),e.o&&e.s(e.o,e.v),n!==B?n:void 0}function M(t,n,r){if(d(n))return n;var i=n[H];if(!i)return e(n,(function(e,u){return P(t,i,n,e,u,r)}),!0),n;if(i.A!==t)return n;if(!i.P)return g(t,i.u,!0),i.u;if(!i.R){i.R=!0,i.A.m--;var u=4===i.t||5===i.t?i.i=p(i.k):i.i;e(3===i.t?new Set(u):u,(function(n,e){return P(t,i,u,n,e,r)})),g(t,u,!1),r&&t.o&&y("Patches").F(i,r,t.o,t.v)}return i.i}function P(t,e,i,o,a,c){if(n(a)){var v=M(t,a,c&&e&&3!==e.t&&!u(e.D,o)?c.concat(o):void 0);if(f(i,o,v),!n(v))return;t._=!1}if(r(a)&&!d(a)){if(!t.h.K&&t.m<1)return;M(t,a),e&&e.A.l||g(t,a)}}function g(t,n,r){void 0===r&&(r=!1),t.h.K&&t._&&l(n,r)}function A(t,n){var r=t[H];return(r?s(r):t)[n]}function z(t,n){if(n in t)for(var r=Object.getPrototypeOf(t);r;){var e=Object.getOwnPropertyDescriptor(r,n);if(e)return e;r=Object.getPrototypeOf(r)}}function E(t){t.P||(t.P=!0,t.l&&E(t.l))}function R(t){t.i||(t.i=p(t.u))}function k(t,n,r){var e=c(n)?y("MapSet").$(n,r):v(n)?y("MapSet").C(n,r):t.S?function(t,n){var r=Array.isArray(t),e={t:r?1:0,A:n?n.A:b(),P:!1,R:!1,D:{},l:n,u:t,k:null,i:null,j:null,I:!1},i=e,u=Y;r&&(i=[e],u=Z);var o=Proxy.revocable(i,u),f=o.revoke,a=o.proxy;return e.k=a,e.j=f,a}(n,r):y("ES5").J(n,r);return(r?r.A:b()).p.push(e),e}function F(u){return n(u)||t(22,u),function t(n){if(!r(n))return n;var u,a=n[H],c=i(n);if(a){if(!a.P&&(a.t<4||!y("ES5").N(a)))return a.u;a.R=!0,u=D(n,c),a.R=!1}else u=D(n,c);return e(u,(function(n,r){a&&o(a.u,n)===r||f(u,n,t(r))})),3===c?new Set(u):u}(u)}function D(t,n){switch(n){case 2:return new Map(t);case 3:return Array.from(t)}return p(t)}function K(){function t(t,n){var r=f[t];return r?r.enumerable=n:f[t]=r={configurable:!0,enumerable:n,get:function(){return Y.get(this[H],t)},set:function(n){Y.set(this[H],t,n)}},r}function r(t){for(var n=t.length-1;n>=0;n--){var r=t[n][H];if(!r.P)switch(r.t){case 5:o(r)&&E(r);break;case 4:i(r)&&E(r)}}}function i(t){for(var n=t.u,r=t.k,e=T(r),i=e.length-1;i>=0;i--){var o=e[i];if(o!==H){var f=n[o];if(void 0===f&&!u(n,o))return!0;var c=r[o],v=c&&c[H];if(v?v.u!==f:!a(c,f))return!0}}var s=!!n[H];return e.length!==T(n).length+(s?0:1)}function o(t){var n=t.k;if(n.length!==t.u.length)return!0;var r=Object.getOwnPropertyDescriptor(n,n.length-1);return!(!r||r.get)}var f={};_("ES5",{J:function(n,r){var e=Array.isArray(n),i=function(n,r){if(n){for(var e=Array(r.length),i=0;i<r.length;i++)Object.defineProperty(e,""+i,t(i,!0));return e}var u=U(r);delete u[H];for(var o=T(u),f=0;f<o.length;f++){var a=o[f];u[a]=t(a,n||!!u[a].enumerable)}return Object.create(Object.getPrototypeOf(r),u)}(e,n),u={t:e?5:4,A:r?r.A:b(),P:!1,R:!1,D:{},l:r,u:n,k:i,i:null,O:!1,I:!1};return Object.defineProperty(i,H,{value:u,writable:!0}),i},M:function(t,i,f){f?n(i)&&i[H].A===t&&r(t.p):(t.o&&function t(n){if(n&&"object"==typeof n){var r=n[H];if(r){var i=r.u,f=r.k,a=r.D,c=r.t;if(4===c)e(f,(function(n){n!==H&&(void 0!==i[n]||u(i,n)?a[n]||t(f[n]):(a[n]=!0,E(r)))})),e(i,(function(t){void 0!==f[t]||u(f,t)||(a[t]=!1,E(r))}));else if(5===c){if(o(r)&&(E(r),a.length=!0),f.length<i.length)for(var v=f.length;v<i.length;v++)a[v]=!1;else for(var s=i.length;s<f.length;s++)a[s]=!0;for(var p=Math.min(f.length,i.length),l=0;l<p;l++)void 0===a[l]&&t(f[l])}}}}(t.p[0]),r(t.p))},N:function(t){return 4===t.t?i(t):o(t)}})}function $(){function f(t){if(!r(t))return t;if(Array.isArray(t))return t.map(f);if(c(t))return new Map(Array.from(t.entries()).map((function(t){return[t[0],f(t[1])]})));if(v(t))return new Set(Array.from(t).map(f));var n=Object.create(Object.getPrototypeOf(t));for(var e in t)n[e]=f(t[e]);return n}function a(t){return n(t)?f(t):t}var s="add";_("Patches",{W:function(n,r){return r.forEach((function(r){for(var e=r.path,u=r.op,a=n,c=0;c<e.length-1;c++){var v=i(a),p=e[c];0!==v&&1!==v||"__proto__"!==p&&"constructor"!==p||t(24),"function"==typeof a&&"prototype"===p&&t(24),"object"!=typeof(a=o(a,p))&&t(15,e.join("/"))}var l=i(a),h=f(r.value),d=e[e.length-1];switch(u){case"replace":switch(l){case 2:return a.set(d,h);case 3:t(16);default:return a[d]=h}case s:switch(l){case 1:return a.splice(d,0,h);case 2:return a.set(d,h);case 3:return a.add(h);default:return a[d]=h}case"remove":switch(l){case 1:return a.splice(d,1);case 2:return a.delete(d);case 3:return a.delete(r.value);default:return delete a[d]}default:t(17,u)}})),n},F:function(t,n,r,i){switch(t.t){case 0:case 4:case 2:return function(t,n,r,i){var f=t.u,c=t.i;e(t.D,(function(t,e){var v=o(f,t),p=o(c,t),l=e?u(f,t)?"replace":s:"remove";if(v!==p||"replace"!==l){var h=n.concat(t);r.push("remove"===l?{op:l,path:h}:{op:l,path:h,value:p}),i.push(l===s?{op:"remove",path:h}:"remove"===l?{op:s,path:h,value:a(v)}:{op:"replace",path:h,value:a(v)})}}))}(t,n,r,i);case 5:case 1:return function(t,n,r,e){var i=t.u,u=t.D,o=t.i;if(o.length<i.length){var f=[o,i];i=f[0],o=f[1];var c=[e,r];r=c[0],e=c[1]}for(var v=0;v<i.length;v++)if(u[v]&&o[v]!==i[v]){var p=n.concat([v]);r.push({op:"replace",path:p,value:a(o[v])}),e.push({op:"replace",path:p,value:a(i[v])})}for(var l=i.length;l<o.length;l++){var h=n.concat([l]);r.push({op:s,path:h,value:a(o[l])})}i.length<o.length&&e.push({op:"replace",path:n.concat(["length"]),value:i.length})}(t,n,r,i);case 3:return function(t,n,r,e){var i=t.u,u=t.i,o=0;i.forEach((function(t){if(!u.has(t)){var i=n.concat([o]);r.push({op:"remove",path:i,value:t}),e.unshift({op:s,path:i,value:t})}o++})),o=0,u.forEach((function(t){if(!i.has(t)){var u=n.concat([o]);r.push({op:s,path:u,value:t}),e.unshift({op:"remove",path:u,value:t})}o++}))}(t,n,r,i)}},g:function(t,n,r,e){r.push({op:"replace",path:[],value:n}),e.push({op:"replace",path:[],value:t.u})}})}function C(){function n(t,n){function r(){this.constructor=t}f(t,n),t.prototype=(r.prototype=n.prototype,new r)}function i(t){t.i||(t.D=new Map,t.i=new Map(t.u))}function u(t){t.i||(t.i=new Set,t.u.forEach((function(n){if(r(n)){var e=k(t.A.h,n,t);t.p.set(n,e),t.i.add(e)}else t.i.add(n)})))}function o(n){n.O&&t(3,JSON.stringify(s(n)))}var f=function(t,n){return(f=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,n){t.__proto__=n}||function(t,n){for(var r in n)n.hasOwnProperty(r)&&(t[r]=n[r])})(t,n)},a=function(){function t(t,n){return this[H]={t:2,l:n,A:n?n.A:b(),P:!1,R:!1,i:void 0,D:void 0,u:t,k:this,I:!1,O:!1},this}n(t,Map);var u=t.prototype;return Object.defineProperty(u,"size",{get:function(){return s(this[H]).size}}),u.has=function(t){return s(this[H]).has(t)},u.set=function(t,n){var r=this[H];return o(r),s(r).has(t)&&s(r).get(t)===n||(i(r),E(r),r.D.set(t,!0),r.i.set(t,n),r.D.set(t,!0)),this},u.delete=function(t){if(!this.has(t))return!1;var n=this[H];return o(n),i(n),E(n),n.D.set(t,!1),n.i.delete(t),!0},u.clear=function(){var t=this[H];o(t),s(t).size&&(i(t),E(t),t.D=new Map,e(t.u,(function(n){t.D.set(n,!1)})),t.i.clear())},u.forEach=function(t,n){var r=this;s(this[H]).forEach((function(e,i){t.call(n,r.get(i),i,r)}))},u.get=function(t){var n=this[H];o(n);var e=s(n).get(t);if(n.R||!r(e))return e;if(e!==n.u.get(t))return e;var u=k(n.A.h,e,n);return i(n),n.i.set(t,u),u},u.keys=function(){return s(this[H]).keys()},u.values=function(){var t,n=this,r=this.keys();return(t={})[L]=function(){return n.values()},t.next=function(){var t=r.next();return t.done?t:{done:!1,value:n.get(t.value)}},t},u.entries=function(){var t,n=this,r=this.keys();return(t={})[L]=function(){return n.entries()},t.next=function(){var t=r.next();if(t.done)return t;var e=n.get(t.value);return{done:!1,value:[t.value,e]}},t},u[L]=function(){return this.entries()},t}(),c=function(){function t(t,n){return this[H]={t:3,l:n,A:n?n.A:b(),P:!1,R:!1,i:void 0,u:t,k:this,p:new Map,O:!1,I:!1},this}n(t,Set);var r=t.prototype;return Object.defineProperty(r,"size",{get:function(){return s(this[H]).size}}),r.has=function(t){var n=this[H];return o(n),n.i?!!n.i.has(t)||!(!n.p.has(t)||!n.i.has(n.p.get(t))):n.u.has(t)},r.add=function(t){var n=this[H];return o(n),this.has(t)||(u(n),E(n),n.i.add(t)),this},r.delete=function(t){if(!this.has(t))return!1;var n=this[H];return o(n),u(n),E(n),n.i.delete(t)||!!n.p.has(t)&&n.i.delete(n.p.get(t))},r.clear=function(){var t=this[H];o(t),s(t).size&&(u(t),E(t),t.i.clear())},r.values=function(){var t=this[H];return o(t),u(t),t.i.values()},r.entries=function(){var t=this[H];return o(t),u(t),t.i.entries()},r.keys=function(){return this.values()},r[L]=function(){return this.values()},r.forEach=function(t,n){for(var r=this.values(),e=r.next();!e.done;)t.call(n,e.value,e.value,this),e=r.next()},t}();_("MapSet",{$:function(t,n){return new a(t,n)},C:function(t,n){return new c(t,n)}})}var I;Object.defineProperty(exports,"__esModule",{value:!0});var J,N="undefined"!=typeof Symbol&&"symbol"==typeof Symbol("x"),W="undefined"!=typeof Map,X="undefined"!=typeof Set,q="undefined"!=typeof Proxy&&void 0!==Proxy.revocable&&"undefined"!=typeof Reflect,B=N?Symbol.for("immer-nothing"):((I={})["immer-nothing"]=!0,I),G=N?Symbol.for("immer-draftable"):"__$immer_draftable",H=N?Symbol.for("immer-state"):"__$immer_state",L="undefined"!=typeof Symbol&&Symbol.iterator||"@@iterator",Q=""+Object.prototype.constructor,T="undefined"!=typeof Reflect&&Reflect.ownKeys?Reflect.ownKeys:void 0!==Object.getOwnPropertySymbols?function(t){return Object.getOwnPropertyNames(t).concat(Object.getOwnPropertySymbols(t))}:Object.getOwnPropertyNames,U=Object.getOwnPropertyDescriptors||function(t){var n={};return T(t).forEach((function(r){n[r]=Object.getOwnPropertyDescriptor(t,r)})),n},V={},Y={get:function(t,n){if(n===H)return t;var e=s(t);if(!u(e,n))return function(t,n,r){var e,i=z(n,r);return i?"value"in i?i.value:null===(e=i.get)||void 0===e?void 0:e.call(t.k):void 0}(t,e,n);var i=e[n];return t.R||!r(i)?i:i===A(t.u,n)?(R(t),t.i[n]=k(t.A.h,i,t)):i},has:function(t,n){return n in s(t)},ownKeys:function(t){return Reflect.ownKeys(s(t))},set:function(t,n,r){var e=z(s(t),n);if(null==e?void 0:e.set)return e.set.call(t.k,r),!0;if(!t.P){var i=A(s(t),n),o=null==i?void 0:i[H];if(o&&o.u===r)return t.i[n]=r,t.D[n]=!1,!0;if(a(r,i)&&(void 0!==r||u(t.u,n)))return!0;R(t),E(t)}return t.i[n]===r&&"number"!=typeof r||(t.i[n]=r,t.D[n]=!0,!0)},deleteProperty:function(t,n){return void 0!==A(t.u,n)||n in t.u?(t.D[n]=!1,R(t),E(t)):delete t.D[n],t.i&&delete t.i[n],!0},getOwnPropertyDescriptor:function(t,n){var r=s(t),e=Reflect.getOwnPropertyDescriptor(r,n);return e?{writable:!0,configurable:1!==t.t||"length"!==n,enumerable:e.enumerable,value:r[n]}:e},defineProperty:function(){t(11)},getPrototypeOf:function(t){return Object.getPrototypeOf(t.u)},setPrototypeOf:function(){t(12)}},Z={};e(Y,(function(t,n){Z[t]=function(){return arguments[0]=arguments[0][0],n.apply(this,arguments)}})),Z.deleteProperty=function(t,n){return Y.deleteProperty.call(this,t[0],n)},Z.set=function(t,n,r){return Y.set.call(this,t[0],n,r,t[0])};var tt=function(){function e(n){var e=this;this.S=q,this.K=!0,this.produce=function(n,i,u){if("function"==typeof n&&"function"!=typeof i){var o=i;i=n;var f=e;return function(t){var n=this;void 0===t&&(t=o);for(var r=arguments.length,e=Array(r>1?r-1:0),u=1;u<r;u++)e[u-1]=arguments[u];return f.produce(t,(function(t){var r;return(r=i).call.apply(r,[n,t].concat(e))}))}}var a;if("function"!=typeof i&&t(6),void 0!==u&&"function"!=typeof u&&t(7),r(n)){var c=x(e),v=k(e,n,void 0),s=!0;try{a=i(v),s=!1}finally{s?j(c):O(c)}return"undefined"!=typeof Promise&&a instanceof Promise?a.then((function(t){return m(c,u),S(t,c)}),(function(t){throw j(c),t})):(m(c,u),S(a,c))}if(!n||"object"!=typeof n){if((a=i(n))===B)return;return void 0===a&&(a=n),e.K&&l(a,!0),a}t(21,n)},this.produceWithPatches=function(t,n){return"function"==typeof t?function(n){for(var r=arguments.length,i=Array(r>1?r-1:0),u=1;u<r;u++)i[u-1]=arguments[u];return e.produceWithPatches(n,(function(n){return t.apply(void 0,[n].concat(i))}))}:[e.produce(t,n,(function(t,n){r=t,i=n})),r,i];var r,i},"boolean"==typeof(null==n?void 0:n.useProxies)&&this.setUseProxies(n.useProxies),"boolean"==typeof(null==n?void 0:n.autoFreeze)&&this.setAutoFreeze(n.autoFreeze)}var i=e.prototype;return i.createDraft=function(e){r(e)||t(8),n(e)&&(e=F(e));var i=x(this),u=k(this,e,void 0);return u[H].I=!0,O(i),u},i.finishDraft=function(t,n){var r=(t&&t[H]).A;return m(r,n),S(void 0,r)},i.setAutoFreeze=function(t){this.K=t},i.setUseProxies=function(n){n&&!q&&t(20),this.S=n},i.applyPatches=function(t,r){var e;for(e=r.length-1;e>=0;e--){var i=r[e];if(0===i.path.length&&"replace"===i.op){t=i.value;break}}var u=y("Patches").W;return n(t)?u(t,r):this.produce(t,(function(t){return u(t,r.slice(e+1))}))},e}(),nt=new tt,rt=nt.produce,et=nt.produceWithPatches.bind(nt),it=nt.setAutoFreeze.bind(nt),ut=nt.setUseProxies.bind(nt),ot=nt.applyPatches.bind(nt),ft=nt.createDraft.bind(nt),at=nt.finishDraft.bind(nt);exports.Immer=tt,exports.applyPatches=ot,exports.castDraft=function(t){return t},exports.castImmutable=function(t){return t},exports.createDraft=ft,exports.current=F,exports.default=rt,exports.enableAllPlugins=function(){K(),C(),$()},exports.enableES5=K,exports.enableMapSet=C,exports.enablePatches=$,exports.finishDraft=at,exports.freeze=l,exports.immerable=G,exports.isDraft=n,exports.isDraftable=r,exports.nothing=B,exports.original=function(r){return n(r)||t(23,r),r[H].u},exports.produce=rt,exports.produceWithPatches=et,exports.setAutoFreeze=it,exports.setUseProxies=ut;
+function t(t){for(var n=arguments.length,r=Array(n>1?n-1:0),e=1;e<n;e++)r[e-1]=arguments[e];throw Error("[Immer] minified error nr: "+t+(r.length?" "+r.join(","):"")+". Find the full error at: https://bit.ly/3cXEKWf")}function n(t){return!!t&&!!t[H]}function r(t){return!!t&&(function(t){if(!t||"object"!=typeof t)return!1;var n=Object.getPrototypeOf(t);return!n||n===Object.prototype}(t)||Array.isArray(t)||!!t[G]||!!t.constructor[G]||c(t)||s(t))}function e(t,n,r){void 0===r&&(r=!1),0===i(t)?(r?Object.keys:Q)(t).forEach((function(e){r&&"symbol"==typeof e||n(e,t[e],t)})):t.forEach((function(r,e){return n(e,r,t)}))}function i(t){var n=t[H];return n?n.t>3?n.t-4:n.t:Array.isArray(t)?1:c(t)?2:s(t)?3:0}function u(t,n){return 2===i(t)?t.has(n):Object.prototype.hasOwnProperty.call(t,n)}function o(t,n){return 2===i(t)?t.get(n):t[n]}function f(t,n,r){var e=i(t);2===e?t.set(n,r):3===e?(t.delete(n),t.add(r)):t[n]=r}function a(t,n){return t===n?0!==t||1/t==1/n:t!=t&&n!=n}function c(t){return W&&t instanceof Map}function s(t){return X&&t instanceof Set}function v(t){return t.i||t.u}function p(t){if(Array.isArray(t))return Array.prototype.slice.call(t);var n=T(t);delete n[H];for(var r=Q(n),e=0;e<r.length;e++){var i=r[e],u=n[i];!1===u.writable&&(u.writable=!0,u.configurable=!0),(u.get||u.set)&&(n[i]={configurable:!0,writable:!0,enumerable:u.enumerable,value:t[i]})}return Object.create(Object.getPrototypeOf(t),n)}function l(t,u){d(t)||n(t)||!r(t)||(i(t)>1&&(t.set=t.add=t.clear=t.delete=h),Object.freeze(t),u&&e(t,(function(t,n){return l(n,!0)}),!0))}function h(){t(2)}function d(t){return null==t||"object"!=typeof t||Object.isFrozen(t)}function y(n){var r=U[n];return r||t(19,n),r}function _(t,n){U[t]=n}function b(){return J}function m(t,n){n&&(y("Patches"),t.o=[],t.s=[],t.v=n)}function j(t){O(t),t.p.forEach(x),t.p=null}function O(t){t===J&&(J=t.l)}function w(t){return J={p:[],l:J,h:t,_:!0,m:0}}function x(t){var n=t[H];0===n.t||1===n.t?n.j():n.O=!0}function S(n,e){e.m=e.p.length;var i=e.p[0],u=void 0!==n&&n!==i;return e.h.S||y("ES5").M(e,n,u),u?(i[H].P&&(j(e),t(4)),r(n)&&(n=M(e,n),e.l||g(e,n)),e.o&&y("Patches").g(i[H],n,e.o,e.s)):n=M(e,i,[]),j(e),e.o&&e.v(e.o,e.s),n!==B?n:void 0}function M(t,n,r){if(d(n))return n;var i=n[H];if(!i)return e(n,(function(e,u){return P(t,i,n,e,u,r)}),!0),n;if(i.A!==t)return n;if(!i.P)return g(t,i.u,!0),i.u;if(!i.R){i.R=!0,i.A.m--;var u=4===i.t||5===i.t?i.i=p(i.k):i.i;e(3===i.t?new Set(u):u,(function(n,e){return P(t,i,u,n,e,r)})),g(t,u,!1),r&&t.o&&y("Patches").F(i,r,t.o,t.s)}return i.i}function P(t,e,i,o,a,c){if(n(a)){var s=M(t,a,c&&e&&3!==e.t&&!u(e.D,o)?c.concat(o):void 0);if(f(i,o,s),!n(s))return;t._=!1}if(r(a)&&!d(a)){if(!t.h.K&&t.m<1)return;M(t,a),e&&e.A.l||g(t,a)}}function g(t,n,r){void 0===r&&(r=!1),t.h.K&&t._&&l(n,r)}function A(t,n){var r=t[H];return(r?v(r):t)[n]}function z(t,n){if(n in t)for(var r=Object.getPrototypeOf(t);r;){var e=Object.getOwnPropertyDescriptor(r,n);if(e)return e;r=Object.getPrototypeOf(r)}}function E(t){t.P||(t.P=!0,t.l&&E(t.l))}function R(t){t.i||(t.i=p(t.u))}function k(t,n,r){var e=c(n)?y("MapSet").$(n,r):s(n)?y("MapSet").C(n,r):t.S?function(t,n){var r=Array.isArray(t),e={t:r?1:0,A:n?n.A:b(),P:!1,R:!1,D:{},l:n,u:t,k:null,i:null,j:null,I:!1},i=e,u=V;r&&(i=[e],u=Y);var o=Proxy.revocable(i,u),f=o.revoke,a=o.proxy;return e.k=a,e.j=f,a}(n,r):y("ES5").J(n,r);return(r?r.A:b()).p.push(e),e}function F(u){return n(u)||t(22,u),function t(n){if(!r(n))return n;var u,a=n[H],c=i(n);if(a){if(!a.P&&(a.t<4||!y("ES5").N(a)))return a.u;a.R=!0,u=D(n,c),a.R=!1}else u=D(n,c);return e(u,(function(n,r){a&&o(a.u,n)===r||f(u,n,t(r))})),3===c?new Set(u):u}(u)}function D(t,n){switch(n){case 2:return new Map(t);case 3:return Array.from(t)}return p(t)}function K(){function t(t,n){var r=f[t];return r?r.enumerable=n:f[t]=r={configurable:!0,enumerable:n,get:function(){return V.get(this[H],t)},set:function(n){V.set(this[H],t,n)}},r}function r(t){for(var n=t.length-1;n>=0;n--){var r=t[n][H];if(!r.P)switch(r.t){case 5:o(r)&&E(r);break;case 4:i(r)&&E(r)}}}function i(t){for(var n=t.u,r=t.k,e=Q(r),i=e.length-1;i>=0;i--){var o=e[i];if(o!==H){var f=n[o];if(void 0===f&&!u(n,o))return!0;var c=r[o],s=c&&c[H];if(s?s.u!==f:!a(c,f))return!0}}var v=!!n[H];return e.length!==Q(n).length+(v?0:1)}function o(t){var n=t.k;if(n.length!==t.u.length)return!0;var r=Object.getOwnPropertyDescriptor(n,n.length-1);return!(!r||r.get)}var f={};_("ES5",{J:function(n,r){var e=Array.isArray(n),i=function(n,r){if(n){for(var e=Array(r.length),i=0;i<r.length;i++)Object.defineProperty(e,""+i,t(i,!0));return e}var u=T(r);delete u[H];for(var o=Q(u),f=0;f<o.length;f++){var a=o[f];u[a]=t(a,n||!!u[a].enumerable)}return Object.create(Object.getPrototypeOf(r),u)}(e,n),u={t:e?5:4,A:r?r.A:b(),P:!1,R:!1,D:{},l:r,u:n,k:i,i:null,O:!1,I:!1};return Object.defineProperty(i,H,{value:u,writable:!0}),i},M:function(t,i,f){f?n(i)&&i[H].A===t&&r(t.p):(t.o&&function t(n){if(n&&"object"==typeof n){var r=n[H];if(r){var i=r.u,f=r.k,a=r.D,c=r.t;if(4===c)e(f,(function(n){n!==H&&(void 0!==i[n]||u(i,n)?a[n]||t(f[n]):(a[n]=!0,E(r)))})),e(i,(function(t){void 0!==f[t]||u(f,t)||(a[t]=!1,E(r))}));else if(5===c){if(o(r)&&(E(r),a.length=!0),f.length<i.length)for(var s=f.length;s<i.length;s++)a[s]=!1;else for(var v=i.length;v<f.length;v++)a[v]=!0;for(var p=Math.min(f.length,i.length),l=0;l<p;l++)void 0===a[l]&&t(f[l])}}}}(t.p[0]),r(t.p))},N:function(t){return 4===t.t?i(t):o(t)}})}function $(){function r(t){if(!t||"object"!=typeof t)return t;if(Array.isArray(t))return t.map(r);if(c(t))return new Map(Array.from(t.entries()).map((function(t){return[t[0],r(t[1])]})));if(s(t))return new Set(Array.from(t).map(r));var n=Object.create(Object.getPrototypeOf(t));for(var e in t)n[e]=r(t[e]);return n}function f(t){return n(t)?r(t):t}var a="add";_("Patches",{W:function(n,e){return e.forEach((function(e){for(var u=e.path,f=e.op,c=n,s=0;s<u.length-1;s++)"object"!=typeof(c=o(c,u[s]))&&t(15,u.join("/"));var v=i(c),p=r(e.value),l=u[u.length-1];switch(f){case"replace":switch(v){case 2:return c.set(l,p);case 3:t(16);default:return c[l]=p}case a:switch(v){case 1:return c.splice(l,0,p);case 2:return c.set(l,p);case 3:return c.add(p);default:return c[l]=p}case"remove":switch(v){case 1:return c.splice(l,1);case 2:return c.delete(l);case 3:return c.delete(e.value);default:return delete c[l]}default:t(17,f)}})),n},F:function(t,n,r,i){switch(t.t){case 0:case 4:case 2:return function(t,n,r,i){var c=t.u,s=t.i;e(t.D,(function(t,e){var v=o(c,t),p=o(s,t),l=e?u(c,t)?"replace":a:"remove";if(v!==p||"replace"!==l){var h=n.concat(t);r.push("remove"===l?{op:l,path:h}:{op:l,path:h,value:p}),i.push(l===a?{op:"remove",path:h}:"remove"===l?{op:a,path:h,value:f(v)}:{op:"replace",path:h,value:f(v)})}}))}(t,n,r,i);case 5:case 1:return function(t,n,r,e){var i=t.u,u=t.D,o=t.i;if(o.length<i.length){var c=[o,i];i=c[0],o=c[1];var s=[e,r];r=s[0],e=s[1]}for(var v=0;v<i.length;v++)if(u[v]&&o[v]!==i[v]){var p=n.concat([v]);r.push({op:"replace",path:p,value:f(o[v])}),e.push({op:"replace",path:p,value:f(i[v])})}for(var l=i.length;l<o.length;l++){var h=n.concat([l]);r.push({op:a,path:h,value:f(o[l])})}i.length<o.length&&e.push({op:"replace",path:n.concat(["length"]),value:i.length})}(t,n,r,i);case 3:return function(t,n,r,e){var i=t.u,u=t.i,o=0;i.forEach((function(t){if(!u.has(t)){var i=n.concat([o]);r.push({op:"remove",path:i,value:t}),e.unshift({op:a,path:i,value:t})}o++})),o=0,u.forEach((function(t){if(!i.has(t)){var u=n.concat([o]);r.push({op:a,path:u,value:t}),e.unshift({op:"remove",path:u,value:t})}o++}))}(t,n,r,i)}},g:function(t,n,r,e){r.push({op:"replace",path:[],value:n}),e.push({op:"replace",path:[],value:t.u})}})}function C(){function n(t,n){function r(){this.constructor=t}o(t,n),t.prototype=(r.prototype=n.prototype,new r)}function e(t){t.i||(t.D=new Map,t.i=new Map(t.u))}function i(t){t.i||(t.i=new Set,t.u.forEach((function(n){if(r(n)){var e=k(t.A.h,n,t);t.p.set(n,e),t.i.add(e)}else t.i.add(n)})))}function u(n){n.O&&t(3,JSON.stringify(v(n)))}var o=function(t,n){return(o=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,n){t.__proto__=n}||function(t,n){for(var r in n)n.hasOwnProperty(r)&&(t[r]=n[r])})(t,n)},f=function(){function t(t,n){return this[H]={t:2,l:n,A:n?n.A:b(),P:!1,R:!1,i:void 0,D:void 0,u:t,k:this,I:!1,O:!1},this}n(t,Map);var i=t.prototype;return Object.defineProperty(i,"size",{get:function(){return v(this[H]).size}}),i.has=function(t){return v(this[H]).has(t)},i.set=function(t,n){var r=this[H];return u(r),v(r).has(t)&&v(r).get(t)===n||(e(r),E(r),r.D.set(t,!0),r.i.set(t,n),r.D.set(t,!0)),this},i.delete=function(t){if(!this.has(t))return!1;var n=this[H];return u(n),e(n),E(n),n.D.set(t,!1),n.i.delete(t),!0},i.clear=function(){var t=this[H];return u(t),e(t),E(t),t.D=new Map,t.i.clear()},i.forEach=function(t,n){var r=this;v(this[H]).forEach((function(e,i){t.call(n,r.get(i),i,r)}))},i.get=function(t){var n=this[H];u(n);var i=v(n).get(t);if(n.R||!r(i))return i;if(i!==n.u.get(t))return i;var o=k(n.A.h,i,n);return e(n),n.i.set(t,o),o},i.keys=function(){return v(this[H]).keys()},i.values=function(){var t,n=this,r=this.keys();return(t={})[L]=function(){return n.values()},t.next=function(){var t=r.next();return t.done?t:{done:!1,value:n.get(t.value)}},t},i.entries=function(){var t,n=this,r=this.keys();return(t={})[L]=function(){return n.entries()},t.next=function(){var t=r.next();if(t.done)return t;var e=n.get(t.value);return{done:!1,value:[t.value,e]}},t},i[L]=function(){return this.entries()},t}(),a=function(){function t(t,n){return this[H]={t:3,l:n,A:n?n.A:b(),P:!1,R:!1,i:void 0,u:t,k:this,p:new Map,O:!1,I:!1},this}n(t,Set);var r=t.prototype;return Object.defineProperty(r,"size",{get:function(){return v(this[H]).size}}),r.has=function(t){var n=this[H];return u(n),n.i?!!n.i.has(t)||!(!n.p.has(t)||!n.i.has(n.p.get(t))):n.u.has(t)},r.add=function(t){var n=this[H];return u(n),this.has(t)||(i(n),E(n),n.i.add(t)),this},r.delete=function(t){if(!this.has(t))return!1;var n=this[H];return u(n),i(n),E(n),n.i.delete(t)||!!n.p.has(t)&&n.i.delete(n.p.get(t))},r.clear=function(){var t=this[H];return u(t),i(t),E(t),t.i.clear()},r.values=function(){var t=this[H];return u(t),i(t),t.i.values()},r.entries=function(){var t=this[H];return u(t),i(t),t.i.entries()},r.keys=function(){return this.values()},r[L]=function(){return this.values()},r.forEach=function(t,n){for(var r=this.values(),e=r.next();!e.done;)t.call(n,e.value,e.value,this),e=r.next()},t}();_("MapSet",{$:function(t,n){return new f(t,n)},C:function(t,n){return new a(t,n)}})}var I;Object.defineProperty(exports,"__esModule",{value:!0});var J,N="undefined"!=typeof Symbol&&"symbol"==typeof Symbol("x"),W="undefined"!=typeof Map,X="undefined"!=typeof Set,q="undefined"!=typeof Proxy&&void 0!==Proxy.revocable&&"undefined"!=typeof Reflect,B=N?Symbol.for("immer-nothing"):((I={})["immer-nothing"]=!0,I),G=N?Symbol.for("immer-draftable"):"__$immer_draftable",H=N?Symbol.for("immer-state"):"__$immer_state",L="undefined"!=typeof Symbol&&Symbol.iterator||"@@iterator",Q="undefined"!=typeof Reflect&&Reflect.ownKeys?Reflect.ownKeys:void 0!==Object.getOwnPropertySymbols?function(t){return Object.getOwnPropertyNames(t).concat(Object.getOwnPropertySymbols(t))}:Object.getOwnPropertyNames,T=Object.getOwnPropertyDescriptors||function(t){var n={};return Q(t).forEach((function(r){n[r]=Object.getOwnPropertyDescriptor(t,r)})),n},U={},V={get:function(t,n){if(n===H)return t;var e=v(t);if(!u(e,n))return function(t,n,r){var e,i=z(n,r);return i?"value"in i?i.value:null===(e=i.get)||void 0===e?void 0:e.call(t.k):void 0}(t,e,n);var i=e[n];return t.R||!r(i)?i:i===A(t.u,n)?(R(t),t.i[n]=k(t.A.h,i,t)):i},has:function(t,n){return n in v(t)},ownKeys:function(t){return Reflect.ownKeys(v(t))},set:function(t,n,r){var e=z(v(t),n);if(null==e?void 0:e.set)return e.set.call(t.k,r),!0;if(t.D[n]=!0,!t.P){if(a(r,A(v(t),n))&&(void 0!==r||u(t.u,n)))return!0;R(t),E(t)}return t.i[n]=r,!0},deleteProperty:function(t,n){return void 0!==A(t.u,n)||n in t.u?(t.D[n]=!1,R(t),E(t)):delete t.D[n],t.i&&delete t.i[n],!0},getOwnPropertyDescriptor:function(t,n){var r=v(t),e=Reflect.getOwnPropertyDescriptor(r,n);return e?{writable:!0,configurable:1!==t.t||"length"!==n,enumerable:e.enumerable,value:r[n]}:e},defineProperty:function(){t(11)},getPrototypeOf:function(t){return Object.getPrototypeOf(t.u)},setPrototypeOf:function(){t(12)}},Y={};e(V,(function(t,n){Y[t]=function(){return arguments[0]=arguments[0][0],n.apply(this,arguments)}})),Y.deleteProperty=function(t,n){return V.deleteProperty.call(this,t[0],n)},Y.set=function(t,n,r){return V.set.call(this,t[0],n,r,t[0])};var Z=function(){function e(t){this.S=q,this.K=!1,"boolean"==typeof(null==t?void 0:t.useProxies)&&this.setUseProxies(t.useProxies),"boolean"==typeof(null==t?void 0:t.autoFreeze)&&this.setAutoFreeze(t.autoFreeze),this.produce=this.produce.bind(this),this.produceWithPatches=this.produceWithPatches.bind(this)}var i=e.prototype;return i.produce=function(n,e,i){if("function"==typeof n&&"function"!=typeof e){var u=e;e=n;var o=this;return function(t){var n=this;void 0===t&&(t=u);for(var r=arguments.length,i=Array(r>1?r-1:0),f=1;f<r;f++)i[f-1]=arguments[f];return o.produce(t,(function(t){var r;return(r=e).call.apply(r,[n,t].concat(i))}))}}var f;if("function"!=typeof e&&t(6),void 0!==i&&"function"!=typeof i&&t(7),r(n)){var a=w(this),c=k(this,n,void 0),s=!0;try{f=e(c),s=!1}finally{s?j(a):O(a)}return"undefined"!=typeof Promise&&f instanceof Promise?f.then((function(t){return m(a,i),S(t,a)}),(function(t){throw j(a),t})):(m(a,i),S(f,a))}if(!n||"object"!=typeof n){if((f=e(n))===B)return;return void 0===f&&(f=n),this.K&&l(f,!0),f}t(21,n)},i.produceWithPatches=function(t,n){var r,e,i=this;return"function"==typeof t?function(n){for(var r=arguments.length,e=Array(r>1?r-1:0),u=1;u<r;u++)e[u-1]=arguments[u];return i.produceWithPatches(n,(function(n){return t.apply(void 0,[n].concat(e))}))}:[this.produce(t,n,(function(t,n){r=t,e=n})),r,e]},i.createDraft=function(e){r(e)||t(8),n(e)&&(e=F(e));var i=w(this),u=k(this,e,void 0);return u[H].I=!0,O(i),u},i.finishDraft=function(t,n){var r=(t&&t[H]).A;return m(r,n),S(void 0,r)},i.setAutoFreeze=function(t){this.K=t},i.setUseProxies=function(n){n&&!q&&t(20),this.S=n},i.applyPatches=function(t,r){var e;for(e=r.length-1;e>=0;e--){var i=r[e];if(0===i.path.length&&"replace"===i.op){t=i.value;break}}var u=y("Patches").W;return n(t)?u(t,r):this.produce(t,(function(t){return u(t,r.slice(e+1))}))},e}(),tt=new Z,nt=tt.produce,rt=tt.produceWithPatches.bind(tt),et=tt.setAutoFreeze.bind(tt),it=tt.setUseProxies.bind(tt),ut=tt.applyPatches.bind(tt),ot=tt.createDraft.bind(tt),ft=tt.finishDraft.bind(tt);exports.Immer=Z,exports.applyPatches=ut,exports.castDraft=function(t){return t},exports.castImmutable=function(t){return t},exports.createDraft=ot,exports.current=F,exports.default=nt,exports.enableAllPlugins=function(){K(),C(),$()},exports.enableES5=K,exports.enableMapSet=C,exports.enablePatches=$,exports.finishDraft=ft,exports.immerable=G,exports.isDraft=n,exports.isDraftable=r,exports.nothing=B,exports.original=function(r){return n(r)||t(23,r),r[H].u},exports.produce=nt,exports.produceWithPatches=rt,exports.setAutoFreeze=et,exports.setUseProxies=it;
 //# sourceMappingURL=immer.cjs.production.min.js.map
 
 
@@ -28207,6 +31439,633 @@ module.exports = require("string_decoder");
 
 /***/ }),
 
+/***/ "trRK":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return CREATE_POST_REQUEST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return CREATE_POST_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return CREATE_POST_FAILURE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "L", function() { return UPLOAD_IMAGES_REQUEST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "M", function() { return UPLOAD_IMAGES_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "K", function() { return UPLOAD_IMAGES_FAILURE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "w", function() { return REMOVE_IMAGES_REQUEST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "x", function() { return REMOVE_IMAGES_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "v", function() { return REMOVE_IMAGES_FAILURE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return LOAD_POSTS_REQUEST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return LOAD_POSTS_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return LOAD_POSTS_FAILURE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "q", function() { return LOAD_TAGS_REQUEST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "r", function() { return LOAD_TAGS_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return LOAD_TAGS_FAILURE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return LOAD_POST_REQUEST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return LOAD_POST_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return LOAD_POST_FAILURE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "I", function() { return UPDATE_POST_REQUEST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "J", function() { return UPDATE_POST_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "H", function() { return UPDATE_POST_FAILURE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "z", function() { return REMOVE_POST_REQUEST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "A", function() { return REMOVE_POST_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "y", function() { return REMOVE_POST_FAILURE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return LIKE_POST_REQUEST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return LIKE_POST_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return LIKE_POST_FAILURE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "C", function() { return UNLIKE_POST_REQUEST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "D", function() { return UNLIKE_POST_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B", function() { return UNLIKE_POST_FAILURE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return ADD_COMMENT_REQUEST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return ADD_COMMENT_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ADD_COMMENT_FAILURE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "F", function() { return UPDATE_COMMENT_REQUEST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "G", function() { return UPDATE_COMMENT_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "E", function() { return UPDATE_COMMENT_FAILURE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "t", function() { return REMOVE_COMMENT_REQUEST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "u", function() { return REMOVE_COMMENT_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s", function() { return REMOVE_COMMENT_FAILURE; });
+/* unused harmony export createPostRequest */
+/* unused harmony export createPostSuccess */
+/* unused harmony export createPostFailure */
+/* unused harmony export uploadImagesRequest */
+/* unused harmony export uploadImagesSuccess */
+/* unused harmony export uploadImagesFailure */
+/* unused harmony export removeImagesRequest */
+/* unused harmony export removeImagesSuccess */
+/* unused harmony export removeImagesFailure */
+/* unused harmony export loadPostsRequest */
+/* unused harmony export loadPostsSuccess */
+/* unused harmony export loadPostsFailure */
+/* unused harmony export loadTagsRequest */
+/* unused harmony export loadTagsSuccess */
+/* unused harmony export loadTagsFailure */
+/* unused harmony export loadPostRequest */
+/* unused harmony export loadPostSuccess */
+/* unused harmony export loadPostFailure */
+/* unused harmony export updatePostRequest */
+/* unused harmony export updatePostSuccess */
+/* unused harmony export updatePostFailure */
+/* unused harmony export removePostRequest */
+/* unused harmony export removePostSuccess */
+/* unused harmony export removePostFailure */
+/* unused harmony export likePostRequest */
+/* unused harmony export likePostSuccess */
+/* unused harmony export likePostFailure */
+/* unused harmony export unlikePostRequest */
+/* unused harmony export unlikePostSuccess */
+/* unused harmony export unlikePostFailure */
+/* unused harmony export addCommentRequest */
+/* unused harmony export addCommentSuccess */
+/* unused harmony export addCommentFailure */
+/* unused harmony export updateCommentRequest */
+/* unused harmony export updateCommentSuccess */
+/* unused harmony export updateCommentFailure */
+/* unused harmony export removeCommentRequest */
+/* unused harmony export removeCommentSuccess */
+/* unused harmony export removeCommentFailure */
+/* harmony import */ var immer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("93Hy");
+/* harmony import */ var immer__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(immer__WEBPACK_IMPORTED_MODULE_0__);
+ // 액션 type
+
+const CREATE_POST_REQUEST = 'post/CREATE_POST_REQUEST';
+const CREATE_POST_SUCCESS = 'post/CREATE_POST_SUCCESS';
+const CREATE_POST_FAILURE = 'post/CREATE_POST_FAILURE';
+const UPLOAD_IMAGES_REQUEST = 'post/UPLOAD_IMAGES_REQUEST';
+const UPLOAD_IMAGES_SUCCESS = 'post/UPLOAD_IMAGES_SUCCESS';
+const UPLOAD_IMAGES_FAILURE = 'post/UPLOAD_IMAGES_FAILURE';
+const REMOVE_IMAGES_REQUEST = 'post/REMOVE_IMAGES_REQUEST';
+const REMOVE_IMAGES_SUCCESS = 'post/REMOVE_IMAGES_SUCCESS';
+const REMOVE_IMAGES_FAILURE = 'post/REMOVE_IMAGES_FAILURE'; //export const REMOVE_IMAGE = 'post/REMOVE_IMAGE' as const;
+
+const LOAD_POSTS_REQUEST = 'post/LOAD_POSTS_REQUEST';
+const LOAD_POSTS_SUCCESS = 'post/LOAD_POSTS_SUCCESS';
+const LOAD_POSTS_FAILURE = 'post/LOAD_POSTS_FAILURE';
+const LOAD_TAGS_REQUEST = 'post/LOAD_TAGS_REQUEST';
+const LOAD_TAGS_SUCCESS = 'post/LOAD_TAGS_SUCCESS';
+const LOAD_TAGS_FAILURE = 'post/LOAD_TAGS_FAILURE';
+const LOAD_POST_REQUEST = 'post/LOAD_POST_REQUEST';
+const LOAD_POST_SUCCESS = 'post/LOAD_POST_SUCCESS';
+const LOAD_POST_FAILURE = 'post/LOAD_POST_FAILURE';
+const UPDATE_POST_REQUEST = 'post/UPDATE_POST_REQUEST';
+const UPDATE_POST_SUCCESS = 'post/UPDATE_POST_SUCCESS';
+const UPDATE_POST_FAILURE = 'post/UPDATE_POST_FAILURE';
+const REMOVE_POST_REQUEST = 'post/REMOVE_POST_REQUEST';
+const REMOVE_POST_SUCCESS = 'post/REMOVE_POST_SUCCESS';
+const REMOVE_POST_FAILURE = 'post/REMOVE_POST_FAILURE';
+const LIKE_POST_REQUEST = 'post/LIKE_POST_REQUEST';
+const LIKE_POST_SUCCESS = 'post/LIKE_POST_SUCCESS';
+const LIKE_POST_FAILURE = 'post/LIKE_POST_FAILURE';
+const UNLIKE_POST_REQUEST = 'post/UNLIKE_POST_REQUEST';
+const UNLIKE_POST_SUCCESS = 'post/UNLIKE_POST_SUCCESS';
+const UNLIKE_POST_FAILURE = 'post/UNLIKE_POST_FAILURE';
+const ADD_COMMENT_REQUEST = 'post/ADD_COMMENT_REQUEST';
+const ADD_COMMENT_SUCCESS = 'post/ADD_COMMENT_SUCCESS';
+const ADD_COMMENT_FAILURE = 'post/ADD_COMMENT_FAILURE';
+const UPDATE_COMMENT_REQUEST = 'post/UPDATE_COMMENT_REQUEST';
+const UPDATE_COMMENT_SUCCESS = 'post/UPDATE_COMMENT_SUCCESS';
+const UPDATE_COMMENT_FAILURE = 'post/UPDATE_COMMENT_FAILURE';
+const REMOVE_COMMENT_REQUEST = 'post/REMOVE_COMMENT_REQUEST';
+const REMOVE_COMMENT_SUCCESS = 'post/REMOVE_COMMENT_SUCCESS';
+const REMOVE_COMMENT_FAILURE = 'post/REMOVE_COMMENT_FAILURE'; // 액션 생성함수
+
+const createPostRequest = data => ({
+  type: CREATE_POST_REQUEST,
+  data
+});
+const createPostSuccess = data => ({
+  type: CREATE_POST_SUCCESS,
+  data
+});
+const createPostFailure = data => ({
+  type: CREATE_POST_FAILURE,
+  data
+});
+const uploadImagesRequest = id => ({
+  type: UPLOAD_IMAGES_REQUEST,
+  data: id
+});
+const uploadImagesSuccess = id => ({
+  type: UPLOAD_IMAGES_SUCCESS,
+  data: id
+});
+const uploadImagesFailure = id => ({
+  type: UPLOAD_IMAGES_FAILURE,
+  data: id
+});
+const removeImagesRequest = id => ({
+  type: REMOVE_IMAGES_REQUEST,
+  data: id
+});
+const removeImagesSuccess = id => ({
+  type: REMOVE_IMAGES_SUCCESS,
+  data: id
+});
+const removeImagesFailure = id => ({
+  type: REMOVE_IMAGES_FAILURE,
+  data: id
+}); // export const removeImages = (id: number) => ({
+// 	type: REMOVE_IMAGE,
+// 	data: id,
+// });
+
+const loadPostsRequest = id => ({
+  type: LOAD_POSTS_REQUEST,
+  data: id
+});
+const loadPostsSuccess = id => ({
+  type: LOAD_POSTS_SUCCESS,
+  data: id
+});
+const loadPostsFailure = id => ({
+  type: LOAD_POSTS_FAILURE,
+  data: id
+});
+const loadTagsRequest = id => ({
+  type: LOAD_TAGS_REQUEST,
+  data: id
+});
+const loadTagsSuccess = id => ({
+  type: LOAD_TAGS_SUCCESS,
+  data: id
+});
+const loadTagsFailure = id => ({
+  type: LOAD_TAGS_FAILURE,
+  data: id
+});
+const loadPostRequest = id => ({
+  type: LOAD_POST_REQUEST,
+  data: id
+});
+const loadPostSuccess = id => ({
+  type: LOAD_POST_SUCCESS,
+  data: id
+});
+const loadPostFailure = id => ({
+  type: LOAD_POST_FAILURE,
+  data: id
+});
+const updatePostRequest = id => ({
+  type: UPDATE_POST_REQUEST,
+  data: id
+});
+const updatePostSuccess = id => ({
+  type: UPDATE_POST_SUCCESS,
+  data: id
+});
+const updatePostFailure = id => ({
+  type: UPDATE_POST_FAILURE,
+  data: id
+});
+const removePostRequest = id => ({
+  type: REMOVE_POST_REQUEST,
+  data: id
+});
+const removePostSuccess = id => ({
+  type: REMOVE_POST_SUCCESS,
+  data: id
+});
+const removePostFailure = id => ({
+  type: REMOVE_POST_FAILURE,
+  data: id
+});
+const likePostRequest = id => ({
+  type: LIKE_POST_REQUEST,
+  data: id
+});
+const likePostSuccess = id => ({
+  type: LIKE_POST_SUCCESS,
+  data: id
+});
+const likePostFailure = id => ({
+  type: LIKE_POST_FAILURE,
+  data: id
+});
+const unlikePostRequest = id => ({
+  type: UNLIKE_POST_REQUEST,
+  data: id
+});
+const unlikePostSuccess = id => ({
+  type: UNLIKE_POST_SUCCESS,
+  data: id
+});
+const unlikePostFailure = id => ({
+  type: UNLIKE_POST_FAILURE,
+  data: id
+});
+const addCommentRequest = id => ({
+  type: ADD_COMMENT_REQUEST,
+  data: id
+});
+const addCommentSuccess = id => ({
+  type: ADD_COMMENT_SUCCESS,
+  data: id
+});
+const addCommentFailure = id => ({
+  type: ADD_COMMENT_FAILURE,
+  data: id
+});
+const updateCommentRequest = id => ({
+  type: UPDATE_COMMENT_REQUEST,
+  data: id
+});
+const updateCommentSuccess = id => ({
+  type: UPDATE_COMMENT_SUCCESS,
+  data: id
+});
+const updateCommentFailure = id => ({
+  type: UPDATE_COMMENT_FAILURE,
+  data: id
+});
+const removeCommentRequest = id => ({
+  type: REMOVE_COMMENT_REQUEST,
+  data: id
+});
+const removeCommentSuccess = id => ({
+  type: REMOVE_COMMENT_SUCCESS,
+  data: id
+});
+const removeCommentFailure = id => ({
+  type: REMOVE_COMMENT_FAILURE,
+  data: id
+}); // 액션 타입스크립트 타입
+
+// 초깃값 설정
+const initialState = {
+  mainPosts: [],
+  allPostsCount: '',
+  searchedPostsCount: '',
+  tags: [],
+  allTagsCount: '',
+  searchedTagsCount: '',
+  singlePost: null,
+  createPostMainImg: '',
+  hasMorePosts: true,
+  hasMoreTags: true,
+  likePostLoading: false,
+  likePostDone: false,
+  likePostError: null,
+  unlikePostLoading: false,
+  unlikePostDone: false,
+  unlikePostError: null,
+  loadPostLoading: false,
+  loadPostDone: false,
+  loadPostError: null,
+  loadPostsLoading: false,
+  loadPostsDone: false,
+  loadPostsError: null,
+  loadTagsLoading: false,
+  loadTagsDone: false,
+  loadTagsError: null,
+  addPostLoading: false,
+  addPostDone: false,
+  addPostError: null,
+  updatePostLoading: false,
+  updatePostDone: false,
+  updatePostError: null,
+  removePostLoading: false,
+  removePostDone: false,
+  removePostError: null,
+  addCommentLoading: false,
+  addCommentDone: false,
+  addCommentError: null,
+  updateCommentLoading: false,
+  updateCommentDone: false,
+  updateCommentError: null,
+  removeCommentLoading: false,
+  removeCommentDone: false,
+  removeCommentError: null,
+  postUploadImagesLoading: false,
+  postUploadImagesDone: false,
+  postUploadImagesError: null,
+  postRemoveImagesLoading: false,
+  postRemoveImagesDone: false,
+  postRemoveImagesError: null
+}; // 리듀서
+
+const reducer = (state = initialState, action) => immer__WEBPACK_IMPORTED_MODULE_0___default()(state, draft => {
+  switch (action.type) {
+    case 'post/CREATE_POST_REQUEST':
+      draft.addPostLoading = true;
+      draft.addPostDone = false;
+      draft.addPostError = null;
+      break;
+
+    case 'post/CREATE_POST_SUCCESS':
+      draft.addPostLoading = false;
+      draft.addPostDone = true;
+      draft.mainPosts.unshift(action.data);
+      draft.createPostMainImg = '';
+      break;
+
+    case 'post/CREATE_POST_FAILURE':
+      draft.addPostLoading = false;
+      draft.addPostError = action.error;
+      break;
+
+    case 'post/UPLOAD_IMAGES_REQUEST':
+      draft.postUploadImagesLoading = true;
+      draft.postUploadImagesDone = false;
+      draft.postUploadImagesError = null;
+      break;
+
+    case 'post/UPLOAD_IMAGES_SUCCESS':
+      draft.createPostMainImg = action.data;
+      draft.postUploadImagesLoading = false;
+      draft.postUploadImagesDone = true;
+      break;
+
+    case 'post/UPLOAD_IMAGES_FAILURE':
+      draft.postUploadImagesLoading = false;
+      draft.postUploadImagesError = action.error;
+      break;
+
+    case 'post/REMOVE_IMAGES_REQUEST':
+      draft.postRemoveImagesLoading = true;
+      draft.postRemoveImagesDone = false;
+      draft.postRemoveImagesError = null;
+      break;
+
+    case 'post/REMOVE_IMAGES_SUCCESS':
+      draft.createPostMainImg = '';
+      draft.postRemoveImagesLoading = false;
+      draft.postRemoveImagesDone = true;
+      break;
+
+    case 'post/REMOVE_IMAGES_FAILURE':
+      draft.postRemoveImagesLoading = false;
+      draft.postRemoveImagesError = action.error;
+      break;
+    // case 'post/REMOVE_IMAGE':
+    // 	draft.createPostMainImg = draft.createPostMainImg.filter((v, i) => i !== action.data);
+    // 	break;
+
+    case 'post/LOAD_POSTS_REQUEST':
+      draft.loadPostsLoading = true;
+      draft.loadPostsDone = false;
+      draft.loadPostsError = null;
+      break;
+
+    case 'post/LOAD_POSTS_SUCCESS':
+      draft.loadPostsLoading = false;
+
+      if (action.data.filtering && !action.data.skipNum) {
+        draft.mainPosts = action.data.posts;
+
+        if (action.data.searchedPostsCount) {
+          draft.searchedPostsCount = action.data.searchedPostsCount;
+        }
+
+        if (action.data.postsCount) {
+          draft.allPostsCount = action.data.postsCount;
+        }
+      } else if (action.data.skipNum >= 10) {
+        draft.mainPosts = draft.mainPosts.concat(action.data.posts);
+      }
+
+      draft.hasMorePosts = action.data.posts.length === 10;
+      draft.loadPostsDone = true;
+      break;
+
+    case 'post/LOAD_POSTS_FAILURE':
+      draft.loadPostsLoading = false;
+      draft.loadPostsError = action.error;
+      break;
+
+    case 'post/LOAD_TAGS_REQUEST':
+      draft.loadTagsLoading = true;
+      draft.loadTagsDone = false;
+      draft.loadTagsError = null;
+      break;
+
+    case 'post/LOAD_TAGS_SUCCESS':
+      draft.loadTagsLoading = false;
+      draft.loadTagsDone = true;
+      console.log('load tags success : ', action.data);
+
+      if (action.data.filtering) {
+        draft.tags = action.data.tags;
+
+        if (action.data.searchedTagsCount) {
+          draft.searchedTagsCount = action.data.searchedTagsCount;
+        }
+
+        if (action.data.tagsCount) {
+          draft.allTagsCount = action.data.tagsCount;
+        }
+      } else if (action.data.skipNum) {
+        draft.tags = draft.tags.concat(action.data.tags);
+      } else {
+        draft.tags = draft.tags.concat(action.data.tags);
+      }
+
+      draft.hasMoreTags = action.data.tags.length === 10;
+      break;
+
+    case 'post/LOAD_TAGS_FAILURE':
+      draft.loadTagsLoading = false;
+      draft.loadTagsError = action.error;
+      break;
+
+    case 'post/LOAD_POST_REQUEST':
+      draft.loadPostLoading = true;
+      draft.loadPostDone = false;
+      draft.loadPostError = null;
+      break;
+
+    case 'post/LOAD_POST_SUCCESS':
+      draft.loadPostLoading = false;
+      draft.loadPostDone = true;
+      draft.singlePost = action.data;
+      break;
+
+    case 'post/LOAD_POST_FAILURE':
+      draft.loadPostLoading = false;
+      draft.loadPostError = action.error;
+      break;
+
+    case 'post/UPDATE_POST_REQUEST':
+      draft.updatePostLoading = true;
+      draft.updatePostDone = false;
+      draft.updatePostError = null;
+      break;
+
+    case 'post/UPDATE_POST_SUCCESS':
+      console.log('update_post_success : ', action.data); //draft.mainPosts.find((v) => v.id === action.data.PostId) = action.data.newPost;
+
+      draft.updatePostLoading = false;
+      draft.updatePostDone = true;
+      break;
+
+    case 'post/UPDATE_POST_FAILURE':
+      draft.updatePostLoading = false;
+      draft.updatePostError = action.error;
+      break;
+
+    case 'post/REMOVE_POST_REQUEST':
+      draft.removePostLoading = true;
+      draft.removePostDone = false;
+      draft.removePostError = null;
+      break;
+
+    case 'post/REMOVE_POST_SUCCESS':
+      console.log('remove post : ', action.data);
+      draft.removePostLoading = false;
+      draft.removePostDone = true;
+      draft.mainPosts = draft.mainPosts.filter(v => v.id !== action.data.PostId);
+      break;
+
+    case 'post/REMOVE_POST_FAILURE':
+      draft.removePostLoading = false;
+      draft.removePostError = action.error;
+      break;
+
+    case 'post/LIKE_POST_REQUEST':
+      draft.likePostLoading = true;
+      draft.likePostDone = false;
+      draft.likePostError = null;
+      break;
+
+    case 'post/LIKE_POST_SUCCESS':
+      {
+        console.log('LIKE POST SUCCESS - action.data : ', action.data);
+        const post = draft.mainPosts.find(v => {
+          console.log(+action.data.postId);
+          return +v.id === +action.data.postId;
+        });
+        console.log('LIKE POST SUCCESS - post data : ', post);
+        post === null || post === void 0 ? void 0 : post.likers.push({
+          id: action.data.userId
+        });
+        draft.likePostLoading = false;
+        draft.likePostDone = true;
+        break;
+      }
+
+    case 'post/LIKE_POST_FAILURE':
+      draft.likePostLoading = false;
+      draft.likePostError = action.error;
+      break;
+
+    case 'post/UNLIKE_POST_REQUEST':
+      draft.unlikePostLoading = true;
+      draft.unlikePostDone = false;
+      draft.unlikePostError = null;
+      break;
+
+    case 'post/UNLIKE_POST_SUCCESS':
+      {
+        const post = draft.mainPosts.find(v => v.id === +action.data.postId);
+        post.likers = post.likers.filter(v => v.id !== action.data.userId);
+        draft.unlikePostLoading = false;
+        draft.unlikePostDone = true;
+        break;
+      }
+
+    case 'post/UNLIKE_POST_FAILURE':
+      draft.unlikePostLoading = false;
+      draft.unlikePostError = action.error;
+      break;
+
+    case 'post/ADD_COMMENT_REQUEST':
+      draft.addCommentLoading = true;
+      draft.addCommentDone = false;
+      draft.addCommentError = null;
+      break;
+
+    case 'post/ADD_COMMENT_SUCCESS':
+      console.log('action.data : ', action.data);
+      draft.singlePost.comments.unshift(action.data);
+      draft.addCommentLoading = false;
+      draft.addCommentDone = true;
+      break;
+
+    case 'post/ADD_COMMENT_FAILURE':
+      draft.addCommentLoading = false;
+      draft.addCommentError = action.error;
+      break;
+
+    case 'post/UPDATE_COMMENT_REQUEST':
+      draft.updateCommentLoading = true;
+      draft.updateCommentDone = false;
+      draft.updateCommentError = null;
+      break;
+
+    case 'post/UPDATE_COMMENT_SUCCESS':
+      console.log('action.data : ', action.data);
+      const comment = draft.singlePost.comments.find(v => v.id === action.data.id);
+      comment.content = action.data.content;
+      draft.updateCommentLoading = false;
+      draft.updateCommentDone = true;
+      break;
+
+    case 'post/UPDATE_COMMENT_FAILURE':
+      draft.updateCommentLoading = false;
+      draft.updateCommentError = action.error;
+      break;
+
+    case 'post/REMOVE_COMMENT_REQUEST':
+      draft.removeCommentLoading = true;
+      draft.removeCommentDone = false;
+      draft.removeCommentError = null;
+      break;
+
+    case 'post/REMOVE_COMMENT_SUCCESS':
+      draft.singlePost.comments = draft.singlePost.comments.filter(v => v.id !== action.data.CommentId);
+      draft.removeCommentLoading = false;
+      draft.removeCommentDone = true;
+      break;
+
+    case 'post/REMOVE_COMMENT_FAILURE':
+      draft.removeCommentLoading = false;
+      draft.removeCommentError = action.error;
+
+    default:
+      return state;
+  }
+});
+
+/* harmony default export */ __webpack_exports__["N"] = (reducer);
+
+/***/ }),
+
 /***/ "uCqB":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -29123,6 +32982,129 @@ internals.has = function (ref, key) {
 
 /***/ }),
 
+/***/ "ufHL":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: !0
+});
+
+var hashString = __webpack_require__("G3yu"), unitless = __webpack_require__("4hjO"), memoize = __webpack_require__("TiPX");
+
+function _interopDefault(e) {
+  return e && e.__esModule ? e : {
+    default: e
+  };
+}
+
+var contentValuePattern, contentValues, oldProcessStyleValue, msPattern, hyphenPattern, hyphenatedCache, hashString__default = _interopDefault(hashString), unitless__default = _interopDefault(unitless), memoize__default = _interopDefault(memoize), ILLEGAL_ESCAPE_SEQUENCE_ERROR = "You have illegal escape sequence in your template literal, most likely inside content's property value.\nBecause you write your CSS inside a JavaScript string you actually have to do double escaping, so for example \"content: '\\00d7';\" should become \"content: '\\\\00d7';\".\nYou can read more about this here:\nhttps://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#ES2018_revision_of_illegal_escape_sequences", UNDEFINED_AS_OBJECT_KEY_ERROR = "You have passed in falsy value as style object's key (can happen when in example you pass unexported component as computed key).", hyphenateRegex = /[A-Z]|^ms/g, animationRegex = /_EMO_([^_]+?)_([^]*?)_EMO_/g, isCustomProperty = function(property) {
+  return 45 === property.charCodeAt(1);
+}, isProcessableValue = function(value) {
+  return null != value && "boolean" != typeof value;
+}, processStyleName = memoize__default.default((function(styleName) {
+  return isCustomProperty(styleName) ? styleName : styleName.replace(hyphenateRegex, "-$&").toLowerCase();
+})), processStyleValue = function(key, value) {
+  switch (key) {
+   case "animation":
+   case "animationName":
+    if ("string" == typeof value) return value.replace(animationRegex, (function(match, p1, p2) {
+      return cursor = {
+        name: p1,
+        styles: p2,
+        next: cursor
+      }, p1;
+    }));
+  }
+  return 1 === unitless__default.default[key] || isCustomProperty(key) || "number" != typeof value || 0 === value ? value : value + "px";
+};
+
+function handleInterpolation(mergedProps, registered, interpolation) {
+  if (null == interpolation) return "";
+  if (void 0 !== interpolation.__emotion_styles) return interpolation;
+  switch (typeof interpolation) {
+   case "boolean":
+    return "";
+
+   case "object":
+    if (1 === interpolation.anim) return cursor = {
+      name: interpolation.name,
+      styles: interpolation.styles,
+      next: cursor
+    }, interpolation.name;
+    if (void 0 !== interpolation.styles) {
+      var next = interpolation.next;
+      if (void 0 !== next) for (;void 0 !== next; ) cursor = {
+        name: next.name,
+        styles: next.styles,
+        next: cursor
+      }, next = next.next;
+      var styles = interpolation.styles + ";";
+      return styles;
+    }
+    return createStringFromObject(mergedProps, registered, interpolation);
+
+   case "function":
+    if (void 0 !== mergedProps) {
+      var previousCursor = cursor, result = interpolation(mergedProps);
+      return cursor = previousCursor, handleInterpolation(mergedProps, registered, result);
+    }
+    break;
+
+   case "string":
+  }
+  if (null == registered) return interpolation;
+  var cached = registered[interpolation];
+  return void 0 !== cached ? cached : interpolation;
+}
+
+function createStringFromObject(mergedProps, registered, obj) {
+  var string = "";
+  if (Array.isArray(obj)) for (var i = 0; i < obj.length; i++) string += handleInterpolation(mergedProps, registered, obj[i]) + ";"; else for (var _key in obj) {
+    var value = obj[_key];
+    if ("object" != typeof value) null != registered && void 0 !== registered[value] ? string += _key + "{" + registered[value] + "}" : isProcessableValue(value) && (string += processStyleName(_key) + ":" + processStyleValue(_key, value) + ";"); else if (!Array.isArray(value) || "string" != typeof value[0] || null != registered && void 0 !== registered[value[0]]) {
+      var interpolated = handleInterpolation(mergedProps, registered, value);
+      switch (_key) {
+       case "animation":
+       case "animationName":
+        string += processStyleName(_key) + ":" + interpolated + ";";
+        break;
+
+       default:
+        string += _key + "{" + interpolated + "}";
+      }
+    } else for (var _i = 0; _i < value.length; _i++) isProcessableValue(value[_i]) && (string += processStyleName(_key) + ":" + processStyleValue(_key, value[_i]) + ";");
+  }
+  return string;
+}
+
+var sourceMapPattern, cursor, labelPattern = /label:\s*([^\s;\n{]+)\s*;/g;
+
+var serializeStyles = function(args, registered, mergedProps) {
+  if (1 === args.length && "object" == typeof args[0] && null !== args[0] && void 0 !== args[0].styles) return args[0];
+  var stringMode = !0, styles = "";
+  cursor = void 0;
+  var strings = args[0];
+  null == strings || void 0 === strings.raw ? (stringMode = !1, styles += handleInterpolation(mergedProps, registered, strings)) : styles += strings[0];
+  for (var i = 1; i < args.length; i++) styles += handleInterpolation(mergedProps, registered, args[i]), 
+  stringMode && (styles += strings[i]);
+  labelPattern.lastIndex = 0;
+  for (var match, identifierName = ""; null !== (match = labelPattern.exec(styles)); ) identifierName += "-" + match[1];
+  var name = hashString__default.default(styles) + identifierName;
+  return {
+    name: name,
+    styles: styles,
+    next: cursor
+  };
+};
+
+exports.serializeStyles = serializeStyles;
+
+
+/***/ }),
+
 /***/ "uxXc":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -29212,6 +33194,103 @@ module.exports = convert;
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("zuR4");
+
+/***/ }),
+
+/***/ "vNVm":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.useIntersection = useIntersection;
+
+var _react = __webpack_require__("q1tI");
+
+var _requestIdleCallback = __webpack_require__("0G5g");
+
+const hasIntersectionObserver = typeof IntersectionObserver !== 'undefined';
+
+function useIntersection({
+  rootMargin,
+  disabled
+}) {
+  const isDisabled = disabled || !hasIntersectionObserver;
+  const unobserve = (0, _react.useRef)();
+  const [visible, setVisible] = (0, _react.useState)(false);
+  const setRef = (0, _react.useCallback)(el => {
+    if (unobserve.current) {
+      unobserve.current();
+      unobserve.current = undefined;
+    }
+
+    if (isDisabled || visible) return;
+
+    if (el && el.tagName) {
+      unobserve.current = observe(el, isVisible => isVisible && setVisible(isVisible), {
+        rootMargin
+      });
+    }
+  }, [isDisabled, rootMargin, visible]);
+  (0, _react.useEffect)(() => {
+    if (!hasIntersectionObserver) {
+      if (!visible) {
+        const idleCallback = (0, _requestIdleCallback.requestIdleCallback)(() => setVisible(true));
+        return () => (0, _requestIdleCallback.cancelIdleCallback)(idleCallback);
+      }
+    }
+  }, [visible]);
+  return [setRef, visible];
+}
+
+function observe(element, callback, options) {
+  const {
+    id,
+    observer,
+    elements
+  } = createObserver(options);
+  elements.set(element, callback);
+  observer.observe(element);
+  return function unobserve() {
+    elements.delete(element);
+    observer.unobserve(element); // Destroy observer when there's nothing left to watch:
+
+    if (elements.size === 0) {
+      observer.disconnect();
+      observers.delete(id);
+    }
+  };
+}
+
+const observers = new Map();
+
+function createObserver(options) {
+  const id = options.rootMargin || '';
+  let instance = observers.get(id);
+
+  if (instance) {
+    return instance;
+  }
+
+  const elements = new Map();
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const callback = elements.get(entry.target);
+      const isVisible = entry.isIntersecting || entry.intersectionRatio > 0;
+
+      if (callback && isVisible) {
+        callback(isVisible);
+      }
+    });
+  }, options);
+  observers.set(id, instance = {
+    id,
+    observer,
+    elements
+  });
+  return instance;
+}
 
 /***/ }),
 
@@ -29372,7 +33451,13 @@ function useSelectorWithStoreAndSubscription(selector, equalityFn, store, contex
 
   try {
     if (selector !== latestSelector.current || storeState !== latestStoreState.current || latestSubscriptionCallbackError.current) {
-      selectedState = selector(storeState);
+      var newSelectedState = selector(storeState); // ensure latest selected state is reused so that a custom equality function can result in identical references
+
+      if (latestSelectedState.current === undefined || !equalityFn(newSelectedState, latestSelectedState.current)) {
+        selectedState = newSelectedState;
+      } else {
+        selectedState = latestSelectedState.current;
+      }
     } else {
       selectedState = latestSelectedState.current;
     }
@@ -29393,13 +33478,16 @@ function useSelectorWithStoreAndSubscription(selector, equalityFn, store, contex
   (0, _useIsomorphicLayoutEffect.useIsomorphicLayoutEffect)(function () {
     function checkForUpdates() {
       try {
-        var newSelectedState = latestSelector.current(store.getState());
+        var newStoreState = store.getState();
 
-        if (equalityFn(newSelectedState, latestSelectedState.current)) {
+        var _newSelectedState = latestSelector.current(newStoreState);
+
+        if (equalityFn(_newSelectedState, latestSelectedState.current)) {
           return;
         }
 
-        latestSelectedState.current = newSelectedState;
+        latestSelectedState.current = _newSelectedState;
+        latestStoreState.current = newStoreState;
       } catch (err) {
         // we ignore all errors here, since when the component
         // is re-rendered, the selectors are called again, and
@@ -31368,6 +35456,168 @@ pk,findHostInstancesForRefresh:null,scheduleRefresh:null,scheduleRoot:null,setRe
 exports.findDOMNode=function(a){if(null==a)return null;if(1===a.nodeType)return a;var b=a._reactInternals;if(void 0===b){if("function"===typeof a.render)throw Error(y(188));throw Error(y(268,Object.keys(a)));}a=cc(b);a=null===a?null:a.stateNode;return a};exports.flushSync=function(a,b){var c=X;if(0!==(c&48))return a(b);X|=1;try{if(a)return gg(99,a.bind(null,b))}finally{X=c,ig()}};exports.hydrate=function(a,b,c){if(!rk(b))throw Error(y(200));return tk(null,a,b,!0,c)};
 exports.render=function(a,b,c){if(!rk(b))throw Error(y(200));return tk(null,a,b,!1,c)};exports.unmountComponentAtNode=function(a){if(!rk(a))throw Error(y(40));return a._reactRootContainer?(Xj(function(){tk(null,null,a,!1,function(){a._reactRootContainer=null;a[ff]=null})}),!0):!1};exports.unstable_batchedUpdates=Wj;exports.unstable_createPortal=function(a,b){return uk(a,b,2<arguments.length&&void 0!==arguments[2]?arguments[2]:null)};
 exports.unstable_renderSubtreeIntoContainer=function(a,b,c,d){if(!rk(c))throw Error(y(200));if(null==a||void 0===a._reactInternals)throw Error(y(38));return tk(a,b,c,!1,d)};exports.version="17.0.1";
+
+
+/***/ }),
+
+/***/ "yr0H":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: !0
+});
+
+var _extends = __webpack_require__("pVnL"), React = __webpack_require__("q1tI"), isPropValid = __webpack_require__("c/nj"), react = __webpack_require__("QLRY"), utils = __webpack_require__("kurX"), serialize = __webpack_require__("LkOU");
+
+function _interopDefault(e) {
+  return e && e.__esModule ? e : {
+    default: e
+  };
+}
+
+var _extends__default = _interopDefault(_extends), isPropValid__default = _interopDefault(isPropValid), testOmitPropsOnStringTag = isPropValid__default.default, testOmitPropsOnComponent = function(key) {
+  return "theme" !== key;
+}, getDefaultShouldForwardProp = function(tag) {
+  return "string" == typeof tag && tag.charCodeAt(0) > 96 ? testOmitPropsOnStringTag : testOmitPropsOnComponent;
+}, composeShouldForwardProps = function(tag, options, isReal) {
+  var shouldForwardProp;
+  if (options) {
+    var optionsShouldForwardProp = options.shouldForwardProp;
+    shouldForwardProp = tag.__emotion_forwardProp && optionsShouldForwardProp ? function(propName) {
+      return tag.__emotion_forwardProp(propName) && optionsShouldForwardProp(propName);
+    } : optionsShouldForwardProp;
+  }
+  return "function" != typeof shouldForwardProp && isReal && (shouldForwardProp = tag.__emotion_forwardProp), 
+  shouldForwardProp;
+}, ILLEGAL_ESCAPE_SEQUENCE_ERROR = "You have illegal escape sequence in your template literal, most likely inside content's property value.\nBecause you write your CSS inside a JavaScript string you actually have to do double escaping, so for example \"content: '\\00d7';\" should become \"content: '\\\\00d7';\".\nYou can read more about this here:\nhttps://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#ES2018_revision_of_illegal_escape_sequences", isBrowser = "undefined" != typeof document, createStyled = function createStyled(tag, options) {
+  var identifierName, targetClassName, isReal = tag.__emotion_real === tag, baseTag = isReal && tag.__emotion_base || tag;
+  void 0 !== options && (identifierName = options.label, targetClassName = options.target);
+  var shouldForwardProp = composeShouldForwardProps(tag, options, isReal), defaultShouldForwardProp = shouldForwardProp || getDefaultShouldForwardProp(baseTag), shouldUseAs = !defaultShouldForwardProp("as");
+  return function() {
+    var args = arguments, styles = isReal && void 0 !== tag.__emotion_styles ? tag.__emotion_styles.slice(0) : [];
+    if (void 0 !== identifierName && styles.push("label:" + identifierName + ";"), null == args[0] || void 0 === args[0].raw) styles.push.apply(styles, args); else {
+      0, styles.push(args[0][0]);
+      for (var len = args.length, i = 1; i < len; i++) styles.push(args[i], args[0][i]);
+    }
+    var Styled = react.withEmotionCache((function(props, cache, ref) {
+      var finalTag = shouldUseAs && props.as || baseTag, className = "", classInterpolations = [], mergedProps = props;
+      if (null == props.theme) {
+        for (var key in mergedProps = {}, props) mergedProps[key] = props[key];
+        mergedProps.theme = React.useContext(react.ThemeContext);
+      }
+      "string" == typeof props.className ? className = utils.getRegisteredStyles(cache.registered, classInterpolations, props.className) : null != props.className && (className = props.className + " ");
+      var serialized = serialize.serializeStyles(styles.concat(classInterpolations), cache.registered, mergedProps), rules = utils.insertStyles(cache, serialized, "string" == typeof finalTag);
+      className += cache.key + "-" + serialized.name, void 0 !== targetClassName && (className += " " + targetClassName);
+      var finalShouldForwardProp = shouldUseAs && void 0 === shouldForwardProp ? getDefaultShouldForwardProp(finalTag) : defaultShouldForwardProp, newProps = {};
+      for (var _key in props) shouldUseAs && "as" === _key || finalShouldForwardProp(_key) && (newProps[_key] = props[_key]);
+      newProps.className = className, newProps.ref = ref;
+      var ele = React.createElement(finalTag, newProps);
+      if (!isBrowser && void 0 !== rules) {
+        for (var _ref, serializedNames = serialized.name, next = serialized.next; void 0 !== next; ) serializedNames += " " + next.name, 
+        next = next.next;
+        return React.createElement(React.Fragment, null, React.createElement("style", ((_ref = {})["data-emotion"] = cache.key + " " + serializedNames, 
+        _ref.dangerouslySetInnerHTML = {
+          __html: rules
+        }, _ref.nonce = cache.sheet.nonce, _ref)), ele);
+      }
+      return ele;
+    }));
+    return Styled.displayName = void 0 !== identifierName ? identifierName : "Styled(" + ("string" == typeof baseTag ? baseTag : baseTag.displayName || baseTag.name || "Component") + ")", 
+    Styled.defaultProps = tag.defaultProps, Styled.__emotion_real = Styled, Styled.__emotion_base = baseTag, 
+    Styled.__emotion_styles = styles, Styled.__emotion_forwardProp = shouldForwardProp, 
+    Object.defineProperty(Styled, "toString", {
+      value: function() {
+        return "." + targetClassName;
+      }
+    }), Styled.withComponent = function(nextTag, nextOptions) {
+      return createStyled(nextTag, _extends__default.default({}, options, {}, nextOptions, {
+        shouldForwardProp: composeShouldForwardProps(Styled, nextOptions, !0)
+      })).apply(void 0, styles);
+    }, Styled;
+  };
+};
+
+exports.default = createStyled;
+
+
+/***/ }),
+
+/***/ "z+Cf":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.cssValue = exports.parseLengthAndUnit = void 0;
+var cssUnit = {
+    cm: true,
+    mm: true,
+    in: true,
+    px: true,
+    pt: true,
+    pc: true,
+    em: true,
+    ex: true,
+    ch: true,
+    rem: true,
+    vw: true,
+    vh: true,
+    vmin: true,
+    vmax: true,
+    "%": true
+};
+/**
+ * If size is a number, append px to the value as default unit.
+ * If size is a string, validate against list of valid units.
+ * If unit is valid, return size as is.
+ * If unit is invalid, console warn issue, replace with px as the unit.
+ *
+ * @param {(number | string)} size
+ * @return {LengthObject} LengthObject
+ */
+function parseLengthAndUnit(size) {
+    if (typeof size === "number") {
+        return {
+            value: size,
+            unit: "px"
+        };
+    }
+    var value;
+    var valueString = (size.match(/^[0-9.]*/) || "").toString();
+    if (valueString.includes(".")) {
+        value = parseFloat(valueString);
+    }
+    else {
+        value = parseInt(valueString, 10);
+    }
+    var unit = (size.match(/[^0-9]*$/) || "").toString();
+    if (cssUnit[unit]) {
+        return {
+            value: value,
+            unit: unit
+        };
+    }
+    console.warn("React Spinners: " + size + " is not a valid css value. Defaulting to " + value + "px.");
+    return {
+        value: value,
+        unit: "px"
+    };
+}
+exports.parseLengthAndUnit = parseLengthAndUnit;
+/**
+ * Take value as an input and return valid css value
+ *
+ * @param {(number | string)} value
+ * @return {string} valid css value
+ */
+function cssValue(value) {
+    var lengthWithunit = parseLengthAndUnit(value);
+    return "" + lengthWithunit.value + lengthWithunit.unit;
+}
+exports.cssValue = cssValue;
 
 
 /***/ }),

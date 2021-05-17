@@ -1,6 +1,7 @@
 import WysiwygEditor from '../../../components/WysiwygEditor';
 import styled from '@emotion/styled';
 import Button from '../../../components/Common/Button';
+import Router from 'next/router';
 
 import { useEffect, useRef } from 'react';
 import useInput from '../../../hooks/useInput';
@@ -228,12 +229,18 @@ const UpdatePost = () => {
 	const tags = useRef(singlePost && singlePost.tags.map(({ name }) => name));
 	const content = useRef(singlePost.content);
 
-	const { createPostMainImg } = useSelector<RootState, any>((state) => state.post);
+	const { createPostMainImg, updatePostDone, updatePostError } = useSelector<RootState, any>((state) => state.post);
 	const dispatch = useDispatch();
+
+	useEffect(() => {
+		if (updatePostDone && !updatePostError) {
+			Router.replace(`/post/${singlePost.id}`);
+		}
+	}, [updatePostDone]);
 
 	let tagContainer: null | HTMLDivElement;
 	let input;
-	if (process.browser) {
+	if ((process as any).browser) {
 		tagContainer = document.querySelector('.tag-container');
 		input = document.querySelector('.tag-container input');
 	}

@@ -129,12 +129,12 @@ export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps
 	context.store.dispatch({
 		type: LOAD_MY_INFO_REQUEST,
 	});
-	context.store.dispatch({
-		type: LOAD_USERS_REQUEST,
-	});
-	context.store.dispatch({
-		type: LOAD_POSTS_REQUEST,
-	});
+	// context.store.dispatch({
+	// 	type: LOAD_USERS_REQUEST,
+	// });
+	// context.store.dispatch({
+	// 	type: LOAD_POSTS_REQUEST,
+	// });
 	context.store.dispatch(END);
 	await context.store.sagaTask.toPromise();
 });

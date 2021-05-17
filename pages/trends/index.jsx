@@ -1,8 +1,7 @@
 import { useEffect, useRef } from 'react';
-// import * as d3 from 'd3';
-import tip from 'd3-tip';
-import Head from 'next/head';
-import MAP_GEOJSON from '../../public/korea-map-json.json';
+import * as d3 from 'd3';
+//import tip from 'd3-tip';
+// import MAP_GEOJSON from '../../public/korea-map-json.json';
 
 import styled from '@emotion/styled';
 
@@ -36,16 +35,16 @@ const TrendsWrapper = styled.div`
 	}
 	#tooltip {
 		position: absolute;
-		width: 100px;
 		height: 100px:
-		padding: 10px;
 		backrgound-color: white;
+		border-radius: 5px;
 	}
 	#tooltip.hidden{
 		display: none;
 	}
 	#tooltip p {
 		margin: 0;
+		padding: 5px;
 	}
 	#pie-tooltip {
 		position: absolute;
@@ -81,19 +80,20 @@ const reactColor = {
 const Trends = () => {
 	const barRef = useRef();
 	const lineRef = useRef();
-	const pieRef = useRef();
-	const mapRef = useRef();
+	// const pieRef = useRef();
+	// const mapRef = useRef();
 
 	useEffect(() => {
 		createBarChart();
 		createGraphChart();
-		createMap();
+		// createMap();
 		//createPieChart();
 	});
 	const createBarChart = () => {
 		const width = 250;
 		const height = 250;
-		const svg = d3.select(barRef.current).attr('width', width).attr('height', height);
+		const svg = d3 && d3.select(barRef.current).attr('width', width).attr('height', height);
+
 		const margin = { top: 10, right: 0, bottom: 20, left: 25 };
 		const graphWidth = width - margin.left - margin.right;
 		const graphHeight = height - margin.top - margin.bottom;
@@ -102,10 +102,15 @@ const Trends = () => {
 			.attr('width', graphWidth)
 			.attr('height', graphHeight)
 			.attr('transform', `translate(${margin.left}, ${margin.top})`);
+
 		const xAxisGroup = graph.append('g').attr('transform', `translate(0, ${graphHeight})`); // x축 아래로 translate
 		const yAxisGroup = graph.append('g');
+
 		d3.csv('/csv/multiTimeline.csv').then((data) => {
+			console.log('multiTimeline csv data : ', data);
+			// xValues = ["javascript", "HTML", "CSS", "React"]
 			const xValues = data.columns.slice(1);
+			// yValues = ["76","78","67","46"]
 			const yValues = [
 				Math.round(d3.mean(data, (d) => d.Javascript)),
 				Math.round(d3.mean(data, (d) => d.HTML)),
@@ -118,6 +123,8 @@ const Trends = () => {
 				{ name: 'CSS', mean: 67 },
 				{ name: 'React', mean: 46 },
 			];
+
+			// domain([최소값, 최대값]).range([최소,최대값])
 			const y = d3
 				.scaleLinear() // 한계치 설정
 				.domain([0, 100])
@@ -129,6 +136,12 @@ const Trends = () => {
 				.paddingInner(0.2)
 				.paddingOuter(0.2);
 
+			console.log('graphwidth : ', graphWidth);
+			console.log('graphHeight : ', graphHeight);
+			console.log('x.bandwidth : ', x.bandwidth());
+			console.log('first rect height : ', graphHeight - y(RectValues[0].mean));
+			console.log('fisrt x : ', x(RectValues[0].name));
+			console.log('first y : ', y(RectValues[0].mean));
 			graph
 				.selectAll('rect')
 				.data(RectValues)
@@ -149,7 +162,7 @@ const Trends = () => {
 				})
 				.attr('x', (d) => x(d.name))
 				.attr('y', (d) => y(d.mean))
-				.on('mouseover', function (d) {
+				.on('mouseover', function (evt, d) {
 					d3.select(this).attr('fill', (d) => {
 						if (d.name === 'HTML') {
 							return htmlColor.mouseOver;
@@ -165,13 +178,15 @@ const Trends = () => {
 					//const xPosition = 170 + 25 + parseFloat(d3.select(this).attr('x'));
 					//const yPosition = 95 + 20 + 10 + parseFloat(d3.select(this).attr('y'));
 
-					const [xPosition, yPosition] = d3.mouse(this);
+					console.log(d.mean);
+					const [xPosition, yPosition] = d3.pointer(evt);
 					console.log(xPosition, yPosition);
+					console.log(this);
 					d3.select('#tooltip')
-						.style('left', xPosition + 250 + 'px')
-						.style('top', yPosition + 90 + 'px')
+						.style('left', xPosition + 25 * 5 + 'px')
+						.style('top', yPosition + 10 * 3 + 'px')
 						.select('#value')
-						.text(d.name);
+						.text(`${d.name} mean :  ${d.mean}`);
 					d3.select('#tooltip').classed('hidden', false);
 				})
 				.on('mouseout', function (d) {
@@ -188,6 +203,7 @@ const Trends = () => {
 					});
 					d3.select('#tooltip').classed('hidden', true);
 				});
+
 			const xAxis = d3.axisBottom(x);
 			const yAxis = d3.axisLeft(y).ticks(3);
 
@@ -371,7 +387,7 @@ const Trends = () => {
 				.selectAll('circle')
 				.on('mouseover', function (d) {
 					d3.select(this).transition().duration(100).attr('r', 4);
-					const [xPosition, yPosition] = d3.mouse(this);
+					const [xPosition, yPosition] = d3.pointer(this);
 					console.log(xPosition, yPosition);
 					d3.select('#tooltip')
 						.style('left', xPosition + 250 + 'px')
@@ -387,203 +403,197 @@ const Trends = () => {
 		});
 	};
 
-	const createMap = () => {
-		const width = 600;
-		const height = 600;
+	// const createMap = () => {
+	// 	const width = 600;
+	// 	const height = 600;
 
-		const projection = d3.geoMercator().translate([width / 2, width / 2]);
-		const path = d3.geoPath().projection(projection);
+	// 	const projection = d3.geoMercator().translate([width / 2, width / 2]);
+	// 	const path = d3.geoPath().projection(projection);
 
-		const svg = d3.select(mapRef.current).attr('width', width).attr('height', height);
+	// 	const svg = d3.select(mapRef.current).attr('width', width).attr('height', height);
 
-		// .style('stroke', 'white').style('fill', '#00818a')
-		const map = svg.append('g').attr('id', 'map');
-		const places = svg.append('g').attr('id', 'places');
+	// 	// .style('stroke', 'white').style('fill', '#00818a')
+	// 	const map = svg.append('g').attr('id', 'map');
+	// 	const places = svg.append('g').attr('id', 'places');
 
-		d3.json('/korea-map-json.json').then(function (data) {
-			const bestTrendsData = [
-				{ name: '서울특별시', keyword: 'Javascript' },
-				{ name: '대전광역시', keyword: 'HTML' },
-				{ name: '경기도', keyword: 'HTML' },
-				{ name: '대구광역시', keyword: 'HTML' },
-				{ name: '인천광역시', keyword: 'HTML' },
-				{ name: '부산광역시', keyword: 'HTML' },
-				{ name: '울산광역시', keyword: 'HTML' },
-				{ name: '광주광역시', keyword: 'HTML' },
-				{ name: '충청남도', keyword: 'HTML' },
-				{ name: '경상북도', keyword: 'HTML' },
-				{ name: '충청북도', keyword: 'HTML' },
-				{ name: '강원도', keyword: 'HTML' },
-				{ name: '전라북도', keyword: 'HTML' },
-				{ name: '전라남도', keyword: 'HTML' },
-				{ name: '제주특별자치도', keyword: 'HTML' },
-				{ name: '경상남도', keyword: 'HTML' },
-			];
+	// 	d3.json('/korea-map-json.json').then(function (data) {
+	// 		const bestTrendsData = [
+	// 			{ name: '서울특별시', keyword: 'Javascript' },
+	// 			{ name: '대전광역시', keyword: 'HTML' },
+	// 			{ name: '경기도', keyword: 'HTML' },
+	// 			{ name: '대구광역시', keyword: 'HTML' },
+	// 			{ name: '인천광역시', keyword: 'HTML' },
+	// 			{ name: '부산광역시', keyword: 'HTML' },
+	// 			{ name: '울산광역시', keyword: 'HTML' },
+	// 			{ name: '광주광역시', keyword: 'HTML' },
+	// 			{ name: '충청남도', keyword: 'HTML' },
+	// 			{ name: '경상북도', keyword: 'HTML' },
+	// 			{ name: '충청북도', keyword: 'HTML' },
+	// 			{ name: '강원도', keyword: 'HTML' },
+	// 			{ name: '전라북도', keyword: 'HTML' },
+	// 			{ name: '전라남도', keyword: 'HTML' },
+	// 			{ name: '제주특별자치도', keyword: 'HTML' },
+	// 			{ name: '경상남도', keyword: 'HTML' },
+	// 		];
 
-			const geoJson = topojson.feature(data, data.objects['skorea_provinces_2018_geo']);
-			const features = geoJson.features;
+	// 		const geoJson = topojson.feature(data, data.objects['skorea_provinces_2018_geo']);
+	// 		const features = geoJson.features;
 
-			const bounds = d3.geoBounds(geoJson);
-			const center = d3.geoCentroid(geoJson);
+	// 		const bounds = d3.geoBounds(geoJson);
+	// 		const center = d3.geoCentroid(geoJson);
 
-			const distance = d3.geoDistance(bounds[0], bounds[1]);
+	// 		const distance = d3.geoDistance(bounds[0], bounds[1]);
 
-			const scale = (height / distance / Math.sqrt(2)) * 1.4;
+	// 		const scale = (height / distance / Math.sqrt(2)) * 1.4;
 
-			projection.scale(scale).center(center);
+	// 		projection.scale(scale).center(center);
 
-			map
-				.selectAll('path')
-				.data(features)
-				.enter()
-				.append('path')
-				.attr('class', function (d) {
-					console.log(d);
-					return 'municipality c ' + d.properties.code;
-				})
-				.attr('d', path)
-				.attr('stroke', 'white')
-				.attr('fill', (d) => {
-					let geoName = d.properties.name;
-					const getData = bestTrendsData.find(({ name, keyword }) => name === geoName);
-					if (getData.keyword === 'HTML') {
-						return htmlColor.default;
-					} else if (getData.keyword === 'CSS') {
-						return cssColor.default;
-					} else if (getData.keyword === 'Javascript') {
-						return javascriptColor.default;
-					} else if (getData.keyword === 'React') {
-						return reactColor.default;
-					}
-				})
-				.on('click', (d) => {})
-				.on('mouseover', function (d) {
-					d3.select(this).attr('fill', (d) => {
-						let geoName = d.properties.name;
-						const getData = bestTrendsData.find(({ name, keyword }) => name === geoName);
-						if (getData.keyword === 'HTML') {
-							return htmlColor.mouseOver;
-						} else if (getData.keyword === 'CSS') {
-							return cssColor.mouseOver;
-						} else if (getData.keyword === 'Javascript') {
-							return javascriptColor.mouseOver;
-						} else if (getData.keyword === 'React') {
-							return reactColor.mouseOver;
-						}
-					});
-					const [xPosition, yPosition] = d3.mouse(this);
-					createPieChart(xPosition, yPosition, d.properties.name);
-					d3.select('#pie-tooltip').classed('hidden-pie', false);
-				})
-				.on('mouseleave', function (d) {
-					d3.select(this).attr('fill', (d) => {
-						let geoName = d.properties.name;
-						const getData = bestTrendsData.find(({ name, keyword }) => name === geoName);
-						if (getData.keyword === 'HTML') {
-							return htmlColor.default;
-						} else if (getData.keyword === 'CSS') {
-							return cssColor.default;
-						} else if (getData.keyword === 'Javascript') {
-							return javascriptColor.default;
-						} else if (getData.keyword === 'React') {
-							return reactColor.default;
-						}
-					});
-					d3.select('#pie-tooltip').classed('hidden-pie', true);
-					d3.select('#pie-tooltip').selectAll('svg').remove();
-				});
-		});
-	};
+	// 		map
+	// 			.selectAll('path')
+	// 			.data(features)
+	// 			.enter()
+	// 			.append('path')
+	// 			.attr('class', function (d) {
+	// 				console.log(d);
+	// 				return 'municipality c ' + d.properties.code;
+	// 			})
+	// 			.attr('d', path)
+	// 			.attr('stroke', 'white')
+	// 			.attr('fill', (d) => {
+	// 				let geoName = d.properties.name;
+	// 				const getData = bestTrendsData.find(({ name, keyword }) => name === geoName);
+	// 				if (getData.keyword === 'HTML') {
+	// 					return htmlColor.default;
+	// 				} else if (getData.keyword === 'CSS') {
+	// 					return cssColor.default;
+	// 				} else if (getData.keyword === 'Javascript') {
+	// 					return javascriptColor.default;
+	// 				} else if (getData.keyword === 'React') {
+	// 					return reactColor.default;
+	// 				}
+	// 			})
+	// 			.on('click', (d) => {})
+	// 			.on('mouseover', function (d) {
+	// 				d3.select(this).attr('fill', (d) => {
+	// 					let geoName = d.properties.name;
+	// 					const getData = bestTrendsData.find(({ name, keyword }) => name === geoName);
+	// 					if (getData.keyword === 'HTML') {
+	// 						return htmlColor.mouseOver;
+	// 					} else if (getData.keyword === 'CSS') {
+	// 						return cssColor.mouseOver;
+	// 					} else if (getData.keyword === 'Javascript') {
+	// 						return javascriptColor.mouseOver;
+	// 					} else if (getData.keyword === 'React') {
+	// 						return reactColor.mouseOver;
+	// 					}
+	// 				});
+	// 				const [xPosition, yPosition] = d3.pointer(this);
+	// 				createPieChart(xPosition, yPosition, d.properties.name);
+	// 				d3.select('#pie-tooltip').classed('hidden-pie', false);
+	// 			})
+	// 			.on('mouseleave', function (d) {
+	// 				d3.select(this).attr('fill', (d) => {
+	// 					let geoName = d.properties.name;
+	// 					const getData = bestTrendsData.find(({ name, keyword }) => name === geoName);
+	// 					if (getData.keyword === 'HTML') {
+	// 						return htmlColor.default;
+	// 					} else if (getData.keyword === 'CSS') {
+	// 						return cssColor.default;
+	// 					} else if (getData.keyword === 'Javascript') {
+	// 						return javascriptColor.default;
+	// 					} else if (getData.keyword === 'React') {
+	// 						return reactColor.default;
+	// 					}
+	// 				});
+	// 				d3.select('#pie-tooltip').classed('hidden-pie', true);
+	// 				d3.select('#pie-tooltip').selectAll('svg').remove();
+	// 			});
+	// 	});
+	// };
 
-	// d3.select('#tooltip')
-	// 					.style('left', xPosition + 250 + 'px')
-	// 					.style('top', yPosition + 90 + 'px')
-	// 					.select('#value')
-	// 					.text(d.name);
-	// 				d3.select('#tooltip').classed('hidden', false);
-	const createPieChart = (xPosition, yPosition, geoName) => {
-		// dimensions 치수
-		const dims = { height: 100, width: 100, radius: 50 };
-		// center
-		const cent = { x: dims.width / 2 + 5, y: dims.height / 2 + 5 };
-		console.log(document.documentElement.clientWidth);
-		const svg = d3
-			.select(pieRef.current)
-			.append('svg')
-			.attr('width', dims.width + 100)
-			.attr('height', dims.height + 100)
-			.style('left', document.documentElement.clientWidth - xPosition - 100)
-			.style('top', yPosition);
-		console.log(xPosition, yPosition);
-		const graph = svg.append('g').attr('transform', `translate(${cent.x}, ${cent.y})`);
+	// // d3.select('#tooltip')
+	// // 					.style('left', xPosition + 250 + 'px')
+	// // 					.style('top', yPosition + 90 + 'px')
+	// // 					.select('#value')
+	// // 					.text(d.name);
+	// // 				d3.select('#tooltip').classed('hidden', false);
+	// const createPieChart = (xPosition, yPosition, geoName) => {
+	// 	// dimensions 치수
+	// 	const dims = { height: 100, width: 100, radius: 50 };
+	// 	// center
+	// 	const cent = { x: dims.width / 2 + 5, y: dims.height / 2 + 5 };
+	// 	console.log(document.documentElement.clientWidth);
+	// 	const svg = d3
+	// 		.select(pieRef.current)
+	// 		.append('svg')
+	// 		.attr('width', dims.width + 100)
+	// 		.attr('height', dims.height + 100)
+	// 		.style('left', document.documentElement.clientWidth - xPosition - 100)
+	// 		.style('top', yPosition);
+	// 	console.log(xPosition, yPosition);
+	// 	const graph = svg.append('g').attr('transform', `translate(${cent.x}, ${cent.y})`);
 
-		const pie = d3
-			.pie()
-			.sort(null)
-			.value((d) => d.percentage.slice(0, -1));
+	// 	const pie = d3
+	// 		.pie()
+	// 		.sort(null)
+	// 		.value((d) => d.percentage.slice(0, -1));
 
-		const arcPath = d3
-			.arc()
-			.outerRadius(dims.radius)
-			.innerRadius(dims.radius / 2);
+	// 	const arcPath = d3
+	// 		.arc()
+	// 		.outerRadius(dims.radius)
+	// 		.innerRadius(dims.radius / 2);
 
-		const colorData = ['blue', 'red', 'black', 'yellow'];
+	// 	const colorData = ['blue', 'red', 'black', 'yellow'];
 
-		const update = (data) => {
-			// // update color scale domain
-			// color.domain(data.map((d) => d.name));
-			// Join enhanced (pie) data to path elements
-			const path = graph.selectAll('path').data(pie(data));
+	// 	const update = (data) => {
+	// 		// // update color scale domain
+	// 		// color.domain(data.map((d) => d.name));
+	// 		// Join enhanced (pie) data to path elements
+	// 		const path = graph.selectAll('path').data(pie(data));
 
-			path
-				.enter()
-				.append('path')
-				.attr('class', 'arc')
-				.attr('d', arcPath)
-				.attr('stroke', 'white')
-				.attr('stroke-width', 3)
-				.style('fill', function (d, i) {
-					return colorData[i];
-				});
+	// 		path
+	// 			.enter()
+	// 			.append('path')
+	// 			.attr('class', 'arc')
+	// 			.attr('d', arcPath)
+	// 			.attr('stroke', 'white')
+	// 			.attr('stroke-width', 3)
+	// 			.style('fill', function (d, i) {
+	// 				return colorData[i];
+	// 			});
 
-			graph.selectAll('path').on('mouseover', handleMouseOver).on('mouseout', handleMouseOut);
-		};
+	// 		graph.selectAll('path').on('mouseover', handleMouseOver).on('mouseout', handleMouseOut);
+	// 	};
 
-		d3.csv('/csv/geoMap.csv').then((data) => {
-			const settingData = data.map(({ 지역, Javascript, HTML, CSS, React }) => {
-				return {
-					geoName: 지역,
-					datas: [
-						{ name: 'Javascript', percentage: Javascript },
-						{ name: 'HTML', percentage: HTML },
-						{ name: 'CSS', percentage: CSS },
-						{ name: 'React', percentage: React },
-					],
-				};
-			});
-			const overedGeoData = settingData.find((data) => data.geoName === geoName);
+	// 	d3.csv('/csv/geoMap.csv').then((data) => {
+	// 		const settingData = data.map(({ 지역, Javascript, HTML, CSS, React }) => {
+	// 			return {
+	// 				geoName: 지역,
+	// 				datas: [
+	// 					{ name: 'Javascript', percentage: Javascript },
+	// 					{ name: 'HTML', percentage: HTML },
+	// 					{ name: 'CSS', percentage: CSS },
+	// 					{ name: 'React', percentage: React },
+	// 				],
+	// 			};
+	// 		});
+	// 		const overedGeoData = settingData.find((data) => data.geoName === geoName);
 
-			update(overedGeoData.datas);
-		});
+	// 		update(overedGeoData.datas);
+	// 	});
 
-		// event handlers
-		function handleMouseOver(d) {
-			d3.select(this).transition('changeSliceFill').duration(300).attr('fill', 'white');
-		}
+	// 	// event handlers
+	// 	function handleMouseOver(d) {
+	// 		d3.select(this).transition('changeSliceFill').duration(300).attr('fill', 'white');
+	// 	}
 
-		function handleMouseOut(d) {
-			d3.select(this).transition('changeSliceFill').duration(300).attr('fill', 'green');
-		}
-	};
+	// 	function handleMouseOut(d) {
+	// 		d3.select(this).transition('changeSliceFill').duration(300).attr('fill', 'green');
+	// 	}
+	// };
 
 	return (
 		<>
-			<Head>
-				<script src="https://d3js.org/d3.v5.min.js"></script>
-				<script src="https://d3js.org/d3-queue.v3.min.js"></script>
-				<script src="https://d3js.org/topojson.v1.min.js"></script>
-				<script src="https://d3js.org/queue.v1.min.js"></script>
-			</Head>
 			<h2>Trends</h2>
 			<TrendsWrapper>
 				<div className="left-section">
@@ -598,16 +608,14 @@ const Trends = () => {
 					</div>
 				</div>
 				<div className="right-section">
-					<div className="map-wrapper">
-						<svg ref={mapRef} className="map"></svg>
-					</div>
+					<div className="map-wrapper">{/* <svg ref={mapRef} className="map"></svg> */}</div>
 				</div>
 				<div id="tooltip" className="hidden">
 					<p>
-						This Value : <b id="value"></b>
+						<b id="value"></b>
 					</p>
 				</div>
-				<div ref={pieRef} id="pie-tooltip" className="hidden-pie"></div>
+				{/* <div ref={pieRef} id="pie-tooltip" className="hidden-pie"></div> */}
 			</TrendsWrapper>
 		</>
 	);
