@@ -4,7 +4,7 @@ import axios from 'axios';
 import postSaga from './post';
 import userSaga from './user';
 
-axios.defaults.baseURL = 'http://localhost:2025';
+axios.defaults.baseURL = process.env.NODE_ENV === 'production' ? "http://http://ec2-13-124-80-203.ap-northeast-2.compute.amazonaws.com:2025":'http://localhost:2025';
 axios.defaults.withCredentials = true;
 
 export default function* rootSaga() {
