@@ -2,19 +2,19 @@ import { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
 //import tip from 'd3-tip';
 // import MAP_GEOJSON from '../../public/korea-map-json.json';
-
+import * as topojson from 'topojson-client';
 import styled from '@emotion/styled';
+import { validateLocaleAndSetLanguage } from 'typescript';
 
 const TrendsWrapper = styled.div`
 	display: flex;
-	margin: 20px;
+	margin: 10px;
 	justify-content: center;
 	align-items: center;
 	width: 90%;
 	height: 90%;
-	border: 1px solid #00818a;
+	margin-top: 30px;
 	div {
-		border: 1px solid #00818a;
 		div {
 			margin: 0;
 			display: flex;
@@ -25,21 +25,36 @@ const TrendsWrapper = styled.div`
 	.left-section {
 		width: 40%;
 		height: 100%;
+		div {
+			height: 50%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #404b69;
+			margin: 5px;
+		}
 	}
 	.right-section {
 		width: 60%;
 		height: 100%;
 		.map-wrapper {
-			height: 100%;	
+			height: 100%;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #404b69;
+			margin: 5px;
 		}
 	}
 	#tooltip {
 		position: absolute;
-		height: 100px:
-		backrgound-color: white;
+		background-color: #283149;
 		border-radius: 5px;
+		border: 1px solid #0ff;
+		box-shadow: 1px 1px 5px 2px #0ff;
 	}
-	#tooltip.hidden{
+	#tooltip.hidden {
 		display: none;
 	}
 	#tooltip p {
@@ -48,10 +63,33 @@ const TrendsWrapper = styled.div`
 	}
 	#pie-tooltip {
 		position: absolute;
-		border: 0;
+		background-color: #283149;
+		border-radius: 5px;
+		border: 1px solid #0ff;
+		box-shadow: 1px 1px 5px 2px #0ff;
 	}
-	#pie-tooltip.hidden-pie{
+	#pie-tooltip.hidden-pie {
 		display: none;
+	}
+	@media (max-width: 1000px) {
+		flex-direction: column;
+		gap: 10px;
+		.left-section {
+			width: 100%;
+			display: flex;
+			div {
+				width: 100%;
+				height: 100%;
+			}
+		}
+		.right-section {
+			width: 100%;
+		}
+	}
+	@media (max-width: 800px) {
+		.left-section {
+			flex-direction: column;
+		}
 	}
 `;
 
@@ -80,13 +118,13 @@ const reactColor = {
 const Trends = () => {
 	const barRef = useRef();
 	const lineRef = useRef();
-	// const pieRef = useRef();
-	// const mapRef = useRef();
+	const pieRef = useRef();
+	const mapRef = useRef();
 
 	useEffect(() => {
 		createBarChart();
 		createGraphChart();
-		// createMap();
+		createMap();
 		//createPieChart();
 	});
 	const createBarChart = () => {
@@ -182,11 +220,18 @@ const Trends = () => {
 					const [xPosition, yPosition] = d3.pointer(evt);
 					console.log(xPosition, yPosition);
 					console.log(this);
+					console.log(document.documentElement.clientWidth);
 					d3.select('#tooltip')
-						.style('left', xPosition + 25 * 5 + 'px')
-						.style('top', yPosition + 10 * 3 + 'px')
+						.style('left', xPosition + 'px')
+						.style('top', yPosition + 'px')
 						.select('#value')
 						.text(`${d.name} mean :  ${d.mean}`);
+					if (document.documentElement.clientWidth > 700) {
+						console.log('#tootip maxwidth 700');
+						d3.select('#tooltip')
+							.style('left', xPosition + 170 + 'px')
+							.style('top', yPosition + 40 + 'px');
+					}
 					d3.select('#tooltip').classed('hidden', false);
 				})
 				.on('mouseout', function (d) {
@@ -385,9 +430,9 @@ const Trends = () => {
 				.attr('d', reactLine);
 			graph
 				.selectAll('circle')
-				.on('mouseover', function (d) {
+				.on('mouseover', function (evt, d) {
 					d3.select(this).transition().duration(100).attr('r', 4);
-					const [xPosition, yPosition] = d3.pointer(this);
+					const [xPosition, yPosition] = d3.pointer(evt);
 					console.log(xPosition, yPosition);
 					d3.select('#tooltip')
 						.style('left', xPosition + 250 + 'px')
@@ -403,198 +448,229 @@ const Trends = () => {
 		});
 	};
 
-	// const createMap = () => {
-	// 	const width = 600;
-	// 	const height = 600;
+	const createMap = () => {
+		const width = 600;
+		const height = 600;
 
-	// 	const projection = d3.geoMercator().translate([width / 2, width / 2]);
-	// 	const path = d3.geoPath().projection(projection);
+		const projection = d3.geoMercator().translate([width / 2, width / 2]);
+		const path = d3.geoPath().projection(projection);
+		const svg = d3.select(mapRef.current).attr('viewBox', '0 0 570 570');
 
-	// 	const svg = d3.select(mapRef.current).attr('width', width).attr('height', height);
+		// .style('stroke', 'white').style('fill', '#00818a')
+		const map = svg.append('g').attr('id', 'map').style('transform', 'translate(-20px,-50px)');
+		const places = svg.append('g').attr('id', 'places');
 
-	// 	// .style('stroke', 'white').style('fill', '#00818a')
-	// 	const map = svg.append('g').attr('id', 'map');
-	// 	const places = svg.append('g').attr('id', 'places');
+		d3.json('/korea-map-json.json').then(function (data) {
+			console.log('/korea-map-json.json : ', data);
+			const bestTrendsData = [
+				{ name: '서울특별시', keyword: 'Javascript' },
+				{ name: '대전광역시', keyword: 'HTML' },
+				{ name: '경기도', keyword: 'HTML' },
+				{ name: '대구광역시', keyword: 'HTML' },
+				{ name: '인천광역시', keyword: 'HTML' },
+				{ name: '부산광역시', keyword: 'HTML' },
+				{ name: '울산광역시', keyword: 'HTML' },
+				{ name: '광주광역시', keyword: 'HTML' },
+				{ name: '충청남도', keyword: 'HTML' },
+				{ name: '경상북도', keyword: 'HTML' },
+				{ name: '충청북도', keyword: 'HTML' },
+				{ name: '강원도', keyword: 'HTML' },
+				{ name: '전라북도', keyword: 'HTML' },
+				{ name: '전라남도', keyword: 'HTML' },
+				{ name: '제주특별자치도', keyword: 'HTML' },
+				{ name: '경상남도', keyword: 'HTML' },
+			];
 
-	// 	d3.json('/korea-map-json.json').then(function (data) {
-	// 		const bestTrendsData = [
-	// 			{ name: '서울특별시', keyword: 'Javascript' },
-	// 			{ name: '대전광역시', keyword: 'HTML' },
-	// 			{ name: '경기도', keyword: 'HTML' },
-	// 			{ name: '대구광역시', keyword: 'HTML' },
-	// 			{ name: '인천광역시', keyword: 'HTML' },
-	// 			{ name: '부산광역시', keyword: 'HTML' },
-	// 			{ name: '울산광역시', keyword: 'HTML' },
-	// 			{ name: '광주광역시', keyword: 'HTML' },
-	// 			{ name: '충청남도', keyword: 'HTML' },
-	// 			{ name: '경상북도', keyword: 'HTML' },
-	// 			{ name: '충청북도', keyword: 'HTML' },
-	// 			{ name: '강원도', keyword: 'HTML' },
-	// 			{ name: '전라북도', keyword: 'HTML' },
-	// 			{ name: '전라남도', keyword: 'HTML' },
-	// 			{ name: '제주특별자치도', keyword: 'HTML' },
-	// 			{ name: '경상남도', keyword: 'HTML' },
-	// 		];
+			const geoJson = topojson.feature(data, data.objects['skorea_provinces_2018_geo']);
+			const features = geoJson.features;
 
-	// 		const geoJson = topojson.feature(data, data.objects['skorea_provinces_2018_geo']);
-	// 		const features = geoJson.features;
+			console.log('map features data : ', features);
+			const bounds = d3.geoBounds(geoJson);
+			const center = d3.geoCentroid(geoJson);
 
-	// 		const bounds = d3.geoBounds(geoJson);
-	// 		const center = d3.geoCentroid(geoJson);
+			const distance = d3.geoDistance(bounds[0], bounds[1]);
 
-	// 		const distance = d3.geoDistance(bounds[0], bounds[1]);
+			const scale = (height / distance / Math.sqrt(2)) * 1.4;
 
-	// 		const scale = (height / distance / Math.sqrt(2)) * 1.4;
+			projection.scale(scale).center(center);
 
-	// 		projection.scale(scale).center(center);
+			map
+				.selectAll('path')
+				.data(features)
+				.enter()
+				.append('path')
+				.attr('class', function (d) {
+					console.log(d);
+					return 'municipality c ' + d.properties.code;
+				})
+				.attr('d', path)
+				.attr('stroke', 'white')
+				.attr('fill', (d) => {
+					let geoName = d.properties.name;
+					const getData = bestTrendsData.find(({ name, keyword }) => name === geoName);
+					if (getData.keyword === 'HTML') {
+						return htmlColor.default;
+					} else if (getData.keyword === 'CSS') {
+						return cssColor.default;
+					} else if (getData.keyword === 'Javascript') {
+						return javascriptColor.default;
+					} else if (getData.keyword === 'React') {
+						return reactColor.default;
+					}
+				})
+				.on('click', (d) => {})
+				.on('mouseover', function (evt, d) {
+					console.log('mouseover data : ', d);
+					d3.select(this).attr('fill', (d) => {
+						let geoName = d.properties.name;
+						const getData = bestTrendsData.find(({ name, keyword }) => name === geoName);
+						if (getData.keyword === 'HTML') {
+							return htmlColor.mouseOver;
+						} else if (getData.keyword === 'CSS') {
+							return cssColor.mouseOver;
+						} else if (getData.keyword === 'Javascript') {
+							return javascriptColor.mouseOver;
+						} else if (getData.keyword === 'React') {
+							return reactColor.mouseOver;
+						}
+					});
+					const [xPosition, yPosition] = d3.pointer(evt);
+					console.log('d.properties : ', d.properties);
+					console.log('d : ', d);
+					createPieChart(xPosition, yPosition, d.properties && d.properties.name);
+					d3.select('#pie-tooltip').classed('hidden-pie', false);
+				})
+				.on('mouseleave', function (d) {
+					d3.select(this).attr('fill', (d) => {
+						let geoName = d.properties.name;
+						const getData = bestTrendsData.find(({ name, keyword }) => name === geoName);
+						if (getData.keyword === 'HTML') {
+							return htmlColor.default;
+						} else if (getData.keyword === 'CSS') {
+							return cssColor.default;
+						} else if (getData.keyword === 'Javascript') {
+							return javascriptColor.default;
+						} else if (getData.keyword === 'React') {
+							return reactColor.default;
+						}
+					});
+					d3.select('#pie-tooltip').classed('hidden-pie', true);
+					d3.select('#pie-tooltip').selectAll('svg').remove();
+				});
+		});
+	};
 
-	// 		map
-	// 			.selectAll('path')
-	// 			.data(features)
-	// 			.enter()
-	// 			.append('path')
-	// 			.attr('class', function (d) {
-	// 				console.log(d);
-	// 				return 'municipality c ' + d.properties.code;
-	// 			})
-	// 			.attr('d', path)
-	// 			.attr('stroke', 'white')
-	// 			.attr('fill', (d) => {
-	// 				let geoName = d.properties.name;
-	// 				const getData = bestTrendsData.find(({ name, keyword }) => name === geoName);
-	// 				if (getData.keyword === 'HTML') {
-	// 					return htmlColor.default;
-	// 				} else if (getData.keyword === 'CSS') {
-	// 					return cssColor.default;
-	// 				} else if (getData.keyword === 'Javascript') {
-	// 					return javascriptColor.default;
-	// 				} else if (getData.keyword === 'React') {
-	// 					return reactColor.default;
-	// 				}
-	// 			})
-	// 			.on('click', (d) => {})
-	// 			.on('mouseover', function (d) {
-	// 				d3.select(this).attr('fill', (d) => {
-	// 					let geoName = d.properties.name;
-	// 					const getData = bestTrendsData.find(({ name, keyword }) => name === geoName);
-	// 					if (getData.keyword === 'HTML') {
-	// 						return htmlColor.mouseOver;
-	// 					} else if (getData.keyword === 'CSS') {
-	// 						return cssColor.mouseOver;
-	// 					} else if (getData.keyword === 'Javascript') {
-	// 						return javascriptColor.mouseOver;
-	// 					} else if (getData.keyword === 'React') {
-	// 						return reactColor.mouseOver;
-	// 					}
-	// 				});
-	// 				const [xPosition, yPosition] = d3.pointer(this);
-	// 				createPieChart(xPosition, yPosition, d.properties.name);
-	// 				d3.select('#pie-tooltip').classed('hidden-pie', false);
-	// 			})
-	// 			.on('mouseleave', function (d) {
-	// 				d3.select(this).attr('fill', (d) => {
-	// 					let geoName = d.properties.name;
-	// 					const getData = bestTrendsData.find(({ name, keyword }) => name === geoName);
-	// 					if (getData.keyword === 'HTML') {
-	// 						return htmlColor.default;
-	// 					} else if (getData.keyword === 'CSS') {
-	// 						return cssColor.default;
-	// 					} else if (getData.keyword === 'Javascript') {
-	// 						return javascriptColor.default;
-	// 					} else if (getData.keyword === 'React') {
-	// 						return reactColor.default;
-	// 					}
-	// 				});
-	// 				d3.select('#pie-tooltip').classed('hidden-pie', true);
-	// 				d3.select('#pie-tooltip').selectAll('svg').remove();
-	// 			});
-	// 	});
-	// };
+	// d3.select('#tooltip')
+	// 					.style('left', xPosition + 250 + 'px')
+	// 					.style('top', yPosition + 90 + 'px')
+	// 					.select('#value')
+	// 					.text(d.name);
+	// 				d3.select('#tooltip').classed('hidden', false);
+	const createPieChart = (xPosition, yPosition, geoName) => {
+		console.log('createPieChart Func geoname Parmas : ', xPosition, yPosition, geoName);
+		// dimensions 치수
+		const dims = { height: 100, width: 100, radius: 50 };
+		// center
+		const cent = { x: dims.width / 2 + 5, y: dims.height / 2 + 5 };
+		console.log(document.documentElement.clientWidth);
+		const svg = d3
+			.select(pieRef.current)
+			.append('svg')
+			.attr('width', dims.width + 100)
+			.attr('height', dims.height + 100);
+		d3.select('#pie-tooltip')
+			.style('left', xPosition - 130 + 'px')
+			.style('top', yPosition + 250 + 'px');
+		if (document.documentElement.clientWidth > 700) {
+			d3.select('#pie-tooltip')
+				.style('left', xPosition + 450 + 'px')
+				.style('top', yPosition + 40 + 'px');
+		}
+		console.log(xPosition, yPosition);
+		const graph = svg.append('g').attr('transform', `translate(${cent.x + 50}, ${cent.y + 20})`);
 
-	// // d3.select('#tooltip')
-	// // 					.style('left', xPosition + 250 + 'px')
-	// // 					.style('top', yPosition + 90 + 'px')
-	// // 					.select('#value')
-	// // 					.text(d.name);
-	// // 				d3.select('#tooltip').classed('hidden', false);
-	// const createPieChart = (xPosition, yPosition, geoName) => {
-	// 	// dimensions 치수
-	// 	const dims = { height: 100, width: 100, radius: 50 };
-	// 	// center
-	// 	const cent = { x: dims.width / 2 + 5, y: dims.height / 2 + 5 };
-	// 	console.log(document.documentElement.clientWidth);
-	// 	const svg = d3
-	// 		.select(pieRef.current)
-	// 		.append('svg')
-	// 		.attr('width', dims.width + 100)
-	// 		.attr('height', dims.height + 100)
-	// 		.style('left', document.documentElement.clientWidth - xPosition - 100)
-	// 		.style('top', yPosition);
-	// 	console.log(xPosition, yPosition);
-	// 	const graph = svg.append('g').attr('transform', `translate(${cent.x}, ${cent.y})`);
+		const pie = d3
+			.pie()
+			.sort(null)
+			.value((d) => d.percentage.slice(0, -1));
 
-	// 	const pie = d3
-	// 		.pie()
-	// 		.sort(null)
-	// 		.value((d) => d.percentage.slice(0, -1));
+		const arcPath = d3
+			.arc()
+			.outerRadius(dims.radius)
+			.innerRadius(dims.radius / 2);
 
-	// 	const arcPath = d3
-	// 		.arc()
-	// 		.outerRadius(dims.radius)
-	// 		.innerRadius(dims.radius / 2);
+		const colorData = [javascriptColor.default, htmlColor.default, cssColor.default, reactColor.default];
 
-	// 	const colorData = ['blue', 'red', 'black', 'yellow'];
+		const update = (data) => {
+			// // update color scale domain
+			// color.domain(data.map((d) => d.name));
+			// Join enhanced (pie) data to path elements
 
-	// 	const update = (data) => {
-	// 		// // update color scale domain
-	// 		// color.domain(data.map((d) => d.name));
-	// 		// Join enhanced (pie) data to path elements
-	// 		const path = graph.selectAll('path').data(pie(data));
+			const path = graph.selectAll('path').data(pie(data));
 
-	// 		path
-	// 			.enter()
-	// 			.append('path')
-	// 			.attr('class', 'arc')
-	// 			.attr('d', arcPath)
-	// 			.attr('stroke', 'white')
-	// 			.attr('stroke-width', 3)
-	// 			.style('fill', function (d, i) {
-	// 				return colorData[i];
-	// 			});
+			console.log('update func data : ', data);
+			path
+				.enter()
+				.append('path')
+				.attr('class', 'arc')
+				.attr('d', arcPath)
+				.attr('stroke', 'white')
+				.attr('stroke-width', 3)
+				.style('fill', function (d, i) {
+					return colorData[i];
+				});
 
-	// 		graph.selectAll('path').on('mouseover', handleMouseOver).on('mouseout', handleMouseOut);
-	// 	};
+			graph.selectAll('path').on('mouseover', handleMouseOver).on('mouseout', handleMouseOut);
 
-	// 	d3.csv('/csv/geoMap.csv').then((data) => {
-	// 		const settingData = data.map(({ 지역, Javascript, HTML, CSS, React }) => {
-	// 			return {
-	// 				geoName: 지역,
-	// 				datas: [
-	// 					{ name: 'Javascript', percentage: Javascript },
-	// 					{ name: 'HTML', percentage: HTML },
-	// 					{ name: 'CSS', percentage: CSS },
-	// 					{ name: 'React', percentage: React },
-	// 				],
-	// 			};
-	// 		});
-	// 		const overedGeoData = settingData.find((data) => data.geoName === geoName);
+			// add text
+			// svg
+			// 	.selectAll('text')
+			// 	.data(data)
+			// 	.enter()
+			// 	.append('text')
+			// 	.text(function (d) {
+			// 		console.log(d);
+			// 		return d.name;
+			// 	})
+			// 	.attr("x", function(d,i){
+			// 		return
+			// 	})
+		};
 
-	// 		update(overedGeoData.datas);
-	// 	});
+		d3.csv('/csv/geoMap.csv').then((data) => {
+			console.log('/csv/geoMap.csv data : ', data);
+			const settingData = data.map(({ 지역, Javascript, HTML, CSS, React }) => {
+				return {
+					geoName: 지역,
+					datas: [
+						{ name: 'Javascript', percentage: Javascript },
+						{ name: 'HTML', percentage: HTML },
+						{ name: 'CSS', percentage: CSS },
+						{ name: 'React', percentage: React },
+					],
+				};
+			});
+			console.log('settingData : ', settingData);
+			const overedGeoData = settingData.find((data) => data.geoName === geoName);
 
-	// 	// event handlers
-	// 	function handleMouseOver(d) {
-	// 		d3.select(this).transition('changeSliceFill').duration(300).attr('fill', 'white');
-	// 	}
+			if (overedGeoData) {
+				console.log('overedGeoData : ', overedGeoData);
+				update(overedGeoData.datas);
+			}
+		});
 
-	// 	function handleMouseOut(d) {
-	// 		d3.select(this).transition('changeSliceFill').duration(300).attr('fill', 'green');
-	// 	}
-	// };
+		// event handlers
+		function handleMouseOver(d) {
+			d3.select(this).transition('changeSliceFill').duration(300).attr('fill', 'white');
+		}
+
+		function handleMouseOut(d) {
+			d3.select(this).transition('changeSliceFill').duration(300).attr('fill', 'green');
+		}
+	};
 
 	return (
 		<>
-			<h2>Trends</h2>
 			<TrendsWrapper>
 				<div className="left-section">
 					<div className="bar-chart-wrapper">
@@ -603,19 +679,18 @@ const Trends = () => {
 					<div className="line-chart-wrapper">
 						<svg ref={lineRef}></svg>
 					</div>
-					<div className="ranking-word-wrapper">
-						<div></div>
-					</div>
 				</div>
 				<div className="right-section">
-					<div className="map-wrapper">{/* <svg ref={mapRef} className="map"></svg> */}</div>
+					<div className="map-wrapper">
+						<svg ref={mapRef} className="map"></svg>
+					</div>
 				</div>
 				<div id="tooltip" className="hidden">
 					<p>
 						<b id="value"></b>
 					</p>
 				</div>
-				{/* <div ref={pieRef} id="pie-tooltip" className="hidden-pie"></div> */}
+				<div ref={pieRef} id="pie-tooltip" className="hidden-pie"></div>
 			</TrendsWrapper>
 		</>
 	);

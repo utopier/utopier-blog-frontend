@@ -69,6 +69,7 @@ const CommentList = ({ commentData }: any) => {
 		setContent('');
 	};
 
+	console.log('commentData : ',commentData)
 	return (
 		<CommentListWrapper className="post__comments">
 			<div className="post__comments--title">

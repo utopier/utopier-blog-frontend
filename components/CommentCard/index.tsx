@@ -37,6 +37,7 @@ const CommentCardWrapper = styled.div`
 `;
 
 const CommentCard = ({ commentData }) => {
+	console.log('Rendering CommentCard')
 	const { id, createdDate, content, user } = commentData;
 	const { me } = useSelector<RootState, any>((state) => state.user);
 	const dispatch = useDispatch();
@@ -81,7 +82,7 @@ const CommentCard = ({ commentData }) => {
 						<span>{user.nickname}</span>
 						<span>{createdDate || '2020년 10월 1일'}</span>
 					</div>
-					{me.id === user.id ? (
+					{me && me.id === user.id ? (
 						<div className="comment-card--btn-group">
 							<Button text="수정" width="50px" height="25px" onClick={onClickUpdateCommentBtn} />
 							<Button text="삭제" width="50px" height="25px" onClick={onClickDeleteCommentBtn} />

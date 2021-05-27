@@ -1,0 +1,75 @@
+# Blog CICD
+---
+## Tech
+- CICD Tool
+    - []CircleCI
+        - https://github.com/utopier/document/tree/master/CICD
+        - https://github.com/utopier/document/blob/master/CICD/CircleCI.md
+    - TravisCI
+    - Jenkins
+    - []AWS CodePipeline
+        - https://github.com/utopier/document/blob/master/CICD/AWSCodePipeline.md
+- Test
+    - []jest
+        - https://github.com/utopier/document/blob/master/Testing/jest.md
+    - []react-testing-library
+        - https://github.com/utopier/document/blob/master/Testing/react-testing-library.md
+    - []cypress
+        - https://github.com/utopier/document/blob/master/Testing/cypress.md
+- Build
+    - []Webpack
+        - https://github.com/utopier/document/blob/master/Build/Webpack.md
+    - []Babel
+        - https://github.com/utopier/document/blob/master/Build/Babel.md
+    - []Next Build
+        - https://github.com/utopier/document/blob/master/Build/NextBuild.md
+    - []serverless-nextjs-plugin
+        - https://github.com/utopier/document/blob/master/Build/serverless-nextjs-plugin.md
+- Deploy
+    - []IT Infra
+    - CS
+        - []CA
+        - []OS
+        - []Network
+        - []DB
+    - Database
+        - []MySQL
+        - []MongoDB
+        - []PostgreSQL
+        - []PostGIS
+        - []InfluxDB
+        - []Redis
+        - []ELK
+        - []Kafka
+        - []Hadoop
+        - []Spark
+    - []Linux
+    - WebServer
+        - []Nginx
+    - []Container
+        - []Docker
+        - []k8s
+    - []CloudComputing
+        - []AWS
+            - []EC2
+            - []Lambda
+            - []API Gateway
+            - []CloudFormation
+            - []RDS
+            - []S3
+            - []CloudFront
+            - []Route53
+        - []GCP
+        - []Azure
+        - []Heroku
+        - []GitHosting
+        - []Serverless Framework
+    - []Rendering
+        - SPA
+        - SSR
+        - CSR
+    - Mechanism
+        - []Nodejs
+        - []JavaScript
+        - []TypeScript
+        - []Browser

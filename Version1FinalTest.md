@@ -164,9 +164,17 @@
         - userList Slide Navigation
     - [] Performance
     
-- [-] /trends
-    - [-] d3js
-    - [-] bar chart
+- [-] /trends (GoogleTrends) 
+    - [-] UIUX Responsive Mobile
+        - [O] barChart mouseover 
+        - [-] pieChart mouseover
+            - overedGeoData 활용해서 pieChart Reset
+        - [] Line Chart
+            - mouseover Event Handling
+            - mouseout
+            - 점선표시
+        - [] add Text
+    - [-] d3js doc & tuto
         - d3.mouse -> d3.pointer (v6)
         - useRef
         - d3.select, d3.selectAll
@@ -179,24 +187,53 @@
         - axisBottom,axisLeft
         - xAxisGroup.call
         - d3.on
-    - [-] line chart
-    - [] korea map
-    - [] pie chart
-    - [] UIUX Responsive Mobile
-    - [] Refactoring
 
 ---
+- [] Pages UIUX Responsive Mobile 
+- [] Pages API Test
+- [] Pages TDD, DDD
+- [] Pages Rendering
 
-- [] Like Btn
-- [] Follow & UnFollow Btn
 
-- [] Infinity Scrolling
-- [] Pagination
-- [] Slider
-
-- [] Pages API Test, TDD, Rendering, UIUX, Responsive 
-
----
+- [] Responsive Navigation
+    - Search
+- [] Home
+    - Interactive 
+- [] Posts
+    - Infinity Scroll
+    - Create Post
+        - 파일선택, Close Btn Design
+    - Newest, Popular
+    - PostCard
+        - Like Btn
+        - Tag
+        - User
+- [] Post
+    - tag
+    - Like Btn
+    - User
+    - CommentCard
+        - User
+- [] Tags
+    - Pagination
+    - Tag Search
+    - Newest, Popular
+    - Tag Page
+- [] Users
+    - Infinity Scroll
+    - User Search
+    - Newest & Popular
+    - Follow & UnFollow Btn
+- [] User
+    - Slider
+- [] Chats
+- [] Trends
+    - PieChart Text
+    - LineChart Event
+        - mouseover, mouserout, 점선표시
+    - Add Text Design
+- [] SignUp
+- [] Login
 
 ## Devops
 - [] Github
