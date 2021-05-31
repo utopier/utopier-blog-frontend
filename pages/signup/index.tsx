@@ -64,6 +64,7 @@ const SignUp = ({ data }: InferGetServerSidePropsType<typeof getServerSideProps>
 	useEffect(() => {
 		if (signUpError) {
 			alert(signUpError);
+			console.log(signUpError)
 		}
 	}, [signUpError]);
 

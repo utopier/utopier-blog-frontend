@@ -144,7 +144,7 @@ const Trends = () => {
 		const xAxisGroup = graph.append('g').attr('transform', `translate(0, ${graphHeight})`); // x축 아래로 translate
 		const yAxisGroup = graph.append('g');
 
-		d3.csv(`/csv/multiTimeline.csv`).then((data) => {
+		d3.csv('/csv/multiTimeline.csv').then((data) => {
 			console.log('process.env.NODE_ENV : ', process.env.NODE_ENV);
 			console.log('multiTimeline csv data : ', data);
 			// xValues = ["javascript", "HTML", "CSS", "React"]

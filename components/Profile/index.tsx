@@ -232,7 +232,7 @@ const Profile = ({ userData }: any): any => {
 							height="200vh"
 							alt="유저 아바타"
 						/>
-						{me.id === id && (
+						{me && me.id === id && (
 							<div style={{ width: '250px' }}>
 								<input id="mainImage" type="file" onChange={onChangeAvatarImg} style={{ width: '200px' }} />
 								<button style={{ display: 'inline-block' }} className="remove-img-btn" onClick={onRemoveAvatarImg}>
@@ -244,7 +244,7 @@ const Profile = ({ userData }: any): any => {
 					<div className="prfile__user-info-card--intro">
 						<div>
 							<span className="profile__nickname">Nickname : {nickname}</span>
-							{me.id === id && (
+							{me && me.id === id && (
 								<div>
 									<div className="profile__nickname-input">
 										<input
@@ -263,11 +263,11 @@ const Profile = ({ userData }: any): any => {
 						</div>
 						<div>
 							<p className="profile__bio">
-								{(me.bio && bio) ||
+								{(me && me.bio && bio) ||
 									`"Check out my book Data Analysis Using SQL and Excel". I have a blog with periodic posts about data
 								analysis and SQL here at blog.data-miners.com.`}
 							</p>
-							{me.id === id && (
+							{me && me.id === id && (
 								<div>
 									<div className="profile__bio-textarea">
 										<textarea

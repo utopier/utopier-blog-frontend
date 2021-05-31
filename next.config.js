@@ -1,14 +1,12 @@
-const { PHASE_DEVELOPMENT_SERVER } = require('next/constants')
+const { PHASE_DEVELOPMENT_SERVER } = require('next/constants');
 
-module.exports = (phase, { defaultConfig }) => {
-  if (phase === PHASE_DEVELOPMENT_SERVER) {
-    return {
-      /* development only config options here */
-    }
-  }
-
-  return {
-    /* config options for all phases except development here */
-    target: 'serverless',
-  }
-}
+module.exports = {
+	async rewrites() {
+		return [
+			{
+				source: '/api/:path*',
+				destination: 'https://lwdc6kzck0.execute-api.ap-northeast-2.amazonaws.com/:path*',
+			},
+		];
+	},
+};
