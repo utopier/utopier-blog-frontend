@@ -457,6 +457,7 @@ const reducer = (state: PostState = initialState, action: any): PostState =>
 				break;
 			case 'post/LOAD_POSTS_SUCCESS':
 				draft.loadPostsLoading = false;
+				console.log('LOAD_POSTS_SUCCESS action.data : ',action.data);
 				if (action.data.filtering && !action.data.skipNum) {
 					draft.mainPosts = action.data.posts;
 					if (action.data.searchedPostsCount) {
@@ -605,9 +606,17 @@ const reducer = (state: PostState = initialState, action: any): PostState =>
 				draft.updateCommentError = null;
 				break;
 			case 'post/UPDATE_COMMENT_SUCCESS':
-				console.log('action.data : ', action.data);
-				const comment = draft.singlePost.comments.find((v) => v.id === action.data.id);
-				comment.content = action.data.content;
+				console.log(draft.singlePost.comments)	
+				console.log('UPDATE_COMMENT_SUCCESS actiond.data : ', action.data)
+				// const post = draft.mainPosts.find((v) => v.id === +action.data.postId);
+				// post.likers = post.likers.filter((v) => v.id !== action.data.userId);
+				draft.singlePost.comments.forEach((v) => {
+					if(v.id == action.data.id){
+						console.log(v.content)
+						v.content = action.data.content
+						console.log(v.content)
+					}	
+				});
 				draft.updateCommentLoading = false;
 				draft.updateCommentDone = true;
 				break;
@@ -621,7 +630,11 @@ const reducer = (state: PostState = initialState, action: any): PostState =>
 				draft.removeCommentError = null;
 				break;
 			case 'post/REMOVE_COMMENT_SUCCESS':
-				draft.singlePost.comments = draft.singlePost.comments.filter((v) => v.id !== action.data.CommentId);
+				console.log('REMOVE_COMMENT_SUCCESS action.data : ',action.data.commentId);
+				draft.singlePost.comments = draft.singlePost.comments.filter((v) => {
+					console.log(v.id);
+					return v.id != action.data.commentId
+				});
 				draft.removeCommentLoading = false;
 				draft.removeCommentDone = true;
 				break;

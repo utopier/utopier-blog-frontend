@@ -40,6 +40,7 @@ const Users = ({}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
 		};
 	}, [hasMoreUsers, loadUsersLoading, usersInfo]);
 
+	console.log('usersInfo : ',usersInfo);
 	return (
 		<>
 			<SubNav />
@@ -57,9 +58,16 @@ export const getServerSideProps = wrapper.getServerSideProps(async (context: any
 	context.store.dispatch({
 		type: LOAD_MY_INFO_REQUEST,
 	});
-	context.store.dispatch({
-		type: LOAD_USERS_REQUEST,
-	});
+	if(context.req.__NEXT_INIT_QUERY.searchTerm){
+		context.store.dispatch({
+			type: LOAD_USERS_REQUEST,
+			data: {searchQuery: context.req.__NEXT_INIT_QUERY.searchTerm}
+		});
+	} else {
+		context.store.dispatch({
+			type: LOAD_USERS_REQUEST,
+		});
+	}
 	context.store.dispatch(END);
 	await context.store.sagaTask.toPromise();
 });

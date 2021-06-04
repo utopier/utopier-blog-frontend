@@ -1,4 +1,5 @@
 import produce from 'immer';
+import { getAllJSDocTagsOfKind } from 'typescript';
 
 // 액션 type
 // as const (const assertions) : 액션 생성함수를 통해 액션 객체를 만들때 typescript type이 string이 아닌 실제값을 가리킴.
@@ -559,7 +560,14 @@ const reducer = (state: UserState = initialState, action: any): UserState =>
 				break;
 			case FOLLOW_SUCCESS:
 				draft.followLoading = false;
-				draft.me.followings.push({ id: action.data.UserId });
+				console.log('FOLLOW_SUCCESS actiond.data : ',action.data );
+				draft.me.followings.push({ id: action.data.userId });
+				console.log('draft.users : ', draft.usersInfo);
+				draft.usersInfo.forEach(v => {
+					if(v.id == action.data.userId){
+						v.followers.push({id: action.data.userId});
+					}
+				});
 				draft.followDone = true;
 				break;
 			case FOLLOW_FAILURE:
@@ -573,7 +581,13 @@ const reducer = (state: UserState = initialState, action: any): UserState =>
 				break;
 			case UNFOLLOW_SUCCESS:
 				draft.unfollowLoading = false;
-				draft.me.followings = draft.me.followings.filter((v) => v.id !== action.data.UserId);
+				console.log('Unfollow action.data : ',action.data);
+				draft.me.followings = draft.me.followings.filter((v) => v.id != action.data.userId);
+				draft.usersInfo.forEach(v => {
+					if(v.id == action.data.userId){
+						v.followers = v.followers.filter(v => v.id != action.data.userId);
+					}
+				});
 				draft.unfollowDone = true;
 				break;
 			case UNFOLLOW_FAILURE:

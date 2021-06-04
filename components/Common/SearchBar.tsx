@@ -1,10 +1,12 @@
 import styled from '@emotion/styled';
-// import { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 // import { useDispatch, useSelector } from 'react-redux';
 import React from 'react';
 
 // import { LOAD_POSTS_REQUEST, LOAD_TAGS_REQUEST } from '../../store/redux/reducers/post';
 // import { LOAD_USERS_REQUEST } from '../../store/redux/reducers/user';
+
+import useInput from '../../hooks/useInput'
 
 const SearchBarWrapper = styled.div`
 	display: flex;
@@ -40,16 +42,26 @@ const SearchBarWrapper = styled.div`
 
 const SearchBar = ({ placeholder, id }) => {
 	// const dispatch = useDispatch();
-	// const router = useRouter();
+	const router = useRouter();
 	// const route = router.route.slice(1).toUpperCase();
-	// const [searchQuery, setSearchQuery] = useState(0);
+	console.log(router.pathname);
+	const [searchTerm, onChangeSearchTerm, setSearchTerm] = useInput('');
 
-	const onChangeSearchBar = (e) => {
-        console.log('onChangeSearchBar')
-		// setSearchQuery(e.target.value);
-	};
 	const onKeyPressSearchBar = (e) => {
-        console.log('onKeyPressSearchBar')
+        console.log('onKeyPressSearchBar');
+		if(e.key ==='Enter'){
+			if(e.target.id === 'subnav_searchbar' && router.pathname === '/tags'){
+				router.push(`/tags?searchTerm=${searchTerm}`);
+				setSearchTerm('');	
+			} else if(e.target.id === 'subnav_searchbar' && router.pathname === '/users'){
+				router.push(`/users?searchTerm=${searchTerm}`);
+				setSearchTerm('');			
+			} 
+			else if(e.target.id === 'main-search-bar') {
+				router.push(`/posts?searchTerm=${searchTerm}`);
+				setSearchTerm('');	
+			}
+		}
 		// if (e.target.id === 'main-search-bar') {
 		// 	router.push('/posts');
 		// }
@@ -73,7 +85,8 @@ const SearchBar = ({ placeholder, id }) => {
 				id={id}
 				type="text"
 				placeholder={placeholder || 'Search...'}
-				onChange={onChangeSearchBar}
+				value={searchTerm}
+				onChange={onChangeSearchTerm}
 				onKeyPress={onKeyPressSearchBar}
 			/>
 			<img className="search--icon" src="/icons/search.svg" width="35" height="35" />

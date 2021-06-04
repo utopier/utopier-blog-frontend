@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -49,24 +49,29 @@ const UserCardWarpper = styled.div`
 `;
 
 const UserCard = ({ userData }: any) => {
+	console.log('rendering usercard')
 	const { id, avatar, email, nickname, posts, followers, followings } = userData;
 	const router = useRouter();
 	const { me } = useSelector<RootState, any>((state) => state.user);
 	const dispatch = useDispatch();
-	let isFollowing = me && me.followings.find((v) => v.id === id);
+	const [isFollowing, setIsFollowings] = useState(me && me.followings.find((v) => v.id == id));
+	// let isFollowing = me && me.followings.find((v) => v.id === id);
+	console.log('UserCard me : ', me);
+	useEffect(() => {
+		setIsFollowings(me && me.followings.find((v) => v.id == id));
+	},[me])
 	const handleClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
 		e.preventDefault();
 		router.push(`/user/${id}`);
 	}, []);
-	const onClickFollowBtn = useCallback(
+	const onClickFollowBtn = (
 		(e) => {
 			if (isFollowing) {
 				dispatch({ type: UNFOLLOW_REQUEST, data: id });
 			} else {
 				dispatch({ type: FOLLOW_REQUEST, data: id });
 			}
-		},
-		[isFollowing]
+		}
 	);
 
 	return (

@@ -4,6 +4,7 @@ import PostList from '../../components/PostList';
 import { useEffect } from 'react';
 import Head from 'next/head';
 import { InferGetServerSidePropsType } from 'next';
+import { useRouter } from 'next/router';
 
 import { LOAD_POSTS_REQUEST } from '../../store/reducers/post';
 import { useSelector, useDispatch } from 'react-redux';
@@ -36,6 +37,8 @@ import wrapper from '../../store';
 // 	- getServerSideProps
 
 const Posts = ({}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+	const router = useRouter();
+	console.log('router.query.searchTerm : ',router.query.searchTerm);
 	const { mainPosts, hasMorePosts, loadPostsLoading } = useSelector<RootState, any>((state) => state.post);
 	const dispatch = useDispatch();
 	useEffect(() => {
@@ -82,9 +85,17 @@ export const getServerSideProps = wrapper.getServerSideProps(async (context: any
 	context.store.dispatch({
 		type: LOAD_USERS_REQUEST,
 	});
-	context.store.dispatch({
-		type: LOAD_POSTS_REQUEST,
-	});
+	if(context.req.__NEXT_INIT_QUERY.searchTerm){
+		context.store.dispatch({
+			type: LOAD_POSTS_REQUEST,
+			data: {searchQuery: context.req.__NEXT_INIT_QUERY.searchTerm}
+		});
+	} else {
+		context.store.dispatch({
+			type: LOAD_POSTS_REQUEST,
+		});
+	}
+	console.log('getSearverSIdeProps context.req.__NEXT_INIT_QUERY.searchTerm : ', context.req.__NEXT_INIT_QUERY.searchTerm);
 	context.store.dispatch(END);
 	await context.store.sagaTask.toPromise();
 });

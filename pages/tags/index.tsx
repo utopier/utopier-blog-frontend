@@ -83,9 +83,16 @@ export const getServerSideProps = wrapper.getServerSideProps(async (context: any
 	context.store.dispatch({
 		type: LOAD_POSTS_REQUEST,
 	});
-	context.store.dispatch({
-		type: LOAD_TAGS_REQUEST,
-	});
+	if(context.req.__NEXT_INIT_QUERY.searchTerm){
+		context.store.dispatch({
+			type: LOAD_TAGS_REQUEST,
+			data: {searchQuery: context.req.__NEXT_INIT_QUERY.searchTerm}
+		});
+	} else {
+		context.store.dispatch({
+			type: LOAD_TAGS_REQUEST,
+		});
+	}
 	context.store.dispatch(END);
 	await context.store.sagaTask.toPromise();
 });

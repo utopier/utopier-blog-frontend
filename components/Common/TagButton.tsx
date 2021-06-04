@@ -28,7 +28,6 @@ const TagButtonWrapper = styled.div`
 `;
 
 const TagButton = ({ id, name }) => {
-	console.log(name);
 	return (
 		<TagButtonWrapper>
 			<button id={id}>{name}</button>
