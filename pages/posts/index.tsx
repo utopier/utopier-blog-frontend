@@ -85,7 +85,7 @@ export const getServerSideProps = wrapper.getServerSideProps(async (context: any
 	context.store.dispatch({
 		type: LOAD_USERS_REQUEST,
 	});
-	if(context.req.__NEXT_INIT_QUERY.searchTerm){
+	if(context.req && context.req.__NEXT_INIT_QUERY && context.req.__NEXT_INIT_QUERY.searchTerm){
 		context.store.dispatch({
 			type: LOAD_POSTS_REQUEST,
 			data: {searchQuery: context.req.__NEXT_INIT_QUERY.searchTerm}
