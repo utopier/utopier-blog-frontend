@@ -294,9 +294,10 @@ const PostPage = ({}: InferGetServerSidePropsType<typeof getServerSideProps>) =>
 
 export const getServerSideProps = wrapper.getServerSideProps(async (context: any) => {
 	const cookie = context.req ? context.req.headers.cookie : '';
-	axios.defaults.headers.Cookie = '';
+	axios.defaults.headers.cookie = '';
+	console.log(context.req.headers);
 	if (context.req && cookie) {
-		axios.defaults.headers.Cookie = cookie;
+		axios.defaults.headers.cookie = cookie;
 	}
 	context.store.dispatch({
 		type: LOAD_MY_INFO_REQUEST,
