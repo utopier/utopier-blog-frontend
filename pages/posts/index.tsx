@@ -76,10 +76,8 @@ const Posts = ({}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
 export const getServerSideProps = wrapper.getServerSideProps(async (context: any) => {
 	const cookie = context.req ? context.req.headers.cookie : '';
 	axios.defaults.headers.Cookie = '';
-	console.log('getServerSideProps cookie : ', cookie);
 	if (context.req && cookie) {
 		axios.defaults.headers.Cookie = cookie;
-		console.log('getServerSideProps axios.defaults.headers.Cookie : ', axios.defaults.headers.Cookie);
 	}
 	context.store.dispatch({
 		type: LOAD_MY_INFO_REQUEST,
@@ -98,6 +96,8 @@ export const getServerSideProps = wrapper.getServerSideProps(async (context: any
 		});
 	}
 	console.log('getSearverSIdeProps context.req.__NEXT_INIT_QUERY.searchTerm : ', context.req.__NEXT_INIT_QUERY.searchTerm);
+	console.log('getServerSideProps cookie : ', cookie);
+	console.log('getServerSideProps axios.defaults.headers.Cookie : ', axios.defaults.headers.Cookie);
 	context.store.dispatch(END);
 	await context.store.sagaTask.toPromise();
 });
