@@ -457,7 +457,6 @@ const reducer = (state: PostState = initialState, action: any): PostState =>
 				break;
 			case 'post/LOAD_POSTS_SUCCESS':
 				draft.loadPostsLoading = false;
-				console.log('LOAD_POSTS_SUCCESS action.data : ',action.data);
 				if (action.data.filtering && !action.data.skipNum) {
 					draft.mainPosts = action.data.posts;
 					if (action.data.searchedPostsCount) {
