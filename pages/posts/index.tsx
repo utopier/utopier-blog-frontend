@@ -15,6 +15,8 @@ import axios from 'axios';
 import { LOAD_MY_INFO_REQUEST, LOAD_USERS_REQUEST } from '../../store/reducers/user';
 import wrapper from '../../store';
 
+import Cookies from 'js-cookie';
+
 // robots.txt
 // sitemap.xml
 
@@ -37,6 +39,7 @@ import wrapper from '../../store';
 // 	- getServerSideProps
 
 const Posts = ({}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+	console.log('js-cookie : ', Cookies.get('sessionId'));
 	const router = useRouter();
 	console.log('router.query.searchTerm : ',router.query.searchTerm);
 	const { mainPosts, hasMorePosts, loadPostsLoading } = useSelector<RootState, any>((state) => state.post);
