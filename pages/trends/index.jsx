@@ -144,18 +144,17 @@ const Trends = () => {
 		const xAxisGroup = graph.append('g').attr('transform', `translate(0, ${graphHeight})`); // x축 아래로 translate
 		const yAxisGroup = graph.append('g');
 
-		d3.csv('/csv/multiTimeline.csv').then((data) => {
-			console.log('process.env.NODE_ENV : ', process.env.NODE_ENV);
-			console.log('multiTimeline csv data : ', data);
-			// xValues = ["javascript", "HTML", "CSS", "React"]
-			const xValues = data.columns.slice(1);
-			// yValues = ["76","78","67","46"]
-			const yValues = [
-				Math.round(d3.mean(data, (d) => d.Javascript)),
-				Math.round(d3.mean(data, (d) => d.HTML)),
-				Math.round(d3.mean(data, (d) => d.CSS)),
-				Math.round(d3.mean(data, (d) => d.React)),
-			];
+		d3.json('/multiTimeline.json').then((data) => {
+			// console.log('multiTimeline csv data : ', data);
+			xValues = ['javascript', 'HTML', 'CSS', 'React'];
+			// const xValues = data.columns.slice(1);
+			yValues = ['76', '78', '67', '46'];
+			// const yValues = [
+			// 	Math.round(d3.mean(data, (d) => d.Javascript)),
+			// 	Math.round(d3.mean(data, (d) => d.HTML)),
+			// 	Math.round(d3.mean(data, (d) => d.CSS)),
+			// 	Math.round(d3.mean(data, (d) => d.React)),
+			// ];
 			const RectValues = [
 				{ name: 'Javascript', mean: 76 },
 				{ name: 'HTML', mean: 78 },

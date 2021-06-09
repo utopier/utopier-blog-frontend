@@ -1,0 +1,366 @@
+[
+ {
+   "date": "2019-09-29",
+   "Javascript": 61,
+   "HTML": 66,
+   "CSS": 46,
+   "React": 39
+ },
+ {
+   "date": "2019-10-06",
+   "Javascript": 69,
+   "HTML": 68,
+   "CSS": 56,
+   "React": 33
+ },
+ {
+   "date": "2019-10-13",
+   "Javascript": 79,
+   "HTML": 73,
+   "CSS": 56,
+   "React": 43
+ },
+ {
+   "date": "2019-10-20",
+   "Javascript": 74,
+   "HTML": 68,
+   "CSS": 55,
+   "React": 44
+ },
+ {
+   "date": "2019-10-27",
+   "Javascript": 72,
+   "HTML": 75,
+   "CSS": 57,
+   "React": 41
+ },
+ {
+   "date": "2019-11-03",
+   "Javascript": 71,
+   "HTML": 78,
+   "CSS": 57,
+   "React": 37
+ },
+ {
+   "date": "2019-11-10",
+   "Javascript": 78,
+   "HTML": 78,
+   "CSS": 56,
+   "React": 41
+ },
+ {
+   "date": "2019-11-17",
+   "Javascript": 77,
+   "HTML": 78,
+   "CSS": 60,
+   "React": 45
+ },
+ {
+   "date": "2019-11-24",
+   "Javascript": 73,
+   "HTML": 74,
+   "CSS": 60,
+   "React": 40
+ },
+ {
+   "date": "2019-12-01",
+   "Javascript": 73,
+   "HTML": 75,
+   "CSS": 57,
+   "React": 35
+ },
+ {
+   "date": "2019-12-08",
+   "Javascript": 71,
+   "HTML": 74,
+   "CSS": 65,
+   "React": 44
+ },
+ {
+   "date": "2019-12-15",
+   "Javascript": 79,
+   "HTML": 74,
+   "CSS": 58,
+   "React": 44
+ },
+ {
+   "date": "2019-12-22",
+   "Javascript": 62,
+   "HTML": 53,
+   "CSS": 58,
+   "React": 38
+ },
+ {
+   "date": "2019-12-29",
+   "Javascript": 61,
+   "HTML": 58,
+   "CSS": 52,
+   "React": 35
+ },
+ {
+   "date": "2020-01-05",
+   "Javascript": 80,
+   "HTML": 79,
+   "CSS": 66,
+   "React": 45
+ },
+ {
+   "date": "2020-01-12",
+   "Javascript": 80,
+   "HTML": 80,
+   "CSS": 71,
+   "React": 53
+ },
+ {
+   "date": "2020-01-19",
+   "Javascript": 63,
+   "HTML": 65,
+   "CSS": 62,
+   "React": 41
+ },
+ {
+   "date": "2020-01-26",
+   "Javascript": 62,
+   "HTML": 66,
+   "CSS": 54,
+   "React": 42
+ },
+ {
+   "date": "2020-02-02",
+   "Javascript": 79,
+   "HTML": 77,
+   "CSS": 74,
+   "React": 50
+ },
+ {
+   "date": "2020-02-09",
+   "Javascript": 82,
+   "HTML": 73,
+   "CSS": 69,
+   "React": 54
+ },
+ {
+   "date": "2020-02-16",
+   "Javascript": 78,
+   "HTML": 77,
+   "CSS": 64,
+   "React": 45
+ },
+ {
+   "date": "2020-02-23",
+   "Javascript": 76,
+   "HTML": 76,
+   "CSS": 63,
+   "React": 40
+ },
+ {
+   "date": "2020-03-01",
+   "Javascript": 80,
+   "HTML": 64,
+   "CSS": 65,
+   "React": 43
+ },
+ {
+   "date": "2020-03-08",
+   "Javascript": 80,
+   "HTML": 73,
+   "CSS": 68,
+   "React": 47
+ },
+ {
+   "date": "2020-03-15",
+   "Javascript": 78,
+   "HTML": 81,
+   "CSS": 63,
+   "React": 41
+ },
+ {
+   "date": "2020-03-22",
+   "Javascript": 75,
+   "HTML": 80,
+   "CSS": 69,
+   "React": 45
+ },
+ {
+   "date": "2020-03-29",
+   "Javascript": 79,
+   "HTML": 83,
+   "CSS": 71,
+   "React": 48
+ },
+ {
+   "date": "2020-04-05",
+   "Javascript": 75,
+   "HTML": 83,
+   "CSS": 73,
+   "React": 48
+ },
+ {
+   "date": "2020-04-12",
+   "Javascript": 64,
+   "HTML": 70,
+   "CSS": 65,
+   "React": 44
+ },
+ {
+   "date": "2020-04-19",
+   "Javascript": 74,
+   "HTML": 82,
+   "CSS": 66,
+   "React": 50
+ },
+ {
+   "date": "2020-04-26",
+   "Javascript": 64,
+   "HTML": 68,
+   "CSS": 64,
+   "React": 40
+ },
+ {
+   "date": "2020-05-03",
+   "Javascript": 65,
+   "HTML": 71,
+   "CSS": 65,
+   "React": 39
+ },
+ {
+   "date": "2020-05-10",
+   "Javascript": 79,
+   "HTML": 87,
+   "CSS": 73,
+   "React": 45
+ },
+ {
+   "date": "2020-05-17",
+   "Javascript": 78,
+   "HTML": 89,
+   "CSS": 76,
+   "React": 55
+ },
+ {
+   "date": "2020-05-24",
+   "Javascript": 81,
+   "HTML": 87,
+   "CSS": 78,
+   "React": 51
+ },
+ {
+   "date": "2020-05-31",
+   "Javascript": 84,
+   "HTML": 92,
+   "CSS": 73,
+   "React": 58
+ },
+ {
+   "date": "2020-06-07",
+   "Javascript": 83,
+   "HTML": 96,
+   "CSS": 75,
+   "React": 55
+ },
+ {
+   "date": "2020-06-14",
+   "Javascript": 92,
+   "HTML": 100,
+   "CSS": 75,
+   "React": 52
+ },
+ {
+   "date": "2020-06-21",
+   "Javascript": 84,
+   "HTML": 91,
+   "CSS": 78,
+   "React": 47
+ },
+ {
+   "date": "2020-06-28",
+   "Javascript": 81,
+   "HTML": 91,
+   "CSS": 78,
+   "React": 52
+ },
+ {
+   "date": "2020-07-05",
+   "Javascript": 88,
+   "HTML": 85,
+   "CSS": 76,
+   "React": 52
+ },
+ {
+   "date": "2020-07-12",
+   "Javascript": 90,
+   "HTML": 86,
+   "CSS": 76,
+   "React": 53
+ },
+ {
+   "date": "2020-07-19",
+   "Javascript": 88,
+   "HTML": 83,
+   "CSS": 82,
+   "React": 57
+ },
+ {
+   "date": "2020-07-26",
+   "Javascript": 86,
+   "HTML": 80,
+   "CSS": 77,
+   "React": 59
+ },
+ {
+   "date": "2020-08-02",
+   "Javascript": 89,
+   "HTML": 83,
+   "CSS": 85,
+   "React": 55
+ },
+ {
+   "date": "2020-08-09",
+   "Javascript": 84,
+   "HTML": 94,
+   "CSS": 83,
+   "React": 55
+ },
+ {
+   "date": "2020-08-16",
+   "Javascript": 77,
+   "HTML": 77,
+   "CSS": 70,
+   "React": 50
+ },
+ {
+   "date": "2020-08-23",
+   "Javascript": 81,
+   "HTML": 81,
+   "CSS": 84,
+   "React": 54
+ },
+ {
+   "date": "2020-08-30",
+   "Javascript": 77,
+   "HTML": 74,
+   "CSS": 67,
+   "React": 47
+ },
+ {
+   "date": "2020-09-06",
+   "Javascript": 74,
+   "HTML": 77,
+   "CSS": 70,
+   "React": 52
+ },
+ {
+   "date": "2020-09-13",
+   "Javascript": 81,
+   "HTML": 81,
+   "CSS": 77,
+   "React": 56
+ },
+ {
+   "date": "2020-09-20",
+   "Javascript": 39,
+   "HTML": 57,
+   "CSS": 51,
+   "React": 22
+ }
+]
