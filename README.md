@@ -1,5 +1,5 @@
 # Blog Frontend
-- **URL** : https://dpgo1646nlu9v.cloudfront.net
+- **URL** : https://utopier-blog-frontend.vercel.app
 - **Feature Video List** : https://www.youtube.com/playlist?list=PLshiIDc3Xos0TVOANMYGLDr7mtmheA3J8
 - **Repository**
     - Backend REST API Repository : https://github.com/utopier/utopier-blog-backend
@@ -26,9 +26,7 @@
    - **Linting** : eslint, prettier
    - **Transpiler** : babel, typescript
    - **Bundler** : webpack
-
 - **Deployment**
-
   - **CICD Tool** : CircleCI
   - **Cloud Computing Model** : Serverless Computing
   - **Framework** : serverless
