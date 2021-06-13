@@ -1,5 +1,6 @@
 import wrapper from '../store';
-import React from 'react';
+import React, { useEffect } from 'react';
+import {useRouter} from 'next/router'
 
 import { END } from 'redux-saga';
 import axios from 'axios';
@@ -21,10 +22,14 @@ import { LOAD_MY_INFO_REQUEST } from '../store/reducers/user';
 // font
 
 function HomePage() {
+    const router = useRouter();
+    useEffect(() => {
+        router.push('/posts');
+    })
     return (
     <>
         <div>
-            Home Page
+        Maintenance...
         </div>
     </>
     )

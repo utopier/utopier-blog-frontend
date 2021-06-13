@@ -85,7 +85,7 @@ const LoadingBar = () => {
 
         return(
             <>
-				<BarLoader css={override} width={4000} height={10} color={'#00818a'} loading={isLoading} />
+				<BarLoader css={override} width={4000} height={5} color={'#00818a'} loading={isLoading} />
             </>
         )
 }
