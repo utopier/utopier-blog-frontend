@@ -1,5 +1,6 @@
-import TagCard from '../TagCard';
 import styled from '@emotion/styled';
+
+import TagCard from '../TagCard';
 
 const TagListWarpper = styled.ul`
 	display: grid;

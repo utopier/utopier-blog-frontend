@@ -1,14 +1,13 @@
 import styled from '@emotion/styled';
+import React, { useState } from 'react';
+import { useRouter } from 'next/router';
+import { useSelector, useDispatch } from 'react-redux';
+
 import Button from '../Common/Button';
 import PostList from '../PostList';
 import UserList from '../UserList';
-
-import React, { useState } from 'react';
-import { useRouter } from 'next/router';
 import useInput from '../../hooks/useInput';
-
 import { RootState } from '../../store/reducers';
-import { useSelector, useDispatch } from 'react-redux';
 import {
 	UPLOAD_IMAGES_REQUEST,
 	REMOVE_IMAGES_REQUEST,

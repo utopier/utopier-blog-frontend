@@ -1,19 +1,17 @@
-import Button from '../../components/Common/Button';
-import styled from '@emotion/styled';
-import TagList from '../../components/TagList';
-import SubNav from '../../components/SubNav';
-
 import Head from 'next/head';
+import { END } from 'redux-saga';
+import axios from 'axios';
 import { InferGetServerSidePropsType } from 'next';
+import styled from '@emotion/styled';
 
 import { LOAD_MY_INFO_REQUEST, LOAD_USERS_REQUEST } from '../../store/reducers/user';
 import { LOAD_TAGS_REQUEST, LOAD_POSTS_REQUEST } from '../../store/reducers/post';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../store/reducers';
-
-import { END } from 'redux-saga';
-import axios from 'axios';
 import wrapper from '../../store';
+import Button from '../../components/Common/Button';
+import TagList from '../../components/TagList';
+import SubNav from '../../components/SubNav';
 
 const PaginationWrapper = styled.div`
 	display: flex;

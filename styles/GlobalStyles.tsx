@@ -1,9 +1,9 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
+import React from 'react';
 import { jsx, useTheme} from '@emotion/react'
 import emotionReset from 'emotion-reset';
 import { Global, css } from '@emotion/core';
-import React from 'react';
 
 // css reset : emotion-reset
 // 공통 Design 적용

@@ -1,9 +1,9 @@
-import wrapper from '../store';
 import React, { useEffect } from 'react';
 import {useRouter} from 'next/router'
-
 import { END } from 'redux-saga';
 import axios from 'axios';
+
+import wrapper from '../store';
 import { LOAD_MY_INFO_REQUEST } from '../store/reducers/user';
 
 // 뉴포미즘
@@ -49,4 +49,4 @@ export const getServerSideProps = wrapper.getServerSideProps(async (context: any
 });
 
 
-export default HomePage
+export default HomePage;

@@ -1,9 +1,8 @@
 import styled from '@emotion/styled';
-
 import React, { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-
 import { useDispatch, useSelector } from 'react-redux';
+
 import { FOLLOW_REQUEST, UNFOLLOW_REQUEST } from '../../store/reducers/user';
 import { RootState } from '../../store/reducers';
 

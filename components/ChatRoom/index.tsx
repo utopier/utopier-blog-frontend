@@ -1,18 +1,17 @@
 import styled from '@emotion/styled';
-// import Button from '../Common/Button';
 import { useState, useContext, useEffect, useCallback, useRef } from 'react';
 // import { useBeforeunload } from 'react-beforeunload';
-import { SocketContext } from '../../utils/socket-context';
 // import Router from 'next/router';
 import { useSelector, useDispatch } from 'react-redux';
-// import { ADD_USER_TO_ROOM, REMOVE_USER_TO_ROOM } from '../../store/reducers/user';
 import _ from 'lodash';
-import { RootState } from '../../store/reducers';
-
-import Button from '../Common/Button'
-
-import useInput from '../../hooks/useInput';
 // import { SelectionState } from 'draft-js';
+
+// import Button from '../Common/Button';
+// import { ADD_USER_TO_ROOM, REMOVE_USER_TO_ROOM } from '../../store/reducers/user';
+import { SocketContext } from '../../utils/socket-context';
+import { RootState } from '../../store/reducers';
+import Button from '../Common/Button'
+import useInput from '../../hooks/useInput';
 
 const ChatRoomWrapper = styled.div`
 	height: 100%;

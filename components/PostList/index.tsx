@@ -1,5 +1,6 @@
-import PostCard from '../PostCard';
 import styled from '@emotion/styled';
+
+import PostCard from '../PostCard';
 
 const PostListWrapper = styled.ul`
 	padding-top: 10px;

@@ -3,13 +3,11 @@
 import { jsx } from '@emotion/react'
 import styled from '@emotion/styled';
 import React from 'react';
-
 import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '../../store/reducers';
-import { LOG_OUT_REQUEST } from '../../store/reducers/user';
-
 import Link from 'next/link';
 
+import { RootState } from '../../store/reducers';
+import { LOG_OUT_REQUEST } from '../../store/reducers/user';
 import SearchBar from '../Common/SearchBar';
 import LoadingBar from '../Common/LoadingBar';
 

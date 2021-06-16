@@ -1,18 +1,16 @@
-import WysiwygViewer from '../../../components/WysiwygViewer';
 import styled from '@emotion/styled';
-import TagButton from '../../../components/Common/TagButton';
-import CommentList from '../../../components/CommentList';
-
 import Head from 'next/head';
 import { InferGetServerSidePropsType, GetServerSideProps } from 'next';
-
 import {useState, useEffect} from 'react';
 import { END } from 'redux-saga';
 import axios from 'axios';
-import wrapper from '../../../store';
-
-import { LOAD_MY_INFO_REQUEST, LOAD_USERS_REQUEST } from '../../../store/reducers/user';
 import { useSelector, useDispatch } from 'react-redux';
+
+import WysiwygViewer from '../../../components/WysiwygViewer';
+import TagButton from '../../../components/Common/TagButton';
+import CommentList from '../../../components/CommentList';
+import wrapper from '../../../store';
+import { LOAD_MY_INFO_REQUEST, LOAD_USERS_REQUEST } from '../../../store/reducers/user';
 import {
 	LOAD_POSTS_REQUEST,
 	LOAD_POST_REQUEST,

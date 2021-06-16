@@ -1,10 +1,10 @@
 import React,{useState, useEffect} from 'react';
 import {Router} from 'next/router'
 import { css } from '@emotion/core';
-
 import {useSelector} from 'react-redux';
-import { RootState } from '../../store/reducers';
 import BarLoader from 'react-spinners/BarLoader';
+
+import { RootState } from '../../store/reducers';
 
 const override = css`
 	display:block;

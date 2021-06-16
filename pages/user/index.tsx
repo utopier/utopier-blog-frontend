@@ -2,14 +2,13 @@ import React, { useEffect } from 'react';
 import { InferGetServerSidePropsType } from 'next';
 import Head from 'next/head';
 import Router from 'next/router';
-
+import { useSelector } from 'react-redux';
 import { END } from 'redux-saga';
 import axios from 'axios';
+
 import wrapper from '../../store';
 import { LOAD_MY_INFO_REQUEST } from '../../store/reducers/user';
-import { useSelector } from 'react-redux';
 import { RootState } from '../../store/reducers';
-
 import Profile from '../../components/Profile';
 
 const MyProfile = ({}: InferGetServerSidePropsType<typeof getServerSideProps>) => {

@@ -1,13 +1,12 @@
 import styled from '@emotion/styled';
-import Button from '../Common/Button';
-import TagButton from '../Common/TagButton';
-
 import React, { useCallback } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-
-import { RootState } from '../../store/reducers';
 import { useSelector, useDispatch } from 'react-redux';
+
+import Button from '../Common/Button';
+import TagButton from '../Common/TagButton';
+import { RootState } from '../../store/reducers';
 import {
 	LIKE_POST_REQUEST,
 	LOAD_POST_REQUEST,

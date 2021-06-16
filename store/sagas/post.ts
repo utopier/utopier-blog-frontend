@@ -43,9 +43,7 @@ import {
 	REMOVE_COMMENT_FAILURE,
 } from '../reducers/post';
 import { REMOVE_POST_OF_ME } from '../reducers/user';
-
 import { PostAction } from '../reducers/post';
-
 import { PostType } from '../reducers/post';
 
 function createPostAPI(data: any) {
@@ -411,4 +409,4 @@ export default function* postSaga() {
 		fork(watchUpdateComment),
 		fork(watchRemoveComment),
 	]);
-}
+};

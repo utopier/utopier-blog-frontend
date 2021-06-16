@@ -1,11 +1,10 @@
 import styled from '@emotion/styled';
 import { useRouter } from 'next/router';
-// import { useDispatch, useSelector } from 'react-redux';
 import React from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
 
 // import { LOAD_POSTS_REQUEST, LOAD_TAGS_REQUEST } from '../../store/redux/reducers/post';
 // import { LOAD_USERS_REQUEST } from '../../store/redux/reducers/user';
-
 import useInput from '../../hooks/useInput'
 
 const SearchBarWrapper = styled.div`

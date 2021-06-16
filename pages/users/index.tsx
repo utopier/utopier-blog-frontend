@@ -1,15 +1,13 @@
-import UserList from '../../components/UserList';
-import SubNav from '../../components/SubNav';
-
 import React, { useEffect } from 'react';
 import { InferGetServerSidePropsType } from 'next';
+import { END } from 'redux-saga';
+import axios from 'axios';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../store/reducers';
 import { LOAD_MY_INFO_REQUEST, LOAD_USERS_REQUEST } from '../../store/reducers/user';
-
-import { END } from 'redux-saga';
-import axios from 'axios';
+import UserList from '../../components/UserList';
+import SubNav from '../../components/SubNav';
 import wrapper from '../../store';
 
 const Users = ({}: InferGetServerSidePropsType<typeof getServerSideProps>) => {

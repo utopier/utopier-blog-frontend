@@ -1,23 +1,20 @@
 import React,{useEffect} from 'react';
 import Head from 'next/head';
 import Router from 'next/router';
-
 import { InferGetServerSidePropsType, GetServerSideProps } from 'next';
 import axios from 'axios';
 import { END } from 'redux-saga';
-import wrapper from '../../store';
-
-import { RootState } from '../../store/reducers';
 import { useDispatch, useSelector } from 'react-redux';
-import { LOAD_MY_INFO_REQUEST, LOAD_USERS_REQUEST, SIGN_UP_REQUEST } from '../../store/reducers/user';
-import { LOAD_POSTS_REQUEST } from '../../store/reducers/post';
-
 import styled from '@emotion/styled';
-import Button from '../../components/Common/Button';
-import FormikField from '../../components/Common/FormikField';
-
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
+
+import wrapper from '../../store';
+import { RootState } from '../../store/reducers';
+import { LOAD_MY_INFO_REQUEST, LOAD_USERS_REQUEST, SIGN_UP_REQUEST } from '../../store/reducers/user';
+import { LOAD_POSTS_REQUEST } from '../../store/reducers/post';
+import Button from '../../components/Common/Button';
+import FormikField from '../../components/Common/FormikField';
 
 
 const SignUpWarrper = styled.div`

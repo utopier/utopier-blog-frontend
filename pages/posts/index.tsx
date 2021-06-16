@@ -1,21 +1,18 @@
-import SubNav from '../../components/SubNav';
-import PostList from '../../components/PostList';
-
 import { useEffect } from 'react';
 import Head from 'next/head';
 import { InferGetServerSidePropsType } from 'next';
 import { useRouter } from 'next/router';
-
-import { LOAD_POSTS_REQUEST } from '../../store/reducers/post';
-import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '../../store/reducers';
-
 import { END } from 'redux-saga';
 import axios from 'axios';
+import Cookies from 'js-cookie';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { LOAD_POSTS_REQUEST } from '../../store/reducers/post';
+import { RootState } from '../../store/reducers';
 import { LOAD_MY_INFO_REQUEST, LOAD_USERS_REQUEST } from '../../store/reducers/user';
 import wrapper from '../../store';
-
-import Cookies from 'js-cookie';
+import SubNav from '../../components/SubNav';
+import PostList from '../../components/PostList';
 
 // robots.txt
 // sitemap.xml

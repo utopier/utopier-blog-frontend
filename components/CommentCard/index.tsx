@@ -1,9 +1,10 @@
 import styled from '@emotion/styled';
 import { useSelector, useDispatch } from 'react-redux';
-import Button from '../Common/Button';
 import React, { useState, useCallback } from 'react';
-import { REMOVE_COMMENT_REQUEST, UPDATE_COMMENT_REQUEST } from '../../store/reducers/post';
 import { useRouter } from 'next/router';
+
+import Button from '../Common/Button';
+import { REMOVE_COMMENT_REQUEST, UPDATE_COMMENT_REQUEST } from '../../store/reducers/post';
 import useInput from '../../hooks/useInput';
 import { RootState } from '../../store/reducers';
 

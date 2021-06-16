@@ -1,12 +1,10 @@
 import styled from '@emotion/styled';
-import CommentCard from '../CommentCard';
-
-import Button from '../../components/Common/Button';
-
-import useInput from '../../hooks/useInput';
 import { useRouter } from 'next/router';
-
 import { useDispatch } from 'react-redux';
+
+import CommentCard from '../CommentCard';
+import Button from '../../components/Common/Button';
+import useInput from '../../hooks/useInput';
 import { ADD_COMMENT_REQUEST } from '../../store/reducers/post';
 
 const CommentListWrapper = styled.div`

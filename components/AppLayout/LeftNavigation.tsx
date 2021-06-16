@@ -2,16 +2,14 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react';
 import styled from '@emotion/styled';
-import Button from '../Common/Button';
 import React from 'react';
-
 import {SerializedStyles} from '@emotion/serialize'
-
 import { useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-
 import { useSelector, useDispatch } from 'react-redux';
+
+import Button from '../Common/Button';
 import { RootState } from '../../store/reducers';
 import { LOG_OUT_REQUEST } from '../../store/reducers/user';
 

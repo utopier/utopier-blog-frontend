@@ -1,12 +1,10 @@
-import { useEffect, createContext } from 'react';
-
-import { LOAD_MY_INFO_REQUEST } from '../../store/reducers/user';
 import { END } from 'redux-saga';
 import axios from 'axios';
+import styled from '@emotion/styled';
+
+import { LOAD_MY_INFO_REQUEST } from '../../store/reducers/user';
 import wrapper from '../../store';
 import ChatRoom from '../../components/ChatRoom';
-
-import styled from '@emotion/styled';
 
 const ChatWrapper = styled.div`
 	padding: 10px;

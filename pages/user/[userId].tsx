@@ -1,16 +1,15 @@
-import Profile from '../../components/Profile';
-
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { InferGetServerSidePropsType } from 'next';
-
+import { useDispatch, useSelector } from 'react-redux';
 import { END } from 'redux-saga';
 import axios from 'axios';
-import wrapper from '../../store';
 
+import wrapper from '../../store';
+import Profile from '../../components/Profile';
 import { LOAD_USER_REQUEST, LOAD_MY_INFO_REQUEST } from '../../store/reducers/user';
-import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/reducers';
+
 const UserProfile = ({}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
 	const router = useRouter();
 	const { userId } = router.query;

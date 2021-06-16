@@ -1,20 +1,17 @@
 import styled from '@emotion/styled';
-import Button from '../../components/Common/Button';
-import FormikField from '../../components/Common/FormikField';
-
 import React, { useEffect } from 'react';
 import Head from 'next/head';
 import Router from 'next/router';
-
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-
 import { END } from 'redux-saga';
 import axios from 'axios';
-import wrapper from '../../store';
-
-import { RootState } from '../../store/reducers';
 import { useDispatch, useSelector } from 'react-redux';
+
+import Button from '../../components/Common/Button';
+import FormikField from '../../components/Common/FormikField';
+import wrapper from '../../store';
+import { RootState } from '../../store/reducers';
 import { LOG_IN_REQUEST, LOAD_MY_INFO_REQUEST } from '../../store/reducers/user';
 
 const LoginWrapper = styled.div`

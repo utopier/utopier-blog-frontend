@@ -1,19 +1,17 @@
-import styled from '@emotion/styled';
-import Button from '../../components/Common/Button';
-import WysiwygEditor from '../../components/WysiwygEditor';
-
 import { useRef, useEffect } from 'react';
-import useInput from '../../hooks/useInput';
+import styled from '@emotion/styled';
 import Router from 'next/router';
-
 import { END } from 'redux-saga';
 import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+
+import Button from '../../components/Common/Button';
+import WysiwygEditor from '../../components/WysiwygEditor';
+import useInput from '../../hooks/useInput';
 import { LOAD_MY_INFO_REQUEST } from '../../store/reducers/user';
 import { LOAD_POSTS_REQUEST } from '../../store/reducers/post';
 import wrapper from '../../store';
-
 import { RootState } from '../../store/reducers';
-import { useDispatch, useSelector } from 'react-redux';
 import { UPLOAD_IMAGES_REQUEST, CREATE_POST_REQUEST, REMOVE_IMAGES_REQUEST } from '../../store/reducers/post';
 
 const CreatePostWrapper = styled.div`

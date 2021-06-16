@@ -1,14 +1,13 @@
 import styled from '@emotion/styled';
-import SearchBar from '../Common/SearchBar';
-import Button from '../Common/Button';
-
 import { useRef, useCallback } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { useDispatch, useSelector } from 'react-redux';
 
+import SearchBar from '../Common/SearchBar';
+import Button from '../Common/Button';
 import { LOAD_POSTS_REQUEST, LOAD_TAGS_REQUEST } from '../../store/reducers/post';
 import { LOAD_USERS_REQUEST } from '../../store/reducers/user';
-import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/reducers';
 
 const PostSubNavWrapper = styled.div`

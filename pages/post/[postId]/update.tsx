@@ -1,15 +1,13 @@
-import WysiwygEditor from '../../../components/WysiwygEditor';
-import styled from '@emotion/styled';
-import Button from '../../../components/Common/Button';
-import Router from 'next/router';
-
 import { useEffect, useRef } from 'react';
-import useInput from '../../../hooks/useInput';
-
+import styled from '@emotion/styled';
+import Router from 'next/router';
 import { END } from 'redux-saga';
 import axios from 'axios';
-import wrapper from '../../../store';
 
+import WysiwygEditor from '../../../components/WysiwygEditor';
+import Button from '../../../components/Common/Button';
+import useInput from '../../../hooks/useInput';
+import wrapper from '../../../store';
 import { useDispatch, useSelector } from 'react-redux';
 import { LOAD_MY_INFO_REQUEST } from '../../../store/reducers/user';
 import {

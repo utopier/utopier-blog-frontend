@@ -1,5 +1,6 @@
-import UserCard from '../UserCard';
 import styled from '@emotion/styled';
+
+import UserCard from '../UserCard';
 
 const UserListWarpper = styled.ul`
 	display: grid;
