@@ -1,14 +1,16 @@
 {
-    "name": "Utopier DevBlog",
-    "short_name": "Utopier DevBlog",
-    "background_color": "#FFFFFF",
-    "theme_color": "#2F3BA2",
-    "description": "React + Nextjs + TS + PWA Blog",
-    "display": "standalone",
-    "start_url": "/",
-    "icons": [{
-        "src": "/icon-192x192.png",
-        "type": "image/png",
-        "sizes": "192x192"
-    }]
+  "name": "Utopier DevBlog",
+  "short_name": "Utopier DevBlog",
+  "background_color": "#FFFFFF",
+  "theme_color": "#2F3BA2",
+  "description": "React + Nextjs + TS + PWA Blog",
+  "display": "standalone",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ]
 }

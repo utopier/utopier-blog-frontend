@@ -36,70 +36,73 @@ import PostList from '../../components/PostList';
 // 	- getServerSideProps
 
 const Posts = ({}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-	console.log('js-cookie : ', Cookies.get('sessionId'));
-	const router = useRouter();
-	console.log('router.query.searchTerm : ',router.query.searchTerm);
-	const { mainPosts, hasMorePosts, loadPostsLoading } = useSelector<RootState, any>((state) => state.post);
-	const dispatch = useDispatch();
-	useEffect(() => {
-		function onScroll() {
-			if (window.pageYOffset + document.documentElement.clientHeight > document.documentElement.scrollHeight - 300) {
-				if (hasMorePosts && !loadPostsLoading) {
-					dispatch({
-						type: LOAD_POSTS_REQUEST,
-						data: { lastId: mainPosts.length },
-					});
-				}
-			}
-		}
-		window.addEventListener('scroll', onScroll);
-		return () => {
-			window.removeEventListener('scroll', onScroll);
-		};
-	}, [hasMorePosts, loadPostsLoading, mainPosts]);
-	return (
-		<>
-			<Head>
-				<title>Utoiper - Posts</title>
-				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
-				<meta
-					name="description"
-					content="This is an example of a meta description. This will often show up in search results."
-				/>
-			</Head>
-			<SubNav />
-			<PostList postData={mainPosts} />
-		</>
-	);
+  console.log('js-cookie : ', Cookies.get('sessionId'));
+  const router = useRouter();
+  console.log('router.query.searchTerm : ', router.query.searchTerm);
+  const { mainPosts, hasMorePosts, loadPostsLoading } = useSelector<RootState, any>((state) => state.post);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    function onScroll() {
+      if (window.pageYOffset + document.documentElement.clientHeight > document.documentElement.scrollHeight - 300) {
+        if (hasMorePosts && !loadPostsLoading) {
+          dispatch({
+            type: LOAD_POSTS_REQUEST,
+            data: { lastId: mainPosts.length },
+          });
+        }
+      }
+    }
+    window.addEventListener('scroll', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, [hasMorePosts, loadPostsLoading, mainPosts]);
+  return (
+    <>
+      <Head>
+        <title>Utoiper - Posts</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta
+          name="description"
+          content="This is an example of a meta description. This will often show up in search results."
+        />
+      </Head>
+      <SubNav />
+      <PostList postData={mainPosts} />
+    </>
+  );
 };
 
 export const getServerSideProps = wrapper.getServerSideProps(async (context: any) => {
-	const cookie = context.req ? context.req.headers.cookie : '';
-	axios.defaults.headers.Cookie = '';
-	if (context.req && cookie) {
-		axios.defaults.headers.Cookie = cookie;
-	}
-	context.store.dispatch({
-		type: LOAD_MY_INFO_REQUEST,
-	});
-	context.store.dispatch({
-		type: LOAD_USERS_REQUEST,
-	});
-	if(context.req && context.req.__NEXT_INIT_QUERY && context.req.__NEXT_INIT_QUERY.searchTerm){
-		context.store.dispatch({
-			type: LOAD_POSTS_REQUEST,
-			data: {searchQuery: context.req.__NEXT_INIT_QUERY.searchTerm}
-		});
-	} else {
-		context.store.dispatch({
-			type: LOAD_POSTS_REQUEST,
-		});
-	}
-	console.log('getSearverSIdeProps context.req.__NEXT_INIT_QUERY.searchTerm : ', context.req.__NEXT_INIT_QUERY.searchTerm);
-	console.log('getServerSideProps cookie : ', cookie);
-	console.log('getServerSideProps axios.defaults.headers.Cookie : ', axios.defaults.headers.Cookie);
-	context.store.dispatch(END);
-	await context.store.sagaTask.toPromise();
+  const cookie = context.req ? context.req.headers.cookie : '';
+  axios.defaults.headers.Cookie = '';
+  if (context.req && cookie) {
+    axios.defaults.headers.Cookie = cookie;
+  }
+  context.store.dispatch({
+    type: LOAD_MY_INFO_REQUEST,
+  });
+  context.store.dispatch({
+    type: LOAD_USERS_REQUEST,
+  });
+  if (context.req && context.req.__NEXT_INIT_QUERY && context.req.__NEXT_INIT_QUERY.searchTerm) {
+    context.store.dispatch({
+      type: LOAD_POSTS_REQUEST,
+      data: { searchQuery: context.req.__NEXT_INIT_QUERY.searchTerm },
+    });
+  } else {
+    context.store.dispatch({
+      type: LOAD_POSTS_REQUEST,
+    });
+  }
+  console.log(
+    'getSearverSIdeProps context.req.__NEXT_INIT_QUERY.searchTerm : ',
+    context.req.__NEXT_INIT_QUERY.searchTerm,
+  );
+  console.log('getServerSideProps cookie : ', cookie);
+  console.log('getServerSideProps axios.defaults.headers.Cookie : ', axios.defaults.headers.Cookie);
+  context.store.dispatch(END);
+  await context.store.sagaTask.toPromise();
 });
 
 export default Posts;
