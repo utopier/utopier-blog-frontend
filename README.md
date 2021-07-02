@@ -1,5 +1,4 @@
 # Blog Frontend
-- **URL** : https://utopier-blog-frontend.vercel.app
 - **Feature Video List** : https://www.youtube.com/playlist?list=PLshiIDc3Xos0TVOANMYGLDr7mtmheA3J8
 - **Repository**
     - Backend REST API Repository : https://github.com/utopier/utopier-blog-backend
